@@ -1,6 +1,6 @@
 [user]
-	name = Ryan Bates
-	email = ryan@railscasts.com
+	name = James Conroy-Finn
+	email = jamesconroyfinn@gmail.com
 [alias]
 	co = checkout
 [color]
@@ -8,7 +8,7 @@
 	status = auto
 	branch = auto
 [core]
-	excludesfile = /Users/rbates/.gitignore
+	excludesfile = /Users/james/.gitignore
 	editor = mate -w
 [apply]
 	whitespace = nowarn

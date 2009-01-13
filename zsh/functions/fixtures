@@ -1,0 +1,9 @@
+if [[ $# -eq 1 ]]; then
+  RAILS_ENV=$1 rake spec:db:fixtures:load
+elif [[ $# -gt 1 ]]; then
+  for e in $#; do
+    RAILS_ENV=$e rake spec:db:fixtures:load
+  done
+else
+  echo '** Usage: fixtures ENVIRONMENT [ADDITIONAL_ENVIRONMENTS]' >&2
+fi

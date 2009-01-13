@@ -1,20 +1,33 @@
-if [[ -n $SSH_CONNECTION ]]; then
-  export PS1='%m:%3~$(git_info_for_prompt)%# '
-else
-  export PS1='%3~$(git_info_for_prompt)%# '
-fi
+setopt ALL_EXPORT
 
-export EDITOR='mate -w'
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+# Colour stuff
+autoload colors zsh/terminfo
+if [[ "$terminfo[colors]" -ge 8 ]]; then
+  colors
+fi
+for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+  eval Z_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+  eval Z_LIGHT_$color='%{$fg[${(L)color}]%}'
+  (( count = $count + 1 ))
+done
+Z_NO_COLOR="%{$terminfo[sgr0]%}"
+
+PS1='$Z_LIGHT_BLUE%2c$Z_NO_COLOR %(!.#.$) '
+RPS1='$Z_LIGHT_RED$(git_info_for_prompt)$Z_NO_COLOR $Z_LIGHT_YELLOW%D{%H:%M}$Z_NO_COLOR !%h'
+
+EDITOR='mate -w'
+PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:$PATH"
+MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
 fpath=(~/.zsh/functions $fpath)
 
 autoload -U ~/.zsh/functions/*(:t)
 
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
+
+unsetopt ALL_EXPORT
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP

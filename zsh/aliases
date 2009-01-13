@@ -1,11 +1,25 @@
+# Lazy mate
+alias e='mate'
+alias edot='mate ~/.dotfiles'
+
 # cd
 alias ..='cd ..'
 
+# Host aware ls color option
+case $(uname) in
+  'Darwin')
+    alias ls='ls -GF'
+    ;;
+  *)
+    alias ls='ls --color=auto -F'
+    ;;
+esac
+
 # ls
-alias ls="ls -F"
-alias l="ls -lAh"
-alias ll="ls -l"
-alias la='ls -A'
+alias ll="ls -Alh"
+alias l.='ls -ldG .*'
+alias le='ls -aelG'
+alias lsd="ls -al | awk '/^d/{print}'"
 
 # git
 alias gl='git pull'
@@ -24,7 +38,6 @@ alias ss='script/server'
 alias sg='script/generate'
 alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
-alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 
