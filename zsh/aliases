@@ -30,13 +30,14 @@ alias gca='git commit -a'
 alias gco='git checkout'
 alias gb='git branch'
 alias gs='git status'
+alias glog='git log --stat'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
 # rails
 alias sc='script/console'
 alias ss='script/server'
 alias sg='script/generate'
-alias a='autotest -rails'
+alias a='autospec -rails'
 alias tlog='tail -f log/development.log'
 alias mig='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
