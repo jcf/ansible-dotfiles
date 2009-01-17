@@ -16,7 +16,7 @@ Z_NO_COLOR="%{$terminfo[sgr0]%}"
 PS1='%c %(!.#.$) '
 RPS1='$Z_LIGHT_RED$(git_info_for_prompt)$Z_NO_COLOR $Z_LIGHT_YELLOW%D{%H:%M}$Z_NO_COLOR !%h'
 
-EDITOR='mate -w'
+EDITOR='mate'
 # PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:$PATH"
 MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
