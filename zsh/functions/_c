@@ -1,2 +1,2 @@
 #compdef c
-_files -W ~/Geek -/
+_files -W ~/git -/
