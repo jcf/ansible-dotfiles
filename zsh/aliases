@@ -1,5 +1,11 @@
 # Lazy mate
 alias e='mate'
+
+# Hard clear
+alias cl="echo -n $'\ec'"
+
+# dotfiles
+alias cdot="cd ~/.dotfiles"
 alias edot='mate ~/.dotfiles'
 
 # cd
