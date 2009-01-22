@@ -1,12 +1,12 @@
 if [[ $# -eq 0 ]]; then
-  echo "** Migrating all environments" >&1
+  echo "** Migrating all environments"
   RAILS_ENV=development rake db:migrate
   RAILS_ENV=production rake db:migrate
   RAILS_ENV=test rake db:migrate
-elif [[$# -lt 3 ]]; then
+elif [[ $# -lt 3 ]]; then
   i=0
   for arg in $@; do
-    echo "Migrating ${i}" >&1
+    echo "Migrating ${i}"
     RAILS_ENV=${arg} rake db:migrate
     
     if [[ $i -lt $# ]]; then
