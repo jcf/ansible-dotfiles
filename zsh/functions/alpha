@@ -1,5 +1,0 @@
-cd ~/git/alphasights
-tab autospec -rails
-tab
-mate .
-script/server
