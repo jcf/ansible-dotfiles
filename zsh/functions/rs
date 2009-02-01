@@ -1,12 +1,8 @@
-if [[ $# -ne 1 ]]; then
-  echo "Usage: $0 rails_dir" >&2
-elif [[ -d ~/git/$1 ]]; then
+if [[ $# -eq 1 ]]; then
   cd ~/git/$1
-  tab script/autospec
-  tab
-  mate .
-  script/spec_server -d
-  script/server
-else
-  echo "!!! Error: ~/git/$1 is not a directory" >&2
 fi
+tab script/autospec
+tab
+mate .
+script/spec_server -d
+script/server
