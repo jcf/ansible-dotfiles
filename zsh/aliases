@@ -36,6 +36,7 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gs='git status'
 alias glog='git log --stat'
+alias gmt='git mergetool'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
 # rails
