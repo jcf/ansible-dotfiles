@@ -1,6 +1,6 @@
 if [[ $# -eq 0 ]]; then
-  echo "** Loading fixtures in to 'development' environment" >&1
-  RAILS_ENV=development rake spec:db:fixtures:load
+  echo "** Loading fixtures in to current Rails environment" >&1
+  rake spec:db:fixtures:load
 elif [[ $# -eq 1 ]]; then
   echo "** Loading fixtures in to '$1' environment" >&1
   RAILS_ENV=$1 rake spec:db:fixtures:load
