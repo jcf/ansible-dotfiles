@@ -47,6 +47,7 @@ alias a='autospec -rails'
 alias tlog='tail -f log/development.log'
 alias mig='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
+alias kill_spec_server="ps ax | grep 'ruby script/spec_server -d' | awk 'NR==1 { print $1 }' | xargs kill"
 
 # commands starting with % for pasting from web
 alias %=' '

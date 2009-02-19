@@ -1,9 +1,11 @@
+local prompt
 if [[ -n $RAILS_ENV ]]; then
   if [[ $RAILS_ENV == 'development' ]]; then
-    print "${Z_LIGHT_BLUE}dev${Z_NO_COLOR}"
+    prompt='dev'
   elif [[ $RAILS_ENV == 'production' ]]; then
-    print "${Z_LIGHT_GREEN}pro${Z_NO_COLOR}"
+    prompt='prod'
   else
-    print $RAILS_ENV
+    prompt=$RAILS_ENV
   fi
+  print $Z_LIGHT_YELLOW $prompt$Z_NO_COLOR
 fi

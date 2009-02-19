@@ -2,8 +2,8 @@ cd ~/git/alphasights
 tab script/server
 tab script/autospec
 tab -w
-mate .
+open alphasights.tmproj
 script/spec_server -d
-export RAILS_ENV=production
-echo "\e[1;34mPRODUCTION\e[0m"
+export RAILS_ENV=selenium
+echo "\e[1;34mSELENIUM\e[0m"
 script/server -p 4000
