@@ -3,17 +3,9 @@ if [[ $# -eq 0 ]]; then
   RAILS_ENV=development rake db:migrate
   RAILS_ENV=production rake db:migrate
   RAILS_ENV=test rake db:migrate
-elif [[ $# -lt 3 ]]; then
-  i=0
-  for arg in $@; do
-    echo "Migrating ${i}"
-    RAILS_ENV=${arg} rake db:migrate
-    
-    if [[ $i -lt $# ]]; then
-      echo "" >&1
-      i=$i+1
-    fi
-  done
 else
-  echo 'Usage: migrate [OPTIONAL_ENVIRONMENTS]' >&2
+  for a in $@; do
+    echo "Migrating $a"
+    RAILS_ENV=${a} rake db:migrate
+  done
 fi
