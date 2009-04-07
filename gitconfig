@@ -1,5 +1,5 @@
 [user]
-	name = James Conroy-Finn
+	name = jcf
 	email = james@logi.cl
 [alias]
 	co = checkout
@@ -15,3 +15,5 @@
 [gui]
 	recentrepo = /Users/james/git/alphasights
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+[push]
+	default = matching
