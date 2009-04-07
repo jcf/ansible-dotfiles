@@ -1,5 +1,5 @@
 [user]
-	name = jcf
+	name = James Conroy-Finn
 	email = james@logi.cl
 [alias]
 	co = checkout
@@ -17,3 +17,5 @@
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [push]
 	default = matching
+[github]
+	user = jcf
