@@ -3,7 +3,6 @@ tab script/server
 tab script/autospec
 tab -w
 open alphasights.tmproj
-script/spec_server -d
-export RAILS_ENV=selenium
-echo "\e[1;34mSELENIUM\e[0m"
-script/server -p 4000
+# export RAILS_ENV=selenium
+# echo "\e[1;34mSELENIUM\e[0m"
+# script/server -p 4000

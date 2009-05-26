@@ -1,5 +1,6 @@
 # Lazy mate
 alias e='mate'
+alias rmate='mate .gitignore app config db features lib public script spec vendor/plugins'
 
 # dotfiles
 alias rezsh="source ~/.zshrc"
