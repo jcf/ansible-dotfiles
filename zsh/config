@@ -16,7 +16,7 @@ Z_NO_COLOR="%{$terminfo[sgr0]%}"
 PS1='%c %(!.#.$) '
 RPS1='$Z_LIGHT_RED$(git_info_for_prompt)$Z_NO_COLOR$(rails_env_for_prompt) !%h'
 
-EDITOR='mate'
+EDITOR='mate -w'
 # PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql83/bin:$PATH"
 MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
@@ -54,10 +54,5 @@ setopt HIST_REDUCE_BLANKS
 
 zle -N newtab
 
-bindkey '^[^[[D' backward-word
-bindkey '^[^[[C' forward-word
-bindkey '^[[5D' beginning-of-line
-bindkey '^[[5C' end-of-line
-bindkey '^[[3~' delete-char
-bindkey '^[^N' newtab
-bindkey '^?' backward-delete-char 
+bindkey '^[[5D' backward-word
+bindkey '^[[5C' forward-word
