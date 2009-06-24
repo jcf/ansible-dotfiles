@@ -43,10 +43,11 @@ alias gmt='git mergetool'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
 # rails
+alias a='autospec -rails'
 alias sc='script/console'
 alias ss='script/server'
+alias ssa='tab script/server && autospec -rails'
 alias sg='script/generate'
-alias a='autospec -rails'
 alias tlog='tail -f log/development.log'
 alias mig='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'

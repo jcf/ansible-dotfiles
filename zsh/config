@@ -32,6 +32,10 @@ SAVEHIST=10000
 
 TM_BUNDLES="$HOME/Library/Application Support/TextMate/Bundles"
 
+RIPDIR=~/rip
+RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
+PATH="$PATH:$RIPDIR/active/bin"
+
 unsetopt ALL_EXPORT
 
 setopt NO_BG_NICE # don't nice background tasks
