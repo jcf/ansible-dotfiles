@@ -17,3 +17,6 @@
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [push]
 	default = matching
+[github]
+	user = jcf
+	token = 2ec605fbb28e4c1e337e0443535668a3
