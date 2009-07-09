@@ -13,8 +13,8 @@ done
 Z_NO_COLOR="%{$terminfo[sgr0]%}"
 
 # PS1='$Z_LIGHT_BLUE%2c$Z_NO_COLOR %(!.#.$) '
-PS1='$Z_LIGHT_BLUE%m$Z_NO_COLOR:%c%(!.#.$) '
-RPS1='$Z_LIGHT_RED$(git_info_for_prompt)$Z_NO_COLOR$(rails_env_for_prompt) !%h'
+PS1='%c%(!.#.$) '
+RPS1='$Z_LIGHT_RED$(git_info_for_prompt) $Z_NO_COLOR!%h $Z_LIGHT_BLUE%m$Z_NO_COLOR'
 
 EDITOR='mate -w'
 # PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql83/bin:$PATH"
