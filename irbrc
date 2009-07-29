@@ -2,12 +2,28 @@
 require 'irb/completion'
 require 'irb/ext/save-history'
 
+begin
+  require 'hirb'
+  require 'wirble'
+rescue LoadError => e
+  require 'rubygems'
+  require 'hirb'
+end
+
+Hirb.enable
+
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 IRB.conf[:AUTO_INDENT] = true
+
+class Symbol
+  def to_proc
+    proc { |obj, *args| obj.send(self, *args) }
+  end
+end
 
 class Object
   # list methods which aren't in superclass

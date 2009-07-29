@@ -3,7 +3,7 @@ alias e='mate'
 alias rmate='mate .gitignore app config db features lib public script spec vendor/plugins'
 
 # dotfiles
-alias rezsh="source ~/.zshrc"
+alias reload="source ~/.zshrc"
 alias cdot="cd ~/.dotfiles"
 alias edot='mate ~/.dotfiles'
 
