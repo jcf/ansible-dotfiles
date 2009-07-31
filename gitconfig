@@ -3,6 +3,8 @@
 	email = james@logi.cl
 [alias]
 	co = checkout
+	unstage = reset HEAD --
+	last = log -1 HEAD
 [color]
 	diff = auto
 	status = auto
