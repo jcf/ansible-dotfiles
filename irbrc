@@ -9,8 +9,7 @@ rescue LoadError => e
   require 'rubygems'
   require 'hirb'
 end
-
-Hirb.enable
+# Hirb.enable
 
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
