@@ -3,11 +3,11 @@ require 'irb/completion'
 require 'irb/ext/save-history'
 
 begin
-  require 'hirb'
+  # require 'hirb'
   require 'wirble'
 rescue LoadError => e
   require 'rubygems'
-  require 'hirb'
+  # require 'hirb'
 end
 # Hirb.enable
 
