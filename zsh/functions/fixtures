@@ -1,14 +1,14 @@
 if [[ $# -eq 0 ]]; then
   echo "** Loading fixtures in to current Rails environment" >&1
-  rake spec:db:fixtures:load
+  /usr/bin/rake spec:db:fixtures:load
 elif [[ $# -eq 1 ]]; then
   echo "** Loading fixtures in to '$1' environment" >&1
-  RAILS_ENV=$1 rake spec:db:fixtures:load
+  RAILS_ENV=$1 /usr/bin/rake spec:db:fixtures:load
 elif [[ $# -gt 1 ]]; then
   i=0
   for arg in $@; do
     echo "** Loading fixtures in to '${arg}' environment" >&1
-    RAILS_ENV=${arg} rake spec:db:fixtures:load
+    RAILS_ENV=${arg} /usr/bin/rake spec:db:fixtures:load
     
     if [[ $i -lt $# ]]; then
       echo ""

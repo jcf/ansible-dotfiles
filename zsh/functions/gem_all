@@ -1,4 +1,4 @@
-echo "\e[35m=> gem $@\e[0m"
+echo "\e[35m=> sudo gem $@\e[0m"
 sudo gem $@
-echo "\e[35m=> gem1.9 $@\e[0m"
+echo "\e[35m=> sudo gem1.9 $@\e[0m"
 sudo gem1.9 $@
