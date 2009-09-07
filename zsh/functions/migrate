@@ -1,11 +1,11 @@
 if [[ $# -eq 0 ]]; then
   echo "** Migrating all environments"
-  RAILS_ENV=development /usr/bin/rake db:migrate
-  RAILS_ENV=production /usr/bin/rake db:migrate
-  RAILS_ENV=test /usr/bin/rake db:migrate
+  RAILS_ENV=development rake db:migrate
+  RAILS_ENV=production rake db:migrate
+  RAILS_ENV=test rake db:migrate
 else
   for a in $@; do
     echo "Migrating $a"
-    RAILS_ENV=${a} /usr/bin/rake db:migrate
+    RAILS_ENV=${a} rake db:migrate
   done
 fi

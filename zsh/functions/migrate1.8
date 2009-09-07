@@ -1,0 +1,11 @@
+if [[ $# -eq 0 ]]; then
+  echo "** Migrating all environments"
+  RAILS_ENV=development rake1.8 db:migrate
+  RAILS_ENV=production rake1.8 db:migrate
+  RAILS_ENV=test rake1.8 db:migrate
+else
+  for a in $@; do
+    echo "Migrating $a"
+    RAILS_ENV=${a} rake1.8 db:migrate
+  done
+fi
