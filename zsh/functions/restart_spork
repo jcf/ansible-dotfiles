@@ -1,0 +1,2 @@
+ps aux | grep spork | awk '{ print $2 }' | xargs kill -9
+spork rspec &
