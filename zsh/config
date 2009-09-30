@@ -24,6 +24,7 @@ RAILS_USER="james"
 
 fpath=(~/.zsh/functions $fpath)
 
+autoload zmv
 autoload -U ~/.zsh/functions/*(:t)
 
 HISTFILE=~/.zsh_history

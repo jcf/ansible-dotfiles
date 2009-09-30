@@ -4,5 +4,4 @@ fi
 tab script/autospec
 tab
 mate .
-script/spec_server -d
 script/server
