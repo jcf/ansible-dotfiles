@@ -3,6 +3,7 @@
 :benchmark: false
 :bulk_threshold: 1000
 :sources: 
+- http://gemcutter.org
 - http://gems.rubyforge.org
 - http://gems.github.com
 :update_sources: true
