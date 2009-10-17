@@ -59,16 +59,25 @@ end
 dot_files = DotFiles.new
 
 desc "Install the dot files into user's home directory"
-task :install do
+task :files do
   dot_files.link_files
-  dot_files.github_api_token
 end
 
 desc "Print what will actually be done during the install"
 task :dry_run do
   dot_files.dry_run!
-
   dot_files.link_files
-  puts "I'd normally replace your GitHub API token now..."
+  puts "I'd normally update your GitHub token with what you enter now..."
+  dot_files.github_api_token
+end
+
+desc "Replace the GitHub API token"
+task :token do
+  dot_files.github_api_token
+end
+
+desc "Install the dotfiles and replace the GitHub API token"
+task :install do
+  dot_files.link_files
   dot_files.github_api_token
 end
