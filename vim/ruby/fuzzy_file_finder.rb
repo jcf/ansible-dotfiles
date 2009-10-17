@@ -218,6 +218,7 @@ class FuzzyFileFinder
       entries = Dir.entries(directory.name)
       if files.length > ceiling
         raise TooManyEntries, "Found #{files.length}, max is #{ceiling}."
+      end
       Dir.entries(directory.name).each do |entry|
         next if entry[0,1] == "."
 
