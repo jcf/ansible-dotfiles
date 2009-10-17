@@ -51,6 +51,8 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 set listchars=trail:.,tab:>-,eol:$
 set nolist
 
+filetype plugin on
+filetype indent on
 
 " Jump to last known location in file
 if has("autocmd")
@@ -147,3 +149,17 @@ nnoremap <expr> <F1> H1()
 nnoremap <expr> <F2> H("=")
 nnoremap <expr> <F3> H("-")
 
+source ~/.vim/snippets/support_functions.vim
+autocmd vimenter * call s:SetupSnippets()
+function! s:SetupSnippets()
+
+    "if we're in a rails env then read in the rails snippets
+    if filereadable("./config/environment.rb")
+        call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
+        call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
+    endif
+
+    call ExtractSnips("~/.vim/snippets/html", "eruby")
+    call ExtractSnips("~/.vim/snippets/html", "xhtml")
+    call ExtractSnips("~/.vim/snippets/html", "php")
+endfunction
