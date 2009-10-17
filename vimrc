@@ -51,7 +51,6 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 set listchars=trail:.,tab:>-,eol:$
 set nolist
 
-noremap <leader>i :set list!<CR>
 
 " Jump to last known location in file
 if has("autocmd")
@@ -63,10 +62,6 @@ endif
 if has("autocmd")
   filetype indent plugin on
 endif
- 
-"
-" Settings for specific versions of Vim
-"
  
 if has("gui_macvim")
     set transparency=10
@@ -94,22 +89,21 @@ inoremap <up> <C-R>=pumvisible() ? "\<lt>up>" : "\<lt>C-o>gk"<Enter>
 map <down> gj
 inoremap <down> <C-R>=pumvisible() ? "\<lt>down>" : "\<lt>C-o>gj"<Enter>
  
+noremap <leader>i :set list!<CR>
+
 nmap <C-N> :noh<CR>
 nmap <S-Enter> O<ESC>
 nmap <Enter> o<Esc>
-map <leader>f FuzzyFinderTextMate<CR>
-map <leader>b FuzzyFinderBuffer<CR>
+map <leader>f :FuzzyFinderTextMate<CR>
+map <leader>b :FuzzyFinderBuffer<CR>
 imap jj <Esc>
 imap uu _
 imap hh =>
 imap aa @
 
 noremap <leader>n :NERDTreeToggle<CR>
-let NERDTreeHijackNetrw=1
 
-" Default to tree view 
 let g:netrw_liststyle = 3
-" Hide common hidden files
 let g:netrw_list_hide = '.*\.py[co]$,\.git$,\.swp$'
  
 function! NextLineIsOnly(char)

@@ -1,11 +1,11 @@
-# Lazy mate
-alias e='mate'
-alias rmate='mate .gitignore app config db features lib public script spec vendor/plugins'
+# Lazy MacVim
+alias e='mvim'
+alias rmate='mvim .gitignore app config db features lib public script spec vendor/plugins'
 
 # dotfiles
 alias reload="source ~/.zshrc"
 alias cdot="cd ~/.dotfiles"
-alias edot='mate ~/.dotfiles'
+alias edot='mvim ~/.dotfiles'
 
 # cd
 alias ..='cd ..'
@@ -51,7 +51,6 @@ alias sg='script/generate'
 alias tlog='tail -f log/development.log'
 alias mig='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
-alias kill_spec_server="ps ax | grep 'ruby script/spec_server -d' | awk 'NR==1 { print $1 }' | xargs kill"
 
 # commands starting with % for pasting from web
 alias %=' '
