@@ -11,7 +11,7 @@
 	branch = auto
 [core]
 	excludesfile = /Users/jcf/.gitignore
-	editor = mvim -f
+	editor = mate -w
 [apply]
 	whitespace = trailing-space
 [gui]

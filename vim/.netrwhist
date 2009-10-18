@@ -1,5 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/jcf/git/jamesconroyfinn'
-let g:netrw_dirhist_2='/Users/jcf/git/jamesconroyfinn/db'
-let g:netrw_dirhist_3='/Users/jcf/git/jamesconroyfinn/db/migrate'
+let g:netrw_dirhist_cnt =0
