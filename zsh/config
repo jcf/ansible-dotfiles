@@ -16,7 +16,7 @@ Z_NO_COLOR="%{$terminfo[sgr0]%}"
 PS1='$Z_LIGHT_CYAN%m$Z_NO_COLOR %c%(!.#.$) '
 RPS1='$Z_LIGHT_RED$(git_info_for_prompt) $Z_NO_COLOR!%h'
 
-EDITOR='mate -w'
+EDITOR='mvim -f'
 # PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql83/bin:$PATH"
 MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
