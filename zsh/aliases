@@ -1,6 +1,6 @@
-ZSH_EDITOR="mvim"
+ZSH_EDITOR='mate'
 
-# Lazy MacVim
+# Lazy Editor
 alias e="$ZSH_EDITOR"
 alias rmate="$ZSH_EDITOR .gitignore app config db features lib public script spec vendor/plugins"
 
