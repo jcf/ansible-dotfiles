@@ -1,4 +1,4 @@
-ZSH_EDITOR='mate'
+ZSH_EDITOR=mvim'
 
 # Lazy Editor
 alias e="$ZSH_EDITOR"
