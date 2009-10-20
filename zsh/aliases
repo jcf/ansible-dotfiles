@@ -1,11 +1,13 @@
-# Lazy MacVim
-alias e='mvim'
-alias rmate='mvim .gitignore app config db features lib public script spec vendor/plugins'
+ZSH_EDITOR='mate'
+
+# Lazy Editor
+alias e="$ZSH_EDITOR"
+alias rmate="$ZSH_EDITOR .gitignore app config db features lib public script spec vendor/plugins"
 
 # dotfiles
 alias reload="source ~/.zshrc"
 alias cdot="cd ~/.dotfiles"
-alias edot='mvim ~/.dotfiles'
+alias edot="$ZSH_EDITOR ~/.dotfiles"
 
 # cd
 alias ..='cd ..'

@@ -69,6 +69,7 @@ if has("gui_macvim")
     set transparency=10
     set guifont=Menlo:h11
     set lines=60
+    set guioptions=egmrt
     set formatoptions-=t
     set formatoptions-=c
     nmap <C-up> <C-y>

@@ -18,9 +18,11 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 IRB.conf[:AUTO_INDENT] = true
 
-class Symbol
-  def to_proc
-    proc { |obj, *args| obj.send(self, *args) }
+if RUBY_VERSION < "1.9"
+  class Symbol
+    def to_proc
+      Proc.new { |*args| args.shift.__send__(self, *args) }
+    end
   end
 end
 
