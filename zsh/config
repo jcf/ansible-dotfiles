@@ -60,5 +60,5 @@ setopt HIST_REDUCE_BLANKS
 
 zle -N newtab
 
-# Vim mode
-# bindkey -v
+bindkey '^[[5D' backward-word
+bindkey '^[[5C' forward-word
