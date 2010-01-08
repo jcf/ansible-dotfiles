@@ -63,4 +63,4 @@ zle -N newtab
 bindkey '^[[5D' backward-word
 bindkey '^[[5C' forward-word
 
-if [[ -s /Users/jcf/.rvm/scripts/rvm ]] ; then source /Users/jcf/.rvm/scripts/rvm ; fi
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
