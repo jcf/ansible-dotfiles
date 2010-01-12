@@ -60,5 +60,7 @@ setopt HIST_REDUCE_BLANKS
 
 zle -N newtab
 
-# Vim mode
-# bindkey -v
+bindkey '^[[5D' backward-word
+bindkey '^[[5C' forward-word
+
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi

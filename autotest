@@ -1,6 +1,15 @@
-require 'autotest/growl'
-require 'autotest/fsevent' #osx specific file changed event notification
-Autotest::Growl::show_modified_files = true #which changes prompted the autospec run
-Autotest.add_hook :initialize do |at|
-  %w{.git .svn .hg .DS_Store ._* log}.each { |exception|at.add_exception(exception) }
+begin
+  require 'autotest/growl'
+  require 'autotest/fsevent'
+
+  Autotest::Growl::show_modified_files = true
+rescue LoadError
+  $stderr.puts "Failed to load Mac-specific autotest enhancements"
+end
+
+Autotest.add_hook :initialize do |autotest|
+  exceptions = %w[ .git .svn .hg .DS_Store ._* log .sass ]
+  exceptions.each do |exception|
+    autotest.add_exception(exception)
+  end
 end
