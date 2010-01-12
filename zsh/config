@@ -59,6 +59,7 @@ setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 zle -N newtab
+bindkey '^[[5D' backward-word
+bindkey '^[[5C' forward-word
 
-# Vim mode
-bindkey -v
+if [[ -s /Users/jcf/.rvm/scripts/rvm ]] ; then source /Users/jcf/.rvm/scripts/rvm ; fi

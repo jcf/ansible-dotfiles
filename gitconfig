@@ -12,8 +12,6 @@
 [core]
 	excludesfile = /Users/jcf/.gitignore
 	editor = mate -w
-[apply]
-	whitespace = trailing-space
 [gui]
 	recentrepo = /Users/james/git/alphasights
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
