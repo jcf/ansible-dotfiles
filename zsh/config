@@ -6,15 +6,15 @@ if [[ "$terminfo[colors]" -ge 8 ]]; then
   colors
 fi
 for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-  eval Z_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-  eval Z_LIGHT_$color='%{$fg[${(L)color}]%}'
+  eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+  eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
   (( count = $count + 1 ))
 done
-Z_NO_COLOR="%{$terminfo[sgr0]%}"
+PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
-# PS1='$Z_LIGHT_BLUE%2c$Z_NO_COLOR %(!.#.$) '
-PS1='$Z_LIGHT_CYAN%m$Z_NO_COLOR %c%(!.#.$) '
-RPS1='$Z_LIGHT_RED$(git_info_for_prompt) $Z_NO_COLOR!%h'
+# PS1='$PR_LIGHT_BLUE%2c$PR_NO_COLOR %(!.#.$) '
+PS1='$PR_LIGHT_CYAN%m$PR_NO_COLOR %c%(!.#.$) '
+RPS1='$PR_LIGHT_YELLOW$VIMODE $PR_LIGHT_RED$(git_info_for_prompt) $PR_NO_COLOR!%h'
 
 EDITOR='mate -w'
 # PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql83/bin:$PATH"
@@ -62,4 +62,4 @@ zle -N newtab
 bindkey '^[[5D' backward-word
 bindkey '^[[5C' forward-word
 
-if [[ -s /Users/jcf/.rvm/scripts/rvm ]] ; then source /Users/jcf/.rvm/scripts/rvm ; fi
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
