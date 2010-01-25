@@ -12,3 +12,11 @@ end
 def hide_log
   change_log(nil)
 end
+
+def method_missing(method, *args, &block)
+  User.find_by_login(method.to_s) || super
+end
+
+def sql(query)
+  ActiveRecord::Base.connection.select_all(query)
+end
