@@ -48,7 +48,7 @@ RUBY
   " Configuration option: g:fuzzy_ceiling
   " Specifies the maximum number of files that FuzzyFinder allows to be searched
   if !exists('g:fuzzy_ceiling')
-    let g:fuzzy_ceiling = 10000
+    let g:fuzzy_ceiling = 50000
   endif
 
   " Configuration option: g:fuzzy_ignore
