@@ -8,3 +8,4 @@
 :update_sources: true
 :verbose: true
 gem: --no-ri --no-rdoc
+gemcutter_key: f35111d0adce12455ffd062faea94bce

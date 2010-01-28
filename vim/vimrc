@@ -110,19 +110,19 @@ set linebreak  " Wrap at word
 imap jj <Esc>
 imap uu _
 imap hh =>
-imap aa @
+"imap aa @
 
 
 " Directories *****************************************************************
 " Setup backup location and enable
 "set backupdir=~/backup/vim
-"set backup
+set backup
 
 " Set Swap directory
 "set directory=~/backup/vim/swap
 
 " Sets path to directory buffer was loaded from
-"autocmd BufEnter * lcd %:p:h
+autocmd BufEnter * lcd %:p:h
 
 
 " File Stuff ******************************************************************
@@ -132,10 +132,10 @@ filetype plugin indent on
 "autocmd FileType html :set filetype=xhtml 
 
 
-" Inser New Line **************************************************************
+" Insert New Line **************************************************************
 map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
 map <Enter> o<ESC>
-set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
+"set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
 
 
 " Sessions ********************************************************************
