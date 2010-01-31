@@ -1,13 +1,14 @@
-ZSH_EDITOR='mate'
-
 # Lazy Editor
-alias e="$ZSH_EDITOR"
-alias rmate="$ZSH_EDITOR .gitignore app config db features lib public script spec"
+alias e="edit"
+alias erails="edit .gitignore app config db features lib public script spec"
 
 # dotfiles
 alias reload="source ~/.zshrc"
 alias cdot="cd ~/.dotfiles"
-alias edot="$ZSH_EDITOR ~/.dotfiles"
+alias edot="edit ~/.dotfiles"
+
+# binary dir
+alias ebin="edit ~/bin"
 
 # cd
 alias ..='cd ..'
