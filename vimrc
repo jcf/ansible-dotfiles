@@ -164,3 +164,5 @@ function! s:SetupSnippets()
     call ExtractSnips("~/.vim/snippets/html", "xhtml")
     call ExtractSnips("~/.vim/snippets/html", "php")
 endfunction
+
+let NERDTreeHijackNetrw=1
