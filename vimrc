@@ -3,6 +3,7 @@ syntax on
 colorscheme ir_black
 set background=dark
 set ruler
+set ch=2 
 set showcmd
 set laststatus=2
 set cursorline 
@@ -108,7 +109,13 @@ noremap <leader>n :NERDTreeToggle<CR>
 
 let g:netrw_liststyle = 3
 let g:netrw_list_hide = '.*\.py[co]$,\.git$,\.swp$'
- 
+
+" User instead of Netrw when doing an edit /foobar
+let NERDTreeHijackNetrw=1
+
+" Single click for everything
+let NERDTreeMouseMode=1
+
 function! NextLineIsOnly(char)
     return getline(line(".")+1) =~ "^" . a:char . "\\+$"
 endf
