@@ -59,6 +59,7 @@ setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 zle -N newtab
+bindkey -e
 bindkey '^[[5D' backward-word
 bindkey '^[[5C' forward-word
 
