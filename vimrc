@@ -181,4 +181,3 @@ let g:speckyRunSpecCmd = "spec -fs -r loadpath.rb"
 let g:speckyRunRdocCmd = "fri -L -f plain"
 let g:speckyWindowType = 2
 
-let NERDTreeHijackNetrw=1
