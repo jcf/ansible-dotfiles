@@ -19,4 +19,4 @@
 	default = matching
 [github]
 	user = jcf
-	token = my_secret
+	token = 

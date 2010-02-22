@@ -19,9 +19,9 @@ endif
 function! GetCucumberIndent()
   let line  = getline(prevnonblank(v:lnum-1))
   let cline = getline(v:lnum)
-  if cline =~# '^\s*\%(Background\|Scenario\|Scenario Outline\|Examples\):'
+  if cline =~# '^\s*\%(Scenario\|More Examples\):'
     return &sw
-  elseif line =~# '^\s*\%(Background\|Scenario\|Scenario Outline\|Examples\):'
+  elseif line =~# '^\s*\%(Scenario\|More Examples\):'
     return 2 * &sw
   elseif cline =~# '^\s*|' && line =~# '^\s*|'
     return indent(prevnonblank(v:lnum-1))
