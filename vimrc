@@ -1,12 +1,13 @@
 " Display
 syntax on
-colorscheme ir_black
+colorscheme ir_dark
 set background=dark
 set ruler
 set ch=2 
 set showcmd
 set laststatus=2
 set cursorline 
+set hidden
 
 " Navigation
 set showmatch
