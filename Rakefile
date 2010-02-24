@@ -19,7 +19,7 @@ class DotFiles
   def link_files(opts = {})
     f = dry_run? ? FileUtils::DryRun : FileUtils
     Dir['*'].each do |file|
-      next if %w[ Rakefile README LICENSE ].include?(file)
+      next if %w[ Rakefile README LICENSE emacs ].include?(file)
       link = File.expand_path(File.join("~", ".#{file}"))
       to = File.join(Dir.pwd, file)
       f.ln_s(to, link, :force => true)

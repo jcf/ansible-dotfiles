@@ -1,6 +1,6 @@
 " Display
 syntax on
-colorscheme ir_dark
+colorscheme ir_black
 set background=dark
 set ruler
 set ch=2 
