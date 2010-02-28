@@ -70,7 +70,7 @@ endif
 if has("gui_macvim")
     set transparency=10
     set guifont=Menlo:h11
-    set lines=60
+    set lines=80
     set guioptions=egmrt
     set formatoptions-=t
     set formatoptions-=c
@@ -117,46 +117,49 @@ let NERDTreeHijackNetrw=1
 " Single click for everything
 let NERDTreeMouseMode=1
 
-function! NextLineIsOnly(char)
-    return getline(line(".")+1) =~ "^" . a:char . "\\+$"
-endf
- 
-function! ReplaceNextLineWith(char)
-    return "yyjVpVr" . a:char
-endf
- 
-function! ReplaceSurroundingsWith(char)
-    return ReplaceNextLineWith(a:char) . "yykkVp"
-endf
- 
-function! AppendLineOf(char)
-    return "yypVr" . a:char
-endf
- 
-function! SurroundWith(char)
-    return AppendLineOf(a:char) . "yykP"
-endf
- 
-function! H1()
-    let char = "="
-    if NextLineIsOnly(char)
-        return ReplaceSurroundingsWith(char)
-    else
-        return SurroundWith(char)
-    endif
-endf
- 
-function! H(char)
-    if NextLineIsOnly(a:char)
-        return ReplaceNextLineWith(a:char)
-    else
-        return AppendLineOf(a:char)
-    endif
-endf
- 
-nnoremap <expr> <F1> H1()
-nnoremap <expr> <F2> H("=")
-nnoremap <expr> <F3> H("-")
+" function! NextLineIsOnly(char)
+"     return getline(line(".")+1) =~ "^" . a:char . "\\+$"
+" endf
+"  
+" function! ReplaceNextLineWith(char)
+"     return "yyjVpVr" . a:char
+" endf
+"  
+" function! ReplaceSurroundingsWith(char)
+"     return ReplaceNextLineWith(a:char) . "yykkVp"
+" endf
+"  
+" function! AppendLineOf(char)
+"     return "yypVr" . a:char
+" endf
+"  
+" function! SurroundWith(char)
+"     return AppendLineOf(a:char) . "yykP"
+" endf
+"  
+" function! H1()
+"     let char = "="
+"     if NextLineIsOnly(char)
+"         return ReplaceSurroundingsWith(char)
+"     else
+"         return SurroundWith(char)
+"     endif
+" endf
+"  
+" function! H(char)
+"     if NextLineIsOnly(a:char)
+"         return ReplaceNextLineWith(a:char)
+"     else
+"         return AppendLineOf(a:char)
+"     endif
+" endf
+"  
+" nnoremap <expr> <F1> H1()
+" nnoremap <expr> <F2> H("=")
+" nnoremap <expr> <F3> H("-")
+
+" Quick CD to current file's directory
+map <leader>cd :cd %:p:h<CR>
 
 source ~/.vim/snippets/support_functions.vim
 autocmd vimenter * call s:SetupSnippets()
