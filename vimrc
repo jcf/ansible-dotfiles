@@ -8,6 +8,7 @@ set showcmd
 set laststatus=2
 set cursorline 
 set hidden
+set nonu
 
 " Navigation
 set showmatch
@@ -24,13 +25,14 @@ set smartindent
 set smarttab
 set expandtab
 set textwidth=78
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set formatoptions=tcroqn2 
 set lbr
  
 " Behavior
+set noacd
 set foldmethod=indent
 set nofoldenable
 set shellcmdflag=-c
