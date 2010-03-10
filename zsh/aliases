@@ -55,5 +55,8 @@ alias tlog='tail -f log/development.log'
 alias mig='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 
+# bundler
+alias be='bundle exec'
+
 # commands starting with % for pasting from web
 alias %=' '
