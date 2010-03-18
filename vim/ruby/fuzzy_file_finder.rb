@@ -109,7 +109,7 @@ class FuzzyFileFinder
   # given +directories+, using +ceiling+ as the maximum number
   # of entries to scan. If there are more than +ceiling+ entries
   # a TooManyEntries exception will be raised.
-  def initialize(directories=['.'], ceiling=50_000, ignores=nil)
+  def initialize(directories=['.'], ceiling=10_000, ignores=nil)
     directories = Array(directories)
     directories << "." if directories.empty?
 
@@ -170,7 +170,7 @@ class FuzzyFileFinder
   #   the file matches the given pattern. A score of 1 means the
   #   pattern matches the file exactly.
   def search(pattern, &block)
-    pattern.strip!
+    pattern.gsub!(" ", "")
     path_parts = pattern.split("/")
     path_parts.push "" if pattern[-1,1] == "/"
 
@@ -215,12 +215,10 @@ class FuzzyFileFinder
     # Recursively scans +directory+ and all files and subdirectories
     # beneath it, depth-first.
     def follow_tree(directory)
-      entries = Dir.entries(directory.name)
-      if files.length > ceiling
-        raise TooManyEntries, "Found #{files.length}, max is #{ceiling}."
-      end
       Dir.entries(directory.name).each do |entry|
         next if entry[0,1] == "."
+        next if ignore?(directory.name) # Ignore whole directory hierarchies
+        raise TooManyEntries if files.length > ceiling
 
         full = File.join(directory.name, entry)
 
