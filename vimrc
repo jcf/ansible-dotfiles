@@ -72,7 +72,7 @@ endif
 if has("gui_macvim")
     set transparency=10
     set guifont=Menlo:h11
-    set lines=80
+    set lines=80 columns=140
     set guioptions=egmrt
     set formatoptions-=t
     set formatoptions-=c
