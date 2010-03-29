@@ -1,6 +1,6 @@
 " Display
 syntax on
-colorscheme ir_black
+colorscheme mustang
 set background=dark
 set ruler
 set ch=2 
@@ -33,7 +33,7 @@ set lbr
  
 " Behavior
 set noacd
-set foldmethod=indent
+set foldmethod=manual
 set nofoldenable
 set shellcmdflag=-c
 set shell=zsh\ -l
