@@ -101,21 +101,18 @@ noremap <leader>i :set list!<CR>
 nmap <C-N> :noh<CR>
 nmap <S-Enter> O<ESC>
 nmap <Enter> o<Esc>
-map <leader>f :FuzzyFinderTextMate<CR>
-map <leader>b :FuzzyFinderBuffer<CR>
+map <leader>f :FufFile<CR>
+map <leader>b :FufBuffer<CR>
 imap jj <Esc>
-imap uu _
-imap hh =>
-imap aa @
 
 " bind command-] to shift right
 nmap <D-]> >>
-vmap <D-]> >>
+vmap <D-]> >
 imap <D-]> <C-O>>>
 
 " bind command-[ to shift left
 nmap <D-[> <<
-vmap <D-[> <<
+vmap <D-[> <
 imap <D-[> <C-O><<
 
 " open tabs with command-<tab number>
@@ -162,4 +159,7 @@ let g:speckyRunSpecKey = "<C-S>s"
 let g:speckyRunSpecCmd = "spec -fs -r loadpath.rb"
 let g:speckyRunRdocCmd = "fri -L -f plain"
 let g:speckyWindowType = 2
+
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
