@@ -3,6 +3,7 @@ syntax on
 colorscheme ir_black
 set background=dark
 set ruler
+set number
 set ch=2 
 set showcmd
 set laststatus=2
@@ -159,6 +160,9 @@ let g:speckyRunSpecKey = "<C-S>s"
 let g:speckyRunSpecCmd = "spec -fs -r loadpath.rb"
 let g:speckyRunRdocCmd = "fri -L -f plain"
 let g:speckyWindowType = 2
+
+" Disable AutoComplPop by default because it's really, really slow
+let g:AutoComplPop_NotEnableAtStartup = 1
 
 au BufWinLeave * mkview
 au BufWinEnter * silent loadview
