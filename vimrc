@@ -3,13 +3,12 @@ syntax on
 colorscheme ir_black
 set background=dark
 set ruler
-set number
 set ch=2 
 set showcmd
 set laststatus=2
 set cursorline 
 set hidden
-set nonu
+set nu
 
 " Navigation
 set showmatch
@@ -163,7 +162,4 @@ let g:speckyWindowType = 2
 
 " Disable AutoComplPop by default because it's really, really slow
 let g:AutoComplPop_NotEnableAtStartup = 1
-
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
 

@@ -83,17 +83,6 @@ let b:blockCommentEndRE    = '\*/'
 let b:blockCommentMiddleExtra = 1
 
 "
-" Indent another level for each non-closed paren/'(' , bracket/'[', and
-" brace/'{' on the previous line.
-
-let b:indentTrios = [
-            \ [ '(',  '',                      ')'  ],
-            \ [ '{',  '\(default:\|case.*:\)', '}'  ],
-            \ [ '\[', '',                      '\]' ]
-\]
-
-
-"
 " Line continuations.  Lines that are continued on the next line are
 " if/for/while statements that are NOT followed by a '{' block and operators
 " at the end of a line.
