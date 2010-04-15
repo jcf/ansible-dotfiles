@@ -60,3 +60,5 @@ alias be='bundle exec'
 
 # commands starting with % for pasting from web
 alias %=' '
+
+alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
