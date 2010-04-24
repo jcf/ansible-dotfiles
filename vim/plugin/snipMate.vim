@@ -1,6 +1,6 @@
 " File:          snipMate.vim
 " Author:        Michael Sanders
-" Version:       0.83
+" Version:       0.82
 " Description:   snipMate.vim implements some of TextMate's snippets features in
 "                Vim. A snippet is a piece of often-typed text that you can
 "                insert into your document using a trigger word followed by a "<tab>".
@@ -32,8 +32,8 @@ fun! MakeSnip(scope, trigger, content, ...)
 		let {var}[a:scope][a:trigger] = multisnip ? [[a:1, a:content]] : a:content
 	elseif multisnip | let {var}[a:scope][a:trigger] += [[a:1, a:content]]
 	else
-		echom 'Warning in snipMate.vim: Snippet '.a:trigger.' is already defined.'
-				\ .' See :h multi_snip for help on snippets with multiple matches.'
+		"echom 'Warning in snipMate.vim: Snippet '.a:trigger.' is already defined.'
+		"		\ .' See :h multi_snip for help on snippets with multiple matches.'
 	endif
 endf
 
@@ -104,8 +104,6 @@ fun! GetSnippets(dir, filetypes)
 			call s:DefineSnips(a:dir, 'c', ft)
 		elseif ft == 'xhtml'
 			call s:DefineSnips(a:dir, 'html', 'xhtml')
-		elseif ft == 'eruby'
-			call s:DefineSnips(a:dir, 'html', 'eruby')
 		endif
 		let g:did_ft[ft] = 1
 	endfor
@@ -140,7 +138,7 @@ fun! TriggerSnippet()
 		call feedkeys("\<tab>") | return ''
 	endif
 
-	if exists('g:snipPos') | return snipMate#jumpTabStop(0) | endif
+	if exists('g:snipPos') | return snipMate#jumpTabStop() | endif
 
 	let word = matchstr(getline('.'), '\S\+\%'.col('.').'c')
 	for scope in [bufnr('%')] + split(&ft, '\.') + ['_']
@@ -149,7 +147,7 @@ fun! TriggerSnippet()
 		" the snippet.
 		if snippet != ''
 			let col = col('.') - len(trigger)
-			sil exe 's/\V'.escape(trigger, '/.').'\%#//'
+			sil exe 's/\V'.escape(trigger, '/').'\%#//'
 			return snipMate#expandSnip(snippet, col)
 		endif
 	endfor
@@ -159,23 +157,6 @@ fun! TriggerSnippet()
 		return ''
 	endif
 	return "\<tab>"
-endf
-
-fun! BackwardsSnippet()
-	if exists('g:snipPos') | return snipMate#jumpTabStop(1) | endif
-
-	if exists('g:SuperTabMappingForward')
-		if g:SuperTabMappingBackward == "<s-tab>"
-			let SuperTabKey = "\<c-p>"
-		elseif g:SuperTabMappingForward == "<s-tab>"
-			let SuperTabKey = "\<c-n>"
-		endif
-	endif
-	if exists('SuperTabKey')
-		call feedkeys(SuperTabKey)
-		return ''
-	endif
-	return "\<s-tab>"
 endf
 
 " Check if word under cursor is snippet trigger; if it isn't, try checking if
@@ -193,9 +174,6 @@ fun s:GetSnippet(word, scope)
 			let word = substitute(word, '.\{-}\W', '', '')
 		endif
 	endw
-	if word == '' && a:word != '.' && stridx(a:word, '.') != -1
-		let [word, snippet] = s:GetSnippet('.', a:scope)
-	endif
 	return [word, snippet]
 endf
 

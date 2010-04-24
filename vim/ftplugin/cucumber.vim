@@ -10,31 +10,33 @@ let b:did_ftplugin = 1
 
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:# commentstring=#\ %s
+setlocal omnifunc=CucumberComplete
 
-let b:undo_ftplugin = "setl fo< com< cms<"
+let b:undo_ftplugin = "setl fo< com< cms< ofu<"
 
 let b:cucumber_root = expand('%:p:h:s?.*[\/]\%(features\|stories\)\zs[\/].*??')
 
 if !exists("g:no_plugin_maps") && !exists("g:no_cucumber_maps")
-  nmap <silent><buffer> <C-]>       :<C-U>exe <SID>jump('edit')<CR>
-  nmap <silent><buffer> <C-W>]      :<C-U>exe <SID>jump('split')<CR>
-  nmap <silent><buffer> <C-W><C-]>  :<C-U>exe <SID>jump('split')<CR>
-  nmap <silent><buffer> <C-W>}      :<C-U>exe <SID>jump('pedit')<CR>
-  let b:undo_ftplugin .= "| sil! iunmap! <C-]>| sil! iunmap! <C-W>]| sil! iunmap! <C-W>}"
+  nmap <silent><buffer> <C-]>       :<C-U>exe <SID>jump('edit',v:count)<CR>
+  nmap <silent><buffer> <C-W>]      :<C-U>exe <SID>jump('split',v:count)<CR>
+  nmap <silent><buffer> <C-W><C-]>  :<C-U>exe <SID>jump('split',v:count)<CR>
+  nmap <silent><buffer> <C-W>}      :<C-U>exe <SID>jump('pedit',v:count)<CR>
+  let b:undo_ftplugin .= "| sil! iunmap! <C-]>| sil! iunmap! <C-W>]| sil! iunmap! <C-W><C-]>| sil! iunmap! <C-W>}"
 endif
 
-function! s:jump(command)
+function! s:jump(command,count)
   let steps = s:steps(getline('.'))
-  if len(steps) == 0
+  if len(steps) == 0 || len(steps) < a:count
     return 'echoerr "No matching step found"'
-  elseif len(steps) > 1
+  elseif len(steps) > 1 && !a:count
     return 'echoerr "Multiple matching steps found"'
   else
-    return a:command.' +'.steps[0][1].' '.escape(steps[0][0],' %#')
+    let c = a:count ? a:count-1 : 0
+    return a:command.' +'.steps[c][1].' '.escape(steps[c][0],' %#')
   endif
 endfunction
 
-function! s:steps(step)
+function! s:allsteps()
   let step_pattern = '\C^\s*\%(Giv\|[WT]h\)en\>\s*\zs.\{-\}\ze\s*\%(do\|{\)\s*\%(|[A-Za-z0-9_,() *]*|\s*\)\=$'
   let steps = []
   for file in split(glob(b:cucumber_root.'/**/*.rb'),"\n")
@@ -43,13 +45,17 @@ function! s:steps(step)
     for line in lines
       let num += 1
       if line =~ step_pattern
-        let steps += [[file,num,matchstr(line,step_pattern)]]
+        let type = matchstr(line,'\w\+')
+        let steps += [[file,num,type,matchstr(line,step_pattern)]]
       endif
     endfor
   endfor
-  let step = matchstr(a:step,'^\s*\k*\s*\zs.\{-\}\s*$')
-  call filter(steps,'s:stepmatch(v:val[2],step)')
   return steps
+endfunction
+
+function! s:steps(step)
+  let step = matchstr(a:step,'^\s*\k*\s*\zs.\{-\}\s*$')
+  return filter(s:allsteps(),'s:stepmatch(v:val[3],step)')
 endfunction
 
 function! s:stepmatch(receiver,target)
@@ -74,6 +80,46 @@ function! s:stepmatch(receiver,target)
   else
     return 0
   endif
+endfunction
+
+function! s:bsub(target,pattern,replacement)
+  return  substitute(a:target,'\C\\\@<!'.a:pattern,a:replacement,'g')
+endfunction
+
+function! CucumberComplete(findstart,base) abort
+  let indent = indent('.')
+  let group = synIDattr(synID(line('.'),indent+1,1),'name')
+  let type = matchstr(group,'\Ccucumber\zs\%(Given\|When\|Then\)')
+  let e = matchend(getline('.'),'^\s*\S\+\s')
+  if type == '' || col('.') < col('$') || e < 0
+    return -1
+  endif
+  if a:findstart
+    return e
+  endif
+  let steps = []
+  for step in s:allsteps()
+    if step[2] ==# type
+      if step[3] =~ '^[''"]'
+        let steps += [step[3][1:-2]]
+      elseif step[3] =~ '^/\^.*\$/$'
+        let pattern = step[3][2:-3]
+        let pattern = s:bsub(pattern,'\\[Sw]','w')
+        let pattern = s:bsub(pattern,'\\d','1')
+        let pattern = s:bsub(pattern,'\\[sWD]',' ')
+        let pattern = s:bsub(pattern,'[[:alnum:]. -][?*]?\=','')
+        let pattern = s:bsub(pattern,'\[\([^^]\).\{-\}\]','\1')
+        let pattern = s:bsub(pattern,'+?\=','')
+        let pattern = s:bsub(pattern,'(\([[:alnum:]. -]\{-\}\))','\1')
+        let pattern = s:bsub(pattern,'\\\([[:punct:]]\)','\1')
+        if pattern !~ '[\\()*?]'
+          let steps += [pattern]
+        endif
+      endif
+    endif
+  endfor
+  call filter(steps,'strpart(v:val,0,strlen(a:base)) ==# a:base')
+  return sort(steps)
 endfunction
 
 " vim:set sts=2 sw=2:

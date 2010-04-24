@@ -17,7 +17,7 @@ if exists("*GetSassIndent")
   finish
 endif
 
-let s:property = '^\s*:\|^\s*[[:alnum:]-]\+\%(:\|\s*=\)'
+let s:property = '^\s*:\|^\s*[[:alnum:]-]\+:'
 
 function! GetSassIndent()
   let lnum = prevnonblank(v:lnum-1)
@@ -37,4 +37,3 @@ function! GetSassIndent()
 endfunction
 
 " vim:set sw=2:
-
