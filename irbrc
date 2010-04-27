@@ -2,19 +2,11 @@
 require 'irb/completion'
 require 'irb/ext/save-history'
 
-begin
-  require 'wirble'
-rescue LoadError => e
-  require 'rubygems'
-  require 'wirble'
-end
-
-IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
-
-IRB.conf[:PROMPT_MODE] = :SIMPLE
-
-IRB.conf[:AUTO_INDENT] = true
+IRB.conf.merge!(
+  :SAVE_HISTORY => 1000,
+  :HISTORY_FILE => "#{ENV['HOME']}/.irb_history",
+  :AUTO_INDENT => true
+)
 
 if RUBY_VERSION < "1.9"
   class Symbol
@@ -25,9 +17,8 @@ if RUBY_VERSION < "1.9"
 end
 
 class Object
-  # list methods which aren't in superclass
   def local_methods(obj = self)
-    (obj.methods - obj.class.superclass.instance_methods).sort
+    (methods - Object.instance_methods).sort
   end
 
   def ri(method = nil)
@@ -38,5 +29,19 @@ class Object
     puts `ri '#{method}'`
   end
 end
+
+def quick(repetitions = 100, &block)
+  require 'benchmark'
+  Benchmark.bmbm do |b|
+    b.report { repetitions.times(&block) }
+  end
+  nil
+end
+
+def reset_irb
+  exec $0
+end
+
+alias q exit
 
 load File.dirname(__FILE__) + '/.railsrc' if $0 == 'irb' && ENV['RAILS_ENV']
