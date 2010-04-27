@@ -227,7 +227,6 @@ let mapleader = ","
 noremap <leader>n :NERDTreeToggle<CR>
 
 if has("gui_macvim")
-  set transparency=10
   set guioptions=egmrt
   set guifont=Menlo:h11
   nmap <C-up> <C-y>
