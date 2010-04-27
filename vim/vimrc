@@ -169,7 +169,7 @@ endfunction
 
 "indent settings
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=2
 set expandtab
 set autoindent
 
@@ -215,6 +215,15 @@ if !has("gui")
     let g:CSApprox_loaded = 1
 endif
 
+if has("gui_macvim")
+  set transparency=10
+  set guioptions=egmrt
+  nmap <C-up> <C-y>
+  imap <C-up> <C-o><C-y>
+  nmap <C-down> <C-e>
+  imap <C-down> <C-o><C-e>
+endif
+
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
@@ -223,7 +232,7 @@ inoremap <C-L> <C-O>:nohls<CR>
 nnoremap <C-B> :BufExplorer<cr>
 
 "map to fuzzy finder text mate stylez
-nnoremap <c-f> :FuzzyFinderTextMate<CR>
+nnoremap <c-f> :FuzzyFinderFile<CR>
 
 "map Q to something useful
 noremap Q gq
