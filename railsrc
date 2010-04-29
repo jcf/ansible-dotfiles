@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 def change_log(stream)
   ActiveRecord::Base.logger = Logger.new(stream)
@@ -11,10 +11,6 @@ end
 
 def hide_log
   change_log(nil)
-end
-
-def method_missing(method, *args, &block)
-  User.find_by_login(method.to_s) || super
 end
 
 def sql(query)

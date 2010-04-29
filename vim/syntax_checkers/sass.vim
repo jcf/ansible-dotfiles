@@ -9,6 +9,10 @@
 "             See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 "============================================================================
+
+"Sadly this validator won't work with a Compass + Rails application
+finish
+
 if exists("loaded_sass_syntax_checker")
     finish
 endif
