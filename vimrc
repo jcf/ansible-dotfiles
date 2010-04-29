@@ -217,6 +217,10 @@ set t_Co=256
 "hide buffers when not displayed
 set hidden
 
+"Clever, lazy case sensitive searches
+set ignorecase
+set smartcase
+
 "dont load csapprox if we no gui support - silences an annoying warning
 if !has("gui")
     let g:CSApprox_loaded = 1
