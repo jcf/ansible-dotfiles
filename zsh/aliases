@@ -5,9 +5,10 @@ alias erails="edit .gitignore app config db features lib public script spec"
 # dotfiles
 alias reload="source ~/.zshrc"
 alias cdot="cd ~/.dotfiles"
-alias edot="edit ~/.dotfiles"
+alias edot="mvim -c \"cd ~/.dotfiles\" ~/.dotfiles"
 
-# binary dir
+# executable dir
+alias cbin="cd ~/bin"
 alias ebin="edit ~/bin"
 
 # cd
