@@ -221,6 +221,15 @@ set hidden
 set ignorecase
 set smartcase
 
+"Get out of my face swap files
+set backupdir=$HOME/.swp//
+set directory=$HOME/.swp//
+
+" Automatically create .swp directory
+if filewritable(expand("$HOME")) && ! filewritable(expand("$HOME/.swp"))
+  silent execute 'mkdir .swp'
+endif
+
 "dont load csapprox if we no gui support - silences an annoying warning
 if !has("gui")
     let g:CSApprox_loaded = 1
@@ -264,6 +273,8 @@ nmap <S-Enter> O<Esc>
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
+
+let NERDSpaceDelims=1
 
 "snipmate setup
 source ~/.vim/snippets/support_functions.vim

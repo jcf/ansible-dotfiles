@@ -2,5 +2,7 @@
 .svn
 *.tmproj
 *.swp
+*.swo
+*.swn
 *~
 tags
