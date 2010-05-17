@@ -1,0 +1,37 @@
+#compdef bundle
+
+# Bundler ZSH completion function
+# Drop this somewhere in your $fpath (like /usr/share/zsh/site-functions)
+# and rename it _bundle
+#
+# altered from _brew
+
+local -a _1st_arguments
+_1st_arguments=(
+  'check:Checks if the dependencies listed in Gemfile are satisfied by currently installed gems'
+  'console:Opens an IRB session with the bundle pre-loaded'
+  'exec:Run the command in context of the bundle'
+  'help:Describe available tasks or one specific task'
+  'init:Generates a Gemfile into the current working directory'
+  'install:Install the current environment to the system'
+  'lock:Locks the bundle to the current set of dependencies'
+  'open:Opens the source directory of the given bundled gem'
+  'package:Locks and then caches all of the gems into vendor/cache'
+  'show:Shows all gems that are part of the bundle, or the path to a given gem'
+  'unlock:Unlock the bundle'
+  'version:Print version information'
+)
+
+_arguments '*:: :->subcmds' && return 0
+
+if (( CURRENT == 1 )); then
+  _describe -t commands "bundle subcommand" _1st_arguments
+  return
+fi
+
+# I'd like to get exec to autocomplete properly but can't work out how to get zsh to play nice
+# case "$words[1]" in
+#   exec)
+#     compadd _all_expansions ;;
+# esac
+
