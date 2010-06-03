@@ -63,3 +63,6 @@ alias be='bundle exec'
 alias %=' '
 
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
+
+# Node.js
+alias node-repl='rlwrap node-repl'
