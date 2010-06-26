@@ -15,12 +15,12 @@ endif
 let loaded_ruby_syntax_checker = 1
 
 "bail if the user doesnt have ruby installed
-if !executable("ruby")
+if !executable("/usr/bin/env ruby")
     finish
 endif
 
 function! SyntaxCheckers_ruby_GetLocList()
-    let makeprg = 'RUBYOPT= ruby -c %'
+    let makeprg = 'RUBYOPT= /usr/bin/env ruby -c %'
     let errorformat =  '%-GSyntax OK,%E%f:%l: syntax error\, %m,%Z%p^,%W%f:%l: warning: %m,%Z%p^,%-C%.%#'
 
     return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
