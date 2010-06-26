@@ -194,7 +194,7 @@ map <silent> <script> <Plug>AM_tt		<SID>WS:AlignCtrl mIp1P1=l \\\@<!& \\\\<CR>:'
 if has("menu") && has("gui_running") && &go =~ 'm' && !exists("s:firstmenu")
  let s:firstmenu= 1
  if !exists("g:DrChipTopLvlMenu")
-  let g:DrChipTopLvlMenu= "DrChip."
+  let g:DrChipTopLvlMenu= "&Plugin."
  endif
  if g:DrChipTopLvlMenu != ""
   let s:mapleader = exists("g:mapleader")? g:mapleader : '\'
