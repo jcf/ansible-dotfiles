@@ -273,6 +273,9 @@ imap jj <Esc>
 nmap <Enter> o<Esc>
 nmap <S-Enter> O<Esc>
 
+"Command-shift-c to insert a colour using the ColorPalette
+imap <D-C> <Esc>:PickHEX<CR>
+
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 
