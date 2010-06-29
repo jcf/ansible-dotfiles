@@ -1,0 +1,316 @@
+
+*PickAColor.txt* Working with colors should be nice.                     v.1.1
+
+
+                              REFERENCE MANUAL *PickAColor*
+
+
+==============================================================================
+ 0.- CONTENTS                                           *PickAColor-contents*
+
+    1. Introduction____________________________|PickAColorIntro|
+    2. Functionality___________________________|PickAColorFunctionality|
+        2.1 Graphical Color Chooser____________|PickAColorGColorChooser|
+        2.2 Use of color names_________________|PickAColorColorNames|
+        2.3 Edit current color_________________|PickAColorEditCurrent|
+        2.4 Using the clipboard________________|PickAColorClipboard|
+    3. Customization___________________________|PickAColorOptions|
+        3.1 Options summary____________________|PickAColorOptionSummary|
+        3.2 Options details____________________|PickAColorOptionDetails|
+    4. Commands________________________________|PickAColorCommands|
+    5. Mappings________________________________|PickAColorMappings|
+    6. TODO list_______________________________|PickAColorTodo|
+    7. Maintainer______________________________|PickAColorMaintainer|
+    8. Credits_________________________________|PickAColorCredits|
+    9. License_________________________________|PickAColorLicense|
+   10. History_________________________________|PickAColorHistory|
+
+==============================================================================
+ 1.- INTRODUCTION                                           *PickAColorIntro*
+
+The PickAColor plugin is my attempt to make inserting or modifing colors
+easier. With it you can use the GTk or Mac OS X color chooser or a color name
+to insert or modify an existing color code.
+
+==============================================================================
+ 2. FUNCTIONALITY                                   *PickAColorFunctionality*
+
+------------------------------------------------------------------------------
+   2.1 GRAPHICAL COLOR CHOOSER                       *PickAColorGColorChooser*
+
+Using any of the commands without arguments will open the Mac OS X (if working
+on a mac) or GTk (if available) color chooser dialog.
+
+------------------------------------------------------------------------------
+   2.2 USE OF COLOR NAMES                               *PickAColorColorNames*
+
+You can give a color name as an argument with the command and it will be
+translated to its corresponding code. You can set which set of color names to
+use, either web or X11, with the option |g:pickacolor_use_web_colors|.
+
+The color name supported are those listed in the following sources:
+
+Web color names:
+  http://www.w3.org/TR/css3-color/#svg-color
+
+X11 color names:
+  http://cvsweb.xfree86.org/cvsweb/xc/programs/rgb/rgb.txt?rev=1.2
+
+
+------------------------------------------------------------------------------
+   2.3 EDIT CURRENT COLOR                              *PickAColorEditCurrent*
+
+When the cursor is on a hexadecimal color code or a color name, it will be
+replaced with the new color. If you open the color chooser, it will load the
+current color. This feature can be disabled with  |g:pickacolor_edit_names|
+and |g:pickacolor_edit_hex|.
+
+------------------------------------------------------------------------------
+   2.4 USING THE CLIPBOARD                               *PickAColorClipboard*
+
+If there is no hexadecimal color code or a color name under the cursor, the
+clipboard will be read and parsed for one and it will be used for the color
+chooser dialog.
+
+When you edit or insert a color, the code will be also loaded into the
+clipboard (under X11 the selection clipboard will be used).
+
+Both features can be disabled with |g:pickacolor_set_clipboard| and
+|g:pickacolor_get_clipboard|.
+
+==============================================================================
+ 3. CUSTOMIZATION                                         *PickAColorOptions*
+
+------------------------------------------------------------------------------
+   3.1 OPTIONS SUMMARY                              *PickAColorOptionSummary*
+
+The behaviour of this script can be customized setting the following options
+in your vimrc file. See |PickAColorOptionDetails| for examples.
+
+|'loaded_PickAColor'|          Turns off the script.
+
+|'pickacolor_use_web_colors'|  Tells PickAColor which set of color names will
+                               be used.
+
+|'pickacolor_edit_names'|      Tells PickAColor to replace the current color
+                               name under the cursor or not.
+
+|'pickacolor_edit_hex'|        Tells PickAColor to replace the current
+                               hexadecimal color code under the cursor or not.
+
+|'pickacolor_set_clipboard'|   Tells PickAColor to set the clipboard to the
+                               selected color or not.
+
+|'pickacolor_get_clipboard'|   Tells PickAColor to try to get a color from the
+                               clipboard if none is found under the cursor or
+                               not.
+
+|'pickacolor_default_color'|   Sets the default color for the color chooser
+                               dialog.
+
+|'pickacolor_display_palette'| Tells PickAColor to display the palette to
+                               store colors when using the GTk color chooser
+                               dialog.
+
+------------------------------------------------------------------------------
+   3.2 OPTIONS DETAILS                              *PickAColorOptionDetails*
+
+Add the shown lines to your vimrc file in order to set the below options.
+Local options take precedence over global ones and can be used along with
+autocmd to modify PickAColor's behavior for specific file types.
+
+                                                     *'loaded_PickAColor'*
+Setting this option to any value prevents PickAColor from loading.
+e.g.: >
+        let loaded_PickAColor = 1
+<
+------------------------------------------------------------------------------
+                                                 *'pickacolor_use_web_colors'*
+Values: 0 or 1.                                                              ~
+Default: 1                                                                   ~
+
+Use this option to set which set of color names should be used, a value of 1
+will load the Web color names, a value of 0 will load the X11 color names. See
+|PickAColorColorNames| for more info.
+e.g.: >
+        let pickacolor_use_web_colors = 0
+<
+------------------------------------------------------------------------------
+                                                     *'pickacolor_edit_names'*
+Values: 0 or 1.                                                              ~
+Default: 1                                                                   ~
+
+When this option is set to 1, PickAColor will replace the current color name
+under the cursor. When  it's set to 0, PickAColor will insert a new color.
+e.g: >
+        let pickacolor_edit_names = 0
+<
+------------------------------------------------------------------------------
+                                                       *'pickacolor_edit_hex'*
+Values: 0 or 1.                                                              ~
+Default: 1                                                                   ~
+
+When this option is set to 1, PickAColor will replace the current hexadecimal
+color code under the cursor. When  it's set to 0, PickAColor will insert a
+new hexadecimal color code.
+e.g: >
+        let pickacolor_edit_hex = 0
+<
+------------------------------------------------------------------------------
+                                                  *'pickacolor_set_clipboard'*
+Values: 0 or 1                                                               ~
+Default: 1                                                                   ~
+
+Set this option to 0 to prevent PickAColor from copying the selected color
+into the clipboard. Read |PickAColorClipboard| for more info.
+e.g: >
+        let pickacolor_set_clipboard = 0
+<
+------------------------------------------------------------------------------
+                                                  *'pickacolor_get_clipboard'*
+Values: 0 or 1                                                               ~
+Default: 1                                                                   ~
+
+Set this option to 0 to prevent PickAColor from trying to read a color from
+the clipboard when none is found under the cursor. Read
+|PickAColorClipboard| for more info.
+e.g.: >
+        let b:pickacolor_get_clipboard = 0
+<
+------------------------------------------------------------------------------
+                                                  *'pickacolor_default_color'*
+Values: A string with a hexadecial color code or a color name                ~
+Default: "#888888"                                                           ~
+
+This value will be used as the default in the color chooser dialog.
+e.g.: >
+        let pickacolor_default_color = "red"
+        let pickacolor_default_color = "#ffffff"
+<
+------------------------------------------------------------------------------
+                                                *'pickacolor_display_palette'*
+Values: 0 or 1                                                               ~
+Default: 1                                                                   ~
+
+Setting this option to 0 will prevent the GTk color chooser from displaying
+the palette to store colors.
+e.g.: >
+        let pickacolor_display_palette = 0
+<
+==============================================================================
+ 4. COMMANDS                                              *PickAColorCommands*
+
+:PickRGB                                                            *:PickRGB*
+:PickHSL                                                            *:PickHSL*
+:PickHEX                                                            *:PickHEX*
+:PickRAW                                                            *:PickRAW*
+
+Any of this commands will insert the color code in the format indicated by the
+last three characters. They accept a color name as an argument but if none is
+provided the color chooser will be open. Autocompletion of color names is
+available for all commands.
+
+==============================================================================
+
+ 5. MAPPINGS                                             *:PickAColorMappings*
+
+You can set your own mapping using the InsertAColor() function.
+Note: the first arguments should be an empty string and the other one of the
+four supported formats.
+i.e.: >
+
+        noremap! <leader>rgb :call InsertAColor("", "rgb")<CR>
+        noremap! <leader>hex :call InsertAColor("", "hex")<CR>
+        noremap! <leader>hsl :call InsertAColor("", "hsl")<CR>
+        noremap! <leader>raw :call InsertAColor("", "raw")<CR>
+>
+
+==============================================================================
+ 6. TODO LIST                                                *PickAColorTodo*
+
+   - Formatting options.
+   - Some solution for Windows.
+
+==============================================================================
+ 7. MAINTAINER                                         *PickAColorMaintainer*
+
+Hi there! My name is Israel Chauca F. and I can be reached at:
+    mailto:israelchauca@gmail.com
+
+Feel free to send me any suggestions and/or comments about this plugin, I'll
+be very pleased to read them.
+
+==============================================================================
+ 8. CREDITS                                                *PickAColorCredits*
+
+Some of the code that make this script is modified or just shamelessly copied
+from the following sources:
+
+  - Maximilian Nickel
+    http://www.vim.org/scripts/script.php?script_id=3014
+
+  - Petr Mejzlik
+    http://www.vim.org/scripts/script.php?script_id=2756
+
+  Web color names:
+  http://www.w3.org/TR/css3-color/#svg-color
+
+  X11 color names:
+  http://cvsweb.xfree86.org/cvsweb/xc/programs/rgb/rgb.txt?rev=1.2
+
+  Algorithm to convert from RGB to HSL:
+  http://www.easyrgb.com/index.php?X=MATH&H=18#text18
+
+This plug-in is licensed under the BSD license:
+http://www.opensource.org/licenses/bsd-license.php
+
+
+==============================================================================
+ 9. LICENSE                                                *PickAColorLicense*
+
+Copyright (c) 2010, Israel Chauca F.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of Israel Chauca F. nor the names of his contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+=============================================================================
+ 10. HISTORY                                               *PickAColorHistory*
+
+  Version      Date      Release notes                                       ~
+|---------|------------|-----------------------------------------------------|
+
+    1.1     2010-03-23   - Fixed some typos and extra-output. Thanks to Steve
+                           Huff.
+                         - If GTK is not available and the plug-in is not
+                           running under Mac OS X, the commands will work with
+                           color names.
+
+|---------|------------|-----------------------------------------------------|
+
+    1.0     2010-03-21   Initial upload.
+
+|---------|------------|-----------------------------------------------------|
+
+vim:tw=78:ts=8:ft=help:norl:formatoptions+=tcroqn:autoindent:
