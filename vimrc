@@ -237,7 +237,7 @@ if !has("gui")
     let g:CSApprox_loaded = 1
 endif
 
-let mapleader = ","
+let mapleader = ','
 
 noremap <leader>n :NERDTreeToggle<CR>
 
@@ -275,6 +275,7 @@ nmap <S-Enter> O<Esc>
 
 "Command-shift-c to insert a colour using the ColorPalette
 imap <D-C> <Esc>:PickHEX<CR>
+nmap <D-C> :PickHEX<CR>
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
@@ -307,6 +308,8 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
+"highlight Thor files
+autocmd BufNewFile,BufRead *.thor set filetype=ruby
 
 "jump to last cursor position when opening a file
 "dont do it when writing a commit log entry
