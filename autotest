@@ -1,8 +1,8 @@
 begin
-  require 'autotest/growl'
+  # require 'autotest/growl'
   require 'autotest/fsevent'
 
-  Autotest::Growl::show_modified_files = true
+  # Autotest::Growl::show_modified_files = true
 rescue LoadError
   $stderr.puts "Failed to load Mac-specific autotest enhancements"
 end
