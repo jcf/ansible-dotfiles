@@ -274,7 +274,7 @@ nmap <Enter> o<Esc>
 nmap <S-Enter> O<Esc>
 
 "Command-shift-c to insert a colour using the ColorPalette
-imap <D-C> <Esc>:PickHEX<CR>
+imap <D-C> <c-o>:PickHEX<CR>
 nmap <D-C> :PickHEX<CR>
 
 "mark syntax errors with :signs
