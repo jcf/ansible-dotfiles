@@ -60,6 +60,10 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
 
+"No more tubular bells
+set noerrorbells
+set visualbell
+
 "appearence
 colorscheme ir_black
 set background=dark
