@@ -142,6 +142,9 @@ hi link SpecialChar     Special
 hi link SpecialComment  Special
 hi link Debug           Special
 
+" Fix invisible characters in bufExplorer
+hi link bufExplorerTitle   Special
+hi link bufExplorerMapping Special
 
 " Special for Ruby
 hi rubyRegexp                  guifg=#B18A3D      guibg=NONE      gui=NONE      ctermfg=brown          ctermbg=NONE      cterm=NONE
