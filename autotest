@@ -1,7 +1,7 @@
 require 'autotest/fsevent' rescue LoadError
 
 Autotest.add_hook :initialize do |autotest|
-  exceptions = %w[ .git .svn .hg .DS_Store ._* log .sass public ]
+  exceptions = %w[.git .svn .hg .DS_Store ._* log .sass public]
   exceptions.each do |exception|
     autotest.add_exception(exception)
   end
