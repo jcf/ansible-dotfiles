@@ -278,6 +278,9 @@ imap jj <Esc>
 nmap <Enter> o<Esc>
 nmap <S-Enter> O<Esc>
 
+" switch to alternate file
+nmap <leader>a :AV<CR>
+
 " Command-shift-c to insert a colour using the ColorPalette
 imap <D-C> <c-o>:PickHEX<CR>
 nmap <D-C> :PickHEX<CR>
