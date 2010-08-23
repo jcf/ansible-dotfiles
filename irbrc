@@ -8,6 +8,22 @@ IRB.conf.merge!(
   :AUTO_INDENT => true
 )
 
+# Lovely stuff scrooloose
+# (NSFW) http://got-ravings.blogspot.com/2009/10/mainframe-molestation-with-looksee.html
+# require 'looksee/shortcuts'
+
+# module Kernel
+#   alias_method :orig_methods, :methods
+
+#   def methods(*args)
+#     if caller.first =~ /\(irb\):\d+:in `irb_binding'/
+#       lp(self, *args)
+#     else
+#       orig_methods
+#     end
+#   end
+# end
+
 if RUBY_VERSION < "1.9"
   class Symbol
     def to_proc
