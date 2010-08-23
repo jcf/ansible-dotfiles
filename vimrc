@@ -54,13 +54,7 @@ set statusline+=%*
 
 set statusline+=%=                                " left/right separator
 
-set statusline+=%#VimScope#
 set statusline+=%{StatuslineCurrentHighlight()}\  " current scope
-set statusline+=%*
-
-set statusline+=%#GitInfo#
-set statusline+=%{fugitive#statusline()}\         " current branch
-set statusline+=%*
 
 set statusline+=%c,                               " cursor column
 set statusline+=%l/%L                             " cursor line/total lines
