@@ -1,15 +1,9 @@
-[submodule "vim/snippets"]
-	path = vim/snippets
-	url = git://github.com/scrooloose/snipmate-snippets.git
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/snipmate"]
-	path = vim/bundle/snipmate.vim
-	url = git://github.com/msanders/snipmate.vim.git
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
 	url = git://github.com/tpope/vim-abolish.git
@@ -69,7 +63,10 @@
 	url = git://github.com/tpope/vim-unimpaired.git
 [submodule "vim/bundle/snipmate.vim"]
 	path = vim/bundle/snipmate.vim
-	url = git://github.com/msanders/snipmate.vim.git
+	url = git://github.com/msanders/snipmate.vim
 [submodule "vim/bundle/textile.vim"]
 	path = vim/bundle/textile.vim
 	url = git://github.com/timcharper/textile.vim.git
+[submodule "vim/snippets"]
+	path = vim/snippets
+	url = git@github.com:jcf/snipmate-snippets.git
