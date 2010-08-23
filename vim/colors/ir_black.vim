@@ -110,7 +110,7 @@ hi Number           guifg=#FF73FD     guibg=NONE        gui=NONE      ctermfg=ma
 
 hi Keyword          guifg=#96CBFE     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE
 hi PreProc          guifg=#96CBFE     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE
-hi Conditional      guifg=#6699CC     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE  " if else end
+hi Conditional      guifg=#6699CC     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE
 
 hi Todo             guifg=#8f8f8f     guibg=NONE        gui=NONE      ctermfg=red         ctermbg=NONE        cterm=NONE
 hi Constant         guifg=#99CC99     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
@@ -123,6 +123,8 @@ hi Statement        guifg=#6699CC     guibg=NONE        gui=NONE      ctermfg=li
 hi Special          guifg=#E18964     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
 hi Delimiter        guifg=#00A0A0     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
 hi Operator         guifg=white       guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
+
+
 
 hi link Character       Constant
 hi link Boolean         Constant
@@ -205,3 +207,7 @@ hi link javaScriptNumber      Number
 
 " Special for CSharp
 hi  link csXmlTag             Keyword
+
+" Status line highlights
+hi GitInfo         guifg=#ff006c guibg=#202020 gui=italic ctermfg=magenta  ctermbg=NONE cterm=NONE
+hi VimScope        guifg=#535353 guibg=#202020 gui=italic ctermfg=darkgray ctermbg=NONE cterm=NONE

@@ -1,41 +1,40 @@
-"Use Vim settings, rather then Vi settings (much better!).
-"This must be first, because it changes other options as a side effect.
 set nocompatible
 
-"allow backspacing over everything in insert mode
+" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-"store lots of :cmdline history
+" store lots of :cmdline history
 set history=1000
 
-set showcmd     "show incomplete cmds down the bottom
-set showmode    "show current mode down the bottom
+set showcmd     " show incomplete cmds down the bottom
+set showmode    " show current mode down the bottom
 
-set incsearch   "find the next match as we type the search
-set hlsearch    "hilight searches by default
+set incsearch   " find the next match as we type the search
+set hlsearch    " hilight searches by default
 
-set nowrap      "dont wrap lines
-set linebreak   "wrap lines at convenient points
+set nowrap      " dont wrap lines
+set linebreak   " wrap lines at convenient points
+set number      " line numbers
 
-"statusline setup
-set statusline=%f       "tail of the filename
+" statusline setup
+set statusline=%f       " tail of the filename
 
-"display a warning if fileformat isnt unix
+" display a warning if fileformat isnt unix
 set statusline+=%#warningmsg#
 set statusline+=%{&ff!='unix'?'['.&ff.']':''}
 set statusline+=%*
 
-"display a warning if file encoding isnt utf-8
+" display a warning if file encoding isnt utf-8
 set statusline+=%#warningmsg#
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%*
 
-set statusline+=%h      "help file flag
-set statusline+=%y      "filetype
-set statusline+=%r      "read only flag
-set statusline+=%m      "modified flag
+set statusline+=%h      " help file flag
+set statusline+=%y      " filetype
+set statusline+=%r      " read only flag
+set statusline+=%m      " modified flag
 
-"display a warning if &et is wrong, or we have mixed-indenting
+" display a warning if &et is wrong, or we have mixed-indenting
 set statusline+=%#error#
 set statusline+=%{StatuslineTabWarning()}
 set statusline+=%*
@@ -48,33 +47,41 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-"display a warning if &paste is set
+" display a warning if &paste is set
 set statusline+=%#error#
 set statusline+=%{&paste?'[paste]':''}
 set statusline+=%*
 
-set statusline+=%=      "left/right separator
-set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
+set statusline+=%=                                " left/right separator
+
+set statusline+=%#VimScope#
+set statusline+=%{StatuslineCurrentHighlight()}\  " current scope
+set statusline+=%*
+
+set statusline+=%#GitInfo#
+set statusline+=%{fugitive#statusline()}\         " current branch
+set statusline+=%*
+
+set statusline+=%c,                               " cursor column
+set statusline+=%l/%L                             " cursor line/total lines
+set statusline+=\ %P                              " percent through file
 set laststatus=2
 
-"No more tubular bells
+" No more tubular bells
 set noerrorbells
 set visualbell
 
-"appearence
+" appearence
 colorscheme ir_black
 set background=dark
 
-"recalculate the trailing whitespace warning when idle, and after saving
+" recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 
 call pathogen#runtime_append_all_bundles()
 
-"return '[\s]' if trailing white space is detected
-"return '' otherwise
+" return '[\s]' if trailing white space is detected
+" return '' otherwise
 function! StatuslineTrailingSpaceWarning()
     if !exists("b:statusline_trailing_space_warning")
         if search('\s\+$', 'nw') != 0
@@ -87,7 +94,7 @@ function! StatuslineTrailingSpaceWarning()
 endfunction
 
 
-"return the syntax highlight group under the cursor ''
+" return the syntax highlight group under the cursor ''
 function! StatuslineCurrentHighlight()
     let name = synIDattr(synID(line('.'),col('.'),1),'name')
     if name == ''
@@ -97,12 +104,12 @@ function! StatuslineCurrentHighlight()
     endif
 endfunction
 
-"recalculate the tab warning flag when idle and after writing
+" recalculate the tab warning flag when idle and after writing
 autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
 
-"return '[&et]' if &et is set wrong
-"return '[mixed-indenting]' if spaces and tabs are used to indent
-"return an empty string if everything is fine
+" return '[&et]' if &et is set wrong
+" return '[mixed-indenting]' if spaces and tabs are used to indent
+" return an empty string if everything is fine
 function! StatuslineTabWarning()
     if !exists("b:statusline_tab_warning")
         let tabs = search('^\t', 'nw') != 0
@@ -119,16 +126,16 @@ function! StatuslineTabWarning()
     return b:statusline_tab_warning
 endfunction
 
-"recalculate the long line warning when idle and after saving
+" recalculate the long line warning when idle and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
-"return a warning for "long lines" where "long" is either &textwidth or 80 (if
-"no &textwidth is set)
+" return a warning for "long lines" where "long" is either &textwidth or 80 (if
+" no &textwidth is set)
 "
-"return '' if no long lines
-"return '[#x,my,$z] if long lines are found, were x is the number of long
-"lines, y is the median length of the long lines and z is the length of the
-"longest line
+" return '' if no long lines
+" return '[#x,my,$z] if long lines are found, were x is the number of long
+" lines, y is the median length of the long lines and z is the length of the
+" longest line
 function! StatuslineLongLineWarning()
     if !exists("b:statusline_long_line_warning")
         let long_line_lens = s:LongLines()
@@ -145,7 +152,7 @@ function! StatuslineLongLineWarning()
     return b:statusline_long_line_warning
 endfunction
 
-"return a list containing the lengths of the long lines in this buffer
+" return a list containing the lengths of the long lines in this buffer
 function! s:LongLines()
     let threshold = (&tw ? &tw : 80)
     let spaces = repeat(" ", &ts)
@@ -164,7 +171,7 @@ function! s:LongLines()
     return long_line_lens
 endfunction
 
-"find the median of the given array of numbers
+" find the median of the given array of numbers
 function! s:Median(nums)
     let nums = sort(a:nums)
     let l = len(nums)
@@ -177,13 +184,13 @@ function! s:Median(nums)
     endif
 endfunction
 
-"indent settings
+" indent settings
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 set autoindent
 
-"folding settings
+" folding settings
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
@@ -192,51 +199,51 @@ set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
-"display tabs and trailing spaces
+" display tabs and trailing spaces
 set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
-"vertical/horizontal scroll off settings
+" vertical/horizontal scroll off settings
 set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
 
-"load ftplugins and indent files
+" load ftplugins and indent files
 filetype plugin on
 filetype indent on
 
-"turn on syntax highlighting
+" turn on syntax highlighting
 syntax on
 
-"some stuff to get the mouse going in term
+" some stuff to get the mouse going in term
 set mouse=a
 set ttymouse=xterm2
 
-"because I like zsh!
+" because I like zsh!
 set shell=zsh\ -l
 
-"tell the term has 256 colors
+" tell the term has 256 colors
 set t_Co=256
 
-"hide buffers when not displayed
+" hide buffers when not displayed
 set hidden
 
-"Clever, lazy case sensitive searches
+" Clever, lazy case sensitive searches
 set ignorecase
 set smartcase
 
-"Get out of my face swap files
+" Get out of my face swap files
 set backupdir=$HOME/.swp//
 set directory=$HOME/.swp//
 
-" Automatically create .swp directory
+"  Automatically create .swp directory
 if filewritable(expand("$HOME")) && ! filewritable(expand("$HOME/.swp"))
   silent execute 'mkdir .swp'
 endif
 
-"dont load csapprox if we no gui support - silences an annoying warning
+" dont load csapprox if we no gui support - silences an annoying warning
 if !has("gui")
     let g:CSApprox_loaded = 1
 endif
@@ -254,39 +261,39 @@ if has("gui_macvim")
   imap <C-down> <C-o><C-e>
 endif
 
-"make <c-l> clear the highlight as well as redraw
+" make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
-"map to bufexplorer
+" map to bufexplorer
 nnoremap <C-B> :BufExplorer<cr>
 
-"map to Fuf file
+" map to Fuf file
 nnoremap <c-f> :FufFile<CR>
 
-"map Q to something useful
+" map Q to something useful
 noremap Q gq
 
-"make Y consistent with C and D
+" make Y consistent with C and D
 nnoremap Y y$
 
-"who wants to reach for ESC all the time?
+" who wants to reach for ESC all the time?
 imap jj <Esc>
 
-"use enter to insert newlines in normal mode
+" use enter to insert newlines in normal mode
 nmap <Enter> o<Esc>
 nmap <S-Enter> O<Esc>
 
-"Command-shift-c to insert a colour using the ColorPalette
+" Command-shift-c to insert a colour using the ColorPalette
 imap <D-C> <c-o>:PickHEX<CR>
 nmap <D-C> :PickHEX<CR>
 
-"mark syntax errors with :signs
+" mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 
 let NERDSpaceDelims=1
 
-"snipmate setup
+" snipmate setup
 source ~/.vim/snippets/support_functions.vim
 autocmd vimenter * call s:SetupSnippets()
 function! s:SetupSnippets()
@@ -302,7 +309,7 @@ function! s:SetupSnippets()
     call ExtractSnips("~/.vim/snippets/html", "php")
 endfunction
 
-"visual search mappings
+" visual search mappings
 function! s:VSetSearch()
     let temp = @@
     norm! gvy
@@ -312,11 +319,11 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
-"highlight Thor files
+" highlight Thor files
 autocmd BufNewFile,BufRead *.thor set filetype=ruby
 
-"jump to last cursor position when opening a file
-"dont do it when writing a commit log entry
+" jump to last cursor position when opening a file
+" dont do it when writing a commit log entry
 autocmd BufReadPost * call SetCursorPosition()
 function! SetCursorPosition()
     if &filetype !~ 'commit\c'
@@ -327,8 +334,8 @@ function! SetCursorPosition()
     end
 endfunction
 
-"define :HighlightLongLines command to highlight the offending parts of
-"lines that are longer than the specified length (defaulting to 80)
+" define :HighlightLongLines command to highlight the offending parts of
+" lines that are longer than the specified length (defaulting to 80)
 command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
 function! s:HighlightLongLines(width)
     let targetWidth = a:width != '' ? a:width : 79
