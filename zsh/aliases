@@ -1,6 +1,5 @@
-# Lazy Editor
-alias e="edit"
-alias erails="edit .gitignore app config db features lib public script spec"
+# MacVim will edit all!
+alias e="mvim"
 
 # dotfiles
 alias reload="source ~/.zshrc"
@@ -9,7 +8,7 @@ alias edot="mvim -c \"cd ~/.dotfiles\" ~/.dotfiles"
 
 # executable dir
 alias cbin="cd ~/bin"
-alias ebin="edit ~/bin"
+alias ebin="e ~/bin"
 
 # cd
 alias ..='cd ..'
