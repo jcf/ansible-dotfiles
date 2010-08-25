@@ -5,6 +5,7 @@
 	co = checkout
 	unstage = reset HEAD --
 	last = log -1 HEAD
+	ignore = update-index --assume-unchanged
 [color]
 	diff = auto
 	status = auto
