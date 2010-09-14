@@ -33,6 +33,7 @@ set statusline+=%h      " help file flag
 set statusline+=%y      " filetype
 set statusline+=%r      " read only flag
 set statusline+=%m      " modified flag
+set statusline+=[%{&fo}]
 
 " display a warning if &et is wrong, or we have mixed-indenting
 set statusline+=%#error#
@@ -183,6 +184,9 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set autoindent
+
+" textwidth <= 80 please
+set colorcolumn=81
 
 " folding settings
 set foldmethod=indent   "fold based on indent
