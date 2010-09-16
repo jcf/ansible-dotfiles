@@ -185,7 +185,7 @@ set softtabstop=2
 set expandtab
 set autoindent
 
-" textwidth <= 80 please
+" textwidth < 81 please
 set colorcolumn=81
 
 " folding settings
@@ -249,6 +249,24 @@ endif
 let mapleader = ','
 
 noremap <leader>n :NERDTreeToggle<CR>
+
+" Rails app navigation shortcuts
+noremap <leader>rm :Rmodel 
+noremap <leader>rc :Rcontroller 
+noremap <leader>rw :Rview 
+noremap <leader>rs :Rspec 
+
+" Open in a new tab
+noremap <leader>rtm :RTmodel 
+noremap <leader>rtc :RTcontroller 
+noremap <leader>rtw :RTview 
+noremap <leader>rts :RTspec 
+
+" Open in a new vertical split
+noremap <leader>rvm :RVmodel 
+noremap <leader>rvc :RVcontroller 
+noremap <leader>rvw :RVview 
+noremap <leader>rvs :RVspec 
 
 if has("gui_macvim")
   set guioptions=egmrt
