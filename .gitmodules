@@ -73,3 +73,6 @@
 [submodule "vim/bundle/easygrep.vim"]
 	path = vim/bundle/easygrep.vim
 	url = git://github.com/jcf/easygrep.vim.git
+[submodule "vim/bundle/vim-latex"]
+	path = vim/bundle/vim-latex
+	url = git://github.com/jcf/vim-latex.git
