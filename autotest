@@ -1,3 +1,4 @@
+require 'benchmark'
 require 'autotest/fsevent' rescue LoadError
 
 Autotest.add_hook :initialize do |autotest|
@@ -6,3 +7,18 @@ Autotest.add_hook :initialize do |autotest|
     autotest.add_exception(exception)
   end
 end
+
+Autotest.add_hook :all_good do |autotest|
+  files = autotest.find_order.select do |path|
+    path =~ %r{^(?:app/models|app/controllers|app/helpers|lib).*\.rb$}
+  end.map { |path| File.expand_path(path) }
+
+  unless files.empty?
+    puts "\nRunning reek on #{files.length} file(s)...\n"
+    time = Benchmark.realtime do
+      system("bundle exec reek -q #{files.join(' ')}")
+    end
+    puts "\nFinished in #{'%.6f' % time} seconds\n"
+  end
+  false
+end if ENV['REEK'] == 'true'
