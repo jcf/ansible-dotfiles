@@ -55,8 +55,10 @@ function rails_command {
   shift
   if [ -e script/rails ]; then
     rails $cmd "$@"
-  else
+  elif [ -e script/$cmd ]; then
     script/$cmd "$@"
+  else
+    echo "This isn't a Rails app"
   fi
 }
 function ss { rails_command "server" "thin" "$@" }
