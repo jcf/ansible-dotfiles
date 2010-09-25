@@ -13,6 +13,9 @@ alias ebin="e ~/bin"
 # cd
 alias ..='cd ..'
 
+# List TCP ports
+alias ports='sudo lsof -iTCP -sTCP:LISTEN -P'
+
 # Host aware ls color option
 case $(uname) in
   'Darwin')
@@ -46,12 +49,20 @@ alias glog='git log --stat'
 alias gmt='git mergetool'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
-# rails
-alias a='autospec -rails'
-alias sc='script/console'
-alias ss='script/server'
-alias ssa='tab script/server && autospec -rails'
-alias sg='script/generate'
+# Rails
+function rails_command {
+  local cmd=$1
+  shift
+  if [ -e script/rails ]; then
+    rails $cmd "$@"
+  else
+    script/$cmd "$@"
+  fi
+}
+function ss { rails_command "server" "thin" "$@" }
+function sc { rails_command "console" "$@" }
+function sg { rails_command "generate" "$@" }
+
 alias tlog='tail -f log/development.log'
 alias mig='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
@@ -69,4 +80,9 @@ alias node-repl='rlwrap node-repl'
 
 # Readers and Pagers
 alias t='tail -f'
-alias -g L='| less'
+alias -g L='|less'
+alias -g G='|grep'
+alias -g T='|tail'
+alias -g H='|head'
+alias -g N='&>/dev/null&'
+alias -g W='|wc'
