@@ -6,24 +6,24 @@ if [[ "$terminfo[colors]" -ge 8 ]]; then
   colors
 fi
 for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-  eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-  eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+  eval $color='%{$terminfo[bold]$fg[${(L)color}]%}'
+  eval LIGHT_$color='%{$fg[${(L)color}]%}'
   (( count = $count + 1 ))
 done
-PR_NO_COLOR="%{$terminfo[sgr0]%}"
+NO_COLOR="%{$terminfo[sgr0]%}"
 
-# PS1='$PR_LIGHT_BLUE%2c$PR_NO_COLOR %(!.#.$) '
-PS1="$PR_LIGHT_YELLOW"
+# PS1='$LIGHT_BLUE%2c$NO_COLOR %(!.#.$) '
+PS1="$LIGHT_YELLOW"
 
 if [[ -n $SSH_CONNECTION ]]; then
-  PS1="$PS1$PR_LIGHT_YELLOW%m"
+  PS1="$PS1$LIGHT_YELLOW%m"
 else
-  PS1="$PS1$PR_LIGHT_CYAN%m"
+  PS1="$PS1$LIGHT_CYAN%m"
 fi
 
-PS1="$PS1$PR_NO_COLOR %c%(!.#.$) "
+PS1="$PS1$NO_COLOR %c%(!.#.$) "
 
-RPS1='$PR_LIGHT_RED$(git_info_for_prompt) $PR_NO_COLOR!%h'
+RPS1='$LIGHT_RED$(git_info_for_prompt) $NO_COLOR!%h'
 
 EDITOR='vim'
 [ $(uname) = 'Darwin' ] && EDITOR='mvim'
@@ -36,34 +36,33 @@ autoload zmv
 autoload -U ~/.zsh/functions/*(:t)
 
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 
 TM_BUNDLES="$HOME/Library/Application Support/TextMate/Bundles"
 
-RIPDIR=~/.rip
-RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
-PATH="$PATH:$RIPDIR/active/bin"
-RUBYOPT=rubygems
-
 unsetopt ALL_EXPORT
 
-setopt NO_BG_NICE # don't nice background tasks
-setopt NO_HUP
-setopt NO_LIST_BEEP
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
-setopt HIST_VERIFY
-setopt SHARE_HISTORY # share history between sessions ???
-setopt EXTENDED_HISTORY # add timestamps to history
-setopt PROMPT_SUBST
-setopt CORRECT
-setopt COMPLETE_IN_WORD
-setopt IGNORE_EOF
+setopt auto_cd          # lazy directory navigation
+setopt nobeep
+setopt autopushd pushdminus pushdsilent pushdtohome
+setopt globdots
+setopt no_bg_nice       # don't nice background tasks
+setopt no_hup
+setopt no_list_beep
+setopt local_options    # allow functions to have local options
+setopt local_traps      # allow functions to have local traps
+setopt hist_verify
+setopt share_history    # share history between sessions ???
+setopt extended_history # add timestamps to history
+setopt prompt_subst
+setopt correct
+setopt complete_in_word
+setopt ignore_eof
 
-setopt APPEND_HISTORY # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+setopt APPEND_HISTORY                   # adds history
+setopt INC_APPEND_HISTORY SHARE_HISTORY # adds history incrementally and share it across sessions
+setopt HIST_IGNORE_ALL_DUPS             # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 zle -N newtab
