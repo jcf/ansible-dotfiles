@@ -6,32 +6,51 @@
 #
 # altered from _brew
 
+_bundled_gems() {
+  if [[ -f Gemfile ]] then
+    bundled_gems=(`bundle list 2>/dev/null | awk ' NR > 1 { print $2 } '`)
+  else
+    bundled_gems=()
+  fi
+}
+
 local -a _1st_arguments
 _1st_arguments=(
-  'check:Checks if the dependencies listed in Gemfile are satisfied by currently installed gems'
-  'console:Opens an IRB session with the bundle pre-loaded'
-  'exec:Run the command in context of the bundle'
+  'check:Determine whether the requirements for your application are installed and available to bundler'
+  'config:Specify and read configuration options for bundler'
+  'console:Start an IRB session in the context of the current bundle'
+  'exec:Execute a script in the context of the current bundle'
+  'gem:Create a simple gem, suitable for development with bundler'
   'help:Describe available tasks or one specific task'
-  'init:Generates a Gemfile into the current working directory'
-  'install:Install the current environment to the system'
-  'lock:Locks the bundle to the current set of dependencies'
-  'open:Opens the source directory of the given bundled gem'
-  'package:Locks and then caches all of the gems into vendor/cache'
-  'show:Shows all gems that are part of the bundle, or the path to a given gem'
+  'init:Generate a simple Gemfile, placed in the current directory'
+  'install:Install the gems specified by the Gemfile or Gemfile.lock'
+  'list:Show all of the gems in the current bundle'
+  'open:Open an installed gem in the editor'
+  'package:Package the .gem files required by your application into the vendor/cache directory'
+  'show:Show the source location of a particular gem in the bundle'
   'unlock:Unlock the bundle'
+  'update:Update dependencies to their latest versions'
   'version:Print version information'
+  'viz:Generate a visual representation of your dependencies'
 )
+local expl
+local -a bundled_gems
 
-_arguments '*:: :->subcmds' && return 0
+_arguments \
+  '(--no-color)--no-color[Prints all output without color]' \
+  '(--version)--version[Version information]' \
+  '*:: :->subcmds' && return 0
 
 if (( CURRENT == 1 )); then
   _describe -t commands "bundle subcommand" _1st_arguments
   return
 fi
 
-# I'd like to get exec to autocomplete properly but can't work out how to get zsh to play nice
-# case "$words[1]" in
-#   exec)
-#     compadd _all_expansions ;;
-# esac
-
+case "$words[1]" in
+  show|open)
+    _bundled_gems
+    _wanted bundled_gems expl 'bundled gems' compadd -a bundled_gems
+  ;;
+  'exec')
+  ;;
+esac
