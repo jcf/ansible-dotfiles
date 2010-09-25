@@ -179,7 +179,6 @@ hi link rubyConstant          Type
 hi link cocoaClass       Type
 hi link objcMethodName   Function
 hi link objcMessageName  Normal
-hi link objcMessageColon cConstant
 hi link cConstant        Identifier
 
 " Java
