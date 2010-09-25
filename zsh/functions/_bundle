@@ -52,5 +52,6 @@ case "$words[1]" in
     _wanted bundled_gems expl 'bundled gems' compadd -a bundled_gems
   ;;
   'exec')
+    _arguments '*:tail:_normal'
   ;;
 esac
