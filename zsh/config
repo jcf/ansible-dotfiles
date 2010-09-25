@@ -5,7 +5,7 @@ autoload colors zsh/terminfo
 if [[ "$terminfo[colors]" -ge 8 ]]; then
   colors
 fi
-for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE BLACK; do
   eval $color='%{$terminfo[bold]$fg[${(L)color}]%}'
   eval LIGHT_$color='%{$fg[${(L)color}]%}'
   (( count = $count + 1 ))
@@ -23,7 +23,7 @@ fi
 
 PS1="$PS1$NO_COLOR %c%(!.#.$) "
 
-RPS1='$LIGHT_RED$(git_info_for_prompt) $NO_COLOR!%h'
+RPS1='$LIGHT_RED$(git_info_for_prompt)$NO_COLOR $LIGHT_BLACK!%h$NO_COLOR'
 
 EDITOR='vim'
 [ $(uname) = 'Darwin' ] && EDITOR='mvim'
