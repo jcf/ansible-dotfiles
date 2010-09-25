@@ -13,7 +13,16 @@ done
 PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
 # PS1='$PR_LIGHT_BLUE%2c$PR_NO_COLOR %(!.#.$) '
-PS1='$PR_LIGHT_CYAN%m$PR_NO_COLOR %c%(!.#.$) '
+PS1="$PR_LIGHT_YELLOW"
+
+if [[ -n $SSH_CONNECTION ]]; then
+  PS1="$PS1$PR_LIGHT_YELLOW%m"
+else
+  PS1="$PS1$PR_LIGHT_CYAN%m"
+fi
+
+PS1="$PS1$PR_NO_COLOR %c%(!.#.$) "
+
 RPS1='$PR_LIGHT_RED$(git_info_for_prompt) $PR_NO_COLOR!%h'
 
 EDITOR='vim'
