@@ -175,7 +175,14 @@ hi link rubyGlobalVariable    Identifier
 hi link rubyClassVariable     Identifier
 hi link rubyConstant          Type
 
-" Special for Java
+" Objective-C
+hi link cocoaClass       Type
+hi link objcMethodName   Function
+hi link objcMessageName  Normal
+hi link objcMessageColon cConstant
+hi link cConstant        Identifier
+
+" Java
 " hi link javaClassDecl    Type
 hi link javaScopeDecl         Identifier
 hi link javaCommentTitle      javaDocSeeTag
@@ -187,24 +194,21 @@ hi javaDocSeeTag              guifg=#CCCCCC     guibg=NONE        gui=NONE      
 hi javaDocSeeTag              guifg=#CCCCCC     guibg=NONE        gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
 "hi javaClassDecl              guifg=#CCFFCC     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
 
-" Special for XML
+" XML
 hi link xmlTag          Keyword
 hi link xmlTagName      Conditional
 hi link xmlEndTag       Identifier
 
-" Special for HTML
+" HTML
 hi link htmlTag         Keyword
 hi link htmlTagName     Conditional
 hi link htmlEndTag      Identifier
 
-" Special for Javascript
+" Javascript
 hi link javaScriptNumber      Number
 
-" Special for Python
+" Python
 "hi  link pythonEscape         Keyword
-
-" Special for CSharp
-hi  link csXmlTag             Keyword
 
 " Fix invisible characters in bufExplorer
 hi link bufExplorerTitle   Special
