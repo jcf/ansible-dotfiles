@@ -82,3 +82,6 @@
 [submodule "vim/bundle/rvm_ruby.vim"]
 	path = vim/bundle/rvm_ruby.vim
 	url = git://github.com/jcf/rvm_ruby.vim.git
+[submodule "vim/bundle/tag_list.vim"]
+	path = vim/bundle/tag_list.vim
+	url = git://github.com/jcf/tag_list.vim
