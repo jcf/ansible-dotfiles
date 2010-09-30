@@ -18,6 +18,12 @@
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [push]
 	default = matching
+[merge]
+	tool = mvim
+[mergetool "mvim"]
+	cmd = <path to mvim>mvim -d -g "$LOCAL" "$MERGED" "$REMOTE"
+	keepBackup = false
+	trustExitCode = false
 [github]
 	user = jcf
 	token = 
