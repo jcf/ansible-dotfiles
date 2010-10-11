@@ -253,20 +253,33 @@ noremap <leader>n :NERDTreeToggle<CR>
 " Rails app navigation shortcuts
 noremap <leader>rm :Rmodel 
 noremap <leader>rc :Rcontroller 
+noremap <leader>rh :Rhelper 
 noremap <leader>rw :Rview 
-noremap <leader>rs :Rspec 
+noremap <leader>rr :Rspec 
 
 " Open in a new tab
 noremap <leader>rtm :RTmodel 
 noremap <leader>rtc :RTcontroller 
+noremap <leader>rth :RThelper 
 noremap <leader>rtw :RTview 
-noremap <leader>rts :RTspec 
+noremap <leader>rtr :RTspec 
+
+" Open in a new horizontal split
+noremap <leader>rsm :RSmodel 
+noremap <leader>rsc :RScontroller 
+noremap <leader>rsh :RShelper 
+noremap <leader>rsw :RSview 
+noremap <leader>rsr :RSspec 
 
 " Open in a new vertical split
 noremap <leader>rvm :RVmodel 
 noremap <leader>rvc :RVcontroller 
+noremap <leader>rvh :RVhelper 
 noremap <leader>rvw :RVview 
-noremap <leader>rvs :RVspec 
+noremap <leader>rvr :RVspec 
+
+" Open alternate file in new vertical split
+nmap <leader>a :AV<CR>
 
 if has("gui_macvim")
   set guioptions=egmrt
@@ -299,9 +312,6 @@ imap jj <Esc>
 " use enter to insert newlines in normal mode
 nmap <Enter> o<Esc>
 nmap <S-Enter> O<Esc>
-
-" switch to alternate file
-nmap <leader>a :AV<CR>
 
 " Command-shift-c to insert a colour using the ColorPalette
 imap <D-C> <c-o>:PickHEX<CR>
