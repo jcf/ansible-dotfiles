@@ -60,10 +60,10 @@ setopt correct
 setopt complete_in_word
 setopt ignore_eof
 
-setopt APPEND_HISTORY                   # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS             # don't record dupes in history
-setopt HIST_REDUCE_BLANKS
+setopt append_history       # adds history
+setopt inc_append_history   # adds history incrementally and share it across sessions
+setopt hist_ignore_all_dupS # don't record dupes in history
+setopt hist_reduce_blanks
 
 zle -N newtab
 bindkey -e
