@@ -1,9 +1,21 @@
 require 'benchmark'
 require 'autotest/fsevent' rescue LoadError
 
+EXCEPTIONS = %w(
+  .git
+  .svn
+  .hg
+  .DS_Store
+  .sass
+  ._*
+  log
+  public
+  Gemfile
+  Gemfile.lock
+)
+
 Autotest.add_hook :initialize do |autotest|
-  exceptions = %w[.git .svn .hg .DS_Store ._* log .sass public]
-  exceptions.each do |exception|
+  EXCEPTIONS.each do |exception|
     autotest.add_exception(exception)
   end
 end
