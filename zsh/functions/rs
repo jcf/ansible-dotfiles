@@ -1,7 +1,0 @@
-if [[ $# -eq 1 ]]; then
-  cd ~/git/$1
-fi
-tab script/autospec
-tab
-mate .
-script/server
