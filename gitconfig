@@ -21,3 +21,5 @@
 [github]
 	user = jcf
 	token = 
+[heroku]
+	account = personal
