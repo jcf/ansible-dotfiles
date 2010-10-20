@@ -67,9 +67,6 @@
 [submodule "vim/bundle/textile.vim"]
 	path = vim/bundle/textile.vim
 	url = git://github.com/timcharper/textile.vim.git
-[submodule "vim/snippets"]
-	path = vim/snippets
-	url = git@github.com:jcf/snipmate-snippets.git
 [submodule "vim/bundle/easygrep.vim"]
 	path = vim/bundle/easygrep.vim
 	url = git://github.com/jcf/easygrep.vim.git
@@ -85,3 +82,6 @@
 [submodule "vim/bundle/tag_list.vim"]
 	path = vim/bundle/tag_list.vim
 	url = git://github.com/jcf/tag_list.vim
+[submodule "vim/snippets"]
+	path = vim/snippets
+	url = git://github.com/jcf/snipmate-snippets.git
