@@ -30,44 +30,56 @@ EDITOR='vim'
 GIT_EDITOR='mvim -f'
 GEM_EDITOR='mvim -f'
 
-fpath=(~/.zsh/functions $fpath)
-
-autoload zmv
-autoload -U ~/.zsh/functions/*(:t)
-
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
-TM_BUNDLES="$HOME/Library/Application Support/TextMate/Bundles"
-
 unsetopt ALL_EXPORT
+
+fpath=(~/.zsh/functions $fpath)
+autoload zmv
+autoload -U ~/.zsh/functions/*(:t)
+
+# smart urls
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
 
 setopt auto_cd          # lazy directory navigation
 setopt nobeep
-setopt autopushd pushdminus pushdsilent pushdtohome
+setopt autopushd
+setopt pushdminus
+setopt pushdsilent
+setopt pushdtohome
 setopt globdots
 setopt no_bg_nice       # don't nice background tasks
 setopt no_hup
 setopt no_list_beep
 setopt local_options    # allow functions to have local options
 setopt local_traps      # allow functions to have local traps
-setopt hist_verify
-setopt share_history    # share history between sessions ???
-setopt extended_history # add timestamps to history
 setopt prompt_subst
 setopt correct
 setopt complete_in_word
 setopt ignore_eof
 
-setopt append_history       # adds history
-setopt inc_append_history   # adds history incrementally and share it across sessions
-setopt hist_ignore_all_dupS # don't record dupes in history
+setopt append_history         # adds history
+setopt extended_history
+setopt extended_history       # add timestamps to history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups   # don't record dupes in history
+setopt hist_ignore_space
 setopt hist_reduce_blanks
+setopt hist_verify
+setopt inc_append_history     # adds history incrementally and share it across sessions
+setopt share_history          # share history between sessions ???
 
 zle -N newtab
 bindkey -e
 bindkey '^[[5D' backward-word
 bindkey '^[[5C' forward-word
+bindkey ' ' magic-space
+
+# Find partial history matches
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
