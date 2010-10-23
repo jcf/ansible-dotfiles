@@ -1,2 +1,0 @@
-#compdef rs
-_files -W ~/git -/
