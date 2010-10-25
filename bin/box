@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+ESC = "\033["
+@fgs = [*30..37]
+@bgs = [*40..47]
+box_width = 4 + 4 * @bgs.length
+
+def header
+  @bgs.map { |bg| " #{bg} " }.join
+end
+
+puts '', header + '  ' + header
+
+@fgs.each do |fg|
+  @bgs.each { |bg| print "#{ESC}#{fg};#{bg}m #{fg} #{ESC}0m" }
+
+  print '  '
+
+  @bgs.each { |bg| print "#{ESC}#{fg};#{bg};1m #{fg} #{ESC}0m" }
+
+  puts
+end
+
+puts

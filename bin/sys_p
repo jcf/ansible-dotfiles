@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+require 'open3'
+
+RED = "\e[31m"
+CLEAR = "\e[0m"
+
+def error(string)
+  $stderr.puts [RED, string, CLEAR].join
+end
+
+def usage
+  error "Usage: #{File.basename(__FILE__)} [data_type] search_pattern"
+  $stderr.puts "       You need to quote your search_pattern if you don't want a data_type"
+  exit 1
+end
+
+def too_many_matches(matches)
+  error "Unable to locate single key value pair based upon arguments"
+  $stderr.puts "Found:"
+  $stderr.puts matches.map { |match| "  #{match.strip}" }
+  exit 2
+end
+
+def not_found
+  error "Failed to find a key value pair"
+  exit 3
+end
+
+def sys_p(args)
+  usage if args.empty?
+  data_type = args.shift if args.length > 1
+  search_pattern = Regexp.escape(args.join(' '))
+
+  command = ['system_profiler', data_type].join(' ')
+  _, stdout, _ = Open3.popen3(command)
+
+  matches = stdout.lines.select { |line| line =~ Regexp.new(search_pattern, 'i') }
+  not_found if matches.length == 0
+  too_many_matches(matches) unless matches.length == 1
+
+  key, value = matches.first.split(':').map(&:strip)
+
+  puts value
+end
+
+sys_p(ARGV)

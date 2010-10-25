@@ -1,0 +1,65 @@
+#!/bin/sh
+
+# Open new tab in Terminal
+# jamesconroyfinn.com
+# Based upon work originally by Mark Liyanage
+# http://www.entropy.ch/blog/Mac+OS+X/2008/06/27/Terminal-Tricks-“term”-revisited-with-tabs.html
+
+set -e
+
+TAB=1
+
+function print_help {
+  echo "Usage: $0 [options]"
+  echo "  -x    Exit after command completion"
+  echo "  -w    Use a new window rather than tab"
+  echo "  -p    Set the position of the resulting window"
+  echo "  -s    Set the size of the resulting window"
+  echo "  -h    You're looking at it!"
+  exit 0
+}
+
+while getopts xwp:s:h OPTION; do
+  [ $OPTION = "x" ] && { EXIT='; exit'; }
+  [ $OPTION = "w" ] && { TAB=0; }
+  [ $OPTION = "p" ] && { POSITION="set position of window 1 to {$OPTARG}"; }
+  [ $OPTION = "s" ] && { SIZE="set size of window 1 to {$OPTARG}"; }
+  [ $OPTION = "h" ] && { print_help; }
+done
+
+for (( $OPTIND; $OPTIND-1; OPTIND=$OPTIND-1 )); do shift; done
+
+if [[ -d "$1" ]]; then WD=$(cd "$1"; pwd); shift; else WD=$PWD; fi
+
+
+COMMAND="cd '$WD' && echo -n \$'\\\\ec';"
+for i in "$@"; do
+  COMMAND="$COMMAND '$i'"
+done
+
+if [ $TAB ]; then
+
+  osascript 2>/dev/null <<EOF
+tell application "System Events"
+tell process "Terminal" to keystroke "t" using command down
+end
+tell application "Terminal"
+activate
+do script with command "$COMMAND $EXIT" in window 1
+$POSITION
+$SIZE
+end tell
+EOF
+
+else
+
+  osascript <<EOF
+tell application "Terminal"
+activate
+do script with command "$COMMAND $EXIT"
+$POSITION
+$SIZE
+end tell
+EOF
+
+fi

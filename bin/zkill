@@ -1,0 +1,2 @@
+#!/bin/sh
+ps aux | awk " /${1}/ && ! /awk/ { print \$2 } " | xargs -I pid kill -9 pid
