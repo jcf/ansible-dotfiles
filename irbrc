@@ -61,3 +61,14 @@ end
 alias q exit
 
 load File.dirname(__FILE__) + '/.railsrc' if $0 == 'irb' && ENV['RAILS_ENV']
+
+# Interactive editor inspired by Giles Bowkett
+require 'tempfile'
+
+def mvim(file = nil)
+  file ||= Tempfile.new('irb_tempfile.rb')
+  system("mvim -f -c 'set ft=ruby' #{file.path}")
+  Object.class_eval(`cat #{file.path}`)
+rescue Exception => error
+  puts error
+end
