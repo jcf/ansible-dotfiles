@@ -29,7 +29,8 @@ esac
 alias grep='grep --color'
 
 # ls
-alias ll="ls -Alh"
+alias l="ls -Alh"
+alias ll="l"
 alias l.='ls -ldG .*'
 alias le='ls -aelG'
 alias lsd="ls -al | awk '/^d/{print}'"
