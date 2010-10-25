@@ -5,7 +5,6 @@
 	whitespace = nowarn
 [alias]
 	co = checkout
-	unstage = reset HEAD --
 	last = log -1 HEAD
 	ignore = update-index --assume-unchanged
 	put = push origin HEAD
