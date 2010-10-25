@@ -67,7 +67,9 @@ set noerrorbells
 set visualbell
 
 " appearence
-colorscheme ir_black
+if &t_Co >= 256 || has("gui_running")
+  colorscheme ir_black
+endif
 set background=dark
 
 " recalculate the trailing whitespace warning when idle, and after saving
@@ -236,6 +238,8 @@ set smartcase
 set backupdir=$HOME/.swp//
 set directory=$HOME/.swp//
 
+set pastetoggle=<F2>
+
 "  Automatically create .swp directory
 if filewritable(expand("$HOME")) && ! filewritable(expand("$HOME/.swp"))
   silent execute 'mkdir .swp'
@@ -309,6 +313,9 @@ nnoremap Y y$
 " who wants to reach for ESC all the time?
 imap jj <Esc>
 
+" lazy shortcut to enter command mode
+nnoremap ; :
+
 " use enter to insert newlines in normal mode
 nmap <Enter> o<Esc>
 nmap <S-Enter> O<Esc>
@@ -376,4 +383,4 @@ function! s:HighlightLongLines(width)
 endfunction
 
 " Diff of the current buffer and the file it was loaded from
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
