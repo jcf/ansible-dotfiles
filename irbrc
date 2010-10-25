@@ -65,10 +65,18 @@ load File.dirname(__FILE__) + '/.railsrc' if $0 == 'irb' && ENV['RAILS_ENV']
 # Interactive editor inspired by Giles Bowkett
 require 'tempfile'
 
-def mvim(file = nil)
-  file ||= Tempfile.new('irb_tempfile.rb')
-  system("mvim -f -c 'set ft=ruby' #{file.path}")
-  Object.class_eval(`cat #{file.path}`)
-rescue Exception => error
-  puts error
+class InteractiveBuffer
+  def initialize(path)
+    @file = Tempfile.new(path)
+  end
+
+  def to_s
+    @file.path
+  end
+end
+
+def mvim(path = 'irb_interactive_buffer')
+  @interactive_buffer ||= InteractiveBuffer.new(path)
+  system("mvim -f -c 'set ft=ruby' #{@interactive_buffer}")
+  Object.class_eval(`cat #{@interactive_buffer}`)
 end
