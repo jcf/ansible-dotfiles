@@ -314,7 +314,7 @@ nnoremap Y y$
 imap jj <Esc>
 
 " lazy shortcut to enter command mode
-nnoremap ; :
+nmap ; :
 
 " use enter to insert newlines in normal mode
 nmap <Enter> o<Esc>
