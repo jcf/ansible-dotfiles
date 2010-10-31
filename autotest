@@ -1,5 +1,7 @@
-require 'benchmark'
-require 'autotest/fsevent' rescue LoadError
+begin
+  require 'autotest/fsevent'
+rescue LoadError
+end
 
 EXCEPTIONS = %w(
   .git
@@ -21,6 +23,8 @@ Autotest.add_hook :initialize do |autotest|
 end
 
 Autotest.add_hook :all_good do |autotest|
+  require 'benchmark'
+
   files = autotest.find_order.select do |path|
     path =~ %r{^(?:app/models|app/controllers|app/helpers|lib).*\.rb$}
   end.map { |path| File.expand_path(path) }
