@@ -64,6 +64,7 @@ function rails_command {
 function ss { rails_command "server" "thin" "$@" }
 function sc { rails_command "console" "$@" }
 function sg { rails_command "generate" "$@" }
+function sdb { rails_command "dbconsole" "$@" }
 
 alias tlog='tail -f log/development.log'
 alias migrate='rake db:migrate db:test:clone_structure'
@@ -71,6 +72,7 @@ alias rst='touch tmp/restart.txt'
 
 # bundler
 alias be='bundle exec'
+alias bc='bundle console'
 
 # commands starting with % for pasting from web
 alias %=' '
