@@ -85,3 +85,6 @@
 [submodule "vim/snippets"]
 	path = vim/snippets
 	url = git://github.com/jcf/snipmate-snippets.git
+[submodule "vim/bundle/lusty"]
+	path = vim/bundle/lusty
+	url = git://github.com/sjbach/lusty.git
