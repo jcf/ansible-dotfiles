@@ -66,6 +66,9 @@ set laststatus=2
 set noerrorbells
 set visualbell
 
+" Quieten some of those interruptive prompts
+set shortmess=atI
+
 " appearence
 if &t_Co >= 256 || has("gui_running")
   colorscheme ir_black
@@ -315,6 +318,10 @@ imap jj <Esc>
 
 " lazy shortcut to enter command mode
 nmap ; :
+
+" Go to column and row when looking up a bookmark by default
+nnoremap ' `
+nnoremap ` '
 
 " use enter to insert newlines in normal mode
 nmap <Enter> o<Esc>
