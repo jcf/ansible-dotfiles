@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+
+class Dotfiles < Thor
+  VERSION = '0.0.1'
+  DOTFILES_DIRECTORY = File.expand_path('~/.dotfiles')
+
+  default_task :help
+
+  desc 'update', 'Update all the files in dotfiles'
+  method_option :submodules, :type => :boolean, :default => false, :banner => 'Update submodules as well'
+  def update
+    say 'Updating dotfiles...'
+    in_dotfiles { exec 'git pull --rebase' }
+
+    if options[:submodules]
+      in_dotfiles { exec './update_submodules.sh' }
+    end
+  end
+
+  # desc 'cd', 'Take a look in dotfiles'
+  # def cd
+  #   exec 'cd', DOTFILES_DIRECTORY
+  # end
+
+  desc 'open', 'Open dotfiles'
+  def open
+    exec 'open', DOTFILES_DIRECTORY
+  end
+
+  desc 'edit', 'Edit dotfiles in your editor'
+  method_option :editor, :type => :string, :banner => 'Override $EDITOR'
+  def edit
+    exec(*(options[:editor] || default_editor), DOTFILES_DIRECTORY)
+  end
+
+  desc 'version', 'Prints the version of dotfiles'
+  map %w(-v --version) => :version
+  def version
+    puts VERSION
+  end
+
+  private
+
+  def default_editor
+    ENV['EDITOR'].split
+  end
+
+  def in_dotfiles(&block)
+    Dir.chdir(DOTFILES_DIRECTORY, &block)
+  end
+end
+
+Dotfiles.start
