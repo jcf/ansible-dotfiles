@@ -12,11 +12,13 @@ class Dotfiles < Thor
   method_option :submodules, :type => :boolean, :default => false, :banner => 'Update submodules as well'
   def update
     say 'Updating dotfiles...'
-    in_dotfiles { exec 'git pull --rebase' }
+    in_dotfiles { |path| system 'git pull --rebase' }
 
     if options['submodules']
       say 'Updating submodules...'
-      in_dotfiles { exec %[git submodule -q foreach 'git checkout -q master && echo "Updating `pwd`" &&  git pull -q --rebase origin master' > /dev/null] }
+      in_dotfiles do |path|
+        system %[git submodule -q foreach 'git checkout -q master && git pull -q --rebase origin master' > /dev/null]
+      end
     end
   end
 
@@ -27,13 +29,13 @@ class Dotfiles < Thor
 
   desc 'open', 'Open dotfiles'
   def open
-    exec 'open', DOTFILES_DIRECTORY
+    system 'open', DOTFILES_DIRECTORY
   end
 
   desc 'edit', 'Edit dotfiles in your editor'
   method_option :editor, :type => :string, :banner => 'Override $EDITOR'
   def edit
-    exec(*(options[:editor] || default_editor), DOTFILES_DIRECTORY)
+    system options[:editor] || ENV['EDITOR'], DOTFILES_DIRECTORY
   end
 
   desc 'version', 'Prints the version of dotfiles'
@@ -44,12 +46,13 @@ class Dotfiles < Thor
 
   private
 
-  def default_editor
-    ENV['EDITOR'].split
-  end
-
   def in_dotfiles(&block)
-    Dir.chdir(DOTFILES_DIRECTORY, &block)
+    begin
+      Dir.chdir(DOTFILES_DIRECTORY, &block)
+    rescue => e
+      say 'Something went wrong!', :red
+      say "#{e.class}: #{e.message}"
+    end
   end
 end
 
