@@ -14,8 +14,9 @@ class Dotfiles < Thor
     say 'Updating dotfiles...'
     in_dotfiles { exec 'git pull --rebase' }
 
-    if options[:submodules]
-      in_dotfiles { exec './update_submodules.sh' }
+    if options['submodules']
+      say 'Updating submodules...'
+      in_dotfiles { exec %[git submodule -q foreach 'git checkout -q master && echo "Updating `pwd`" &&  git pull -q --rebase origin master' > /dev/null] }
     end
   end
 
