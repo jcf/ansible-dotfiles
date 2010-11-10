@@ -2,28 +2,17 @@ setopt ALL_EXPORT
 
 # Colour stuff
 autoload colors zsh/terminfo
-if [[ "$terminfo[colors]" -ge 8 ]]; then
-  colors
-fi
-for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE BLACK; do
-  eval $color='%{$terminfo[bold]$fg[${(L)color}]%}'
-  eval LIGHT_$color='%{$fg[${(L)color}]%}'
-  (( count = $count + 1 ))
-done
-NO_COLOR="%{$terminfo[sgr0]%}"
 
-# PS1='$LIGHT_BLUE%2c$NO_COLOR %(!.#.$) '
-PS1="$LIGHT_YELLOW"
-
+PS1="%B"
 if [[ -n $SSH_CONNECTION ]]; then
-  PS1="$PS1$LIGHT_YELLOW%m"
+  PS1="%F{yellow}%m%f%b"
 else
-  PS1="$PS1$LIGHT_CYAN%m"
+  PS1="%F{cyan}%m%f%b"
 fi
 
-PS1="$PS1$NO_COLOR %c%(!.#.$) "
+PS1="$PS1 %c%(!.#.$) "
 
-RPS1='$LIGHT_RED$(git_info_for_prompt)$NO_COLOR $LIGHT_BLACK!%h$NO_COLOR'
+RPS1='%F{red}$(git_info_for_prompt)%f %F{234}!%h%f'
 
 EDITOR='vim'
 [ $(uname) = 'Darwin' ] && EDITOR='mvim'
