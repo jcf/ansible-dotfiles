@@ -1,9 +1,17 @@
+fpath=(~/.zsh/functions $fpath)
+autoload zmv
+autoload -U ~/.zsh/functions/*(:t)
+
+# 256 colours
+autoload spectrum && spectrum
+
 setopt ALL_EXPORT
 
 # Colour stuff
 autoload colors zsh/terminfo
 
 PS1="%B"
+
 if [[ -n $SSH_CONNECTION ]]; then
   PS1="%F{yellow}%m%f%b"
 else
@@ -24,10 +32,6 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 unsetopt ALL_EXPORT
-
-fpath=(~/.zsh/functions $fpath)
-autoload zmv
-autoload -U ~/.zsh/functions/*(:t)
 
 # smart urls
 autoload -U url-quote-magic
