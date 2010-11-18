@@ -97,7 +97,7 @@ setopt inc_append_history     # adds history incrementally and share it across s
 setopt share_history          # share history between sessions ???
 
 zle -N newtab
-bindkey -e
+bindkey -e # because vi mode sucks
 bindkey '^[[5D' backward-word
 bindkey '^[[5C' forward-word
 bindkey ' ' magic-space
