@@ -1,5 +1,5 @@
 # Fire up screen if we're not in it
-# if [[ $STY = '' ]] then screen -xR; fi
+if [[ $STY = '' ]] then screen -xR; fi
 
 fpath=(~/.zsh/functions $fpath)
 autoload zmv
