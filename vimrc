@@ -287,6 +287,7 @@ noremap <leader>rvr :RVspec
 
 " Open alternate file in new vertical split
 nmap <leader>a :AV<CR>
+nmap <c-a> :A<CR>
 
 if has("gui_macvim")
   set guioptions=egmrt
