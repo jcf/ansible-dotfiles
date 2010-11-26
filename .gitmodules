@@ -88,3 +88,15 @@
 [submodule "vim/bundle/lusty"]
 	path = vim/bundle/lusty
 	url = git://github.com/sjbach/lusty.git
+[submodule "vim/bundle/apidock.vim"]
+	path = vim/bundle/apidock.vim
+	url = git://github.com/mileszs/apidock.vim.git
+[submodule "vim/bundle/vim-scratch"]
+	path = vim/bundle/vim-scratch
+	url = git://github.com/mexpolk/vim-scratch.git
+[submodule "vim/bundle/vim-yankring"]
+	path = vim/bundle/vim-yankring
+	url = git://github.com/chrismetcalf/vim-yankring.git
+[submodule "vim/bundle/Command-T"]
+	path = vim/bundle/Command-T
+	url = git://github.com/akitaonrails/Command-T.git
