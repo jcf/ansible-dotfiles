@@ -3,8 +3,8 @@
 require 'thor'
 
 class Dotfiles < Thor
-  VERSION = '0.0.1'
-  DOTFILES_DIRECTORY = File.expand_path('~/.dotfiles')
+  VERSION = '0.1.0'
+  DIRECTORY = File.expand_path('~/.dotfiles')
 
   default_task :help
 
@@ -12,30 +12,30 @@ class Dotfiles < Thor
   method_option :submodules, :type => :boolean, :default => false, :banner => 'Update submodules as well'
   def update
     say 'Updating dotfiles...'
-    in_dotfiles { |path| system 'git pull --rebase' }
+    execute_in_dotfiles { |path| 'git pull --rebase' }
 
     if options['submodules']
       say 'Updating submodules...'
-      in_dotfiles do |path|
-        system %[git submodule -q foreach 'git checkout -q master && git pull -q --rebase origin master' > /dev/null]
+      execute_in_dotfiles do |path|
+        %[git submodule -q foreach 'git checkout -q master && git pull -q --rebase origin master' > /dev/null]
       end
     end
   end
 
-  # desc 'cd', 'Take a look in dotfiles'
-  # def cd
-  #   exec 'cd', DOTFILES_DIRECTORY
-  # end
-
   desc 'open', 'Open dotfiles'
   def open
-    system 'open', DOTFILES_DIRECTORY
+    system 'open', DIRECTORY
   end
 
   desc 'edit', 'Edit dotfiles in your editor'
   method_option :editor, :type => :string, :banner => 'Override $EDITOR'
   def edit
-    system options[:editor] || ENV['EDITOR'], DOTFILES_DIRECTORY
+    system options[:editor] || ENV['EDITOR'], DIRECTORY
+  end
+
+  desc 'status', 'Git status within dotfiles'
+  def status
+    execute_in_dotfiles { 'git status -s' }
   end
 
   desc 'version', 'Prints the version of dotfiles'
@@ -46,9 +46,11 @@ class Dotfiles < Thor
 
   private
 
-  def in_dotfiles(&block)
+  def execute_in_dotfiles
     begin
-      Dir.chdir(DOTFILES_DIRECTORY, &block)
+      Dir.chdir(DIRECTORY) { |path|
+        system yield(path)
+      }
     rescue => e
       say 'Something went wrong!', :red
       say "#{e.class}: #{e.message}"

@@ -24,7 +24,7 @@ IRB.conf.merge!(
 #   end
 # end
 
-if RUBY_VERSION < "1.9"
+if RUBY_VERSION < '1.8.7'
   class Symbol
     def to_proc
       Proc.new { |*args| args.shift.__send__(self, *args) }
@@ -80,3 +80,4 @@ def mvim(path = 'irb_interactive_buffer')
   system("mvim -f -c 'set ft=ruby' #{@interactive_buffer}")
   Object.class_eval(`cat #{@interactive_buffer}`)
 end
+alias vi mvim
