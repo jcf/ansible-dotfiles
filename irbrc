@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
-require 'irb/completion'
-require 'irb/ext/save-history'
 
-IRB.conf.merge!(
-  :SAVE_HISTORY => 1000,
-  :HISTORY_FILE => "#{ENV['HOME']}/.irb_history",
-  :AUTO_INDENT => true
-)
+if RUBY_VERSION < '1.8.7'
+  class Symbol
+    def to_proc
+      Proc.new { |*args| args.shift.__send__(self, *args) }
+    end
+  end
+end
 
 # Lovely stuff scrooloose
 # (NSFW) http://got-ravings.blogspot.com/2009/10/mainframe-molestation-with-looksee.html
@@ -23,14 +23,6 @@ IRB.conf.merge!(
 #     end
 #   end
 # end
-
-if RUBY_VERSION < '1.8.7'
-  class Symbol
-    def to_proc
-      Proc.new { |*args| args.shift.__send__(self, *args) }
-    end
-  end
-end
 
 class Object
   def local_methods(obj = self)
