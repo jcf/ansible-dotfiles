@@ -39,6 +39,13 @@ class Dotfiles < Thor
     execute_in_dotfiles { 'git status -s' }
   end
 
+  desc 'commit', 'Git commit dotfiles'
+  method_option :message, :type => :string, :banner => 'Specify the commit message'
+  def commit
+    message = "-m #{options[:message]}" if options[:message]
+    execute_in_dotfiles { "git commit -a #{message}" }
+  end
+
   desc 'version', 'Prints the version of dotfiles'
   map %w(-v --version) => :version
   def version
