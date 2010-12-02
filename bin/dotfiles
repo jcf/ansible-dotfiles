@@ -4,7 +4,7 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 require 'thor'
 
 class Dotfiles < Thor
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
   DIRECTORY = File.expand_path('~/.dotfiles')
 
   default_task :help
@@ -40,9 +40,8 @@ class Dotfiles < Thor
   end
 
   desc 'commit', 'Git commit dotfiles'
-  method_option :message, :type => :string, :banner => 'Specify the commit message'
-  def commit
-    message = "-m #{options[:message]}" if options[:message]
+  def commit(*message_words)
+    message = %[-m "#{message_words.join(' ')}"] unless message_words.empty?
     execute_in_dotfiles { "git commit -a #{message}" }
   end
 
