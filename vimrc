@@ -78,6 +78,8 @@ set background=dark
 " recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 
+au BufNewFile,BufRead *.applescript   setf applescript
+
 call pathogen#runtime_append_all_bundles()
 
 " return '[\s]' if trailing white space is detected
