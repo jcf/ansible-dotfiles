@@ -62,6 +62,9 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
+ACK_COLOR_FILENAME="bold white on_black"
+ACK_COLOR_MATCH="magenta on_black"
+
 unsetopt ALL_EXPORT
 
 # smart urls
