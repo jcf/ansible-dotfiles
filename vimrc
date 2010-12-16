@@ -243,6 +243,9 @@ set smartcase
 set backupdir=$HOME/.swp//
 set directory=$HOME/.swp//
 
+" Because I love ack
+set grepprg=ack\ -a
+
 set pastetoggle=<F2>
 
 "  Automatically create .swp directory
