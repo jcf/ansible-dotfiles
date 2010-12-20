@@ -12,6 +12,7 @@
 	thanks = !git-thanks
 	workdir = !git-new-workdir
 	up = !git pull --rebase && git push
+	sup = !git stash && git pull --rebase && git push && git stash pop
 	ignored = "!git ls-files --others --exclude-standard"
 	nb = checkout -b
 	pending = !git --no-pager log origin/master..master && echo
