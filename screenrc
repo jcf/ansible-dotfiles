@@ -1,5 +1,3 @@
-# .( screenrc ). for _why :: * supports xterm/rxvt titles
-#                            * default encoding is utf-8 (i use urxvt with this)
 setenv LC_CTYPE en_US.UTF-8
 defutf8 on
 
@@ -15,13 +13,16 @@ defscrollback         10000
 silencewait           15
 
 termcapinfo xterm*|Eterm|mlterm|rxvt 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
-defhstatus "$USER@H | # | t"
+defhstatus "$USER@H t ()"
+
 hardstatus off
+# hardstatus alwayslastline
+# hardstatus string "%{.kw}%-w%{.kb}%n %t%{-}%+w %=%{.km} %H "
 
 activity "%c activity -> %n%f %t"
 bell "%c bell -> %n%f %t^G"
 vbell_msg " *beep* "
-caption always " %m%d %c |  %w"
+caption always "%w"
 
 bind ~ activity       "%c activity -> %n%f %t"
 bind * activity       "%c activity -> %n%f %t"
@@ -30,7 +31,6 @@ bind * activity       "%c activity -> %n%f %t"
 # bind W screen -t 'open' 4 open http://google.com/
 # bind E screen -t 'mail' 0 mutt
 # bind V screen -t 'mvim' 0 mvim
-# bind Y stuff http://whytheluckystiff.net/
 
 shell                 zsh
 
