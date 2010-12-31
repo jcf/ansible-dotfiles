@@ -103,3 +103,9 @@
 [submodule "vim/bundle/applescript.vim"]
 	path = vim/bundle/applescript.vim
 	url = git://github.com/vim-scripts/applescript.vim.git
+[submodule "vim/bundle/Vicle"]
+	path = vim/bundle/Vicle
+	url = git://github.com/vim-scripts/Vicle.git
+[submodule "vim/bundle/vim-conque"]
+	path = vim/bundle/vim-conque
+	url = git://github.com/rson/vim-conque.git
