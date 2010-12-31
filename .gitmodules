@@ -112,3 +112,6 @@
 [submodule "vim/bundle/Indent-Guides"]
 	path = vim/bundle/Indent-Guides
 	url = git://github.com/vim-scripts/Indent-Guides.git
+[submodule "vim/bundle/ack.vim"]
+	path = vim/bundle/ack.vim
+	url = git://github.com/mileszs/ack.vim.git
