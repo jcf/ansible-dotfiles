@@ -109,3 +109,6 @@
 [submodule "vim/bundle/vim-conque"]
 	path = vim/bundle/vim-conque
 	url = git://github.com/rson/vim-conque.git
+[submodule "vim/bundle/Indent-Guides"]
+	path = vim/bundle/Indent-Guides
+	url = git://github.com/vim-scripts/Indent-Guides.git
