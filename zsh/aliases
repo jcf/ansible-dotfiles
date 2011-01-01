@@ -12,6 +12,7 @@ alias ebin="e ~/bin"
 
 # cd
 alias ..='cd ..'
+alias ...='cd ../..'
 
 # List TCP ports
 alias ports='sudo lsof -iTCP -sTCP:LISTEN -P'
@@ -66,9 +67,7 @@ function sc { rails_command "console" "$@" }
 function sg { rails_command "generate" "$@" }
 function sdb { rails_command "dbconsole" "$@" }
 
-alias tlog='tail -f log/development.log'
 alias migrate='rake db:migrate db:test:clone_structure'
-alias rst='touch tmp/restart.txt'
 
 # bundler
 alias be='bundle exec'
@@ -76,6 +75,9 @@ alias bc='bundle console'
 
 # commands starting with % for pasting from web
 alias %=' '
+
+# What is my IP?
+alias ip='url -s "http://whatismyip.org" -w "\n"'
 
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 

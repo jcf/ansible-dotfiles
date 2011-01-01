@@ -80,6 +80,12 @@ autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 
 au BufNewFile,BufRead *.applescript   setf applescript
 
+" Fast editing of the .vimrc
+map <leader>v :e! ~/.vimrc<cr>
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost ~/.vimrc source ~/.vimrc
+
 call pathogen#runtime_append_all_bundles()
 
 " return '[\s]' if trailing white space is detected
@@ -192,9 +198,6 @@ set softtabstop=2
 set expandtab
 set autoindent
 
-" textwidth < 81 please
-set colorcolumn=81
-
 " folding settings
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
@@ -248,14 +251,9 @@ set grepprg=ack\ -a
 
 set pastetoggle=<F2>
 
-"  Automatically create .swp directory
-if filewritable(expand("$HOME")) && ! filewritable(expand("$HOME/.swp"))
-  silent execute 'mkdir .swp'
-endif
-
-" dont load csapprox if we no gui support - silences an annoying warning
+" don't load csapprox without a gui - silences an annoying warning
 if !has("gui")
-    let g:CSApprox_loaded = 1
+  let g:CSApprox_loaded = 1
 endif
 
 let mapleader = ','
@@ -297,6 +295,10 @@ nmap <c-a> :A<CR>
 if has("gui_macvim")
   set guioptions=egmrt
   set guifont=Menlo:h11
+
+  " textwidth < 81 please
+  set colorcolumn=81
+
   nmap <C-up> <C-y>
   imap <C-up> <C-o><C-y>
   nmap <C-down> <C-e>
@@ -337,8 +339,14 @@ nmap <S-Enter> O<Esc>
 imap <D-C> <c-o>:PickHEX<CR>
 nmap <D-C> :PickHEX<CR>
 
+" ConqueTerm zsh
+nmap <leader>z :ConqueTerm zsh<CR>
+
 " mark syntax errors with :signs
 let g:syntastic_enable_signs=1
+
+" supress Lusty warnings
+let g:LustyJugglerSuppressRubyWarning = 1
 
 let NERDSpaceDelims=1
 
