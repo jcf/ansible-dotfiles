@@ -1,3 +1,4 @@
+# vim: set syn=zsh
 # Fire up screen if we're not in it
 if [[ $STY = '' ]] then screen -xR; fi
 
@@ -53,10 +54,13 @@ function preexec() {
   title "$1" "$USER@%m" "%35<...<%~"
 }
 
-EDITOR='vim'
-[ $(uname) = 'Darwin' ] && EDITOR='mvim'
-GIT_EDITOR='mvim -f'
-GEM_EDITOR='mvim -f'
+if [[ $(uname) = 'Darwin' ]]; then
+  EDITOR='mvim'
+  GIT_EDITOR='mvim -f'
+  GEM_EDITOR='mvim -f'
+else
+  EDITOR='vim'
+fi
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
@@ -108,5 +112,3 @@ bindkey ' ' magic-space
 # Find partial history matches
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
-
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
