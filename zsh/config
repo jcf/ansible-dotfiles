@@ -23,7 +23,7 @@ fi
 
 PS1="$PS1 %c%(!.#.$) "
 
-RPS1='%F{red}$(git_info_for_prompt)%f %F{234}!%h%f'
+RPS1='%F{red}$(git_info_for_prompt)%f'
 
 # format titles for screen and rxvt
 function title() {
