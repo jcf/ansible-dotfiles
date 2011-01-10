@@ -30,8 +30,8 @@ class Dotfiles < Thor
 
   desc 'edit', 'Edit dotfiles in your editor'
   method_option :editor, :type => :string, :banner => 'Override $EDITOR'
-  def edit
-    system options[:editor] || ENV['EDITOR'], DIRECTORY
+  def edit(file = nil)
+    system options[:editor] || ENV['EDITOR'], "#{DIRECTORY}/#{file}"
   end
 
   desc 'status', 'Git status within dotfiles'
