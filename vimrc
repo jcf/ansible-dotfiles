@@ -211,8 +211,6 @@ set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
-set formatoptions-=o "dont continue comments when pushing o/O
-
 " vertical/horizontal scroll off settings
 set scrolloff=3
 set sidescrolloff=7
@@ -250,6 +248,9 @@ set directory=$HOME/.swp//
 set grepprg=ack\ -a
 
 set pastetoggle=<F2>
+
+" Don't insert a comment when pressing o/O
+set formatoptions-=o
 
 " don't load csapprox without a gui - silences an annoying warning
 if !has("gui")
