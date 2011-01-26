@@ -257,6 +257,8 @@ if !has("gui")
   let g:CSApprox_loaded = 1
 endif
 
+set formatoptions-=o "dont continue comments when pushing o/O
+
 let mapleader = ','
 
 noremap <leader>n :NERDTreeToggle<CR>
@@ -326,7 +328,7 @@ nnoremap Y y$
 imap jj <Esc>
 
 " lazy shortcut to enter command mode
-nmap ; :
+nnoremap ; :
 
 " Go to column and row when looking up a bookmark by default
 nnoremap ' `
