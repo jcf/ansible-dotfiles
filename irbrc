@@ -72,4 +72,4 @@ def mvim(path = 'irb_interactive_buffer')
   system("mvim -f -c 'set ft=ruby' #{@interactive_buffer}")
   Object.class_eval(`cat #{@interactive_buffer}`)
 end
-alias vi mvim
+alias e mvim
