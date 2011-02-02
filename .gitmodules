@@ -118,3 +118,6 @@
 [submodule "vim/bundle/blockle.vim"]
 	path = vim/bundle/blockle.vim
 	url = git://github.com/vim-scripts/blockle.vim.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
