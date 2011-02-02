@@ -62,6 +62,8 @@ else
   EDITOR='vim'
 fi
 
+NODE_PATH="/usr/local/lib/node:$NODE_PATH"
+
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
