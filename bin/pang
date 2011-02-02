@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+server = ARGV.first || 'http://localhost:8000/'
+
+puts "Profiling '#{server}'"
+
+%x(ab -n 10000 -c 100 '#{server}')
