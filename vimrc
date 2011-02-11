@@ -295,18 +295,11 @@ noremap <leader>rvr :RVspec
 nmap <leader>a :AV<CR>
 nmap <c-a> :A<CR>
 
-if has("gui_macvim")
-  set guioptions=egmrt
-  set guifont=Menlo:h11
+" Opens an edit command with the path of the currently edited file filled in
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-  " textwidth < 81 please
-  set colorcolumn=81
-
-  nmap <C-up> <C-y>
-  imap <C-up> <C-o><C-y>
-  nmap <C-down> <C-e>
-  imap <C-down> <C-o><C-e>
-endif
+" Opens a tab edit command with the path of the currently edited file filled in
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
@@ -347,6 +340,7 @@ nmap <leader>z :ConqueTerm zsh<CR>
 
 " mark syntax errors with :signs
 let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
 
 " supress Lusty warnings
 let g:LustyJugglerSuppressRubyWarning = 1
