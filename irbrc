@@ -69,7 +69,7 @@ end
 
 def mvim(path = 'irb_interactive_buffer')
   @interactive_buffer ||= InteractiveBuffer.new(path)
-  system("mvim -f -c 'set ft=ruby' #{@interactive_buffer}")
+  system("mvim -g -f -c 'au VimLeave * !open -a Terminal' -c 'set ft=ruby' #{@interactive_buffer}")
   Object.class_eval(`cat #{@interactive_buffer}`)
 end
 alias e mvim
