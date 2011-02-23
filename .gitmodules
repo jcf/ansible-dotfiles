@@ -121,3 +121,27 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/Color-Sampler-Pack"]
+	path = vim/bundle/Color-Sampler-Pack
+	url = git://github.com/vim-scripts/Color-Sampler-Pack.git
+[submodule "vim/bundle/vim-indent-object"]
+	path = vim/bundle/vim-indent-object
+	url = git://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = git://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/vim-markdown-preview"]
+	path = vim/bundle/vim-markdown-preview
+	url = git://github.com/robgleeson/vim-markdown-preview.git
+[submodule "vim/bundle/vim-vividchalk"]
+	path = vim/bundle/vim-vividchalk
+	url = git://github.com/tpope/vim-vividchalk.git
+[submodule "vim/bundle/ZoomWin"]
+	path = vim/bundle/ZoomWin
+	url = git://github.com/vim-scripts/ZoomWin.git
+[submodule "vim/bundle/vim-align"]
+	path = vim/bundle/vim-align
+	url = git://github.com/tsaleh/vim-align.git
+[submodule "vim/bundle/puppet-vim"]
+	path = vim/bundle/puppet-vim
+	url = git://github.com/ajf/puppet-vim.git
