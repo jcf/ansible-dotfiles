@@ -203,9 +203,10 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
-set wildmode=list:longest   "make cmdline tab completion similar to bash
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+" Tab completion
+set wildmenu
+set wildmode=list:longest,list:full
+set wildignore=*.o,*.obj,*~,.git,*.rbc
 
 " display tabs and trailing spaces
 set list
@@ -261,35 +262,19 @@ set formatoptions-=o "dont continue comments when pushing o/O
 
 let mapleader = ','
 
-noremap <leader>n :NERDTreeToggle<CR>
 
-" Rails app navigation shortcuts
-noremap <leader>rm :Rmodel 
-noremap <leader>rc :Rcontroller 
-noremap <leader>rh :Rhelper 
-noremap <leader>rw :Rview 
-noremap <leader>rr :Rspec 
+" NERDTree configuration
+let NERDTreeIgnore=['\.rbc$', '\~$']
+map <Leader>n :NERDTreeToggle<CR>
 
-" Open in a new tab
-noremap <leader>rtm :RTmodel 
-noremap <leader>rtc :RTcontroller 
-noremap <leader>rth :RThelper 
-noremap <leader>rtw :RTview 
-noremap <leader>rtr :RTspec 
+" Command-T configuration
+let g:CommandTMaxHeight=20
 
-" Open in a new horizontal split
-noremap <leader>rsm :RSmodel 
-noremap <leader>rsc :RScontroller 
-noremap <leader>rsh :RShelper 
-noremap <leader>rsw :RSview 
-noremap <leader>rsr :RSspec 
+" ZoomWin configuration
+map <Leader><Leader> :ZoomWin<CR>
 
-" Open in a new vertical split
-noremap <leader>rvm :RVmodel 
-noremap <leader>rvc :RVcontroller 
-noremap <leader>rvh :RVhelper 
-noremap <leader>rvw :RVview 
-noremap <leader>rvr :RVspec 
+" CTags
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 " Open alternate file in new vertical split
 nmap <leader>a :AV<CR>
@@ -373,8 +358,34 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
-" highlight Thor files
-autocmd BufNewFile,BufRead *.thor set filetype=ruby
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+
+function s:setupWrapping()
+  set wrap
+  set wm=2
+  set textwidth=72
+endfunction
+
+function s:setupMarkup()
+  call s:setupWrapping()
+  map <buffer> <Leader>p :Mm <CR>
+endfunction
+
+" md, markdown, and mk are markdown and define buffer-local preview
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Opens a tab edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>t
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Inserts the path of the currently edited file into a command
+" Command mode: Ctrl+P
+cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " jump to last cursor position when opening a file
 " dont do it when writing a commit log entry
