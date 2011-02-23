@@ -306,7 +306,7 @@ nnoremap Y y$
 imap jj <Esc>
 
 " lazy shortcut to enter command mode
-noremap ; :
+au VimEnter * noremap ; :
 
 " Go to column and row when looking up a bookmark by default
 nnoremap ' `
