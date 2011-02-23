@@ -312,9 +312,21 @@ au VimEnter * noremap ; :
 nnoremap ' `
 nnoremap ` '
 
-" use enter to insert newlines in normal mode
-nmap <Enter> o<Esc>
-nmap <S-Enter> O<Esc>
+" Use enter to insert newlines in normal mode, but not in quickfix
+function! s:insert_line(direction)
+  if &buftype == "quickfix"
+    execute "normal! \<Enter>"
+  else
+    if a:direction == 'below'
+      execute "normal! o\<Esc>"
+    else
+      execute "normal! O\<Esc>"
+    endif
+  endif
+endfunction
+
+nmap <Enter> :call <SID>insert_line('below')<CR>
+nmap <S-Enter> :call <SID>insert_line('above')<CR>
 
 " Command-shift-c to insert a colour using the ColorPalette
 imap <D-C> <c-o>:PickHEX<CR>
