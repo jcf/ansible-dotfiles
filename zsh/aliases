@@ -6,9 +6,8 @@ alias reload="source ~/.zshrc"
 alias cdot="cd ~/.dotfiles"
 alias edot="mvim -c \"cd ~/.dotfiles\" ~/.dotfiles"
 
-# executable dir
-alias cbin="cd ~/bin"
-alias ebin="e ~/bin"
+# Edit ssh config
+alias essh="e ~/.ssh/config"
 
 # cd
 alias ..='cd ..'
