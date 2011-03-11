@@ -35,6 +35,10 @@ alias l.='ls -ldG .*'
 alias le='ls -aelG'
 alias lsd="ls -al | awk '/^d/{print}'"
 
+# hub (http://github.com/defunkt/hub)
+# brew install hub
+alias git='hub'
+
 # git
 alias gl='git pull'
 alias glr='git pull --rebase'
