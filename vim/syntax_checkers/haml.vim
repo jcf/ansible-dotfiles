@@ -14,6 +14,8 @@ if exists("loaded_haml_syntax_checker")
 endif
 let loaded_haml_syntax_checker = 1
 
+finish " fucking lame syntax checker
+
 "bail if the user doesnt have the haml binary installed
 if !executable("haml")
   finish
@@ -23,8 +25,8 @@ function! SyntaxCheckers_haml_GetLocList()
   let output = system("$HOME/.rvm/gems/ruby-1.9.2-p136@global/bin/haml -c " . expand("%"))
   if v:shell_error != 0
     "haml only outputs the first error, so parse it ourselves
-    let line = substitute(output, '^Syntax error on line \(\d*\):.*', '\1', '')
-    let msg = substitute(output, '^Syntax error on line \d*:\(.*\)', '\1', '')
+    let line = substitute(output, '^\(Syntax\|Haml\) error on line \(\d*\):.*', '\2', '')
+    let msg = substitute(output, '^\(Syntax\|Haml\) error on line \d*:\(.*\)', '\2', '')
     return [{'lnum' : line, 'text' : msg, 'bufnr': bufnr(""), 'type': 'E' }]
   endif
   return []
