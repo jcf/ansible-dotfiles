@@ -10,22 +10,29 @@ class Dotfiles < Thor
   default_task :help
 
   desc 'update', 'Update all the files in dotfiles'
-  method_option :all, :type => :boolean, :default => false, :banner => 'Update submodules as well'
   def update
     say 'Updating dotfiles...'
     execute_in_dotfiles { |path| 'git pull --rebase' }
 
-    if options['all']
-      say 'Updating submodules...'
-      execute_in_dotfiles do |path|
-        %[git submodule -q foreach 'git checkout -q master && git pull -q --rebase origin master' > /dev/null]
-      end
+    say 'Updating submodules...'
+    execute_in_dotfiles do |path|
+      %[git submodule -q foreach 'git checkout -q master && git pull -q --rebase origin master' > /dev/null]
     end
+  end
+
+  desc 'brew', 'Install favourite homebrew formulae'
+  def brew
+    execute_in_dotfiles { |path| './install_formulae.sh' }
   end
 
   desc 'open', 'Open dotfiles'
   def open
     system 'open', DIRECTORY
+  end
+
+  desc 'home', 'Browse dotfiles on github'
+  def home
+    system 'open', "http://github.com/#{user}/dotfiles"
   end
 
   desc 'edit', 'Edit dotfiles in your editor'
@@ -52,6 +59,10 @@ class Dotfiles < Thor
   end
 
   private
+
+  def user
+    `git config github.user`.strip
+  end
 
   def execute_in_dotfiles
     begin
