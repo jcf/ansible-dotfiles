@@ -86,6 +86,7 @@ map <leader>v :e! ~/.vimrc<cr>
 " When vimrc is edited, reload it
 autocmd! bufwritepost ~/.vimrc source ~/.vimrc
 
+call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 " return '[\s]' if trailing white space is detected
