@@ -15,3 +15,5 @@ Dir.chdir File.dirname(__FILE__) do
     end
   end
 end
+
+%x[git submodule update --init]
