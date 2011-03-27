@@ -192,15 +192,15 @@ function Edit(file)
 
   execute "e " . fnameescape(a:file)
 
-ruby << RUBY
-  destination = File.expand_path(VIM.evaluate(%{system("dirname " . shellescape(a:file, 1))}))
-  pwd         = File.expand_path(Dir.pwd)
-  home        = pwd == File.expand_path("~")
+" ruby << RUBY
+"   destination = File.expand_path(VIM.evaluate(%{system("dirname " . shellescape(a:file, 1))}))
+"   pwd         = File.expand_path(Dir.pwd)
+"   home        = pwd == File.expand_path("~")
 
-  if home || Regexp.new("^" + Regexp.escape(pwd)) !~ destination
-    VIM.command(%{call ChangeDirectory(fnamemodify(a:file, ":h"), 0)})
-  end
-RUBY
+"   if home || Regexp.new("^" + Regexp.escape(pwd)) !~ destination
+"     VIM.command(%{call ChangeDirectory(fnamemodify(a:file, ":h"), 0)})
+"   end
+" RUBY
 endfunction
 
 " Define the NERDTree-aware aliases
