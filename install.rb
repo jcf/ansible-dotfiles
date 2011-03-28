@@ -14,6 +14,6 @@ Dir.chdir File.dirname(__FILE__) do
       system %[ln -vsf #{File.join(dotfiles_dir, file)} #{target}]
     end
   end
-end
 
-%x[git submodule update --init]
+  %x[git submodule update --init]
+end
