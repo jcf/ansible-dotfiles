@@ -82,7 +82,7 @@ alias bc='bundle console'
 alias %=' '
 
 # What is my IP?
-alias ip='url -s "http://whatismyip.org" -w "\n"'
+alias ip='curl http://www.whatismyip.com/automation/n09230945.asp'
 
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 
