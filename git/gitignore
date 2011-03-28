@@ -1,0 +1,16 @@
+.DS_Store
+.svn
+.hg*
+*.tmproj
+*.ser
+*.swn
+*.swo
+*.swp
+*~
+*.rdb
+._*
+.rvmrc
+.rake_tasks
+tmp*
+tmp/**/*
+tags

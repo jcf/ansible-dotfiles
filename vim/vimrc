@@ -263,6 +263,8 @@ set formatoptions-=o "dont continue comments when pushing o/O
 
 let mapleader = ','
 
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']

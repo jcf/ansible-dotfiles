@@ -10,7 +10,7 @@ Afterwards, [install Xcode][xcode].
 
 ## MacVim
 
-    brew install macvim --HEAD
+    brew install macvim # with or without --HEAD
 
 ## Git
 
@@ -26,7 +26,7 @@ Afterwards, [install Xcode][xcode].
 
     git clone git://github.com/jcf/dotfiles ~/.dotfiles
     cd ~/.dotfiles
-    ruby install.rb
+    rake install
 
 [gist]:http://gist.github.com/323731
 [xcode]:http://developer.apple.com/technologies/xcode.html

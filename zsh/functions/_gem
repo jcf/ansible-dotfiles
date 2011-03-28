@@ -1,0 +1,45 @@
+#compdef gem
+
+# Auto-Completetion for Gem commands and gems.
+# 
+# Typing `gem <TAB>` will display all installed gem commands.
+# Typing `gem edit `<TAB>` will display all installed gems
+# 
+# copy to your $fpath: i.e.: sudo cp THIS_GIST /usr/share/zsh/site-functions/_gem
+# 
+# Based on https://lists.ubuntu.com/archives/bazaar/2005q4/003981.html
+
+local _gem_subcommands expl curcontext="$curcontext" state line
+local installed_gems
+typeset -A opt_args
+
+if [[ $service == "gem" ]]; then
+    _arguments -C -A "-*" \
+    '*::command:->subcmd' && return 0
+
+    if (( $CURRENT == 1 )); then
+      _gem_subcommands=(${(f)"$(gem help commands | grep '^    [a-z]' | cut -d " " -f 5)"})
+      _describe -t subcommand 'subcommand' _gem_subcommands
+      return
+    fi
+
+    service="$words[1]"
+    curcontext="${curcontext%:*}=$service:"
+fi
+
+case $service in
+    (edit)
+       installed_gems=( $(gem list | grep '^[A-Za-z]' | cut -d " " -f 1) )
+       _arguments \
+       '(-v)--version[Specify version of gem to edit]' \
+       '(-e)--editor[The editor to use to open the gems. Default: mate -w]' \
+       '(-d)--dry-run' \
+       '(-h)--help' \
+       '(-V)--verbose' \
+       '(-q)--quiet' \
+       '--config-file' \
+       '--backtrace' \
+       '--debug' \
+       '*:installed gems:( $installed_gems )'
+    ;;
+esac

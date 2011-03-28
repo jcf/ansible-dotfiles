@@ -17,7 +17,7 @@ rdoc=.rdoc,.rd
 --objc
 
 --type-add
-ruby=.haml,.builder
+ruby=.haml,.builder,.sass,rake
 
 --sort-files
 

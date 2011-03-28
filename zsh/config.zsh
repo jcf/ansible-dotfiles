@@ -1,66 +1,16 @@
 # vim: set syn=zsh
-# Fire up screen if we're not in it
-# if [[ $STY = '' ]] then screen -xR; fi
 
-fpath=(~/.zsh/functions $fpath)
+fpath=($DOT_FILES/zsh/functions $fpath)
 autoload zmv
 autoload -U ~/.zsh/functions/*(:t)
 
 # 256 colours
 autoload spectrum && spectrum
 
-# format titles for screen and rxvt
-function title() {
-  # escape '%' chars in $1, make nonprintables visible
-  a=${(V)1//\%/\%\%}
-
-  # Truncate command, and join lines.
-  a=$(print -Pn "%40>...>$a" | tr -d "\n")
-
-  case $TERM in
-  screen)
-    print -Pn "\ek$a:$3\e\\"      # screen title (in ^A")
-    ;;
-  xterm*|rxvt)
-    print -Pn "\e]2;$2 | $a:$3\a" # plain xterm title
-    ;;
-  esac
-}
-
-# precmd is called just before the prompt is printed
-function precmd() {
-  title "zsh" "$USER@%m" "%55<...<%~"
-}
-
-# preexec is called just before any command line is executed
-function preexec() {
-  title "$1" "$USER@%m" "%35<...<%~"
-}
-
 setopt ALL_EXPORT
 
 # Colour stuff
 autoload colors zsh/terminfo
-
-PS1="%B"
-
-if [[ -n $SSH_CONNECTION ]]; then
-  PS1="%F{yellow}%m%f%b"
-else
-  PS1="%F{cyan}%m%f%b"
-fi
-
-PS1="$PS1 %c%(!.#.$) "
-
-RPS1='%F{red}$(git_info_for_prompt)%f'
-
-if [[ $(uname) = 'Darwin' ]]; then
-  EDITOR='mvim'
-  GIT_EDITOR='mvim -f'
-  GEM_EDITOR='mvim -f'
-else
-  EDITOR='vim'
-fi
 
 PAGER="less"
 NODE_PATH="/usr/local/lib/node:$NODE_PATH"
@@ -94,6 +44,7 @@ setopt prompt_subst
 setopt correct
 setopt complete_in_word
 setopt ignore_eof
+setopt alwaystoend      # when complete from middle, move cursor
 
 setopt append_history         # adds history
 setopt extended_history

@@ -1,17 +1,20 @@
 # MacVim will edit all!
-alias e="mvim"
+alias e="$EDITOR"
 
 # dotfiles
 alias reload="source ~/.zshrc"
 alias cdot="cd ~/.dotfiles"
 alias edot="mvim -c \"cd ~/.dotfiles\" ~/.dotfiles"
+#
+# Lists the size of all the folders
+alias ducks='du -cks * | sort -rn |head -11' 
 
 # Edit ssh config
 alias essh="e ~/.ssh/config"
 
 # cd
-alias ..='cd ..'
-alias ...='cd ../..'
+alias ..='cd ..;'
+alias ...='.. ..'
 
 # List TCP ports
 alias ports='sudo lsof -iTCP -sTCP:LISTEN -P'
@@ -37,23 +40,9 @@ alias lsd="ls -al | awk '/^d/{print}'"
 
 # hub (http://github.com/defunkt/hub)
 # brew install hub
-alias git='hub'
+[ `which hub` ] && alias git='nocorrect hub'
 
 alias brew-update='brew install $(brew outdated | cut -d " " -f1 | tr "\n" " ")'
-
-# git
-alias gl='git pull'
-alias glr='git pull --rebase'
-alias gp='git push'
-alias gd='git diff'
-alias gc='git commit -v'
-alias gca='git commit -av'
-alias gco='git checkout'
-alias gb='git branch -v'
-alias gs='git status -sb'
-alias glog='git log --stat'
-alias gmt='git mergetool'
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
 # Rails
 function rails_command {
@@ -91,10 +80,3 @@ alias node-repl='rlwrap node-repl'
 
 # Readers and Pagers
 alias t='tail -f'
-alias -g A='|ack'
-alias -g L='|less'
-alias -g G='|grep'
-alias -g T='|tail'
-alias -g H='|head'
-alias -g N='&>/dev/null&'
-alias -g W='|wc'
