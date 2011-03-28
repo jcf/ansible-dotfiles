@@ -28,5 +28,16 @@ Afterwards, [install Xcode][xcode].
     cd ~/.dotfiles
     rake install
 
+# W(here)TF?
+
+Most dotfiles can be found in a respective folder, for example, the `git`
+and `ruby` folders contain files that are all symlinked in `$HOME`.
+
+The `zsh` folder is slightly more involved. In here you have a `zshrc`
+and `zshenv` file which are symlinked. The other files in this directory
+are sourced from these files.
+
+`shell` contains files that are used by both `zsh` and `bash`.
+
 [gist]:http://gist.github.com/323731
 [xcode]:http://developer.apple.com/technologies/xcode.html
