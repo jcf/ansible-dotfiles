@@ -39,6 +39,8 @@ alias lsd="ls -al | awk '/^d/{print}'"
 # brew install hub
 alias git='hub'
 
+alias brew-update='brew install $(brew outdated | cut -d " " -f1 | tr "\n" " ")'
+
 # git
 alias gl='git pull'
 alias glr='git pull --rebase'
