@@ -1,6 +1,6 @@
 export ZSH=$DOT_FILES/zsh/oh-my-zsh
 export ZSH_THEME="risto"
-plugins=(rails git ruby osx brew)
+plugins=(rails3 rails git ruby gem osx brew bundler)
 
 if [ -d "$ZSH" ]; then
   source $ZSH/oh-my-zsh.sh
