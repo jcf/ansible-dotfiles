@@ -160,3 +160,6 @@
 [submodule "vim/bundle/extradite"]
 	path = vim/bundle/extradite
 	url = git://github.com/int3/vim-extradite.git
+[submodule "ruby/rails-template"]
+	path = ruby/rails-template
+	url = git://github.com/jcf/rails-template.git
