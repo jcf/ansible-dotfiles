@@ -7,7 +7,7 @@ alias cdot="cd ~/.dotfiles"
 alias edot="mvim -c \"cd ~/.dotfiles\" ~/.dotfiles"
 #
 # Lists the size of all the folders
-alias ducks='du -cks * | sort -rn |head -11' 
+alias ducks='du -cks * | sort -rn |head -11'
 
 # Edit ssh config
 alias essh="e ~/.ssh/config"
