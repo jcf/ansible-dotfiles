@@ -1,5 +1,11 @@
 set nocompatible
 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+filetype off
+syntax on
+filetype plugin indent on
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -85,9 +91,6 @@ map <leader>v :e! ~/.vimrc<cr>
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost ~/.vimrc source ~/.vimrc
-
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 
 " return '[\s]' if trailing white space is detected
 " return '' otherwise
@@ -217,13 +220,6 @@ set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
-
-" load ftplugins and indent files
-filetype plugin on
-filetype indent on
-
-" turn on syntax highlighting
-syntax on
 
 " some stuff to get the mouse going in term
 set mouse=a
