@@ -2,6 +2,9 @@ require 'rake'
 
 desc "install the dot files into user's home directory"
 task :install do
+  # Setup vim swap directory
+  File.mkdir(File.expand_path('~/.swp')) rescue nil
+
   replace_all = false
   dot_files   = File.dirname(__FILE__)
   files       = %w(bin
