@@ -19,6 +19,7 @@ task :install do
                    ruby/autotest
                    ruby/gemrc
                    ruby/irbrc
+                   ruby/rvmrc
                    ruby/rdebugrc
                    git/gitk
                    git/gitconfig
