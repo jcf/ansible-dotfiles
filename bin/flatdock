@@ -1,0 +1,4 @@
+#/bin/sh
+defaults write com.apple.dock no-glass -boolean YES
+defaults write com.apple.Dock showhidden -bool YES
+killall Dock
