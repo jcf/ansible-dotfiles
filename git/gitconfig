@@ -12,6 +12,7 @@
 	track = !git-track
 	thanks = !git-thanks
 	workdir = !git-new-workdir
+	update-submodules = !git-update-submodules
 	up = !git pull --rebase && git push
 	sup = !git stash && git pull --rebase && git push && git stash pop
 	ignored = "!git ls-files --others --exclude-standard"
