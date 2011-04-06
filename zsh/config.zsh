@@ -2,7 +2,7 @@
 
 fpath=($DOT_FILES/zsh/functions $fpath)
 autoload zmv
-autoload -U ~/.zsh/functions/*(:t)
+autoload -U $DOT_FILES/zsh/functions/*(:t)
 
 # 256 colours
 autoload spectrum && spectrum
