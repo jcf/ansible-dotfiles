@@ -204,11 +204,11 @@ function Edit(file)
 endfunction
 
 " Define the NERDTree-aware aliases
-call s:DefineCommand("cd", "ChangeDirectory")
-call s:DefineCommand("touch", "Touch")
-call s:DefineCommand("rm", "Remove")
-call s:DefineCommand("e", "Edit")
-call s:DefineCommand("mkdir", "Mkdir")
+" call s:DefineCommand("cd", "ChangeDirectory")
+" call s:DefineCommand("touch", "Touch")
+" call s:DefineCommand("rm", "Remove")
+" call s:DefineCommand("e", "Edit")
+" call s:DefineCommand("mkdir", "Mkdir")
 
 " Include user's local vim config
 if filereadable(expand("~/.gvimrc.local"))
