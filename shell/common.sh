@@ -8,4 +8,6 @@ source $DOT_FILES/shell/functions.sh
 source $DOT_FILES/shell/save-directory.sh
 source $DOT_FILES/shell/git.sh
 
+[[ -f $DOT_FILES/shell/private.sh ]] && source $DOT_FILES/shell/private.sh
+
 [[ `uname -s` == 'Darwin' ]] && source $DOT_FILES/shell/osx.sh

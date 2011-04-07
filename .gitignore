@@ -1,4 +1,5 @@
 **/.*
 **/*~
+shell/private.sh
 vim/.netrwhist
 vim/view/
