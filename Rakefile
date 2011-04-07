@@ -1,5 +1,7 @@
 require 'rake'
 
+task :default => :install
+
 desc "install the dot files into user's home directory"
 task :install do
   # Setup vim swap directory
@@ -20,6 +22,7 @@ task :install do
                    ruby/gemrc
                    ruby/irbrc
                    ruby/rvmrc
+                   ruby/railsrc
                    ruby/rdebugrc
                    git/gitk
                    git/gitconfig
