@@ -45,6 +45,22 @@ alias lsd="ls -al | awk '/^d/{print}'"
 alias brew-update='brew install $(brew outdated | cut -d " " -f1 | tr "\n" " ")'
 
 # Rails
+function rails_command {
+  local cmd=$1
+  shift
+  if [ -e script/rails ]; then
+    rails $cmd "$@"
+  elif [ -e script/$cmd ]; then
+    script/$cmd "$@"
+  else
+    echo "This isn't a Rails app"
+  fi
+}
+function ss { rails_command "server" "thin" "$@" }
+function sc { rails_command "console" "$@" }
+function sg { rails_command "generate" "$@" }
+function sdb { rails_command "dbconsole" "$@" }
+
 alias migrate='rake db:migrate db:test:clone_structure'
 
 # bundler
