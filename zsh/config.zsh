@@ -66,3 +66,7 @@ bindkey ' ' magic-space
 # Find partial history matches
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
+
+# by default: export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+# we take out the slash, period, angle brackets and dash here.
+export WORDCHARS='*?_[]~=&;!#$%^(){}'
