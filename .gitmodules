@@ -163,3 +163,6 @@
 [submodule "ruby/rails-template"]
 	path = ruby/rails-template
 	url = git://github.com/jcf/rails-template.git
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
