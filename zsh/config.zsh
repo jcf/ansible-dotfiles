@@ -67,6 +67,9 @@ bindkey ' ' magic-space
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
+# Copy previous word for moves and copies
+bindkey "^[m" copy-prev-shell-word
+
 # by default: export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 # we take out the slash, period, angle brackets and dash here.
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
