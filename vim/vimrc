@@ -77,7 +77,7 @@ set shortmess=atI
 
 " appearence
 if &t_Co >= 256 || has("gui_running")
-  colorscheme ir_black
+  colorscheme solarized
 endif
 set background=dark
 
