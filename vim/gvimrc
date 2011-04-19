@@ -60,6 +60,9 @@ endif
 " Start without the toolbar
 set guioptions-=T
 
+" Start without the right hand scrollbar
+set guioptions-=r
+
 " Default gui color scheme
 color solarized
 
