@@ -154,9 +154,6 @@
 [submodule "emacs.rc"]
 	path = emacs.rc
 	url = git://github.com/jcf/emacs.git
-[submodule "vim/bundle/vim-flog"]
-	path = vim/bundle/vim-flog
-	url = git://github.com/fousa/vim-flog.git
 [submodule "vim/bundle/extradite"]
 	path = vim/bundle/extradite
 	url = git://github.com/int3/vim-extradite.git
