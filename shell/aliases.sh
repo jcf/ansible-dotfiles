@@ -53,13 +53,13 @@ function rails_command {
   elif [ -e script/$cmd ]; then
     script/$cmd "$@"
   else
-    echo "This isn't a Rails app"
+    echo "Rails command $cmd not found in ./script"
   fi
 }
-function ss { rails_command "server" "thin" "$@" }
-function sc { rails_command "console" "$@" }
-function sg { rails_command "generate" "$@" }
-function sdb { rails_command "dbconsole" "$@" }
+function rs { rails_command "server" "$@" }
+function rc { rails_command "console" "$@" }
+function rg { rails_command "generate" "$@" }
+function rdb { rails_command "dbconsole" "$@" }
 
 alias migrate='rake db:migrate db:test:clone_structure'
 
