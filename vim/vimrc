@@ -239,8 +239,10 @@ set ignorecase
 set smartcase
 
 " Get out of my face swap files
-set backupdir=$HOME/.swp//
-set directory=$HOME/.swp//
+" set backupdir=$HOME/.swp//
+" set directory=$HOME/.swp//
+" No backup files!
+set nobackup
 
 " Because I love ack
 set grepprg=ack\ -a
