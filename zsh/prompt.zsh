@@ -39,10 +39,10 @@ autoload vcs_info
 zstyle ':vcs_info:*'      enable             git hg svn
 zstyle ':vcs_info:*'      get-revision       true
 zstyle ':vcs_info:*'      formats            "(%s) %b" "%r"
-zstyle ':vcs_info:*'      actionformats      "(%s) %i|%a"
+zstyle ':vcs_info:*'      actionformats      "(%s) %a"
 zstyle ':vcs_info:*'      branchformat       "%b:%r"
 zstyle ':vcs_info:hg*:*'  use-simple         true
-zstyle ':vcs_info:svn:*'  formats            "(%s) %b:r%i" "%r"
+zstyle ':vcs_info:svn:*'  formats            "(%s) %b" "%r"
 zstyle ':vcs_info:svn:*'  branchformat       "%b"
 
 function prompt_pwd() {
