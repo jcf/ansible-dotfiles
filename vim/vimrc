@@ -243,6 +243,7 @@ set smartcase
 " set directory=$HOME/.swp//
 " No backup files!
 set nobackup
+set nowritebackup
 
 " Because I love ack
 set grepprg=ack\ -a
