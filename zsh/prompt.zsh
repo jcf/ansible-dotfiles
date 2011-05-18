@@ -99,7 +99,7 @@ function precmd {
   right=($rev)
 
   PS1="$left"
-  RPS1=" $right $(rvm_info_for_prompt)"
+  RPS1=" $right$(rvm_info_for_prompt)"
 }
 
 # preexec is called just before any command line is executed
