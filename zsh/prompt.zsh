@@ -38,7 +38,7 @@ fi
 autoload vcs_info
 zstyle ':vcs_info:*'      enable             git hg svn
 zstyle ':vcs_info:*'      get-revision       true
-zstyle ':vcs_info:*'      formats            "(%s) %b:%8>>%i%<<" "%r"
+zstyle ':vcs_info:*'      formats            "(%s) %b" "%r"
 zstyle ':vcs_info:*'      actionformats      "(%s) %i|%a"
 zstyle ':vcs_info:*'      branchformat       "%b:%r"
 zstyle ':vcs_info:hg*:*'  use-simple         true
@@ -99,7 +99,7 @@ function precmd {
   right=($rev)
 
   PS1="$left"
-  RPS1=" $right"
+  RPS1=" $right $(rvm_info_for_prompt)"
 }
 
 # preexec is called just before any command line is executed
