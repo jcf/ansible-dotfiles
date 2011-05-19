@@ -244,6 +244,7 @@ set smartcase
 " No backup files!
 set nobackup
 set nowritebackup
+set noswapfile
 
 " Because I love ack
 set grepprg=ack\ -a
