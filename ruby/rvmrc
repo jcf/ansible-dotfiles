@@ -1,1 +1,2 @@
 export rvm_pretty_print_flag=1
+export rvm_make_flags='-j 3'
