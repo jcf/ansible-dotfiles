@@ -64,8 +64,12 @@ function rdb { rails_command "dbconsole" "$@" }
 alias migrate='rake db:migrate db:test:clone_structure'
 
 # bundler
+alias b='bundle'
 alias be='bundle exec'
 alias bc='bundle console'
+alias bi='bundle install'
+alias bil='bundle install --local'
+alias bu='bundle update'
 
 # commands starting with % for pasting from web
 alias %=' '
