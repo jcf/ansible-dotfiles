@@ -72,7 +72,7 @@ alias bil='bundle install --local'
 alias bu='bundle update'
 
 # Start Guard using bundle exec
-alias begs='bundle exec guard start'
+alias beg='bundle exec guard'
 
 # commands starting with % for pasting from web
 alias %=' '
