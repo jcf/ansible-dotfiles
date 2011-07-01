@@ -80,6 +80,7 @@ task :install do
     misc/inputrc
     misc/nanorc
     misc/ctags
+    js
     ruby/autotest
     ruby/gemrc
     ruby/irbrc
