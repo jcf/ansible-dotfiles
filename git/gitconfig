@@ -51,7 +51,7 @@
 	token = 
 
 [heroku]
-	account = personal
+	account = logi.cl
 
 [url "git@gist.github.com:"]
 	insteadOf = "gst:"
