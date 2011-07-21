@@ -93,7 +93,7 @@
 	url = git://github.com/jcf/apidock.vim.git
 [submodule "vim/bundle/vim-scratch"]
 	path = vim/bundle/vim-scratch
-	url = git://github.com/mexpolk/vim-scratch.git
+	url = git://github.com/duff/vim-scratch.git
 [submodule "vim/bundle/vim-yankring"]
 	path = vim/bundle/vim-yankring
 	url = git://github.com/chrismetcalf/vim-yankring.git
