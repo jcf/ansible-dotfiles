@@ -45,7 +45,7 @@ alias migrate='rake db:migrate db:test:clone_structure'
 # bundler
 alias be='bundle exec'
 alias bc='bundle console'
-alias bch='bundle console'
+alias bch='bundle check'
 alias bi='bundle install'
 alias bil='bundle install --local'
 alias bu='bundle update'
