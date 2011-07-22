@@ -38,35 +38,14 @@ alias l.='ls -ldG .*'
 alias le='ls -aelG'
 alias lsd="ls -al | awk '/^d/{print}'"
 
-# hub (http://github.com/defunkt/hub)
-# brew install hub
-[ `which hub` ] && alias git='nocorrect hub'
-
 alias brew-update='brew install $(brew outdated | cut -d " " -f1 | tr "\n" " ")'
-
-# Rails
-function rails_command {
-  local cmd=$1
-  shift
-  if [ -e script/rails ]; then
-    rails $cmd "$@"
-  elif [ -e script/$cmd ]; then
-    script/$cmd "$@"
-  else
-    echo "Rails command $cmd not found in ./script"
-  fi
-}
-function rs { rails_command "server" "$@" }
-function rc { rails_command "console" "$@" }
-function rg { rails_command "generate" "$@" }
-function rdb { rails_command "dbconsole" "$@" }
 
 alias migrate='rake db:migrate db:test:clone_structure'
 
 # bundler
-alias b='bundle'
 alias be='bundle exec'
 alias bc='bundle console'
+alias bch='bundle console'
 alias bi='bundle install'
 alias bil='bundle install --local'
 alias bu='bundle update'
