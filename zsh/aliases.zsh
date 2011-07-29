@@ -4,6 +4,8 @@
 
 alias -g A='|ack'
 alias -g L='|less'
+alias -g V='|vim -'
+alias -g M='|mvim -'
 alias -g G='|grep'
 alias -g T='|tail'
 alias -g H='|head'
