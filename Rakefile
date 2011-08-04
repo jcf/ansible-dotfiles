@@ -15,7 +15,7 @@ module Installer
   end
 
   def interactive_link(file, destination, options = {})
-    file_name        = file.split(/\//).last
+    file_name        = File.basename(file)
     file_name        = ".#{file_name}" unless options[:dot] == false
     source_file      = File.join(Installer.dot_files, file)
 
