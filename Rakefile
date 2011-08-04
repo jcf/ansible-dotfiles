@@ -103,5 +103,6 @@ task :install do
     Installer.interactive_link(file, destination)
   end
 
+  Installer.interactive_link('ssh/config', '~/.ssh/', :dot => false)
   Installer.interactive_link('ruby/global.gems', '~/.rvm/gemsets/', :dot => false)
 end

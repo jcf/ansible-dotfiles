@@ -1,0 +1,48 @@
+Host kong
+  User jamesconroyfinn
+  HostName 192.168.2.2
+  IdentityFile ~/.ssh/bullseye
+
+Host be-dev
+  HostName dev.bullseyehub.com
+  IdentityFile ~/.ssh/bullseye
+
+Host be-cms
+  User ubuntu
+  HostName hcms.spoonfeduk.com
+  IdentityFile ~/.ssh/bullseye
+
+Host be-srv1
+  User ubuntu
+  HostName srv1.bullseyehub.com
+  IdentityFile ~/.ssh/bullseye
+
+Host be-web5
+  User ubuntu
+  HostName web5.live.bullseyehub.info
+  IdentityFile ~/.ssh/bullseye
+
+Host be-sigma
+  User ubuntu
+  HostName 79.125.23.234
+  IdentityFile ~/.ssh/bullseye
+
+Host be-master
+  User ubuntu
+  HostName master.bullseyehub.com
+  IdentityFile ~/.ssh/bullseye
+
+Host pro
+  HostName pro.jamesconroyfinn.members.mac.com
+
+Host heroku.logi.cl
+  HostName heroku.com
+  IdentityFile ~/.ssh/identity.heroku.logi.cl
+  IdentitiesOnly yes
+
+Host heroku.beh
+  HostName heroku.com
+  IdentityFile ~/.ssh/identity.heroku.beh
+  IdentitiesOnly yes
+
+# vim: syn=sshconfig
