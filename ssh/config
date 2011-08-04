@@ -12,6 +12,11 @@ Host be-cms
   HostName hcms.spoonfeduk.com
   IdentityFile ~/.ssh/bullseye
 
+Host be-testing
+  User ubuntu
+  HostName web2.testing.bullseyehub.info
+  IdentityFile ~/.ssh/bullseye
+
 Host be-srv1
   User ubuntu
   HostName srv1.bullseyehub.com
