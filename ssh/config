@@ -14,7 +14,7 @@ Host be-cms
 
 Host be-testing
   User ubuntu
-  HostName web2.testing.bullseyehub.info
+  HostName web1.testing.bullseyehub.info
   IdentityFile ~/.ssh/bullseye
 
 Host be-srv1
