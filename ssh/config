@@ -17,6 +17,11 @@ Host be-testing
   HostName web1.testing.bullseyehub.info
   IdentityFile ~/.ssh/bullseye
 
+Host be-master-dj1
+  User ubuntu
+  HostName masterdj1.testing.bullseyehub.info
+  IdentityFile ~/.ssh/bullseye
+
 Host be-srv1
   User ubuntu
   HostName srv1.bullseyehub.com
