@@ -1,5 +1,6 @@
 rake
 bundler
+pry
 gemwhois
 open_gem
 awesome_print
