@@ -27,9 +27,9 @@ Host be-srv1
   HostName srv1.bullseyehub.com
   IdentityFile ~/.ssh/bullseye
 
-Host be-web5
+Host be-web1
   User ubuntu
-  HostName web5.live.bullseyehub.info
+  HostName web1.live.bullseyehub.info
   IdentityFile ~/.ssh/bullseye
 
 Host be-sigma
