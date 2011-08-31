@@ -2,5 +2,6 @@ rake
 bundler
 pry
 gem-browse
+gem-ctags
 awesome_print
 ghost
