@@ -1,8 +1,7 @@
 rake
 bundler
 pry
-gemwhois
-open_gem
+gem-browse
 awesome_print
 ghost
 flog
