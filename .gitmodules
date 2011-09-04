@@ -115,9 +115,6 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/Color-Sampler-Pack"]
-	path = vim/bundle/Color-Sampler-Pack
-	url = git://github.com/vim-scripts/Color-Sampler-Pack.git
 [submodule "vim/bundle/vim-indent-object"]
 	path = vim/bundle/vim-indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
