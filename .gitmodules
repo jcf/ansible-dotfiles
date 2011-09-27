@@ -139,9 +139,6 @@
 [submodule "vim/bundle/neocomplcache"]
 	path = vim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
-[submodule "emacs.rc"]
-	path = emacs.rc
-	url = git://github.com/jcf/emacs.git
 [submodule "vim/bundle/extradite"]
 	path = vim/bundle/extradite
 	url = git://github.com/int3/vim-extradite.git
