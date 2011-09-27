@@ -5,6 +5,7 @@
 	whitespace = nowarn
 [alias]
 	co = checkout
+	cp = cherry-pick
 	last = log -1 HEAD
 	show-last = !git show `git rev-parse HEAD`
 	unchanged = update-index --assume-unchanged
