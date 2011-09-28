@@ -87,6 +87,7 @@ task :install do
     ruby/rvmrc
     ruby/railsrc
     ruby/rdebugrc
+    ruby/powconfig
     git/gitk
     git/gitconfig
     git/gitignore
@@ -104,5 +105,4 @@ task :install do
   end
 
   Installer.interactive_link('ssh/config', '~/.ssh/', :dot => false)
-  Installer.interactive_link('ruby/global.gems', '~/.rvm/gemsets/', :dot => false)
 end

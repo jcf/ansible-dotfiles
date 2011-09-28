@@ -20,4 +20,4 @@ source $DOT_FILES/zsh/completions.zsh
 source $DOT_FILES/zsh/rake_completion.zsh
 
 # RVM
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+# [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm

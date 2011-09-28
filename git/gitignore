@@ -10,6 +10,7 @@
 *.rdb
 ._*
 .rvmrc
+.rbenv-version
 .rake_tasks
 tmp*
 tmp/**/*
