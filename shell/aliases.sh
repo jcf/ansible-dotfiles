@@ -38,8 +38,6 @@ alias l.='ls -ldG .*'
 alias le='ls -aelG'
 alias lsd="ls -al | awk '/^d/{print}'"
 
-alias brew-update='brew install $(brew outdated | cut -d " " -f1 | tr "\n" " ")'
-
 alias migrate='rake db:migrate db:test:clone_structure'
 
 # bundler
