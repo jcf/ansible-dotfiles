@@ -5,5 +5,6 @@ export DOT_FILES=$(dirname $(dirname $(readlink $BASH_SOURCE)))
 source $DOT_FILES/shell/common.sh
 source $DOT_FILES/bash/rails_command.sh
 
-# RVM
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

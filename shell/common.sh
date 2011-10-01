@@ -11,7 +11,3 @@ source $DOT_FILES/shell/git.sh
 [[ -f $DOT_FILES/shell/private.sh ]] && source $DOT_FILES/shell/private.sh
 
 [[ `uname -s` == 'Darwin' ]] && source $DOT_FILES/shell/osx.sh
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
