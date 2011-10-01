@@ -3,7 +3,11 @@ function rails_command {
   local cmd=$1
   shift
   if [ -e script/rails ]; then
-    rails $cmd "$@"
+    if [ -e Gemfile ]; then
+      bundle exec rails $cmd "$@"
+    else
+      rails $cmd "$@"
+    fi
   elif [ -e script/$cmd ]; then
     script/$cmd "$@"
   else
