@@ -7,40 +7,43 @@ Host be-dev
   HostName dev.bullseyehub.com
   IdentityFile ~/.ssh/bullseye
 
+host *.amazonaws.com
+  User ubuntu
+  StrictHostKeyChecking no
+  IdentityFile ~/.ssh/bullseye
+  UserKnownHostsFile ~/.ssh/ec2_hosts
+
 Host be-cms
   User ubuntu
   HostName hcms.spoonfeduk.com
-  IdentityFile ~/.ssh/bullseye
 
 Host be-testing
   User ubuntu
   HostName web1.testing.bullseyehub.info
-  IdentityFile ~/.ssh/bullseye
 
 Host be-master-dj1
   User ubuntu
   HostName masterdj1.testing.bullseyehub.info
-  IdentityFile ~/.ssh/bullseye
 
 Host be-srv1
   User ubuntu
   HostName srv1.bullseyehub.com
-  IdentityFile ~/.ssh/bullseye
 
 Host be-web1
   User ubuntu
   HostName web1.live.bullseyehub.info
-  IdentityFile ~/.ssh/bullseye
+
+Host be-demo
+  User ubuntu
+  HostName app1.demo.bullseyehub.info
 
 Host be-sigma
   User ubuntu
   HostName 79.125.23.234
-  IdentityFile ~/.ssh/bullseye
 
 Host be-master
   User ubuntu
   HostName master.bullseyehub.com
-  IdentityFile ~/.ssh/bullseye
 
 Host pro
   HostName pro.jamesconroyfinn.members.mac.com
