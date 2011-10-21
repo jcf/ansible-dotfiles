@@ -157,3 +157,6 @@
 [submodule "vim/bundle/vim-rvm"]
 	path = vim/bundle/vim-rvm
 	url = git://github.com/tpope/vim-rvm.git
+[submodule "vim/bundle/vim-stylus"]
+	path = vim/bundle/vim-stylus
+	url = git://github.com/wavded/vim-stylus.git
