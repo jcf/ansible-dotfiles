@@ -160,3 +160,6 @@
 [submodule "vim/bundle/vim-stylus"]
 	path = vim/bundle/vim-stylus
 	url = git://github.com/wavded/vim-stylus.git
+[submodule "vim/bundle/slurper"]
+	path = vim/bundle/slurper
+	url = git://github.com/adamlowe/vim-slurper.git
