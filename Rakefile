@@ -88,6 +88,7 @@ task :install do
     ruby/railsrc
     ruby/rdebugrc
     ruby/powconfig
+    ruby/guardfiles
     git/gitk
     git/gitconfig
     git/gitignore
