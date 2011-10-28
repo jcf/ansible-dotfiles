@@ -51,6 +51,9 @@ alias bu='bundle update'
 # Start Guard using bundle exec
 alias beg='bundle exec guard'
 
+# See ~/.dotfiles/bin/guardfiles
+alias gf='guardfiles'
+
 # commands starting with % for pasting from web
 alias %=' '
 
