@@ -7,7 +7,7 @@ else
 fi
 
 export VISUAL="$EDITOR"
-export GEM_OPEN_EDITOR="$EDITOR"
+export HOMEBREW_EDITOR="$EDITOR"
 export GIT_EDITOR="$(which mvim || which vim) -f" # http://is.gd/hGrsF
 export GEM_EDITOR=$GIT_EDITOR
 
