@@ -84,11 +84,12 @@ task :install do
     ruby/autotest
     ruby/gemrc
     ruby/irbrc
+    ruby/pryrc
+    ruby/guardfiles
     ruby/rvmrc
     ruby/railsrc
     ruby/rdebugrc
     ruby/powconfig
-    ruby/guardfiles
     git/gitk
     git/gitconfig
     git/gitignore
