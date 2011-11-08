@@ -12,15 +12,9 @@ setopt ALL_EXPORT
 # Colour stuff
 autoload colors zsh/terminfo
 
-PAGER="less"
-NODE_PATH="/usr/local/lib/node:$NODE_PATH"
-
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
-
-ACK_COLOR_FILENAME="bold white on_black"
-ACK_COLOR_MATCH="magenta on_black"
 
 unsetopt ALL_EXPORT
 

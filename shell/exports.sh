@@ -19,6 +19,12 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 export CLICOLOR=1
 
+export PAGER="less"
+export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules:$NODE_PATH"
+
+export ACK_COLOR_FILENAME="bold white on_black"
+export ACK_COLOR_MATCH="magenta on_black"
+
 export HISTSIZE=1000000
 
 export REPORTTIME=2
