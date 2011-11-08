@@ -89,6 +89,7 @@ task :install do
     ruby/rvmrc
     ruby/railsrc
     ruby/rdebugrc
+    ruby/aprc
     ruby/powconfig
     git/gitk
     git/gitconfig
