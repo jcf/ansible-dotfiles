@@ -13,3 +13,19 @@ TRAPINT () {
 
 brew install $base
 brew install --HEAD $head
+
+
+if [[ -f ~/.nave ]]; then
+  echo "Installing nave..."
+  mkdir ~/.nave
+  cd ~/.nave
+  wget http://github.com/isaacs/nave/raw/master/nave.sh
+  ln -s $PWD/nave.sh /usr/local/bin/nave
+  chmod +x /usr/local/bin/nave
+else
+  echo "Nave already installed"
+fi
+
+echo "Installing latest version of node..."
+
+/usr/local/bin/nave usemain `nave latest`
