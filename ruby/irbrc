@@ -53,7 +53,7 @@ end
 
 alias q exit
 
-load File.dirname(__FILE__) + '/.railsrc' if $0 == 'irb' && ENV['RAILS_ENV']
+load File.expand_path('~/.railsrc') if $0 == 'irb' && defined?(Rails)
 
 # Interactive editor inspired by Giles Bowkett
 require 'tempfile'
