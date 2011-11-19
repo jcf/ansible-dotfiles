@@ -163,3 +163,6 @@
 [submodule "vim/bundle/slurper"]
   path = vim/bundle/slurper
   url = git://github.com/adamlowe/vim-slurper.git
+[submodule "vendor/bundle/nginx"]
+	path = vendor/bundle/nginx
+	url = git://github.com/vim-scripts/nginx.vim.git
