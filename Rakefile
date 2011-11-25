@@ -79,6 +79,7 @@ task :install do
     misc/ackrc
     misc/inputrc
     misc/nanorc
+    misc/tmux.conf
     misc/ctags
     js
     ruby/autotest
