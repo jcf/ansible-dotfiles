@@ -81,6 +81,9 @@ if &t_Co >= 256 || has("gui_running")
 endif
 set background=dark
 
+" Stop highlighting ridiculously long lines
+set synmaxcol=400
+
 " recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 
