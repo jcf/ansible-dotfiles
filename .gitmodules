@@ -166,3 +166,6 @@
 [submodule "vendor/bundle/nginx"]
 	path = vendor/bundle/nginx
 	url = git://github.com/vim-scripts/nginx.vim.git
+[submodule "vim/bundle/splitjoin"]
+	path = vim/bundle/splitjoin
+	url = git://github.com/AndrewRadev/splitjoin.vim.git
