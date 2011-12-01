@@ -45,6 +45,16 @@ Host be-master
   User ubuntu
   HostName master.bullseyehub.com
 
+Host be-pocahontas
+  User ubuntu
+  HostName web.pocahontas.bullseyehub.info
+  IdentityFile ~/.ssh/bullseye
+
+Host be-mowgli
+  User ubuntu
+  HostName web.mowgli.bullseyehub.info
+  IdentityFile ~/.ssh/bullseye
+
 Host pro
   HostName pro.jamesconroyfinn.members.mac.com
 
