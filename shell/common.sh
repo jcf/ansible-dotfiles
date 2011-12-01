@@ -7,6 +7,7 @@ source $DOT_FILES/shell/aliases.sh
 source $DOT_FILES/shell/functions.sh
 source $DOT_FILES/shell/save-directory.sh
 source $DOT_FILES/shell/git.sh
+source $DOT_FILES/shell/ruby.sh
 
 [[ -f $DOT_FILES/shell/private.sh ]] && source $DOT_FILES/shell/private.sh
 
