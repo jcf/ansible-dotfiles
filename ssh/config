@@ -13,13 +13,14 @@ host *.amazonaws.com
   IdentityFile ~/.ssh/bullseye
   UserKnownHostsFile ~/.ssh/ec2_hosts
 
+Host be-marketing
+  User ubuntu
+  IdentityFile ~/.ssh/bullseye
+  HostName www.bullseyehub.com
+
 Host be-cms
   User ubuntu
   HostName hcms.spoonfeduk.com
-
-Host be-testing
-  User ubuntu
-  HostName web1.testing.bullseyehub.info
 
 Host be-master-dj1
   User ubuntu
@@ -29,9 +30,9 @@ Host be-srv1
   User ubuntu
   HostName srv1.bullseyehub.com
 
-Host be-web1
+Host be-web6
   User ubuntu
-  HostName web1.live.bullseyehub.info
+  HostName web6.live.bullseyehub.info
 
 Host be-demo
   User ubuntu
