@@ -3,7 +3,7 @@ Host kong
   HostName 192.168.2.2
   IdentityFile ~/.ssh/bullseye
 
-Host be-dev
+Host beh-dev
   HostName dev.bullseyehub.com
   IdentityFile ~/.ssh/bullseye
 
@@ -13,45 +13,53 @@ host *.amazonaws.com
   IdentityFile ~/.ssh/bullseye
   UserKnownHostsFile ~/.ssh/ec2_hosts
 
-Host be-marketing
+Host beh-marketing
   User ubuntu
   IdentityFile ~/.ssh/bullseye
   HostName www.bullseyehub.com
 
-Host be-cms
+Host beh-cms
   User ubuntu
   HostName hcms.spoonfeduk.com
 
-Host be-master-dj1
+Host beh-master-dj1
   User ubuntu
   HostName masterdj1.testing.bullseyehub.info
 
-Host be-srv1
+Host beh-srv1
   User ubuntu
   HostName srv1.bullseyehub.com
 
-Host be-web6
+Host beh-web6
   User ubuntu
   HostName web6.live.bullseyehub.info
 
-Host be-demo
+Host beh-web10
+  User ubuntu
+  HostName ec2-176-34-218-172.eu-west-1.compute.amazonaws.com
+
+Host beh-web11
+  User ubuntu
+  HostName ec2-79-125-32-136.eu-west-1.compute.amazonaws.com
+
+Host beh-demo
   User ubuntu
   HostName app1.demo.bullseyehub.info
 
-Host be-sigma
+Host beh-sigma
   User ubuntu
   HostName 79.125.23.234
 
-Host be-master
+Host beh-master
   User ubuntu
   HostName master.bullseyehub.com
 
-Host be-pocahontas
+Host beh-pocahontas
   User ubuntu
   HostName web.pocahontas.bullseyehub.info
   IdentityFile ~/.ssh/bullseye
 
-Host be-mowgli
+Host beh-mowgli
   User ubuntu
   HostName web.mowgli.bullseyehub.info
   IdentityFile ~/.ssh/bullseye
