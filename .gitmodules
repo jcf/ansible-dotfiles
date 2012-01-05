@@ -97,9 +97,6 @@
 [submodule "vim/bundle/applescript.vim"]
   path = vim/bundle/applescript
   url = git://github.com/vim-scripts/applescript.vim.git
-[submodule "vim/bundle/conque"]
-  path = vim/bundle/conque
-  url = git://github.com/rson/vim-conque.git
 [submodule "vim/bundle/Indent-Guides"]
   path = vim/bundle/Indent-Guides
   url = git://github.com/vim-scripts/Indent-Guides.git
