@@ -133,9 +133,6 @@
 [submodule "vim/bundle/puppet"]
   path = vim/bundle/puppet
   url = git://github.com/ajf/puppet-vim.git
-[submodule "vim/bundle/vimshell"]
-  path = vim/bundle/vimshell
-  url = git://github.com/Shougo/vimshell.git
 [submodule "vim/bundle/neocomplcache"]
   path = vim/bundle/neocomplcache
   url = git://github.com/Shougo/neocomplcache.git
