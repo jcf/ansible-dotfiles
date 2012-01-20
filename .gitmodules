@@ -61,9 +61,6 @@
 [submodule "vim/bundle/unimpaired"]
   path = vim/bundle/unimpaired
   url = git://github.com/tpope/vim-unimpaired.git
-[submodule "vim/bundle/snipmate"]
-  path = vim/bundle/snipmate
-  url = git://github.com/msanders/snipmate.vim
 [submodule "vim/bundle/textile"]
   path = vim/bundle/textile
   url = git://github.com/timcharper/textile.vim.git
@@ -79,9 +76,6 @@
 [submodule "vim/bundle/tag_list"]
   path = vim/bundle/tag_list
   url = git://github.com/jcf/tag_list.vim
-[submodule "vim/snippets"]
-  path = vim/snippets
-  url = git://github.com/jcf/snipmate-snippets.git
 [submodule "vim/bundle/lusty"]
   path = vim/bundle/lusty
   url = git://github.com/sjbach/lusty.git
@@ -145,9 +139,6 @@
 [submodule "vim/bundle/bundler"]
   path = vim/bundle/bundler
   url = git://github.com/tpope/vim-bundler.git
-[submodule "vim/bundle/rvm"]
-  path = vim/bundle/rvm
-  url = git://github.com/tpope/vim-rvm.git
 [submodule "vim/bundle/stylus"]
   path = vim/bundle/stylus
   url = git://github.com/wavded/vim-stylus.git
@@ -157,9 +148,6 @@
 [submodule "vendor/bundle/nginx"]
 	path = vendor/bundle/nginx
 	url = git://github.com/vim-scripts/nginx.vim.git
-[submodule "vim/bundle/splitjoin"]
-	path = vim/bundle/splitjoin
-	url = git://github.com/AndrewRadev/splitjoin.vim.git
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
