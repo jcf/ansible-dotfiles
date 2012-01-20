@@ -82,9 +82,6 @@
 [submodule "vim/bundle/scratch"]
   path = vim/bundle/scratch
   url = git://github.com/duff/vim-scratch.git
-[submodule "vim/bundle/yankring"]
-  path = vim/bundle/yankring
-  url = git://github.com/chrismetcalf/vim-yankring.git
 [submodule "vim/bundle/applescript.vim"]
   path = vim/bundle/applescript
   url = git://github.com/vim-scripts/applescript.vim.git
