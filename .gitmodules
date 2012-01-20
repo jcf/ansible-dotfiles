@@ -76,9 +76,6 @@
 [submodule "vim/bundle/tag_list"]
   path = vim/bundle/tag_list
   url = git://github.com/jcf/tag_list.vim
-[submodule "vim/bundle/lusty"]
-  path = vim/bundle/lusty
-  url = git://github.com/sjbach/lusty.git
 [submodule "vim/bundle/apidock"]
   path = vim/bundle/apidock
   url = git://github.com/jcf/apidock.vim.git
