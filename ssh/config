@@ -13,6 +13,12 @@ host *.amazonaws.com
   IdentityFile ~/.ssh/bullseye
   UserKnownHostsFile ~/.ssh/ec2_hosts
 
+Host *.bullseyehub.info
+  User ubuntu
+  StrictHostKeyChecking no
+  IdentityFile ~/.ssh/bullseye
+  UserKnownHostsFile ~/.ssh/ec2_hosts
+
 Host beh-marketing
   User ubuntu
   IdentityFile ~/.ssh/bullseye
@@ -41,10 +47,6 @@ Host beh-web10
 Host beh-web11
   User ubuntu
   HostName ec2-79-125-32-136.eu-west-1.compute.amazonaws.com
-
-Host beh-demo
-  User ubuntu
-  HostName app1.demo.bullseyehub.info
 
 Host beh-sigma
   User ubuntu
