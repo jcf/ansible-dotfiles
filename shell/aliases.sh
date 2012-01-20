@@ -5,7 +5,7 @@ alias e="$EDITOR"
 alias reload="source ~/.zshrc"
 alias cdot="cd ~/.dotfiles"
 alias edot="mvim -c \"cd ~/.dotfiles\" ~/.dotfiles"
-#
+
 # Lists the size of all the folders
 alias ducks='du -cks * | sort -rn |head -11'
 

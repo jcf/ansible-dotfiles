@@ -67,6 +67,11 @@ function command_not_found_handle() {
   return $?
 }
 
+# Dig everything
+function dug() {
+  dig +nocmd $1 any +multiline +noall +answer
+}
+
 function json() {
   tmpfile=`mktemp -t json`
   curl -s $* | python -mjson.tool > $tmpfile
