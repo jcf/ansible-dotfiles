@@ -1,0 +1,53 @@
+clearsnippets f def
+snippet def "def <name> ... end" !
+def ${1:name}
+  $0
+end
+endsnippet
+
+clearsnippets defi
+snippet defi "def initialize ... end"
+def initialize${1/.+/(/}${1:args}${1/.+/)/}
+  $0
+end
+endsnippet
+
+clearsnippets cla
+snippet cla "class ClassNameFromFile ... end"
+class ${1:`!p res = snip.basename`}
+  $0
+end
+endsnippet
+
+clearsnippets clas
+snippet clas "class << self ... end"
+class << ${1:self}
+  $0
+end
+endsnippet
+
+snippet desc "require 'spec_helper' ... describe"
+require 'spec_helper'
+
+describe ${1:ClassName} do
+  $0
+end
+endsnippet
+
+snippet des "describe 'method_name'"
+describe '${1:method_name}' do
+  $0
+end
+endsnippet
+
+snippet con "context 'when'"
+context '${1:when}' do
+  $0
+end
+endsnippet
+
+snippet it "it 'something'"
+it '${1:something}' do
+  $0
+end
+endsnippet
