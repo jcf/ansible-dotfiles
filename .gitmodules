@@ -160,3 +160,6 @@
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/distinguished"]
+	path = vim/bundle/distinguished
+	url = git://github.com/Lokaltog/vim-distinguished.git
