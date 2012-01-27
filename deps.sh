@@ -2,7 +2,8 @@
 
 set -A base \
   git git-extras willgit growlnotify ruby-build hub jsl ctags lorem graphviz \
-  postgresql mongodb redis memcached node rlwrap couchdb subversion wget tree
+  postgresql mongodb redis memcached node rlwrap couchdb subversion wget tree \
+  vimpager
 
 set -A head macvim
 

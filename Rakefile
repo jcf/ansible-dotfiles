@@ -77,6 +77,7 @@ task :install do
     bash/bashrc
     bash/bash_profile
     misc/ackrc
+    misc/vimpagerrc
     misc/inputrc
     misc/nanorc
     misc/tmux.conf
