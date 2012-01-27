@@ -1,1 +1,13 @@
 " vim: ft=vim
+
+" Prevent UltiSnips from starting up
+let did_UltiSnips_vim=1
+
+set nocompatible
+
+call pathogen#infect()
+filetype off
+syntax on
+filetype plugin indent on
+
+colo solarized
