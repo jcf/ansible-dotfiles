@@ -254,11 +254,6 @@ set pastetoggle=<F2>
 " Don't insert a comment when pressing o/O
 set formatoptions-=o
 
-" don't load csapprox without a gui - silences an annoying warning
-if !has("gui")
-  let g:CSApprox_loaded = 1
-endif
-
 set formatoptions-=o "dont continue comments when pushing o/O
 
 let mapleader = ','
