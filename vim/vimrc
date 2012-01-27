@@ -405,4 +405,3 @@ endfunction
 
 " Ensure Powerline uses fancy symbols
 let g:Powerline_symbols = 'fancy'
-let g:Powerline_theme = 'solarized'
