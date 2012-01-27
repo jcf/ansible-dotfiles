@@ -351,13 +351,13 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Guardfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
-function s:setupWrapping()
+function! s:setupWrapping()
   set wrap
   set wm=2
   set textwidth=72
 endfunction
 
-function s:setupMarkup()
+function! s:setupMarkup()
   call s:setupWrapping()
   map <buffer> <Leader>p :Mm <CR>
 endfunction
@@ -379,10 +379,6 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Bind split and join to sj and sk respectively
 "
-" See http://github.com/AndrewRadev/splitjoin.vim
-nmap sj :SplitjoinSplit<cr>
-nmap sk :SplitjoinJoin<cr>
-
 " Jump to last cursor position when opening a file
 " Don't do it when writing a commit log entry
 autocmd BufReadPost * call SetCursorPosition()
