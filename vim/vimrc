@@ -92,6 +92,4 @@ set nocompatible
 
   " Don't insert a comment when pressing o/O
   set formatoptions-=o
-
-  set formatoptions-=o "dont continue comments when pushing o/O
 " }}}
