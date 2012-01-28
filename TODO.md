@@ -1,0 +1,1 @@
+- Move insertion point to top of Git commit buffer in Vim
