@@ -1,7 +1,7 @@
 set nocompatible
 
-" Load Pathogen bundles {{{
-  call pathogen#infect()
+" Load Unbundle {{{
+  runtime bundle/unbundle/unbundle.vim
 " }}}
 " Source viminit files {{{
   runtime! config/**/*.vim
