@@ -11,7 +11,7 @@ augroup Whitespace " {{{
     function! s:StripTrailingWhitespace()
       normal mZ
       %s/\s\+$//e
-      normal `Z
+      normal 'Z
     endfunction
 
     au FileType html,css,sass,javascript,php,python,ruby,psql,vim au BufWritePre <buffer> :silent! call <SID>StripTrailingWhitespace()
