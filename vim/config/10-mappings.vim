@@ -4,11 +4,6 @@ let mapleader = ','
   nnoremap <silent> <Leader>d :bd<CR>
 " }}}
 
-" Quick edit .vimrc {{{
-  nnoremap <silent> <Leader>ev :edit   $MYVIMRC<CR>
-  nnoremap <silent> <Leader>sv :source $MYVIMRC<CR>
-" }}}
-
 " Sudo tee to write a file as root {{{
   cmap w!! w !sudo tee % >/dev/null
 " }}}
