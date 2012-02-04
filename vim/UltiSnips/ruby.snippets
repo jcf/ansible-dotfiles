@@ -1,5 +1,11 @@
 clearsnippets f def
-snippet def "def <name> ... end" !
+snippet def "def <name> ... end"
+def ${1:name}
+  $0
+end
+endsnippet
+
+snippet "(de)?f" "def <name>..." r!
 def ${1:name}
   $0
 end
@@ -36,6 +42,13 @@ endsnippet
 
 snippet des "describe 'method_name'"
 describe '${1:method_name}' do
+  $0
+end
+endsnippet
+
+clearsnippets bef
+snippet bef "before(:each) do ... end"
+before(${1::each}) do
   $0
 end
 endsnippet
