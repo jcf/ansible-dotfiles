@@ -47,15 +47,12 @@ augroup END " }}}
 augroup JumpToLastPosition " {{{
   autocmd!
   " Jump to last position when returning to a buffer {{{
-    function! SetCursorPosition()
-      if &filetype !~ 'commit\c'
-        if line("'\"") > 0 && line("'\"") <= line("$")
-          exe "normal! g`\""
-          normal! zz
-        endif
-      end
+    function! PositionCursorFromViminfo()
+      if !(bufname("%") =~ '\(COMMIT_EDITMSG\)') && line("'\"") > 1 && line("'\"") <= line("$")
+        exe "normal! g`\""
+      endif
     endfunction
 
-    au BufReadPost * call SetCursorPosition()
+    au BufReadPost * call PositionCursorFromViminfo()
   " }}}
 augroup END " }}}
