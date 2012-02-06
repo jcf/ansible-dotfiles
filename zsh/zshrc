@@ -1,24 +1,2 @@
-export CURRENT_SHELL="zsh"
-export DOT_FILES=$(dirname $(dirname $(readlink $HOME/.zshrc)))
-
-# Common functionality between Zsh and Bash
-source $DOT_FILES/shell/common.sh
-
-# My ZSH customisations
-source $DOT_FILES/zsh/config.zsh
-source $DOT_FILES/zsh/prompt.zsh
-source $DOT_FILES/zsh/aliases.zsh
-source $DOT_FILES/zsh/rails.zsh
-
-# Colours
-source $DOT_FILES/zsh/colors.zsh
-
-# Completion
-source $DOT_FILES/zsh/completions.zsh
-
-# Rake completion
-source $DOT_FILES/zsh/rake_completion.zsh
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+export CURRENT_SHELL='zsh'
+source $HOME/.dotfiles/zsh/init.zsh
