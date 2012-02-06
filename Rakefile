@@ -73,7 +73,6 @@ task :install do
   files = %w(
     bin
     zsh/zshrc
-    zsh/zshenv
     bash/bashrc
     bash/bash_profile
     misc/ackrc
