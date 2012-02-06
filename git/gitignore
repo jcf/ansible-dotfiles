@@ -12,6 +12,7 @@
 .rvmrc
 .rbenv-version
 .rake_tasks
+\#*#
 stories.slurper
 slurper_config.yml
 tmp*
