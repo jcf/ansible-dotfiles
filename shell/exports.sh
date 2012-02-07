@@ -12,7 +12,6 @@ export GIT_EDITOR="$(which mvim || which vim) -f" # http://is.gd/hGrsF
 export GEM_EDITOR=$GIT_EDITOR
 
 export IRBRC="$HOME/.irbrc"
-export JEWELER_OPTS="--rspec --gemcutter --rubyforge --reek --roodi"
 
 #export TERM=xterm-256color
 export GREP_OPTIONS='--color=auto'
