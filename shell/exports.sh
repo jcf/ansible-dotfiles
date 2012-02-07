@@ -12,6 +12,7 @@ export GIT_EDITOR="$(which mvim || which vim) -f" # http://is.gd/hGrsF
 export GEM_EDITOR=$GIT_EDITOR
 
 export IRBRC="$HOME/.irbrc"
+export RBXOPT='-X19'
 export JRUBY_OPTS='--1.9'
 
 #export TERM=xterm-256color
