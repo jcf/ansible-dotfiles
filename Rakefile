@@ -88,7 +88,6 @@ task :install do
     ruby/pryrc
     ruby/guardfiles
     ruby/rvmrc
-    ruby/railsrc
     ruby/rdebugrc
     ruby/powconfig
     git/gitk
