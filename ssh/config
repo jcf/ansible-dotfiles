@@ -28,25 +28,17 @@ Host beh-cms
   User ubuntu
   HostName hcms.spoonfeduk.com
 
-Host beh-master-dj1
+Host beh-dj
   User ubuntu
-  HostName masterdj1.testing.bullseyehub.info
+  HostName ec2-79-125-55-172.eu-west-1.compute.amazonaws.com
 
-Host beh-srv1
+Host beh-web12
   User ubuntu
-  HostName srv1.bullseyehub.com
+  HostName ec2-46-137-153-27.eu-west-1.compute.amazonaws.com
 
-Host beh-web6
+Host beh-web13
   User ubuntu
-  HostName web6.live.bullseyehub.info
-
-Host beh-web10
-  User ubuntu
-  HostName ec2-176-34-218-172.eu-west-1.compute.amazonaws.com
-
-Host beh-web11
-  User ubuntu
-  HostName ec2-79-125-32-136.eu-west-1.compute.amazonaws.com
+  HostName ec2-176-34-202-134.eu-west-1.compute.amazonaws.com
 
 Host beh-sigma
   User ubuntu
