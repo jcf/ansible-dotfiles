@@ -33,7 +33,7 @@ set nocompatible
   set visualbell
 
   " Quieten some of those interruptive prompts
-  set shortmess=atI
+  set shortmess=aoOtTI
 
   " Stop highlighting ridiculously long lines
   set synmaxcol=400
