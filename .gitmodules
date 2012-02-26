@@ -166,3 +166,6 @@
 [submodule "vim/ftbundle/html/sparkup"]
 	path = vim/ftbundle/html/sparkup
 	url = git://github.com/Lokaltog/sparkup.git
+[submodule "zsh/completions"]
+	path = zsh/completions
+	url = git://github.com/zsh-users/zsh-completions.git
