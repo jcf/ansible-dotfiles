@@ -73,9 +73,6 @@
 [submodule "vim/bundle/cocoa"]
   path = vim/bundle/cocoa
   url = git://github.com/jcf/cocoa.vim.git
-[submodule "vim/bundle/tag_list"]
-  path = vim/bundle/tag_list
-  url = git://github.com/jcf/tag_list.vim
 [submodule "vim/ftbundle/ruby/apidock"]
   path = vim/ftbundle/ruby/apidock
   url = git://github.com/jcf/apidock.vim.git
