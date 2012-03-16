@@ -42,7 +42,8 @@ Host beh-web13
 
 Host beh-sigma
   User ubuntu
-  HostName 79.125.23.234
+  HostName ec2-46-137-151-198.eu-west-1.compute.amazonaws.com
+  IdentityFile ~/.ssh/bullseye
 
 Host beh-master
   User ubuntu
