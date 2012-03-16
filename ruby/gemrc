@@ -6,5 +6,5 @@
 - http://gems.rubyforge.org
 :update_sources: true
 :verbose: false
-gem: --no-ri --no-rdoc
-gemcutter_key: f35111d0adce12455ffd062faea94bce
+install: --no-ri --no-rdoc
+update: --no-ri --no-rdoc
