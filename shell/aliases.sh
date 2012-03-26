@@ -45,6 +45,7 @@ alias be='bundle exec'
 alias bc='bundle console'
 alias bch='bundle check'
 alias bi='bundle install'
+alias bis='bundle install --standalone'
 alias bil='bundle install --local'
 alias bu='bundle update'
 
