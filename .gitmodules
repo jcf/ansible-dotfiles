@@ -169,3 +169,6 @@
 [submodule "vim/ftbundle/less/less"]
 	path = vim/ftbundle/less/less
 	url = git://github.com/groenewege/vim-less.git
+[submodule "vim/ftbundle/slim/slim"]
+	path = vim/ftbundle/slim/slim
+	url = git://github.com/bbommarito/vim-slim.git
