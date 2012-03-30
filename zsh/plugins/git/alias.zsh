@@ -41,6 +41,9 @@ compdef _git gbv=git-branch
 alias gs='git status -sb'
 compdef _git gs=git-status
 
+alias gg='git grep'
+compdef _git gg=git-grep
+
 alias glog='git log --stat'
 compdef _git glog=git-log
 
