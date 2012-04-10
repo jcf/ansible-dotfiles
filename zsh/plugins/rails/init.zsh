@@ -12,9 +12,9 @@ alias devlog='tail -f log/development.log'
 
 # Functions
 function _rails-command() {
-  if [[ -e "script/server" ]]; then
-    ruby script/"$@"
-  else
+  if [[ -e "script/rails" ]]; then
     ruby script/rails "$@"
+  else
+    ruby script/"$@"
   fi
 }

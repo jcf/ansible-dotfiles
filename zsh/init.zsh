@@ -17,7 +17,6 @@ autoload -Uz compinit && compinit -i
 source $DOT_FILES/zsh/config.zsh
 source $DOT_FILES/zsh/prompt.zsh
 source $DOT_FILES/zsh/aliases.zsh
-source $DOT_FILES/zsh/rails.zsh
 
 # Colours
 source $DOT_FILES/zsh/colors.zsh
