@@ -1,0 +1,11 @@
+snippet bs
+echo "Checking for Ruby..."
+type -P ruby &>/dev/null || { echo >&2 "Ruby not found in PATH. Exiting."; exit 1; }
+
+echo "Checking for Bundler..."
+gem which bundler &>/dev/null || gem install bundler
+
+echo "Installing gem dependencies..."
+bundle install
+$0
+endsnippet
