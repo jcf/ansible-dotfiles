@@ -2,6 +2,8 @@
 # brew install hub
 [ `which hub` ] && alias git='nocorrect hub'
 
+alias trog='trash **/*.orig'
+
 alias -g A='|ack'
 alias -g L='|less'
 alias -g V='|vim -'
