@@ -3,7 +3,7 @@ if has("gui_running")
   color solarized
 
   set guioptions=egmrt
-  set guifont=Menlo:h12
+  set guifont=Menlo:h13
 
   " textwidth < 81 please
   set colorcolumn=81
