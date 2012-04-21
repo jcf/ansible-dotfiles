@@ -74,19 +74,6 @@ function precmd {
   local cwd="$pr_blue`prompt_pwd`$pr_reset"
   local char="%0(?.$pr_green.$pr_red)$pr_reset"
 
-  local user_at_host
-  if [[ "$USER" != "jcf" ]]; then
-    user_at_host="$USER"
-
-    if [[ "$user" == "root" ]] then
-      user_at_host="$pr_red$user_at_host$pr_reset"
-    fi
-  fi
-
-  if [[ -n "$SSH_TTY" ]]; then
-    user_at_host+="$pr_blue@`hostname -s`$pr_reset"
-  fi
-
   title "zsh" "$USER@%m" "%55<...<%~"
 
   local rev="$pr_grey$vcs_info_msg_0_$pr_reset"
@@ -95,7 +82,7 @@ function precmd {
   rev="${rev/\(svn\)/↯}"
 
   local left right
-  left=($user_at_host $cwd $char)
+  left=($cwd $char)
   right=($rev)
 
   PS1="$left"
