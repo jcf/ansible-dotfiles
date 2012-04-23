@@ -2,12 +2,24 @@
 
 " Prevent UltiSnips from starting up
 let did_UltiSnips_vim=1
+let did_UltiSnips_vim_after=1
 
 set nocompatible
 
-call pathogen#infect()
-filetype off
-syntax on
-filetype plugin indent on
+" Load Unbundle {{{
+  runtime bundle/unbundle/unbundle.vim
+" }}}
 
-colo solarized
+" Source viminit files {{{
+  runtime! config/**/*.vim
+" }}}
+
+" Basic configuration {{{
+  filetype off
+  syntax on
+  filetype plugin indent on
+" }}}
+
+" Colour scheme {{{
+  colo solarized
+" }}}
