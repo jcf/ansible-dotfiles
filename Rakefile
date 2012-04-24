@@ -88,7 +88,6 @@ task :install do
     ruby/pryrc
     ruby/rvmrc
     ruby/rdebugrc
-    ruby/powconfig
     git/gitk
     git/gitconfig
     git/gitignore
