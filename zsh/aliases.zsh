@@ -1,6 +1,6 @@
 # hub (http://github.com/defunkt/hub)
 # brew install hub
-[ `which hub` ] && alias git='nocorrect hub'
+type hub &>/dev/null && alias git='nocorrect hub'
 
 alias trog='trash **/*.orig'
 
