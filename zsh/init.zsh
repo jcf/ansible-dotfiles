@@ -36,5 +36,12 @@ for plugin in ${0:h}/plugins/*/init.zsh; do
 done
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
+if [[ -s "${HOME}/.rbenv/bin" ]]; then
+  rbenv_root="${HOME}/.rbenv"
+else
+  rbenv_root="/usr/local/rbenv"
+  export RBENV_ROOT="$rbenv_root"
+fi
+
+export PATH="${rbenv_root}/bin:$PATH"
 eval "$(rbenv init -)"
