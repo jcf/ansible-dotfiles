@@ -1,11 +1,10 @@
 #!/usr/bin/env zsh
 
+# Use Homebrew to install useful executables
 set -A base \
   git git-extras willgit growlnotify ruby-build hub jsl ctags lorem graphviz \
   postgresql mongodb redis memcached node rlwrap couchdb subversion wget tree \
-  vimpager
-
-set -A head macvim
+  vimpager z
 
 TRAPINT () {
   echo "Exiting..."
@@ -13,20 +12,13 @@ TRAPINT () {
 }
 
 brew install $base
-brew install --HEAD $head
+brew install macvim --override-system-vim
 
+# Install PythonBrew
+# curl -kL http://xrl.us/pythonbrewinstall | bash
 
-if [[ -f ~/.nave ]]; then
-  echo "Installing nave..."
-  mkdir ~/.nave
-  cd ~/.nave
-  wget http://github.com/isaacs/nave/raw/master/nave.sh
-  ln -s $PWD/nave.sh /usr/local/bin/nave
-  chmod +x /usr/local/bin/nave
-else
-  echo "Nave already installed"
-fi
+# Install NPM
+# curl http://npmjs.org/install.sh | sh
 
-echo "Installing latest version of node..."
-
-/usr/local/bin/nave usemain `nave latest`
+# Install rbenv
+# git clone git://github.com/sstephenson/rbenv.git $HOME/.rbenv
