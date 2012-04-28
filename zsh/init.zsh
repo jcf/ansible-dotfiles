@@ -13,6 +13,9 @@ fpath=(
 # Load and initialize the completion system ignoring insecure directories.
 autoload -Uz compinit && compinit -i
 
+# See zsh/prompt.zsh for the Z precmd hook
+. `brew --prefix`/etc/profile.d/z.sh
+
 # My ZSH customisations
 source $DOT_FILES/zsh/config.zsh
 source $DOT_FILES/zsh/prompt.zsh
