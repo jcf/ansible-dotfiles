@@ -38,6 +38,9 @@ for plugin in ${0:h}/plugins/*/init.zsh; do
   source $plugin
 done
 
+# pythonbrew
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+
 # rbenv
 if [[ -s "${HOME}/.rbenv/bin" ]]; then
   rbenv_root="${HOME}/.rbenv"

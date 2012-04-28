@@ -1,4 +1,4 @@
-PATH="$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:${PATH}"
+PATH="$HOME/.bin:/usr/local/bin:/usr/local/sbin:${PATH}"
 CDPATH=".:${HOME}"
 
 source $DOT_FILES/$CURRENT_SHELL/config.*sh
