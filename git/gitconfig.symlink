@@ -37,7 +37,7 @@
 [core]
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore
-	editor = mvim -f
+	editor = mvim -f --nomru
 [gui]
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [mirror]
@@ -78,3 +78,5 @@
 		end\n\
 		File.open(%(%A), %(w)) {|f| f.write(b)}\n\
 		exit 1 if b.include?(%(<)*%L)'"
+
+# vim: ft=gitconfig
