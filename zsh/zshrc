@@ -1,2 +1,0 @@
-export CURRENT_SHELL='zsh'
-source $HOME/.dotfiles/zsh/init.zsh

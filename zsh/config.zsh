@@ -1,11 +1,6 @@
 # vim: set syn=zsh
 
-fpath=($DOT_FILES/zsh/functions $fpath)
 autoload zmv
-autoload -U $DOT_FILES/zsh/functions/*(:t)
-
-# 256 colours
-autoload spectrum && spectrum
 
 setopt ALL_EXPORT
 
@@ -65,4 +60,5 @@ bindkey "^[m" copy-prev-shell-word
 
 # by default: export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 # we take out the slash, period, angle brackets and dash here.
-export WORDCHARS='*?_[]~=&;!#$%^(){}'
+WORDCHARS='*?_[]~=&;!#$%^(){}'
+# WORDCHARS='*?_-.[]~&;!#$%^(){}<>'

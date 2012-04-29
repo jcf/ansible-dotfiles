@@ -12,21 +12,18 @@ setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a traili
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
 
-# Treat these characters as part of a word.
-WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+autoload -U compinit
+compinit
 
-# Use caching to make completion for cammands such as dpkg and apt usable.
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending
+
+# Use caching to make completion for commands such as dpkg and apt usable.
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "$HOME/.zcache"
-
-# Case-insensitive (all), partial-word, and then substring completion.
-if zstyle -t ':omz:completion:*' case-sensitive; then
-  zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-  setopt CASE_GLOB
-else
-  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-  unsetopt CASE_GLOB
-fi
 
 # Group matches and describe.
 zstyle ':completion:*:*:*:*:*' menu select

@@ -1,108 +1,62 @@
-require 'rake'
+#!/usr/bin/env rake
 
-$replace_all = false
+# Thanks to @holman, @mrsimo, @markus1189, and @mattswe, who contributed to
+# this dotfiles pattern.
+#
+# https://github.com/holman/dotfiles/blob/master/Rakefile
 
-module Installer
-  extend self
+desc "Link all .symlink files in to $HOME"
+task :install do
+  linkables = Dir.glob('*/**{.symlink}')
 
-  CLEAR      = "\e[0m"
-  GREEN      = "\e[32m"
-  YELLOW     = "\e[33m"
+  skip_all = false
+  overwrite_all = false
+  backup_all = false
 
-  def say(message, color = nil)
-    color = const_get(color.to_s.upcase) if color.is_a?(Symbol)
-    puts "#{color}#{message}#{CLEAR}"
-  end
+  linkables.each do |linkable|
+    overwrite = false
+    backup = false
 
-  def interactive_link(file, destination, options = {})
-    file_name        = File.basename(file)
-    file_name        = ".#{file_name}" unless options[:dot] == false
-    source_file      = File.join(Installer.dot_files, file)
+    file = linkable.split('/').last.split('.symlink').last
+    target = "#{ENV["HOME"]}/.#{file}"
 
-    destination_file = File.expand_path(File.join(destination, file_name))
-
-    if File.exist?(destination_file) || File.symlink?(destination_file)
-      if File.identical?(source_file, destination_file)
-        say "identical #{destination_file}"
-        return
-      end
-
-      if $replace_all
-        replace_file(destination_file, source_file)
-      else
-        print "overwrite #{destination_file}? [ynaq] "
-        case $stdin.gets.chomp.downcase
-        when 'a'
-          $replace_all = true
-          replace_file(destination_file, source_file)
-        when 'y'
-          replace_file(destination_file, source_file)
-        when 'q'
-          exit
-        else
-          say "skipping #{destination_file}", :yellow
+    if File.exists?(target) || File.symlink?(target)
+      unless skip_all || overwrite_all || backup_all
+        puts "File already exists: #{target}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all"
+        case STDIN.gets.chomp
+        when 'o' then overwrite = true
+        when 'b' then backup = true
+        when 'O' then overwrite_all = true
+        when 'B' then backup_all = true
+        when 'S' then skip_all = true
+        when 's' then next
         end
       end
-    else
-      link_file(destination_file, source_file)
+      FileUtils.rm_rf(target) if overwrite || overwrite_all
+      `mv "$HOME/.#{file}" "$HOME/.#{file}.backup"` if backup || backup_all
     end
-  end
-
-  def dot_files
-    File.dirname(__FILE__)
-  end
-
-  def replace_file(old_file, new_file)
-    system %Q{rm "#{old_file}"}
-    link_file(old_file, new_file)
-  end
-
-  def link_file(old_file, new_file)
-    say("#{old_file} => #{new_file}", :green)
-    system %Q{ln -fs "#{new_file}" "#{old_file}"}
+    `ln -s "$PWD/#{linkable}" "#{target}"`
   end
 end
 
-task :default => :install
+desc 'Remove any linked .symlink files, restoring backups where present'
+task :uninstall do
+  Dir.glob('**/*.symlink').each do |linkable|
 
-desc "install the dot files into user's home directory"
-task :install do
-  # Setup vim swap directory
-  File.mkdir(File.expand_path('~/.swp')) rescue nil
+    file = linkable.split('/').last.split('.symlink').last
+    target = "#{ENV["HOME"]}/.#{file}"
 
-  files = %w(
-    bin
-    zsh/zshrc
-    bash/bashrc
-    bash/bash_profile
-    misc/ackrc
-    misc/vimpagerrc
-    misc/inputrc
-    misc/nanorc
-    misc/tmux.conf
-    misc/ctags
-    js
-    ruby/autotest
-    ruby/gemrc
-    ruby/irbrc
-    ruby/pryrc
-    ruby/rvmrc
-    ruby/rdebugrc
-    git/gitk
-    git/gitconfig
-    git/gitignore
-    git/gitattributes
-    hg/hgrc
-    vim
-    vim/gvimrc
-    vim/vimrc
-  )
+    # Remove all symlinks created during installation
+    if File.symlink?(target)
+      FileUtils.rm(target)
+    end
 
-  files = Hash[files.zip(Array.new(files.size, "~/"))]
+    # Replace any backups made during installation
+    if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
+      `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
+    end
 
-  files.each do |file, destination|
-    Installer.interactive_link(file, destination)
   end
-
-  Installer.interactive_link('ssh/config', '~/.ssh/', :dot => false)
 end
+
+task :default => 'install'

@@ -1,0 +1,36 @@
+export DOT=$HOME/.dotfiles
+
+export PATH="$DOT/bin:$PATH"
+
+fpath=(
+  ${plugins:+${0:h}/plugins/${^plugins}/{functions,completions}(/FN)}
+  $DOT/zsh/{functions,completions}(/FN)
+  $fpath
+)
+
+autoload -U $DOT/zsh/functions/*(:t)
+
+# Load and initialize the completion system ignoring insecure directories.
+autoload -Uz compinit && compinit -i
+
+if (( $+commands[mvim] )); then
+  export EDITOR="mvim"
+else
+  export EDITOR="vim"
+fi
+
+# See zsh/prompt.zsh for the Z precmd hook
+. `brew --prefix`/etc/profile.d/z.sh
+
+# Autoload Zsh functions.
+autoload -Uz age
+autoload -Uz zargs
+autoload -Uz zcalc
+autoload -Uz zmv
+
+# Source plugins defined in ~/.zshrc.
+for plugin in $DOT/zsh/plugins/*/init.zsh; do
+  source $plugin
+done
+
+for config_file ($DOT/**/*.zsh) source $config_file
