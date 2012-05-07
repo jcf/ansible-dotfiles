@@ -175,3 +175,6 @@
 [submodule "vim/vim.symlink/bundle/bufexplorer"]
 	path = vim/vim.symlink/bundle/bufexplorer
 	url = git://github.com/corntrace/bufexplorer.git
+[submodule "vim/vim.symlink/bundle/sudo.vim"]
+	path = vim/vim.symlink/bundle/sudo.vim
+	url = git://github.com/vim-scripts/sudo.vim.git
