@@ -71,8 +71,6 @@ function prompt_pwd() {
 function precmd {
   vcs_info
 
-  z --add "$(pwd -P)"
-
   local cwd="$pr_blue`prompt_pwd`$pr_reset"
   local char="%0(?.$pr_green.$pr_red)$pr_reset"
 

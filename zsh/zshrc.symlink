@@ -19,9 +19,6 @@ else
   export EDITOR="vim"
 fi
 
-# See zsh/prompt.zsh for the Z precmd hook
-. `brew --prefix`/etc/profile.d/z.sh
-
 # Autoload Zsh functions.
 autoload -Uz age
 autoload -Uz zargs
