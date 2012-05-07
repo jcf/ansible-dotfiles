@@ -1,6 +1,6 @@
 export DOT=$HOME/.dotfiles
 
-export PATH="$DOT/bin:$PATH"
+export PATH="$DOT/bin:/usr/local/bin:$PATH"
 
 fpath=(
   ${plugins:+${0:h}/plugins/${^plugins}/{functions,completions}(/FN)}
