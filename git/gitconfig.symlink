@@ -8,6 +8,7 @@
 	cp = cherry-pick
 	last = log -1 HEAD
 	show-last = !git show `git rev-parse HEAD`
+	big-objects = !git-big-objects
 	unchanged = update-index --assume-unchanged
 	put = push origin HEAD
 	track = !git-track
