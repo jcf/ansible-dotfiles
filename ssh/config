@@ -1,21 +1,22 @@
-ControlMaster auto
-ControlPath /tmp/ssh_mux_%h_%p_%r
-
-Host beh-dev
-  HostName dev.bullseyehub.com
-  IdentityFile ~/.ssh/bullseye
-
 host *.amazonaws.com
   User ubuntu
   StrictHostKeyChecking no
   IdentityFile ~/.ssh/bullseye
   UserKnownHostsFile ~/.ssh/ec2_hosts
 
-Host *.bullseyehub.info
+Host *.evently.info
   User ubuntu
   StrictHostKeyChecking no
   IdentityFile ~/.ssh/bullseye
   UserKnownHostsFile ~/.ssh/ec2_hosts
+
+Host evently-splat
+  User jcf
+  HostName ec2-46-51-173-27.eu-west-1.compute.amazonaws.com
+
+Host beh-dev
+  HostName dev.bullseyehub.com
+  IdentityFile ~/.ssh/bullseye
 
 Host beh-marketing
   User ubuntu
@@ -26,22 +27,8 @@ Host beh-cms
   User ubuntu
   HostName hcms.spoonfeduk.com
 
-Host beh-dj
-  User ubuntu
-  HostName ec2-79-125-55-172.eu-west-1.compute.amazonaws.com
-
-Host beh-web12
-  User ubuntu
-  HostName ec2-46-137-153-27.eu-west-1.compute.amazonaws.com
-
-Host beh-web13
-  User ubuntu
-  HostName ec2-176-34-202-134.eu-west-1.compute.amazonaws.com
-
 Host beh-sigma
-  User ubuntu
   HostName ec2-46-137-151-198.eu-west-1.compute.amazonaws.com
-  IdentityFile ~/.ssh/bullseye
 
 Host beh-master
   User ubuntu
@@ -52,13 +39,18 @@ Host beh-pocahontas
   HostName web.pocahontas.bullseyehub.info
   IdentityFile ~/.ssh/bullseye
 
+Host evently-web1
+  User ubuntu
+  HostName ec2-79-125-31-5.eu-west-1.compute.amazonaws.com
+
+Host evently-web2
+  User ubuntu
+  HostName ec2-176-34-174-149.eu-west-1.compute.amazonaws.com
+
 Host beh-mowgli
   User ubuntu
   HostName web.mowgli.bullseyehub.info
   IdentityFile ~/.ssh/bullseye
-
-Host pro
-  HostName pro.jamesconroyfinn.members.mac.com
 
 Host heroku.logi.cl
   HostName heroku.com
