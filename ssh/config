@@ -10,56 +10,62 @@ Host *.evently.info
   IdentityFile ~/.ssh/bullseye
   UserKnownHostsFile ~/.ssh/ec2_hosts
 
-Host evently-splat
+# Evently Servers
+
+Host ev-splat
   User jcf
   HostName ec2-46-51-173-27.eu-west-1.compute.amazonaws.com
 
-Host beh-dev
+Host ev-dev
   HostName dev.bullseyehub.com
-  IdentityFile ~/.ssh/bullseye
+  IdentityFile ~/.ssh/evently
 
-Host beh-marketing
+Host ev-marketing
   User ubuntu
-  IdentityFile ~/.ssh/bullseye
+  IdentityFile ~/.ssh/evently
   HostName www.bullseyehub.com
 
-Host beh-cms
+Host ev-cms
   User ubuntu
   HostName hcms.spoonfeduk.com
 
-Host beh-sigma
+Host ev-sigma
   HostName ec2-46-137-151-198.eu-west-1.compute.amazonaws.com
 
-Host beh-master
+Host ev-master
   User ubuntu
   HostName master.bullseyehub.com
 
-Host beh-pocahontas
-  User ubuntu
-  HostName web.pocahontas.bullseyehub.info
-  IdentityFile ~/.ssh/bullseye
-
-Host evently-web1
+Host ev-web1
   User ubuntu
   HostName ec2-79-125-31-5.eu-west-1.compute.amazonaws.com
 
-Host evently-web2
+Host ev-web2
   User ubuntu
   HostName ec2-176-34-174-149.eu-west-1.compute.amazonaws.com
 
-Host beh-mowgli
+# Evently Staging Servers
+
+Host ev-mowgli
   User ubuntu
-  HostName web.mowgli.bullseyehub.info
-  IdentityFile ~/.ssh/bullseye
+  HostName web.mowgli.evently.info
+  IdentityFile ~/.ssh/evently
+
+Host ev-pocahontas
+  User ubuntu
+  HostName web.pocahontas.evently.info
+  IdentityFile ~/.ssh/evently
+
+# Heroku Accounts
 
 Host heroku.logi.cl
   HostName heroku.com
   IdentityFile ~/.ssh/identity.heroku.logi.cl
   IdentitiesOnly yes
 
-Host heroku.beh
+Host heroku.ev
   HostName heroku.com
-  IdentityFile ~/.ssh/identity.heroku.beh
+  IdentityFile ~/.ssh/identity.heroku.ev
   IdentitiesOnly yes
 
 # vim: syn=sshconfig
