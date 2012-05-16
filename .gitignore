@@ -5,3 +5,4 @@ shell/private.sh
 vim/.netrwhist
 vim/view/
 bin/mate
+zsh/private.zsh
