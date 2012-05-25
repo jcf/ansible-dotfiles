@@ -178,3 +178,6 @@
 [submodule "vim/vim.symlink/bundle/sudo.vim"]
 	path = vim/vim.symlink/bundle/sudo.vim
 	url = git://github.com/vim-scripts/sudo.vim.git
+[submodule "vim/vim.symlink/bundle/PickAColor"]
+	path = vim/vim.symlink/bundle/PickAColor
+	url = git://github.com/vim-scripts/PickAColor.vim.git
