@@ -181,3 +181,6 @@
 [submodule "vim/vim.symlink/bundle/PickAColor"]
 	path = vim/vim.symlink/bundle/PickAColor
 	url = git://github.com/vim-scripts/PickAColor.vim.git
+[submodule "vim/vim.symlink/bundle/eunuch"]
+	path = vim/vim.symlink/bundle/eunuch
+	url = git://github.com/tpope/vim-eunuch.git
