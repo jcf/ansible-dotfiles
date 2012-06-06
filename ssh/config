@@ -1,13 +1,13 @@
 host *.amazonaws.com
   User ubuntu
   StrictHostKeyChecking no
-  IdentityFile ~/.ssh/bullseye
+  IdentityFile ~/.ssh/evently
   UserKnownHostsFile ~/.ssh/ec2_hosts
 
 Host *.evently.info
   User ubuntu
   StrictHostKeyChecking no
-  IdentityFile ~/.ssh/bullseye
+  IdentityFile ~/.ssh/evently
   UserKnownHostsFile ~/.ssh/ec2_hosts
 
 # Evently Servers
@@ -18,6 +18,11 @@ Host ev-splat
 
 Host ev-dev
   HostName dev.bullseyehub.com
+  IdentityFile ~/.ssh/evently
+
+Host ev-dj1
+  User ubuntu
+  HostName ec2-79-125-55-172.eu-west-1.compute.amazonaws.com
   IdentityFile ~/.ssh/evently
 
 Host ev-marketing
