@@ -1,46 +1,37 @@
-# Setup
+# Dotfiles
 
-## Homebrew
+Handcrafted with all the love in the world.
 
-[This script][gist] will prompt for confirmation before it does anything:
+---
 
-    ruby -e "$(curl -fsSL https://gist.github.com/raw/323731/install_homebrew.rb)"
+## Setup
 
-Afterwards, [install Xcode][xcode].
+``` zsh
+brew install macvim # with or without --HEAD
+brew install git
+./deps.sh
+```
 
-## MacVim
-
-    brew install macvim # with or without --HEAD
-
-## Git
-
-    brew install git
-
-# Installation
-
-## Formulae And Other Dependencies
-
-    ./deps.sh
-
-## Finally Some Files
+## Clone and install
 
     git clone git://github.com/jcf/dotfiles ~/.dotfiles
     cd ~/.dotfiles
     rake install
 
-# W(here)TF?
+# Tasks
 
-Most dotfiles can be found in a respective folder, for example, the `git`
-and `ruby` folders contain files that are all symlinked in `$HOME`.
+**Install packages via Homebrew:**
 
-The `zsh` folder is slightly more involved. In here you have a `zshrc`
-and `zshenv` file which are symlinked. The other files in this directory
-are sourced from these files.
+    rake packages:install
 
-`shell` contains files that are used by both `zsh` and `bash`.
+**Update plugin list:**
 
-[gist]:http://gist.github.com/323731
-[xcode]:http://developer.apple.com/technologies/xcode.html
+    rake plugins:update_readme
+
+# License
+
+Unless otherwise stated, everything in there is covered by the MIT
+license.
 
 ## Plugin List
 
