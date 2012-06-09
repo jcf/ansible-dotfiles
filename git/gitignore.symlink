@@ -18,3 +18,4 @@ tmp*
 tmp/**/*
 tags
 *.rbc
+doc/tags-ja
