@@ -15,6 +15,7 @@
 	thanks = !git-thanks
 	workdir = !git-new-workdir
 	update-submodules = !git-update-submodules
+	submodule-rm = !git-submodule-rm
 	incoming = !git-incoming
 	outgoing = !git-outgoing
 	up = !git pull --rebase && git push
