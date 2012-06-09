@@ -62,3 +62,21 @@ augroup Git " {{{
   autocmd! FileType gitcommit set spell
   " }}}
 augroup END " }}}
+
+" TODO Stop inserting comments when pressing o/O!!!
+"
+" This doesn't work because Vim executes ftplugin files, which typically
+" trample all over my preferences.
+"
+" I could add an after/<ftype>.vim file and set this for every filetype that
+" messes with my settings but that would be ridiculous.
+"
+" If anyone has a solution to this problem please share it with me because
+" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion doesn't work.
+"
+" augroup StopInsertingComments " {{{
+"   autocmd!
+"   " Don't insert a comment when pressing o/O {{{
+"     au FileType * au BufRead,BufNewFile <buffer> setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+"   " }}}
+" augroup END " }}}
