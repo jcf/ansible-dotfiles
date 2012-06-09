@@ -1,7 +1,8 @@
 set nocompatible
 
-" Load Unbundle {{{
-  runtime bundle/unbundle/unbundle.vim
+" Load Vundle {{{
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
 " }}}
 " Source viminit files {{{
   runtime! config/**/*.vim

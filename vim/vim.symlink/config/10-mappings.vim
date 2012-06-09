@@ -39,6 +39,10 @@ let mapleader = ','
   nnoremap Y y$
 " }}}
 
+" Open Vundle config quickly {{{
+  nnoremap <Leader>vu :e ~/.vim/config/00-vundle.vim<CR>
+" }}}
+
 " JJ to exit insert mode {{{
   imap jj <Esc>
 " }}}

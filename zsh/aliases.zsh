@@ -10,6 +10,7 @@ alias -g W='|wc'
 
 # MacVim will edit all!
 alias e="$EDITOR"
+alias vundle="e +BundleInstall +qall"
 
 # dotfiles
 alias reload="source ~/.zshrc"
