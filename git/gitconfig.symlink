@@ -11,6 +11,7 @@
 	big-objects = !git-big-objects
 	unchanged = update-index --assume-unchanged
 	put = push origin HEAD
+	squish = repack -a -d --depth=250 --window=250
 	track = !git-track
 	thanks = !git-thanks
 	workdir = !git-new-workdir
