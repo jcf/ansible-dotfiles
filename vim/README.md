@@ -12,5 +12,5 @@ can update it using `:BundleInstall!`.
 
 For more information check out [Vundle][vundle].
 
-![vundle]: https://github.com/gmarik/vundle
-![vundleconf]: https://github.com/jcf/dotfiles/blob/master/vim/vim.symlink/config/00-vundle.vim
+[vundle]: https://github.com/gmarik/vundle
+[vundleconf]: https://github.com/jcf/dotfiles/blob/master/vim/vim.symlink/config/00-vundle.vim
