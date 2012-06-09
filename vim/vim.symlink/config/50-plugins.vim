@@ -12,8 +12,8 @@
 " }}}
 
 " Rake.vim {{{
-  nmap <leader>a :AV<CR>
-  nmap <c-a> :A<CR>
+  nmap <Leader>a :AV<CR>
+  nmap <C-a> :A<CR>
 " }}}
 
 " Bufexplorer {{
