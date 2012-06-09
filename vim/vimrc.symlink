@@ -73,6 +73,10 @@ set nocompatible
   " running!
   set shell=bash\ -l
 
+  " Add an extra line to reduce the chance of lame Press Enter to continue
+  " messages.
+  set cmdheight=2
+
   " tell the term has 256 colors
   set t_Co=256
 
