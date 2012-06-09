@@ -6,6 +6,10 @@
   nmap <Leader>p :Hammer<CR>
 " }}}
 
+" Toggle tagbar {{{
+  nmap <Leader>t :TagbarToggle<CR>
+" }}}
+
 " NERDTree {{{
   let NERDTreeIgnore=['\.rbc$', '\~$']
   map <Leader>n :NERDTreeToggle<CR>
