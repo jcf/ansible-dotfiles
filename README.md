@@ -27,6 +27,14 @@
    ``` shell
    git clone git://github.com/jcf/dotfiles ~/.dotfiles
    ```
+   **NB.** I always have to clone vundle by hand at this point. That I
+   suppose is the disadvantage of using `git clone` to add repositories
+   instead of `git submodule add`.
+
+   ``` shell
+   cd ~/.dotfiles
+   git clone https://github.com/gmarik/vundle.git vim/vim.symlink/bundle/vundle
+   ```
 
 4. Link dotfiles and install all the best packages.
 
