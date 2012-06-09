@@ -1,2 +1,8 @@
 [ui]
 username="James Conroy-Finn <james@logi.cl>"
+
+[merge-tools]
+splice.executable = mvim
+splice.args = -f $base $local $other $output -c 'SpliceInit'
+splice.premerge = keep
+splice.priority = 1
