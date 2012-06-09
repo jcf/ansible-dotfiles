@@ -2,6 +2,10 @@
   nnoremap <Leader>vu :e ~/.vim/config/00-vundle.vim<CR>
 " }}}
 
+" Run Hammer to preview this buffer {{{
+  nmap <Leader>p :Hammer<CR>
+" }}}
+
 " NERDTree {{{
   let NERDTreeIgnore=['\.rbc$', '\~$']
   map <Leader>n :NERDTreeToggle<CR>
