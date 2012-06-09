@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [[ ! -d ".git/avatar" ]]; then
+  echo "Avatar directory .git/avatar missing. Have you run script/download_gravatars?"
+  exit -1
+fi
+
+gource -1280x720 \
+       --user-image-dir .git/avatar \
+       --stop-position 1.0 \
+       --bloom-intensity 0.18 \
+       --user-image-dir .git/avatar \
+       --highlight-all-users \
+       --output-framerate 60 \
+       --multi-sampling \
+       -1280x720 \
+       -a 0.3 \
+       --date-format %Y-%m-%d \
+       --disable-progress \
+       --seconds-per-day 0.05 \
+       --output-ppm-stream - \
+       | ffmpeg -y -b 10000K -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -threads 0 -bf 0 gource.x264.mp4
