@@ -49,6 +49,11 @@ let mapleader = ','
   au VimEnter * noremap ; :
 " }}}
 
+" Search with more magic {{{
+  nnoremap / /\v
+  vnoremap / /\v
+" }}}
+
 " Go to column and row when looking up a bookmark by default {{{
   nnoremap ' `
   nnoremap ` '
