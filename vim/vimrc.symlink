@@ -68,7 +68,9 @@ set nocompatible
   set mouse=a
   set ttymouse=xterm2
 
-  " because I like zsh!
+  " Shelling out to Z-shell causes problems on occasions. Bash seems to work
+  " better, probably because it doesn't have any of my hacky customisations
+  " running!
   set shell=bash\ -l
 
   " tell the term has 256 colors
