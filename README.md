@@ -12,28 +12,28 @@
 
 1. Install a recent version of vim with your favourite package manager.
 
-``` shell
-brew install macvim
-```
+   ``` shell
+   brew install macvim
+   ```
 
 2. Install git, because if you don't have it you need it in your life.
 
-``` shell
-brew install git
-```
+    ``` shell
+    brew install git
+    ```
 
 3. Clone the repo.
 
-``` shell
-git clone git://github.com/jcf/dotfiles ~/.dotfiles
-```
+   ``` shell
+   git clone git://github.com/jcf/dotfiles ~/.dotfiles
+   ```
 
 4. Link dotfiles and install all the best packages.
 
-``` shell
-cd ~/.dotfiles
-rake install packages:install
-```
+   ``` shell
+   cd ~/.dotfiles
+   rake install packages:install
+   ```
 
 # Tasks
 
