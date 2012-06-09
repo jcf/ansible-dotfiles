@@ -9,6 +9,7 @@ Bundle 'gmarik/vundle'
   Bundle 'sudo.vim.git'
 " }}}
 
+Bundle 'gregsexton/gitv'
 Bundle 'Lokaltog/sparkup.git'
 Bundle 'Lokaltog/vim-distinguished.git'
 Bundle 'Lokaltog/vim-easymotion.git'
