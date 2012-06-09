@@ -2,6 +2,10 @@
 
 Handcrafted with all the love in the world.
 
+![iTerm](http://f.cl.ly/items/2V1s1n022r473D1p0h2U/iterm.png)
+
+![MacVim](http://f.cl.ly/items/1L2x2B3O2s1a313k2i1R/macvim.png)
+
 ---
 
 ## Setup
