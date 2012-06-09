@@ -3,8 +3,18 @@
 #
 # https://github.com/holman/dotfiles/blob/master/Rakefile
 
+task :clone do
+  unless File.exist?('vim/vim.symlink/bundle/vundle/.git')
+    `git clone https://github.com/gmarik/vundle.git vim/vim.symlink/bundle/vundle`
+  end
+
+  unless File.exist?('zsh/completions/.git')
+    `git clone git://github.com/zsh-users/zsh-completions.git zsh/completions`
+  end
+end
+
 desc "Link all .symlink files in to $HOME"
-task :install do
+task :install => :clone do
   linkables = Dir.glob('*/**{.symlink}')
 
   skip_all = false
