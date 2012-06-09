@@ -14,7 +14,7 @@ augroup Whitespace " {{{
       normal 'Z
     endfunction
 
-    au FileType html,css,sass,javascript,php,python,ruby,psql,vim au BufWritePre <buffer> :silent! call <SID>StripTrailingWhitespace()
+    au FileType html,css,sass,javascript,coffee,python,ruby,psql,vim au BufWritePre <buffer> :silent! call <SID>StripTrailingWhitespace()
   " }}}
 augroup END " }}}
 
