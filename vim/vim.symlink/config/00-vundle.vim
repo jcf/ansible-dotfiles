@@ -6,34 +6,28 @@ Bundle 'gmarik/vundle'
   Bundle 'jcf/apidock.vim'
   Bundle 'tpope/vim-bundler'
 
-  " Insert 'end' automatically {{{
-    Bundle 'tpope/vim-endwise'
-  " }}}
+  " Insert 'end' automatically
+  Bundle 'tpope/vim-endwise'
 
-  " Toggle Ruby block-style {{{
-    Bundle 'blockle.vim'
-  " }}}
+  " Toggle Ruby block-style
+  Bundle 'blockle.vim'
 " }}}
 
 " Web Development {{{
   Bundle 'tpope/vim-rails'
   Bundle 'hallison/vim-ruby-sinatra'
 
-  " Open the system color picker {{{
-    Bundle 'PickAColor.vim'
-  " }}}
+  " Open the system color picker
+  Bundle 'PickAColor.vim'
 
-  " Ease manipulation of dynamic HTML templates {{{
-    Bundle 'tpope/vim-ragtag'
-  " }}}
+  " Ease manipulation of dynamic HTML templates
+  Bundle 'tpope/vim-ragtag'
 
-  " Write HTML faster {{{
-    Bundle 'Lokaltog/sparkup'
-  " }}}
+  " Write HTML faster
+  Bundle 'Lokaltog/sparkup'
 
-  " Convert markup to HTML {{{
-    Bundle 'matthias-guenther/hammer.vim'
-  " }}}
+  " Convert markup to HTML
+  Bundle 'matthias-guenther/hammer.vim'
 
   " Additional filetypes {{{
     Bundle 'wavded/vim-stylus'
@@ -53,13 +47,11 @@ Bundle 'gmarik/vundle'
   Bundle 'tpope/vim-fugitive'
   Bundle 'tpope/vim-git'
 
-  " Get the history behind some part of a file from Git {{{
-    Bundle 'gregsexton/gitv'
-  " }}}
+  " Get the history behind some part of a file from Git
+  Bundle 'gregsexton/gitv'
 
-  " Git log -- [file] viewer {{{
-    Bundle 'int3/vim-extradite'
-  " }}}
+  " Git log -- [file] viewer
+  Bundle 'int3/vim-extradite'
 " }}}
 
 " Additional filetypes {{{
@@ -77,122 +69,92 @@ Bundle 'gmarik/vundle'
   Bundle 'tpope/vim-vividchalk'
 " }}}
 
-" Add Pivotal Tracker integration via the slurper gem {{{
-  Bundle 'adamlowe/vim-slurper'
-" }}}
+" Add Pivotal Tracker integration via the slurper gem
+Bundle 'adamlowe/vim-slurper'
 
-" Customisable completion {{{
-  Bundle 'Shougo/neocomplcache'
-" }}}
+" Customisable completion
+Bundle 'Shougo/neocomplcache'
 
-" TextMate style snippets, powered by Python {{{
-  Bundle 'SirVer/ultisnips'
-" }}}
+" TextMate style snippets, powered by Python
+Bundle 'SirVer/ultisnips'
 
-" Enables opening files at a specific line (e.g. file.rb:11) {{{
-  Bundle 'bogado/file-line'
-" }}}
+" Enables opening files at a specific line (e.g. file.rb:11)
+Bundle 'bogado/file-line'
 
-" Move around quickly and effectively {{{
-  Bundle 'Lokaltog/vim-easymotion'
-" }}}
+" Move around quickly and effectively
+Bundle 'Lokaltog/vim-easymotion'
 
-" Visual undo {{{
-  Bundle 'sjl/gundo.vim'
-" }}}
+" Visual undo
+Bundle 'sjl/gundo.vim'
 
-" Explore buffers in a buffer {{{
-  Bundle 'corntrace/bufexplorer'
-" }}}
+" Explore buffers in a buffer
+Bundle 'corntrace/bufexplorer'
 
-" Add a scratch buffer to keep hold of random snippets {{{
-  Bundle 'duff/vim-scratch'
-" }}}
+" Add a scratch buffer to keep hold of random snippets
+Bundle 'duff/vim-scratch'
 
-" Probably the best statusline replacement in the world {{{
-  Bundle 'Lokaltog/vim-powerline'
-" }}}
+" Probably the best statusline replacement in the world
+Bundle 'Lokaltog/vim-powerline'
 
-" Fuzzy file finder {{{
-  Bundle 'kien/ctrlp.vim'
-" }}}
+" Fuzzy file finder
+Bundle 'kien/ctrlp.vim'
 
-" Identation-based text objects {{{
-  Bundle 'michaeljsmith/vim-indent-object'
-" }}}
+" Identation-based text objects
+Bundle 'michaeljsmith/vim-indent-object'
 
-" File browser {{{
-  Bundle 'scrooloose/nerdtree'
-" }}}
+" File browser
+Bundle 'scrooloose/nerdtree'
 
-" Merge tool inspired by Adobe Lightroom {{{
-  Bundle 'sjl/splice.vim'
-" }}}
+" Merge tool inspired by Adobe Lightroom
+Bundle 'sjl/splice.vim'
 
-" Use space to repeat yourself {{{
-  Bundle 'spiiph/vim-space'
-" }}}
+" Use space to repeat yourself
+Bundle 'spiiph/vim-space'
 
-" Quickly run the current buffer {{{
-  Bundle 'thinca/vim-quickrun'
-" }}}
+" Quickly run the current buffer
+Bundle 'thinca/vim-quickrun'
 
-" Abbreviation, substitution, coercion {{{
-  Bundle 'tpope/vim-abolish'
-" }}}
+" Abbreviation, substitution, coercion
+Bundle 'tpope/vim-abolish'
 
-" Syntax check files using external executables {{{
-  Bundle 'scrooloose/syntastic'
-" }}}
+" Syntax check files using external executables
+Bundle 'scrooloose/syntastic'
 
-" Comment with ease {{{
-  Bundle 'scrooloose/nerdcommenter'
-" }}}
+" Comment with ease
+Bundle 'scrooloose/nerdcommenter'
 
-" Add support for Ack {{{
-  Bundle 'mileszs/ack.vim'
-" }}}
+" Add support for Ack
+Bundle 'mileszs/ack.vim'
 
-" Visualise your current buffer's tags {{{
-  Bundle 'majutsushi/tagbar'
-" }}}
+" Visualise your current buffer's tags
+Bundle 'majutsushi/tagbar'
 
-" Grep more easily with some useful mappings {{{
-  Bundle 'EasyGrep'
-" }}}
+" Grep more easily with some useful mappings
+Bundle 'EasyGrep'
 
-" Adds functions to remove/rename files etc. {{{
-  Bundle 'tpope/vim-eunuch'
-" }}}
+" Adds functions to remove/rename files etc.
+Bundle 'tpope/vim-eunuch'
 
-" Repeat the last Tim Popeism you performed {{{
-  Bundle 'tpope/vim-repeat'
-" }}}
+" Repeat the last Tim Popeism you performed
+Bundle 'tpope/vim-repeat'
 
-" Use CTRL-A/X to increment dates, times, and more {{{
-  Bundle 'tpope/vim-speeddating'
-" }}}
+" Use CTRL-A/X to increment dates, times, and more
+Bundle 'tpope/vim-speeddating'
 
-" Surround with visual selections {{{
-  Bundle 'tpope/vim-surround'
-" }}}
+" Surround with visual selections
+Bundle 'tpope/vim-surround'
 
-" Complementary pairs of mappings {{{
-  Bundle 'tpope/vim-unimpaired'
-" }}}
+" Complementary pairs of mappings
+Bundle 'tpope/vim-unimpaired'
 
-" Align text based on a given pattern {{{
-  Bundle 'godlygeek/tabular'
-" }}}
+" Align text based on a given pattern
+Bundle 'godlygeek/tabular'
 
-" Add highlighting to make it easier to see indentation level {{{
-  Bundle 'Indent-Guides'
-" }}}
+" Add highlighting to make it easier to see indentation level
+Bundle 'Indent-Guides'
 
-" Zoom in on the current buffer hiding others {{{
-  Bundle 'ZoomWin'
-" }}}
+" Zoom in on the current buffer hiding others
+Bundle 'ZoomWin'
 
-" Make it easier to work with files owned by root {{{
-  Bundle 'sudo.vim'
-" }}}
+" Make it easier to work with files owned by root
+Bundle 'sudo.vim'
