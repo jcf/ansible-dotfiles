@@ -51,8 +51,7 @@ rake plugins:update_readme
 
 # License
 
-Unless otherwise stated, everything in there is covered by the MIT
-license.
+Unless otherwise stated, everything is covered by the MIT license.
 
 ## Plugin List
 
