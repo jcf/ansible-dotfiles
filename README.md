@@ -1,6 +1,6 @@
-# Dotfiles
+# dotfiles
 
-Handcrafted with all the love in the world.
+### Handcrafted with all the love in the world.
 
 ![iTerm](http://f.cl.ly/items/2V1s1n022r473D1p0h2U/iterm.png)
 
@@ -10,18 +10,29 @@ Handcrafted with all the love in the world.
 
 ## Setup
 
+1. Install a recent version of vim with your favourite package manager.
+
 ``` shell
-brew install macvim # with or without --HEAD
-brew install git
-./deps.sh
+brew install macvim
 ```
 
-## Clone and install
+2. Install git, because if you don't have it you need it in your life.
+
+``` shell
+brew install git
+```
+
+3. Clone the repo.
 
 ``` shell
 git clone git://github.com/jcf/dotfiles ~/.dotfiles
+```
+
+4. Link dotfiles and install all the best packages.
+
+``` shell
 cd ~/.dotfiles
-rake install
+rake install packages:install
 ```
 
 # Tasks
