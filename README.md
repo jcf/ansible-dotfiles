@@ -6,7 +6,7 @@ Handcrafted with all the love in the world.
 
 ## Setup
 
-``` zsh
+``` shell
 brew install macvim # with or without --HEAD
 brew install git
 ./deps.sh
@@ -14,19 +14,25 @@ brew install git
 
 ## Clone and install
 
-    git clone git://github.com/jcf/dotfiles ~/.dotfiles
-    cd ~/.dotfiles
-    rake install
+``` shell
+git clone git://github.com/jcf/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+rake install
+```
 
 # Tasks
 
 **Install packages via Homebrew:**
 
-    rake packages:install
+``` shell
+rake packages:install
+```
 
 **Update plugin list:**
 
-    rake plugins:update_readme
+``` shell
+rake plugins:update_readme
+```
 
 # License
 
