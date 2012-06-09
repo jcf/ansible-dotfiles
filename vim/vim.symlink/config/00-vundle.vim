@@ -1,70 +1,198 @@
 Bundle 'gmarik/vundle'
 
-" vim-scripts {{{
-  Bundle 'Indent-Guides'
-  Bundle 'PickAColor.vim'
-  Bundle 'ZoomWin'
-  Bundle 'applescript.vim'
-  Bundle 'blockle.vim'
-  Bundle 'sudo.vim'
+" Ruby {{{
+  Bundle 'vim-ruby/vim-ruby'
+  Bundle 'tpope/vim-rake'
+  Bundle 'jcf/apidock.vim'
+  Bundle 'tpope/vim-bundler'
+
+  " Insert 'end' automatically {{{
+    Bundle 'tpope/vim-endwise'
+  " }}}
+
+  " Toggle Ruby block-style {{{
+    Bundle 'blockle.vim'
+  " }}}
 " }}}
 
-Bundle 'Lokaltog/sparkup'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Shougo/neocomplcache'
-Bundle 'SirVer/ultisnips'
-Bundle 'adamlowe/vim-slurper'
-Bundle 'ajf/puppet-vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bbommarito/vim-slim'
-Bundle 'bogado/file-line'
-Bundle 'corntrace/bufexplorer'
-Bundle 'duff/vim-scratch'
-Bundle 'duwanis/tomdoc.vim'
-Bundle 'gregsexton/gitv'
-Bundle 'groenewege/vim-less'
-Bundle 'hallison/vim-ruby-sinatra'
-Bundle 'int3/vim-extradite'
-Bundle 'jcf/apidock.vim'
-Bundle 'jcf/cocoa.vim'
-Bundle 'jcf/easygrep.vim'
-Bundle 'jcf/vim-latex'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'matthias-guenther/hammer.vim'
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'mileszs/ack.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'sjl/gundo.vim'
-Bundle 'sjl/splice.vim'
-Bundle 'spiiph/vim-space'
-Bundle 'statianzo/vim-jade'
-Bundle 'thinca/vim-quickrun'
-Bundle 'timcharper/textile.vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-liquid'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'tsaleh/vim-align'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'wavded/vim-stylus'
+" Web Development {{{
+  Bundle 'tpope/vim-rails'
+  Bundle 'hallison/vim-ruby-sinatra'
+
+  " Open the system color picker {{{
+    Bundle 'PickAColor.vim'
+  " }}}
+
+  " Ease manipulation of dynamic HTML templates {{{
+    Bundle 'tpope/vim-ragtag'
+  " }}}
+
+  " Write HTML faster {{{
+    Bundle 'Lokaltog/sparkup'
+  " }}}
+
+  " Convert markup to HTML {{{
+    Bundle 'matthias-guenther/hammer.vim'
+  " }}}
+
+  " Additional filetypes {{{
+    Bundle 'wavded/vim-stylus'
+    Bundle 'bbommarito/vim-slim'
+    Bundle 'tpope/vim-haml'
+    Bundle 'groenewege/vim-less'
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'pangloss/vim-javascript'
+    Bundle 'statianzo/vim-jade'
+    Bundle 'timcharper/textile.vim'
+    Bundle 'tpope/vim-liquid'
+    Bundle 'tpope/vim-markdown'
+  " }}}
+" }}}
+
+" Git {{{
+  Bundle 'tpope/vim-fugitive'
+  Bundle 'tpope/vim-git'
+
+  " Get the history behind some part of a file from Git {{{
+    Bundle 'gregsexton/gitv'
+  " }}}
+
+  " Git log -- [file] viewer {{{
+    Bundle 'int3/vim-extradite'
+  " }}}
+" }}}
+
+" Additional filetypes {{{
+  Bundle 'applescript.vim'
+  Bundle 'tpope/vim-cucumber'
+  Bundle 'ajf/puppet-vim'
+  Bundle 'duwanis/tomdoc.vim'
+  Bundle 'jcf/cocoa.vim'
+  Bundle 'jcf/vim-latex'
+" }}}
+
+" Colour schemes {{{
+  Bundle 'altercation/vim-colors-solarized'
+  Bundle 'Lokaltog/vim-distinguished'
+  Bundle 'tpope/vim-vividchalk'
+" }}}
+
+" Add Pivotal Tracker integration via the slurper gem {{{
+  Bundle 'adamlowe/vim-slurper'
+" }}}
+
+" Customisable completion {{{
+  Bundle 'Shougo/neocomplcache'
+" }}}
+
+" TextMate style snippets, powered by Python {{{
+  Bundle 'SirVer/ultisnips'
+" }}}
+
+" Enables opening files at a specific line (e.g. file.rb:11) {{{
+  Bundle 'bogado/file-line'
+" }}}
+
+" Move around quickly and effectively {{{
+  Bundle 'Lokaltog/vim-easymotion'
+" }}}
+
+" Visual undo {{{
+  Bundle 'sjl/gundo.vim'
+" }}}
+
+" Explore buffers in a buffer {{{
+  Bundle 'corntrace/bufexplorer'
+" }}}
+
+" Add a scratch buffer to keep hold of random snippets {{{
+  Bundle 'duff/vim-scratch'
+" }}}
+
+" Probably the best statusline replacement in the world {{{
+  Bundle 'Lokaltog/vim-powerline'
+" }}}
+
+" Fuzzy file finder {{{
+  Bundle 'kien/ctrlp.vim'
+" }}}
+
+" Identation-based text objects {{{
+  Bundle 'michaeljsmith/vim-indent-object'
+" }}}
+
+" File browser {{{
+  Bundle 'scrooloose/nerdtree'
+" }}}
+
+" Merge tool inspired by Adobe Lightroom {{{
+  Bundle 'sjl/splice.vim'
+" }}}
+
+" Use space to repeat yourself {{{
+  Bundle 'spiiph/vim-space'
+" }}}
+
+" Quickly run the current buffer {{{
+  Bundle 'thinca/vim-quickrun'
+" }}}
+
+" Abbreviation, substitution, coercion {{{
+  Bundle 'tpope/vim-abolish'
+" }}}
+
+" Syntax check files using external executables {{{
+  Bundle 'scrooloose/syntastic'
+" }}}
+
+" Comment with ease {{{
+  Bundle 'scrooloose/nerdcommenter'
+" }}}
+
+" Add support for Ack {{{
+  Bundle 'mileszs/ack.vim'
+" }}}
+
+" Visualise your current buffer's tags {{{
+  Bundle 'majutsushi/tagbar'
+" }}}
+
+" Grep more easily with some useful mappings {{{
+  Bundle 'EasyGrep'
+" }}}
+
+" Adds functions to remove/rename files etc. {{{
+  Bundle 'tpope/vim-eunuch'
+" }}}
+
+" Repeat the last Tim Popeism you performed {{{
+  Bundle 'tpope/vim-repeat'
+" }}}
+
+" Use CTRL-A/X to increment dates, times, and more {{{
+  Bundle 'tpope/vim-speeddating'
+" }}}
+
+" Surround with visual selections {{{
+  Bundle 'tpope/vim-surround'
+" }}}
+
+" Complementary pairs of mappings {{{
+  Bundle 'tpope/vim-unimpaired'
+" }}}
+
+" Align text based on a given pattern {{{
+  Bundle 'godlygeek/tabular'
+" }}}
+
+" Add highlighting to make it easier to see indentation level {{{
+  Bundle 'Indent-Guides'
+" }}}
+
+" Zoom in on the current buffer hiding others {{{
+  Bundle 'ZoomWin'
+" }}}
+
+" Make it easier to work with files owned by root {{{
+  Bundle 'sudo.vim'
+" }}}
