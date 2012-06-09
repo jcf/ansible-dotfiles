@@ -76,6 +76,13 @@ let mapleader = ','
   nmap <S-Enter> :call <SID>insert_line('above')<CR>
 " }}}
 
+" Bubbling lines {{{
+  nmap <C-Up> [e
+  nmap <C-Down> ]e
+  vmap <C-Up> [egv
+  vmap <C-Down> ]egv
+" }}}
+
 " Visual search {{{
   function! s:VSetSearch()
     let temp = @@
