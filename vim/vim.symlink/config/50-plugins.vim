@@ -1,3 +1,7 @@
+" Open Vundle config quickly {{{
+  nnoremap <Leader>vu :e ~/.vim/config/00-vundle.vim<CR>
+" }}}
+
 " NERDTree {{{
   let NERDTreeIgnore=['\.rbc$', '\~$']
   map <Leader>n :NERDTreeToggle<CR>
