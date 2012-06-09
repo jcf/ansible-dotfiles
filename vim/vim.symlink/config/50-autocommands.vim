@@ -56,3 +56,9 @@ augroup JumpToLastPosition " {{{
     au BufReadPost * call PositionCursorFromViminfo()
   " }}}
 augroup END " }}}
+
+augroup Git " {{{
+  " Setup gitcommit buffers with a text width and spell checking {{{
+  autocmd! FileType gitcommit set spell
+  " }}}
+augroup END " }}}
