@@ -6,7 +6,7 @@
 #   ffmpeg -i gource.x264.mp4 -i music.mp3 -shortest dotfiles.mp4
 
 if [[ ! -d ".git/avatar" ]]; then
-  echo "Avatar directory .git/avatar missing. Have you run script/download_gravatars?"
+  echo "Avatar directory .git/avatar missing. Have you run gource-gravatars?"
   exit -1
 fi
 
