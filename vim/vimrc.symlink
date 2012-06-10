@@ -4,9 +4,11 @@ set nocompatible
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
 " }}}
+
 " Source viminit files {{{
   runtime! config/**/*.vim
 " }}}
+
 " Basic configuration {{{
   filetype off
   syntax on
