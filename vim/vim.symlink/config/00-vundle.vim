@@ -20,6 +20,9 @@ Bundle 'gmarik/vundle'
   " Open the system color picker
   Bundle 'PickAColor.vim'
 
+  " Print colour representations in colour!
+  Bundle 'Rykka/colorv.vim'
+
   " Ease manipulation of dynamic HTML templates
   Bundle 'tpope/vim-ragtag'
 
@@ -40,6 +43,10 @@ Bundle 'gmarik/vundle'
     Bundle 'timcharper/textile.vim'
     Bundle 'tpope/vim-liquid'
     Bundle 'tpope/vim-markdown'
+    Bundle 'itspriddle/vim-jquery'
+    Bundle 'nono/vim-handlebars'
+    Bundle 'mutewinter/nginx.vim'
+    Bundle 'hail2u/vim-css3-syntax'
   " }}}
 " }}}
 
@@ -58,9 +65,15 @@ Bundle 'gmarik/vundle'
   Bundle 'applescript.vim'
   Bundle 'tpope/vim-cucumber'
   Bundle 'ajf/puppet-vim'
-  Bundle 'duwanis/tomdoc.vim'
   Bundle 'jcf/cocoa.vim'
   Bundle 'jcf/vim-latex'
+  Bundle 'leshill/vim-json'
+
+  " Syntax add-on for TomDoc comments
+  Bundle 'duwanis/tomdoc.vim'
+
+  " Some helper functions to add TomDoc templates to your Ruby code
+  Bundle 'jc00ke/vim-tomdoc'
 " }}}
 
 " Colour schemes {{{
@@ -68,6 +81,12 @@ Bundle 'gmarik/vundle'
   Bundle 'Lokaltog/vim-distinguished'
   Bundle 'tpope/vim-vividchalk'
 " }}}
+
+" At match #N out of M matches
+Bundle 'IndexedSearch'
+
+" Swap parameters
+Bundle 'mutewinter/swap-parameters'
 
 " Add Pivotal Tracker integration via the slurper gem
 Bundle 'adamlowe/vim-slurper'
