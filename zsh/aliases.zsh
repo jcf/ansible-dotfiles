@@ -14,7 +14,6 @@ alias vundle="e +BundleInstall +qall"
 
 # dotfiles
 alias reload="source ~/.zshrc"
-alias cdot="cd $DOT"
 alias edot="mvim -c \"cd $DOT\" $DOT"
 
 # Lists the size of all the folders
