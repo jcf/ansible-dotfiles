@@ -1,0 +1,1 @@
+cd ~/.dotfiles/vim/vim.symlink/bundle/$1;
