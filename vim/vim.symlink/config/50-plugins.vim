@@ -11,7 +11,6 @@
 " }}}
 
 " neocompcache {{{
-  let g:neocomplcache_auto_completion_start_length = 3
   let g:neocomplcache_enable_at_startup = 1
 " }}}
 
