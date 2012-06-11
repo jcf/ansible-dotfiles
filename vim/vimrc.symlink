@@ -70,10 +70,7 @@ set nocompatible
   set mouse=a
   set ttymouse=xterm2
 
-  " Shelling out to Z-shell causes problems on occasions. Bash seems to work
-  " better, probably because it doesn't have any of my hacky customisations
-  " running!
-  set shell=bash\ -l
+  set shell=zsh\ -l
 
   " Add an extra line to reduce the chance of lame Press Enter to continue
   " messages.
