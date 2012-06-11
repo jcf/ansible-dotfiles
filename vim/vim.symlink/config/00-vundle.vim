@@ -82,6 +82,9 @@ Bundle 'gmarik/vundle'
   Bundle 'tpope/vim-vividchalk'
 " }}}
 
+" Improved completion
+Bundle 'Shougo/neocomplcache'
+
 " At match #N out of M matches
 Bundle 'IndexedSearch'
 

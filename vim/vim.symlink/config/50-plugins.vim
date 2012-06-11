@@ -10,6 +10,11 @@
   nmap <Leader>t :TagbarToggle<CR>
 " }}}
 
+" neocompcache {{{
+  let g:neocomplcache_auto_completion_start_length = 3
+  let g:neocomplcache_enable_at_startup = 1
+" }}}
+
 " NERDTree {{{
   let NERDTreeIgnore=['\.rbc$', '\~$']
   map <Leader>n :NERDTreeToggle<CR>
