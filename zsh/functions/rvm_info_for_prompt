@@ -1,4 +1,0 @@
-local ruby_version=$(~/.rvm/bin/rvm-prompt i v g)
-if [ -n "$ruby_version" ]; then
-  echo " $pr_grey$ruby_version$pr_clear"
-fi
