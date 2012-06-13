@@ -45,7 +45,7 @@ compdef _git gs=git-status
 alias gg='git grep'
 compdef _git gg=git-grep
 
-alias glog='git log --stat'
+alias glog='git log --stat --date=relative'
 compdef _git glog=git-log
 
 alias gll="git log --decorate --oneline"
