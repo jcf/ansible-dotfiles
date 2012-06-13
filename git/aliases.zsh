@@ -48,11 +48,11 @@ compdef _git gg=git-grep
 alias glog='git log --stat'
 compdef _git glog=git-log
 
-alias glg="git log --decorate --oneline"
-compdef _git glg=git-log
-
-alias gll="git log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gll="git log --decorate --oneline"
 compdef _git gll=git-log
+
+alias glg="git log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+compdef _git glg=git-log
 
 alias gmt='git mergetool'
 
