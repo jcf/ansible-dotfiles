@@ -9,30 +9,43 @@
 #
 # NPM:
 #   curl http://npmjs.org/install.sh | sh
+require 'open3'
+
 namespace :packages do
-  require 'open3'
+  task :rubygems do
+    def gem_install(name)
+      puts "Spawning gem install #{name} process"
+      Process.spawn('gem', 'install', name)
+    end
 
-  PACKAGES = %w(
-    git git-extras ruby-build hub jsl ctags lorem graphviz postgresql
-    mongodb redis memcached node rlwrap couchdb wget tree vimpager
-  )
-
-  HEAD_PACKAGES = %w(willgit)
-
-  def brew_install(*args, packages)
-    args.unshift('brew', 'install')
-    args += Array(packages)
-
-    puts "Spawing brew process with args #{args.inspect}"
-    Process.spawn(*args)
+    gem_install('consular')
+    gem_install('consular-iterm')
+    gem_install('pry')
   end
 
-  desc 'Install dev dependencies'
-  task :install do
+  task :homebrew do
+    PACKAGES = %w(
+      git git-extras ruby-build hub jsl ctags lorem graphviz postgresql
+      mongodb redis memcached node rlwrap couchdb wget tree vimpager
+    )
+
+    HEAD_PACKAGES = %w(willgit)
+
+    def brew_install(*args, packages)
+      args.unshift('brew', 'install')
+      args += Array(packages)
+
+      puts "Spawing brew process with args #{args.inspect}"
+      Process.spawn(*args)
+    end
+
     brew_install('--HEAD', '--override-system-vim', 'macvim')
     brew_install(PACKAGES)
     brew_install('--HEAD', HEAD_PACKAGES)
+  end
 
+  desc 'Install dev dependencies'
+  task :install => [:homebrew, :rubygems] do
     Process.waitall.each do |pid, status|
       puts "Process #{pid} exited with status #{status.exitstatus}"
     end
