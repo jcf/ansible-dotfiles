@@ -1,0 +1,14 @@
+before { run 'c ev-web' }
+
+tab 'rc'
+tab 'e'
+
+window do
+  before { run 'c ev-web' }
+
+  tab 'beg'
+  tab 'rs'
+  tab 'rlog'
+end
+
+# vim: ft=ruby
