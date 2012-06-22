@@ -12,19 +12,65 @@
 require 'open3'
 
 namespace :packages do
+  GEMS = %w(
+    consular
+    consular-iterm
+    pry
+    cocoapods
+    motion-cocoapods
+  )
+
+  TAPS = %w(
+    adamv/alt
+    homebrew/dupes
+  )
+
+  PACKAGES = %w(
+    ack
+    couchdb
+    ctags
+    erlang
+    git
+    git-extras
+    graphviz
+    htop-osx
+    hub
+    jsl
+    libxml2
+    libxslt
+    lorem
+    memcached
+    mongodb
+    node
+    phantomjs
+    postgis
+    postgresql
+    rebar
+    redis
+    rlwrap
+    ruby-build
+    siege
+    tree
+    vimpager
+    wget
+    zeromq
+    zsh
+  )
+
+  HEAD_PACKAGES = %w(
+    willgit
+  )
+
   task :rubygems do
-    GEMS = %w(consular consular-iterm pry cocoapods motion-cocoapods)
     Process.spawn('gem', 'install', *GEMS)
   end
 
+  task :taps do
+    TAPS.each { |tap| Process.spawn('brew', 'tap', tap) }
+    Process.waitall
+  end
+
   task :homebrew do
-    PACKAGES = %w(
-      git git-extras ruby-build hub jsl ctags lorem graphviz postgresql
-      mongodb redis memcached node rlwrap couchdb wget tree vimpager
-    )
-
-    HEAD_PACKAGES = %w(willgit)
-
     def brew_install(*args, packages)
       args.unshift('brew', 'install')
       args += Array(packages)
@@ -39,7 +85,7 @@ namespace :packages do
   end
 
   desc 'Install dev dependencies'
-  task :install => [:homebrew, :rubygems] do
+  task :install => [:taps, :homebrew, :rubygems] do
     Process.waitall.each do |pid, status|
       puts "Process #{pid} exited with status #{status.exitstatus}"
     end
