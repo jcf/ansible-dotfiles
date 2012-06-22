@@ -13,14 +13,8 @@ require 'open3'
 
 namespace :packages do
   task :rubygems do
-    def gem_install(name)
-      puts "Spawning gem install #{name} process"
-      Process.spawn('gem', 'install', name)
-    end
-
-    gem_install('consular')
-    gem_install('consular-iterm')
-    gem_install('pry')
+    GEMS = %w(consular consular-iterm pry cocoapods motion-cocoapods)
+    Process.spawn('gem', 'install', *GEMS)
   end
 
   task :homebrew do
