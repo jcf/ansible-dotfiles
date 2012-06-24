@@ -1,0 +1,7 @@
+require 'consular/iterm'
+
+Consular.configure do |c|
+  c.global_path = "#{ENV['HOME']}/.consular"
+end
+
+# vim: ft=ruby

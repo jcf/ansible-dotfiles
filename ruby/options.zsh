@@ -6,7 +6,5 @@ export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
 
 export IRBRC="$HOME/.irbrc"
-export RBXOPT='-X19'
-export JRUBY_OPTS='--1.9'
 
 export GEM_EDITOR="$GIT_EDITOR"
