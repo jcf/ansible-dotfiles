@@ -41,6 +41,7 @@ namespace :packages do
     lorem
     memcached
     mongodb
+    moreutils
     node
     phantomjs
     postgis
