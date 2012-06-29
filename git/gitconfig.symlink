@@ -12,6 +12,7 @@
 	unchanged = update-index --assume-unchanged
 	put = push origin HEAD
 	squish = repack -a -d --depth=250 --window=250
+	aliases = config --get-regexp '^alias'
 	track = !git-track
 	thanks = !git-thanks
 	workdir = !git-new-workdir
