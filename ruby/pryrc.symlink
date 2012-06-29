@@ -1,3 +1,5 @@
+# vim:set ft=ruby:
+
 Pry.config.editor = '/usr/local/bin/mvim -f'
 
 def quick(repetitions = 1000, &block)
