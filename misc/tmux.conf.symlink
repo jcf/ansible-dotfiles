@@ -2,11 +2,41 @@
 set -g status-bg black
 set -g status-fg white
 
-# Print hostname and user in left-hand status
-set -g status-left '#[fg=green](#S) #(whoami)@#H#[default]'
+# Current or active window in status bar
+set-window-option -g window-status-current-format '#[bg=blue,fg=white,bold]#I #[fg=white]#W#[fg=dim]#F'
 
-# Highlight current window in status bar
-set-window-option -g window-status-current-bg red
+# Inactive windows in status bar
+set-window-option -g window-status-format '#[fg=cyan,dim]#I#[fg=blue]:#[default]#W#[fg=grey,dim]#F'
+
+# Right side of status bar
+set -g status-right '#[fg=green][#[fg=white]#T#[fg=green]][#[fg=blue]%Y-%m-%d #[fg=white]%H:%M#[default]#[fg=green]]'
 
 # Set window title when command changes
 setw -g automatic-rename
+
+# Act like GNU screen
+unbind C-b
+set -g prefix C-a
+
+# Shortcut to create a new horizontal split
+bind | split-window -h
+
+# Shortcut to create a new vertical split
+bind _ split-window -v
+
+# Act like Vim
+setw -g mode-keys vi
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+bind-key -r C-h select-window -t :-
+bind-key -r C-l select-window -t :+
+set-option -g status-keys vi
+set-window-option -g mode-keys vi
+
+# Let go of an escape keypress quickly
+set-option -s escape-time 10
+
+# Keep tmux msgs around longer
+set -g display-time 3000
