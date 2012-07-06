@@ -46,5 +46,9 @@
 " Powerline {{{
   " Use fancy symbols
   let g:Powerline_symbols = 'fancy'
+
+  " Go Solarized
+  let g:Powerline_theme = 'skwp'
+  let g:Powerline_colorscheme = 'skwp'
 " }}}
 
