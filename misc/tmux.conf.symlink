@@ -38,5 +38,8 @@ set-window-option -g mode-keys vi
 # Let go of an escape keypress quickly
 set-option -s escape-time 10
 
+# Start window count at 1, not zero
+set -g base-index 1
+
 # Keep tmux msgs around longer
 set -g display-time 3000
