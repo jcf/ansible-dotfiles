@@ -14,9 +14,10 @@ set -g status-right '#[fg=green][#[fg=white]#T#[fg=green]][#[fg=blue]%Y-%m-%d #[
 # Set window title when command changes
 setw -g automatic-rename
 
-# Act like GNU screen
-unbind C-b
-set -g prefix C-a
+# DO NOT act like GNU screen
+set-option -g prefix C-z
+unbind-key C-b
+bind-key z send-prefix
 
 # Shortcut to create a new horizontal split
 bind | split-window -h
