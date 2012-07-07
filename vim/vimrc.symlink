@@ -72,9 +72,8 @@ set nocompatible
 
   set shell=zsh\ -l
 
-  " Add an extra line to reduce the chance of lame Press Enter to continue
-  " messages.
-  set cmdheight=2
+  " One line for commands beneath buffers
+  set cmdheight=1
 
   " tell the term has 256 colors
   set t_Co=256
