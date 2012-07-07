@@ -1,5 +1,7 @@
 export DOT=$HOME/.dotfiles
 
+# Only add unique items to path
+typeset -U path
 path=(
   $DOT/bin
   /usr/local/bin
@@ -7,6 +9,8 @@ path=(
   $path
 )
 
+# Only add unique items to fpath
+typeset -U fpath
 fpath=(
   ${plugins:+${0:h}/plugins/${^plugins}/{functions,completions}(/FN)}
   $DOT/zsh/{functions,completions}(/FN)
