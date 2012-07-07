@@ -1,6 +1,6 @@
 export VISUAL="$EDITOR"
 export HOMEBREW_EDITOR="$EDITOR"
-export GIT_EDITOR="$(which mvim || which vim) -f" # http://is.gd/hGrsF
+export GIT_EDITOR="$EDITOR -f" # http://is.gd/hGrsF
 
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
