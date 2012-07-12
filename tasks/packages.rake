@@ -46,6 +46,7 @@ namespace :packages do
     phantomjs
     postgis
     postgresql
+    pv
     rebar
     redis
     rlwrap
