@@ -9,17 +9,8 @@
 #
 # NPM:
 #   curl http://npmjs.org/install.sh | sh
-require 'open3'
 
 namespace :packages do
-  GEMS = %w(
-    consular
-    consular-iterm
-    pry
-    cocoapods
-    motion-cocoapods
-  )
-
   TAPS = %w(
     adamv/alt
     homebrew/dupes
@@ -63,33 +54,33 @@ namespace :packages do
     willgit
   )
 
-  task :rubygems do
-    Process.spawn('gem', 'install', *GEMS)
-  end
+  GEMS = %w(
+    cocoapods
+    consular
+    consular-iterm
+    heroku
+    motion-cocoapods
+    pry
+  )
 
   task :taps do
-    TAPS.each { |tap| Process.spawn('brew', 'tap', tap) }
-    Process.waitall
+    TAPS.each { |tap| system "brew tap #{tap}" }
   end
 
   task :homebrew do
-    def brew_install(*args, packages)
-      args.unshift('brew', 'install')
-      args += Array(packages)
+    system 'brew install --HEAD --override-system-vim macvim'
+    system "brew install #{PACKAGES.join(' ')}"
+    system "brew install --HEAD #{HEAD_PACKAGES.join(' ')}"
+  end
 
-      puts "Spawing brew process with args #{args.inspect}"
-      Process.spawn(*args)
-    end
+  task :rubygems do
+    system "gem install #{GEMS.join(' ')}"
+  end
 
-    brew_install('--HEAD', '--override-system-vim', 'macvim')
-    brew_install(PACKAGES)
-    brew_install('--HEAD', HEAD_PACKAGES)
+  task :heroku_plugins do
+    system "heroku plugins:install git://github.com/ddollar/heroku-accounts.git"
   end
 
   desc 'Install dev dependencies'
-  task :install => [:taps, :homebrew, :rubygems] do
-    Process.waitall.each do |pid, status|
-      puts "Process #{pid} exited with status #{status.exitstatus}"
-    end
-  end
+  task :install => [:taps, :homebrew, :rubygems, :heroku_plugins]
 end
