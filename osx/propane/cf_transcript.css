@@ -1,0 +1,3 @@
+tr.propane_search td { background-color: #ffd8d8 ! important; }
+tr.propane_current_search td { background-color: #ff9090 ! important; }
+div#open_bar { display: none ! important; }
