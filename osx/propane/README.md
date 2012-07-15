@@ -4,8 +4,8 @@ Make sure you've got a Propane support directory with a styles, and
 unsupported directory.
 
 ``` sh
-export PROPANE_STYLES="~/Library/Application Support/Propane/styles"
-mkdir -p $PROPANE_STYLES
+mkdir -p ~/Library/Application\ Support/Propane/styles
+mkdir -p ~/Library/Application\ Support/Propane/unsupported
 ```
 
 Then copy each of the CSS files in to styles, and the caveatPatchor.js
