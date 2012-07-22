@@ -8,3 +8,6 @@ export RUBY_HEAP_FREE_MIN=500000
 export IRBRC="$HOME/.irbrc"
 
 export GEM_EDITOR="$GIT_EDITOR"
+
+# Disable all Guard notifications
+export GUARD_NOTIFY='false'
