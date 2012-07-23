@@ -12,6 +12,10 @@ Host *.evently.info
 
 # Evently Servers
 
+Host pmini
+  User ladmin
+  HostName pmini.local
+
 Host ev-splat
   User jcf
   HostName ec2-46-51-173-27.eu-west-1.compute.amazonaws.com
