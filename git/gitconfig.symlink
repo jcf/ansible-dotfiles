@@ -42,6 +42,8 @@
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore
 	editor = mvim -f --nomru
+	autocrlf = input
+	safecrlf = warn
 [gui]
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [mirror]
