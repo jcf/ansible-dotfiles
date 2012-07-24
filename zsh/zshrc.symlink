@@ -33,6 +33,7 @@ autoload -Uz age
 autoload -Uz zargs
 autoload -Uz zcalc
 autoload -Uz zmv
+autoload -Uz cdr
 
 # Source plugins defined in ~/.zshrc.
 for plugin in $DOT/zsh/plugins/*/init.zsh; do
