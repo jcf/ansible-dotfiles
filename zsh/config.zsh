@@ -1,8 +1,14 @@
 # vim: set syn=zsh
 
-autoload zmv
-
 setopt ALL_EXPORT
+
+# Autoload Zsh functions.
+autoload -Uz age
+autoload -Uz zargs
+autoload -Uz zcalc
+autoload -Uz zmv
+autoload -Uz cdr
+autoload -Uz zmv
 
 # Colour stuff
 autoload colors zsh/terminfo
