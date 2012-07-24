@@ -3,7 +3,6 @@ Bundle 'gmarik/vundle'
 " Ruby {{{
   Bundle 'vim-ruby/vim-ruby'
   Bundle 'tpope/vim-rake'
-  Bundle 'jcf/apidock.vim'
   Bundle 'tpope/vim-bundler'
 
   " Insert 'end' automatically
