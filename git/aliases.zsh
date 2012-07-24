@@ -24,10 +24,10 @@ compdef _git ga=git-add
 alias gd='git diff'
 compdef _git gd=git-diff
 
-alias gc='git commit -v'
+alias gc='git commit -v -S'
 compdef _git gc=git-commit
 
-alias gca='git commit -av'
+alias gca='git commit -av -S'
 compdef _git gca=git-commit
 
 alias gco='git checkout'
