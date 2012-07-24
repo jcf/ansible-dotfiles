@@ -4,10 +4,9 @@ setopt ALL_EXPORT
 
 # Autoload Zsh functions.
 autoload -Uz age
+autoload -Uz cdr
 autoload -Uz zargs
 autoload -Uz zcalc
-autoload -Uz zmv
-autoload -Uz cdr
 autoload -Uz zmv
 
 # Colour stuff
