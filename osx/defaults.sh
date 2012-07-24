@@ -30,6 +30,10 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Use AirDrop over every interface
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
+# Enable remote disk discovery
+defaults write com.apple.NetworkBrowser EnableODiskBrowsing -bool true
+defaults write com.apple.NetworkBrowser ODSSupported -bool true
+
 # Allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
