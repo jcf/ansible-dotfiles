@@ -34,6 +34,21 @@
    rake install packages:install
    ```
 
+5. Wipe out my ssh config. It's no use to you.
+
+   ``` shell
+   echo "" > ssh/config
+   ```
+
+6. Replace my name, email, and Github user in `git/gitconfig.symlink`
+   with your details.
+
+7. Remove my PGP key, and add your own.
+
+   ``` shell
+   gpg -a --export <KEY_ID> > key.asc
+   ```
+
 # Tasks
 
 **Install packages via Homebrew:**
