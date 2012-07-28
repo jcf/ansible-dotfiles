@@ -54,6 +54,8 @@
 	autosetuprebase = always
 [push]
 	default = tracking
+[help]
+	autocorrect = 1
 
 [github]
 	user = jcf
