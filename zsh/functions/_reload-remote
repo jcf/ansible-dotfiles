@@ -1,2 +1,0 @@
-#compdef reload-remote
-compdef _ssh reload-remote=ssh
