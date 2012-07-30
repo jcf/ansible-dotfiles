@@ -16,6 +16,12 @@
    brew install macvim
    ```
 
+   Optionally install emacs as well.
+
+   ``` shell
+   brew install emacs --cocoa --use-git-head --HEAD
+   ```
+
 2. Install git, because if you don't have it you need it in your life.
 
     ``` shell
