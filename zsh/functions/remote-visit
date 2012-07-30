@@ -1,0 +1,11 @@
+if [[ $# -lt 2 ]]; then
+  echo "Usage: $0 <host> [options] <http://example.com>" >&2
+else
+  ssh -T ${@[0, -2]} <<EOF
+    osascript -e "
+      tell application \"Google Chrome\"
+        set URL of active tab of window 1 to \"${@[-1]}\"
+      end tell
+    "
+EOF
+fi
