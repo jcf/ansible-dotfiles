@@ -67,7 +67,7 @@ Bundle 'gmarik/vundle'
   Bundle 'jcf/cocoa.vim'
   Bundle 'jcf/vim-latex'
   Bundle 'leshill/vim-json'
-  Bundle 'oscarh/vimerl'
+  Bundle 'jimenezrick/vimerl'
 
   " Syntax add-on for TomDoc comments
   Bundle 'duwanis/tomdoc.vim'
