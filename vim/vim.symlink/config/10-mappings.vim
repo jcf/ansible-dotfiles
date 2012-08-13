@@ -143,3 +143,11 @@ let mapleader = ','
   onoremap <silent> <D-K> :call NextIndent(1, 0, 1, 1)<CR>
   onoremap <silent> <D-J> :call NextIndent(1, 1, 1, 1)<CR>
 " }}}
+
+" Use pairing preferences {{{
+  function TimeToPair()
+    set guifont=Menlo:h16
+  endfunction
+
+  command TimeToPair :call TimeToPair()
+" }}}
