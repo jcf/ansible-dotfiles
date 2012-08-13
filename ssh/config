@@ -38,13 +38,6 @@ Host ev-marketing
   IdentityFile ~/.ssh/evently
   HostName www.bullseyehub.com
 
-Host ev-cms
-  User ubuntu
-  HostName hcms.spoonfeduk.com
-
-Host ev-sigma
-  HostName ec2-46-137-151-198.eu-west-1.compute.amazonaws.com
-
 Host ev-master
   User ubuntu
   HostName master.bullseyehub.com
@@ -67,6 +60,22 @@ Host ev-mowgli
 Host ev-pocahontas
   User ubuntu
   HostName web.pocahontas.evently.info
+  IdentityFile ~/.ssh/evently
+
+# Spoonfed Servers
+
+Host sp-sigma
+  User ubuntu
+  HostName ec2-46-137-151-198.eu-west-1.compute.amazonaws.com
+
+Host sp-cms
+  User ubuntu
+  HostName hcms.spoonfeduk.com
+  IdentityFile ~/.ssh/evently
+
+Host sp-flavour
+  User xypoonfed
+  HostName spoonfedflavour.com
   IdentityFile ~/.ssh/evently
 
 # Heroku Accounts
