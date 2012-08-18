@@ -54,12 +54,6 @@ function extract() {
   fi
 }
 
-# Bash (call Zsh version)
-function command_not_found_handle() {
-  command_not_found_handler $*
-  return $?
-}
-
 # Dig everything
 function dug() {
   dig +nocmd $1 any +multiline +noall +answer
