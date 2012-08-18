@@ -48,6 +48,7 @@ namespace :packages do
     wget
     zeromq
     zsh
+    zsh-completions
   )
 
   HEAD_PACKAGES = %w(
