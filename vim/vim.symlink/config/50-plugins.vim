@@ -8,6 +8,7 @@
 
 " Toggle tagbar {{{
   nmap <Leader>t :TagbarToggle<CR>
+  let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 " }}}
 
 " neocompcache {{{
