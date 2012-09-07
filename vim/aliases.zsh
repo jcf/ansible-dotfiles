@@ -1,2 +1,2 @@
-alias vundle="e +BundleInstall +qall"
-alias vundle!="e +BundleInstall! +qall"
+alias vundle="vim +BundleInstall +qall"
+alias vundle!="vim +BundleInstall! +qall"
