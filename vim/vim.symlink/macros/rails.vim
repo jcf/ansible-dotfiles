@@ -5,12 +5,12 @@
 " }}}
 
 " Ember.js navigation commands {{{
-  Rnavcommand econtroller app/assets/javascripts/controllers -suffix=.js.coffee  -default=controller()
+  Rnavcommand econtroller app/assets/javascripts/controllers -suffix=_controller.js.coffee -default=controller()
   Rnavcommand ehelper     app/assets/javascripts/helpers     -suffix=.js.coffee
-  Rnavcommand emodel      app/assets/javascripts/models      -suffix=.js.coffee  -default=model()
-  Rnavcommand eroutes     app/assets/javascripts/routes      -suffix=.js.coffee  -default=app_router
-  Rnavcommand etemplate   app/assets/javascripts/templates   -suffix=.handlebars -default=application
-  Rnavcommand eview       app/assets/javascripts/views       -suffix=.js.coffee  -default=application_view
+  Rnavcommand emodel      app/assets/javascripts/models      -suffix=.js.coffee            -default=model()
+  Rnavcommand eroutes     app/assets/javascripts/routes      -suffix=.js.coffee            -default=app_router
+  Rnavcommand etemplate   app/assets/javascripts/templates   -suffix=.handlebars           -default=application
+  Rnavcommand eview       app/assets/javascripts/views       -suffix=_view.js.coffee       -default=application_view
 " }}}
 
 " Uploaders
