@@ -59,7 +59,6 @@
 
 [github]
   user = jcf
-  token = 
 
 [heroku]
   account = logi.cl
