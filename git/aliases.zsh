@@ -21,6 +21,9 @@ compdef _git gpa=git-push
 alias ga='git add'
 compdef _git ga=git-add
 
+alias gap='git add -p'
+compdef _git gap=git-add
+
 alias d='git diff'
 compdef _git d=git-diff
 
