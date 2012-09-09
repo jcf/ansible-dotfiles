@@ -21,8 +21,8 @@ compdef _git gpa=git-push
 alias ga='git add'
 compdef _git ga=git-add
 
-alias gd='git diff'
-compdef _git gd=git-diff
+alias d='git diff'
+compdef _git d=git-diff
 
 alias gc='git commit -v -S'
 compdef _git gc=git-commit
@@ -39,8 +39,8 @@ compdef _git gb=git-branch
 alias gbv='git branch -v'
 compdef _git gbv=git-branch
 
-alias gs='git status -sb'
-compdef _git gs=git-status
+alias s='git status -sb'
+compdef _git s=git-status
 
 alias gg='git grep'
 compdef _git gg=git-grep
@@ -48,13 +48,13 @@ compdef _git gg=git-grep
 alias glog='git log --stat --date=relative'
 compdef _git glog=git-log
 
-alias gll="git log --decorate --oneline"
-compdef _git gll=git-log
-
-alias glg="git log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias glg="git l"
 compdef _git glg=git-log
 
 alias gmt='git mergetool'
+
+alias grc="git rebase --continue"
+compdef _git grc=git-rebase
 
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
