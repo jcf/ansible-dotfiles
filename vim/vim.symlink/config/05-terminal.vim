@@ -5,4 +5,4 @@ colorscheme solarized
 set colorcolumn=81
 
 " Medium Menlo
-set guifont=Menlo:h15
+set guifont=Consolas:h16
