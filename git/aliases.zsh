@@ -39,6 +39,9 @@ compdef _git gco=git-checkout
 alias gb='git branch'
 compdef _git gb=git-branch
 
+alias gbs='git branches'
+compdef _git gbs=git-branch
+
 alias gbv='git branch -v'
 compdef _git gbv=git-branch
 

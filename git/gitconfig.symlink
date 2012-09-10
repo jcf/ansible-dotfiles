@@ -6,6 +6,7 @@
   whitespace = nowarn
 [alias]
   aliases = config --get-regexp '^alias'
+  branches = !git-branches
   big-objects = !git-big-objects
   co = checkout
   conflicts = !git ls-files --unmerged | cut -c51- | sort -u | xargs $EDITOR
