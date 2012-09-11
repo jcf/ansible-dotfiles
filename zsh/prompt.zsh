@@ -41,6 +41,7 @@ zstyle ':vcs_info:*'      get-revision       true
 zstyle ':vcs_info:*'      formats            "(%s) %b" "%r"
 zstyle ':vcs_info:*'      actionformats      "(%s) %a"
 zstyle ':vcs_info:*'      branchformat       "%b:%r"
+zstyle ':vcs_info:git*:*' formats            "(%s) %b %F{yellow}%.8i%f" "%r"
 zstyle ':vcs_info:hg*:*'  use-simple         true
 zstyle ':vcs_info:svn:*'  formats            "(%s) %b" "%r"
 zstyle ':vcs_info:svn:*'  branchformat       "%b"
