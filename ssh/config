@@ -50,6 +50,14 @@ Host ev-web2
   User ubuntu
   HostName ec2-176-34-174-149.eu-west-1.compute.amazonaws.com
 
+Host ev-bc1
+  User ubuntu
+  HostName broadcast1.live.evently.info
+
+Host ev-bc2
+  User ubuntu
+  HostName broadcast2.live.evently.info
+
 # Evently Staging Servers
 
 Host ev-mowgli
