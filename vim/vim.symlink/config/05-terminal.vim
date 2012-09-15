@@ -4,5 +4,5 @@ colorscheme solarized
 " textwidth < 81 please
 set colorcolumn=81
 
-" Medium Menlo
-set guifont=Consolas:h16
+" Medium Consolas for Powerline
+set guifont=Consolas\ for\ Powerline:h16
