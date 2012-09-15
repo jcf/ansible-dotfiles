@@ -25,9 +25,6 @@ Bundle 'gmarik/vundle'
   " Ease manipulation of dynamic HTML templates
   Bundle 'tpope/vim-ragtag'
 
-  " Write HTML faster
-  Bundle 'Lokaltog/sparkup'
-
   " Convert markup to HTML
   Bundle 'matthias-guenther/hammer.vim'
 
