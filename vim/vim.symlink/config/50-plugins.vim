@@ -29,7 +29,7 @@
 " }}}
 
 " NERDTree {{{
-  let NERDTreeIgnore=['\.rbc$', '\~$']
+  let NERDTreeIgnore=['\.rbc$', '\.zsh\.zwc$', '\~$']
   map <Leader>n :NERDTreeToggle<CR>
 " }}}
 
