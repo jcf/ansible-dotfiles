@@ -23,6 +23,11 @@ autoload -U $DOT/zsh/functions/*(:t)
 # Load and initialize the completion system ignoring insecure directories.
 autoload -Uz compinit && compinit -i
 
+# Compile zcompdump, if modified, to increase startup speed.
+if [ "$HOME/.zcompdump" -nt "$HOME/.zcompdump.zwc" ]; then
+  zcompile "$HOME/.zcompdump"
+fi
+
 if (( $+commands[mvim] )); then
   export EDITOR="mvim"
 else
@@ -31,7 +36,11 @@ fi
 
 # Source plugins defined in ~/.zshrc.
 for plugin in $DOT/zsh/plugins/*/init.zsh; do
+  # echo $(python -c 'import time; print time.time()') $plugin
   source $plugin
 done
 
-for config_file ($DOT/**/*.zsh) source $config_file
+for config_file ($DOT/**/*.zsh); do
+  # echo $(python -c 'import time; print time.time()') $config_file
+  source $config_file
+done

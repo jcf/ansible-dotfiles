@@ -1,2 +1,2 @@
 path=($HOME/.rbenv/bin $path)
-eval "$(rbenv init -)"
+eval "$(rbenv init - --no-rehash)"

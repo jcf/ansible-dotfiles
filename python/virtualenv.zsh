@@ -5,6 +5,6 @@
 #   sudo easy_install pip
 #   sudo pip install virtualenv
 #   sudo pip install virtualenvwrapper
-if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+if [[ -z $VIRTUALENVWRAPPER_PYTHON ]]; then
   source /usr/local/bin/virtualenvwrapper.sh
 fi
