@@ -12,9 +12,6 @@ setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a traili
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
 
-autoload -U compinit
-compinit
-
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
