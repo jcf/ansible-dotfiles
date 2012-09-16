@@ -88,9 +88,6 @@ Bundle 'IndexedSearch'
 " Swap parameters
 Bundle 'mutewinter/swap-parameters'
 
-" Add Pivotal Tracker integration via the slurper gem
-Bundle 'adamlowe/vim-slurper'
-
 " Customisable completion
 Bundle 'Shougo/neocomplcache'
 
