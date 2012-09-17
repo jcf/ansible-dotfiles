@@ -28,6 +28,18 @@ Bundle 'gmarik/vundle'
   " Convert markup to HTML
   Bundle 'matthias-guenther/hammer.vim'
 
+  " Run an interactive shell inside Vim
+  Bundle 'rson/vim-conque'
+
+  " Send text from a vim buffer to a running tmux session
+  Bundle 'jgdavey/tslime.vim'
+
+  " Single key mapping to run tests based on the current file in vim
+  Bundle 'jgdavey/vim-turbux'
+
+  " Colorized Ruby, Rake, RSpec, and Cucumber Vim via ConqueTerm
+  Bundle 'skwp/vim-ruby-conque'
+
   " Additional filetypes {{{
     Bundle 'wavded/vim-stylus'
     Bundle 'bbommarito/vim-slim'

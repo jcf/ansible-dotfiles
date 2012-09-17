@@ -7,7 +7,7 @@
 " }}}
 
 " Toggle tagbar {{{
-  nmap <Leader>t :TagbarToggle<CR>
+  nmap <Leader>b :TagbarToggle<CR>
   let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
   let g:tagbar_type_javascript = {
@@ -66,3 +66,16 @@
   let g:Powerline_colorscheme = 'skwp'
 " }}}
 
+" Vim Ruby Conque {{{
+  " Cmd-Shift-R for RSpec
+  nmap <silent> <D-R> :call RunRspecCurrentFileConque()<CR>
+
+  " Cmd-Shift-L for RSpec Current Line
+  nmap <silent> <D-L> :call RunRspecCurrentLineConque()<CR>
+
+  " ,Cmd-R for Last conque command
+  nmap <silent> ,<D-R> :call RunLastConqueCommand()<CR>
+
+  " Use zeus to run specs
+  let g:ruby_conque_rspec_command='zeus rspec'
+" }}}
