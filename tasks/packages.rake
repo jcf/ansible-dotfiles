@@ -59,7 +59,8 @@ namespace :packages do
     cocoapods
     consular
     consular-iterm
-    heroku
+    gem-browse
+    gem-ctags
     motion-cocoapods
     pry
   )
@@ -79,9 +80,9 @@ namespace :packages do
   end
 
   task :heroku_plugins do
-    system "heroku plugins:install git://github.com/ddollar/heroku-accounts.git"
+    system 'heroku plugins:install git://github.com/ddollar/heroku-accounts.git'
   end
 
   desc 'Install dev dependencies'
-  task :install => [:taps, :homebrew, :rubygems, :heroku_plugins]
+  task :install => [:taps, :homebrew, :rubygems]
 end
