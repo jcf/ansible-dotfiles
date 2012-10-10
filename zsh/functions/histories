@@ -1,0 +1,51 @@
+setopt SH_WORD_SPLIT 2>/dev/null
+
+_aliases="$(alias -Lr 2>/dev/null || alias)"
+_history="$(history -10000 2>/dev/null || history)"
+
+alias_for() {
+  [[ $1 =~ '[[:punct:]]' ]] && return
+  local found="$( echo "$_aliases" | sed -nE "/^alias ${1}='?(.+)/s//\\1/p" )"
+  [[ -n $found ]] && echo "${found%\'}"
+}
+
+_git_aliases="$(git config --get-regex 'alias\..*')"
+
+git_alias_for() {
+  [[ $1 =~ '[[:punct:]]' ]] && return
+  echo "$_git_aliases" | sed -nE "/^alias.${1} ([^!].+)/s//\\1/p"
+}
+
+expand_command_line() {
+  shift
+  while [[ $1 =~ '=' ]]; do
+    shift
+  done
+  [[ $# -eq 0 ]] && return
+  local found_alias="$(alias_for $1)"
+  if [[ -n $found_alias ]]; then
+    shift
+    expand_command $found_alias "$@"
+  else
+    expand_command "$@"
+  fi
+}
+
+expand_command() {
+  if [[ ( $1 = git || $1 = hub ) && $# -gt 1 ]]; then
+    local found_git_alias="$(git_alias_for $2)"
+    if [[ -n $found_git_alias ]]; then
+      shift 2
+      expand_command git $found_alias "$@"
+    else
+      echo git $2 $3
+    fi
+  else
+    echo $1 $2 $3
+  fi
+}
+
+{ echo "$_history" | while read cmd; do
+  expand_command_line $cmd
+done
+} | sort | uniq -c | sort -k1 -rn | head -30
