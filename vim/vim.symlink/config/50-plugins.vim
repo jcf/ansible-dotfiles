@@ -76,6 +76,8 @@
   " ,Cmd-R for Last conque command
   nmap <silent> ,<D-R> :call RunLastConqueCommand()<CR>
 
-  " Use zeus to run specs
+  " Use zeus to run specs & cukes
   let g:ruby_conque_rspec_command='zeus rspec'
+  let g:turbux_command_rspec='zeus rspec'
+  let g:turbux_command_cucumber='zeus cucumber'
 " }}}
