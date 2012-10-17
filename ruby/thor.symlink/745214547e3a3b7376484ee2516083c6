@@ -24,15 +24,24 @@ module Heroku
     class_option :keep,   type: :boolean, default: false
     class_option :user,   type: :string,  default: ENV['USER']
 
-    desc 'clone APP_NAME', 'clone a remote heroku database to the local environment'
+    desc 'clone APP_NAME', 'Clone a remote heroku database to the local environment'
     def clone(app_name)
-      capture_backup(app_name)
-      download_backup(app_name)
-
+      invoke 'heroku:db:backup'
+      invoke 'heroku:db:download'
       invoke 'heroku:db:import', []
     end
 
-    desc 'import', 'import an existing database dump in to the local environment'
+    desc 'backup APP_NAME', 'Create a database backup'
+    def backup(app_name)
+      run! "heroku pgbackups:capture --expire --app #{app_name}"
+    end
+
+    desc 'download APP_NAME', 'Download the most recent database backup'
+    def download(app_name)
+      run! "wget -O #{options[:dump]} `heroku pgbackups:url --app #{app_name}`"
+    end
+
+    desc 'import', 'Import the downloaded database backup (latest.dump by default)'
     def import
       load_dump_in_to_local_db
       remove_file options[:dump] unless options[:keep]
@@ -47,14 +56,6 @@ module Heroku
         say "Command exited with status #{$?.to_i}. Exiting.", :red
         exit! $?.exitstatus
       end
-    end
-
-    def capture_backup(app_name)
-      run! "heroku pgbackups:capture --expire --app #{app_name}"
-    end
-
-    def download_backup(app_name)
-      run! "wget -O #{options[:dump]} `heroku pgbackups:url --app #{app_name}`"
     end
 
     def load_dump_in_to_local_db
