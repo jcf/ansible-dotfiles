@@ -1,0 +1,79 @@
+#!/usr/bin/env ruby
+
+# Inspired by the work of Anton Zolotov (http://j.mp/RSNQDz)
+#
+# Refactored by James Conroy-Finn
+#
+# - Use app name instead of remote when talking to Heroku. This is now a
+#   required argument when calling clone.
+# - Support running clone and import separately.
+# - Run database.yml through ERB before parsing it.
+# - Exit immediately if any command fails.
+# - Use ENV['USER'] to find the local database user instead of shelling out to
+#   `whoami`.
+
+require 'erb'
+
+module Heroku
+  class Db < Thor
+    include Thor::Actions
+
+    class_option :dbname, type: :string
+    class_option :dump,   type: :string,  default: 'latest.dump'
+    class_option :host,   type: :string,  default: 'localhost'
+    class_option :keep,   type: :boolean, default: false
+    class_option :user,   type: :string,  default: ENV['USER']
+
+    desc 'clone', 'clone a remote heroku database to the local environment'
+    def clone(app_name)
+      @app_name = app_name
+
+      capture_backup
+      download_backup
+
+      invoke(:import)
+    end
+
+    desc 'import', 'import an existing database dump in to the local environment'
+    def import
+      load_dump_in_to_local_db
+      run "rm #{options[:dump]}" unless options[:keep]
+    end
+
+    private
+
+    def run!(cmd)
+      run cmd
+      exit $?.exitstatus unless $?.success?
+    end
+
+    def capture_backup
+      run! "heroku pgbackups:capture --expire --app #{@app_name}"
+    end
+
+    def download_backup
+      run! "wget -O #{options[:dump]} `heroku pgbackups:url --app #{@app_name}`"
+    end
+
+    def load_dump_in_to_local_db
+      switches = {
+        '-h' => options[:host],
+        '-U' => options[:user],
+        '-d' => (options[:dbname] || dbname)
+      }.to_a.join(' ')
+
+      run! "pg_restore --verbose --clean --no-acl --no-owner #{switches} #{options[:dump]}"
+    end
+
+    def database_erb
+      ERB.new(File.read('config/database.yml')).result
+    rescue Errno::ENOENT
+      say "config/database.yml could not be found. Are you in a Rails app?", :red
+      exit!
+    end
+
+    def dbname
+      YAML.load(database_erb)['development']['database']
+    end
+  end
+end
