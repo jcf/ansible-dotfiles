@@ -42,7 +42,11 @@ module Heroku
 
     def run!(cmd)
       run cmd
-      exit $?.exitstatus unless $?.success?
+
+      unless $?.success?
+        say "Command exited with status #{$?.to_i}. Exiting.", :red
+        exit! $?.exitstatus
+      end
     end
 
     def capture_backup(app_name)
