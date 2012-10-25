@@ -86,3 +86,10 @@
   let g:turbux_command_rspec='zeus rspec'
   let g:turbux_command_cucumber='zeus cucumber'
 " }}}
+
+" Splice {{{
+  let g:splice_initial_mode = 'grid'
+  let g:splice_initial_wrap = 'nowrap'
+  let g:splice_initial_layout_grid = 1
+  let g:splice_initial_layout_compare = 0
+" }}}
