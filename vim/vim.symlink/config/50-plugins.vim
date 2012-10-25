@@ -66,6 +66,11 @@
   let g:Powerline_colorscheme = 'skwp'
 " }}}
 
+" VimGrep {{{
+  " Use grep (follows grepprg, so probably Ack)
+  let EasyGrepCommand = 1
+" }}}
+
 " Vim Ruby Conque {{{
   " Cmd-Shift-R for RSpec
   nmap <silent> <D-R> :call RunRspecCurrentFileConque()<CR>
