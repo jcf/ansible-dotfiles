@@ -1,0 +1,11 @@
+[mysqld]
+default_time_zone=+0:00
+query_cache_size=12MB
+query_cache_limit=24MB
+join_buffer_size=512KB
+lower_case_table_names=2
+thread_cache_size=4
+slow-query-log
+
+[mysql]
+default-character-set=utf8
