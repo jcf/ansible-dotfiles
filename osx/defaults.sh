@@ -31,7 +31,7 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
 # Enable remote disk discovery
-defaults write com.apple.NetworkBrowser EnableODiskBrowsing -bool true
+defaults write com.apple.NetworkBrowser EnableODiskBrowsing -bool false
 defaults write com.apple.NetworkBrowser ODSSupported -bool true
 
 # Allow text selection in Quick Look
