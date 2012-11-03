@@ -6,6 +6,7 @@ path=(
   $DOT/bin
   /usr/local/bin
   /usr/local/sbin
+  /usr/local/heroku/bin # Added by the Heroku Toolbelt, sort of.
   $path
 )
 
