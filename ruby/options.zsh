@@ -11,3 +11,15 @@ export GEM_EDITOR="$GIT_EDITOR"
 
 # Disable all Guard notifications
 export GUARD_NOTIFY='false'
+
+# Run Rubinius in 1.9 mode, and store rbc files in /tmp/rbx
+export RBXOPT='-X19 -Xrbc.db=/tmp/rbx'
+
+# Use custom Java 7 install (http://goo.gl/MkCSa)
+if [[ -d "/Library/Java/JavaVirtualMachines/jdk1.7.0_07.jdk/Contents/Home" ]]; then
+  export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_07.jdk/Contents/Home"
+  path=($JAVA_HOME/bin $path)
+fi
+
+# Use 32-bit mode when running Java/JRuby
+export JAVA_OPTS='-d32'
