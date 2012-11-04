@@ -77,6 +77,7 @@ Bundle 'gmarik/vundle'
   Bundle 'jcf/vim-latex'
   Bundle 'leshill/vim-json'
   Bundle 'jimenezrick/vimerl'
+  Bundle 'lukerandall/haskellmode-vim'
 
   " Syntax add-on for TomDoc comments
   Bundle 'duwanis/tomdoc.vim'
