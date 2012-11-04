@@ -3,6 +3,7 @@
 \#*#
 *.zsh.zwc
 /bin/mate
+/emacs/emacs.d.symlink/elpa
 /haskell/cabal.symlink/*
 !/haskell/cabal.symlink/config
 /shell/private.sh
