@@ -54,5 +54,7 @@ alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 # Readers and Pagers
 alias t='tail -f'
 
+alias v='vagrant'
+
 # Find SSH services via Bonjour
 alias sshjour='dns-sd -B _ssh._tcp .'
