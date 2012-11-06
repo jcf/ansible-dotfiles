@@ -38,7 +38,6 @@ namespace :packages do
     postgis
     postgresql
     pv
-    rebar
     redis
     rlwrap
     ruby-build
@@ -52,6 +51,7 @@ namespace :packages do
   )
 
   HEAD_PACKAGES = %w(
+    rebar
     willgit
   )
 
