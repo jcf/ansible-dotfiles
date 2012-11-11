@@ -91,7 +91,6 @@ function precmd {
 }
 
 # preexec is called just before any command line is executed
-function preexec() {
+function preexec {
   title "$1" "$USER@%m" "%35<...<%~"
 }
-
