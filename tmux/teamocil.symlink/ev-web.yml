@@ -1,0 +1,24 @@
+win: &win
+  clear: true
+  options:
+    synchronize-panes: true
+  root: '~/Code/ev-web'
+
+session:
+  name: 'ev-web'
+  windows:
+  - <<: *win
+    name: 'zeus'
+    splits:
+      - cmd: 'zeus start'
+        focus: true
+  - <<: *win
+    name: 'server'
+    splits:
+      - cmd: 'zeus server'
+        focus: true
+  - <<: *win
+    name: 'git'
+    splits:
+      - cmd: # empty
+        focus: true
