@@ -6,6 +6,7 @@ alias bi='bundle install'
 alias bis='bundle install --standalone --binstubs'
 alias bil='bundle install --local'
 alias bu='bundle update'
+alias bs='bundle show'
 
 # Start Guard using bundle exec
 alias beg='bundle exec guard'
