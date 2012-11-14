@@ -128,6 +128,9 @@ Bundle 'Lokaltog/vim-powerline'
 " Fuzzy file finder
 Bundle 'kien/ctrlp.vim'
 
+" Golden-ratio splits
+Bundle 'roman/golden-ratio'
+
 " Identation-based text objects
 Bundle 'michaeljsmith/vim-indent-object'
 
