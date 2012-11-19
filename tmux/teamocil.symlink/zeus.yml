@@ -2,7 +2,7 @@ win: &win
   clear: true
   options:
     synchronize-panes: true
-  root: '~/Code/ev-web'
+  # root: '~/Code/ev-web'
 
 session:
   name: 'ev-web'
