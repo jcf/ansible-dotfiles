@@ -1,13 +1,11 @@
 host *.amazonaws.com
   User ubuntu
   StrictHostKeyChecking no
-  IdentityFile ~/.ssh/evently
   UserKnownHostsFile ~/.ssh/ec2_hosts
 
 Host *.evently.info
   User ubuntu
   StrictHostKeyChecking no
-  IdentityFile ~/.ssh/evently
   UserKnownHostsFile ~/.ssh/ec2_hosts
 
 # Evently Servers
@@ -26,16 +24,13 @@ Host ev-splat
 
 Host ev-dev
   HostName dev.bullseyehub.com
-  IdentityFile ~/.ssh/evently
 
 Host ev-dj1
   User ubuntu
   HostName ec2-79-125-55-172.eu-west-1.compute.amazonaws.com
-  IdentityFile ~/.ssh/evently
 
 Host ev-marketing
   User ubuntu
-  IdentityFile ~/.ssh/evently
   HostName www.bullseyehub.com
 
 Host ev-master
@@ -63,14 +58,16 @@ Host ev-bc2
 Host ev-mowgli
   User ubuntu
   HostName web.mowgli.evently.info
-  IdentityFile ~/.ssh/evently
 
 Host ev-pocahontas
   User ubuntu
   HostName web.pocahontas.evently.info
-  IdentityFile ~/.ssh/evently
 
 # Spoonfed Servers
+
+Host sp-web
+  User ubuntu
+  HostName spoonfed.co.uk
 
 Host sp-sigma
   User ubuntu
@@ -79,12 +76,10 @@ Host sp-sigma
 Host sp-cms
   User ubuntu
   HostName hcms.spoonfeduk.com
-  IdentityFile ~/.ssh/evently
 
 Host sp-flavour
   User xypoonfed
   HostName spoonfedflavour.com
-  IdentityFile ~/.ssh/evently
 
 # Heroku Accounts
 
