@@ -27,3 +27,6 @@ alias zk='zeus cucumber'
 alias zrn='zeus runner'
 alias zdb='zeus dbconsole'
 alias zrake='zeus rake'
+
+# Use Nailgun to run some Ruby
+alias ng='ruby --ng -S'
