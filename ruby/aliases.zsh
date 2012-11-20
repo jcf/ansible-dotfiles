@@ -17,6 +17,10 @@ alias migrate='rake db:migrate db:test:clone_structure'
 # Tail the test log, ignoring TRUNCATE output from database_cleaner
 alias rlog='tail -f log/test.log | grep -v TRUNCATE | grep -v "ALTER TABLE"'
 
+# Heroku aliases
+alias hc='heroku console'
+alias hr='heroku run'
+
 # Zeus commands
 alias z='zeus start'
 alias zg='zeus generate'
