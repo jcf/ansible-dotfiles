@@ -59,6 +59,9 @@ compdef _git glg=git-log
 
 alias gmt='git mergetool'
 
+alias gr="git rebase"
+compdef _git grc=git-rebase
+
 alias grc="git rebase --continue"
 compdef _git grc=git-rebase
 
