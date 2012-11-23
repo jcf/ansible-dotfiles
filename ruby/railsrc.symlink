@@ -1,0 +1,13 @@
+# vim:set ft=ruby:
+
+def sql(query)
+  ActiveRecord::Base.connection.select_all(query)
+end
+
+# def method_missing(method, *args, &block)
+#   User.where(login: method.to_s) || super
+# end
+
+# def respond_to_missing?(method, include_private = false)
+#   User.exists?(login: method.to_s)
+# end
