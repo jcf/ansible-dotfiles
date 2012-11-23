@@ -6,6 +6,8 @@
 #   James Conroy-Finn <james@logi.cl>
 #
 
+alias g='git'
+
 alias gl='git pull'
 compdef _git gl=git-pull
 
