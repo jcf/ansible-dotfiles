@@ -155,6 +155,10 @@ That's 78 plugins.
 
 # Screenshots
 
-![iTerm](http://f.cl.ly/items/2V1s1n022r473D1p0h2U/iterm.png)
+<a href="http://cl.ly/image/1X2g2T1q1H2C">
+  <img alt="iTerm 2" src="http://f.cl.ly/items/0v2X3F122p1i3g3K3g31/iterm2-thumb.png"></img>
+</a>
 
-![MacVim](http://f.cl.ly/items/1L2x2B3O2s1a313k2i1R/macvim.png)
+<a href="http://cl.ly/image/2B253h193q0z">
+  <img alt="MacVim" src="http://f.cl.ly/items/1m1M41221S233C0h0D2T/macvim.png"></img>
+</a>
