@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-for color in {000..255}; do
-  echo -n "\e[38;5;${color}m ${color} \e[0m"
-done
-
-echo
