@@ -1,44 +1,5 @@
 #!/usr/bin/env ruby
 
-if RUBY_VERSION < '1.8.7'
-  class Symbol
-    def to_proc
-      Proc.new { |*args| args.shift.__send__(self, *args) }
-    end
-  end
-end
-
-# Lovely stuff scrooloose
-# (NSFW) http://got-ravings.blogspot.com/2009/10/mainframe-molestation-with-looksee.html
-# require 'looksee/shortcuts'
-
-# module Kernel
-#   alias_method :orig_methods, :methods
-
-#   def methods(*args)
-#     if caller.first =~ /\(irb\):\d+:in `irb_binding'/
-#       lp(self, *args)
-#     else
-#       orig_methods
-#     end
-#   end
-# end
-
-class Object
-  # If you don't want to type obj.instance_methods(false)
-  def local_methods(obj = self)
-    (obj.methods - obj.class.superclass.instance_methods).sort
-  end
-
-  def ri(method = nil)
-    unless method && method =~ /^[A-Z]/ # if class isn't specified
-      klass = self.kind_of?(Class) ? name : self.class.name
-      method = [klass, method].compact.join('#')
-    end
-    puts `ri '#{method}'`
-  end
-end
-
 def quick(repetitions = 100, &block)
   require 'benchmark'
   Benchmark.bmbm do |b|
@@ -53,7 +14,10 @@ end
 
 alias q exit
 
-load File.expand_path('~/.railsrc') if $0 == 'irb' && defined?(Rails)
+begin
+  load File.expand_path('~/.railsrc') if defined?(Rails) && Rails.env
+rescue LoadError
+end
 
 # Interactive editor inspired by Giles Bowkett
 require 'tempfile'
