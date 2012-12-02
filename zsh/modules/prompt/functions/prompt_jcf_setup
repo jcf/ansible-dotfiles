@@ -1,0 +1,87 @@
+# A simple theme that displays only relevant information.
+#
+# Authors:
+#   James Conroy-Finn <james@logi.cl>
+#
+# Features:
+#   - One line.
+#   - VCS information in the right prompt.
+#   - Only shows the path on the left prompt by default.
+#   - Crops the path to a defined length and only shows the path relative to
+#     the current VCS repository root.
+#   - Uses a different color depending on if the last command succeeded/failed.
+#   - Shows user@hostname if connected through SSH.
+#   - Shows if logged in as root or not.
+#
+# Screenshots:
+#   http://i.imgur.com/Xe1bu.png
+
+function prompt_jcf_help () {
+  cat <<'EOF'
+This prompt isn't configurable. I like it the way it is.
+
+EOF
+}
+
+function prompt_jcf_vcs_info {
+  _prompt_jcf_vsc_info="$vcs_info_msg_0_"
+  _prompt_jcf_vsc_info="${_prompt_jcf_vsc_info/\(git\)/±}"
+  _prompt_jcf_vsc_info="${_prompt_jcf_vsc_info/\(hg\)/☿}"
+  _prompt_jcf_vsc_info="${_prompt_jcf_vsc_info/\(bzr\)/⤉}"
+}
+
+function prompt_jcf_pwd {
+  local pwd="${PWD/#$HOME/~}"
+
+  if [[ "$pwd" == (#m)[/~] ]]; then
+    _prompt_jcf_pwd="$MATCH"
+    unset MATCH
+  else
+    _prompt_jcf_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
+  fi
+}
+
+function prompt_jcf_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  # Format PWD
+  prompt_jcf_pwd
+
+  # Get repository information
+  vcs_info
+
+  # Format VCS info
+  prompt_jcf_vcs_info
+}
+
+function prompt_jcf_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions
+  autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
+
+  # Add hook for calling vcs_info before each command
+  add-zsh-hook precmd prompt_jcf_precmd
+
+  # Set vcs_info parameters
+  zstyle ':vcs_info:*'      enable bzr git hg svn
+  zstyle ':vcs_info:*'      get-revision       true
+  zstyle ':vcs_info:*'      formats            "(%s) %b" "%r"
+  zstyle ':vcs_info:*'      actionformats      "(%s) %a"
+  zstyle ':vcs_info:*'      branchformat       "%b:%r"
+  zstyle ':vcs_info:git*:*' formats            "(%s) %b %F{yellow}%.8i%f" "%r"
+  zstyle ':vcs_info:hg*:*'  use-simple         true
+  zstyle ':vcs_info:svn:*'  formats            "(%s) %b" "%r"
+  zstyle ':vcs_info:svn:*'  branchformat       "%b"
+
+  # Define prompts
+  PROMPT='%F{004}${_prompt_jcf_pwd}%f%(!. %B%F{red}#%f%b.) '
+  RPROMPT="%F{242}"'${_prompt_jcf_vsc_info}'"%f"
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_jcf_setup "$@"
