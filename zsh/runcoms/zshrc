@@ -1,0 +1,7 @@
+# Executes commands at the start of an interactive session.
+
+# Source Prezto.
+export DOT="${ZDOTDIR:-$HOME}/.dotfiles"
+export DOTZSH="$DOT/zsh"
+[[ -s "$DOTZSH/init.zsh" ]] && source "$DOTZSH/init.zsh"
+[[ -s "$DOTZSH/private.zsh" ]] && source "$DOTZSH/private.zsh"
