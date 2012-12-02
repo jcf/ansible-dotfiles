@@ -37,11 +37,9 @@ fi
 
 # Source plugins defined in ~/.zshrc.
 for plugin in $DOT/zsh/plugins/*/init.zsh; do
-  # echo $(python -c 'import time; print time.time()') $plugin
   source $plugin
 done
 
-for config_file ($DOT/**/*.zsh); do
-  # echo $(python -c 'import time; print time.time()') $config_file
+for config_file ($DOT/*/*.zsh); do
   source $config_file
 done
