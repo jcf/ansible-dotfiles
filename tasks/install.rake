@@ -11,7 +11,7 @@ end
 
 desc "Link all .symlink files in to $HOME"
 task :install => :clone do
-  linkables = Dir.glob('*/**{.symlink}')
+  linkables = Dir.glob('*/**{.symlink}') + Dir.glob('zsh/runcoms/*')
 
   skip_all = false
   overwrite_all = false
