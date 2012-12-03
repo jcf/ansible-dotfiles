@@ -31,6 +31,20 @@ alias rors='_rails-command server'
 alias rorsd='_rails-command server --debugger'
 alias rorx='_rails-command destroy'
 
+# Migrate and clone structure in to test database
+alias migrate='rake db:migrate db:test:clone_structure'
+
+# Zeus commands
+alias z='zeus start'
+alias zg='zeus generate'
+alias zs='zeus server'
+alias zc='zeus console'
+alias zr='zeus rspec'
+alias zk='zeus cucumber'
+alias zrn='zeus runner'
+alias zdb='zeus dbconsole'
+alias zrake='zeus rake'
+
 #
 # Functions
 #

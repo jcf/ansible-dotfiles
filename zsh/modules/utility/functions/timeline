@@ -1,1 +1,0 @@
-stat -f "%m%t%Sm %N" * | sort -rn | cut -f2-
