@@ -30,7 +30,6 @@ function pmodload {
 
   # Add functions to $fpath.
   fpath=(${pmodules:+$DOTZSH/modules/${^pmodules}/functions(/FN)} $fpath)
-  fpath=("${DOTZSH}/functions" $fpath)
 
   function {
     local pfunction
