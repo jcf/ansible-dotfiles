@@ -3,7 +3,7 @@ autoload -U zrecompile
 # [[ -f ~/.zshrc ]] && zrecompile -p ~/.zshrc
 # [[ -f ~/.zshrc.zwc.old ]] && rm -f ~/.zshrc.zwc.old
 
-for f in $DOT/**/*.zsh; do
+for f in $DOT/zsh/**/*.zsh; do
   [[ -f $f ]] && zrecompile -p $f
   [[ -f $f.zwc.old ]] && rm -f $f.zwc.old
 done
