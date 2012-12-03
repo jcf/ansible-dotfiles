@@ -15,3 +15,15 @@ pmodload 'helper'
 
 # Source module files
 source "${0:h}/alias.zsh"
+
+# hub (http://github.com/defunkt/hub)
+if (( $+commands[hub] )); then
+  function git() {
+    hub "$@"
+  }
+fi
+
+# Add git-extras to git completion
+if (( $+commands['git-extras'] )); then
+  zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/}
+fi

@@ -33,8 +33,6 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'syntax-highlighting' \
   'git' \
-  'hub' \
-  'git-extras' \
   'ruby' \
   'rails' \
   'ssh-agent' \
