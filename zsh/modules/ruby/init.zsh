@@ -17,7 +17,7 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
 # Load manually installed rbenv into the shell session.
 elif [[ -s "$HOME/.rbenv/bin/rbenv" ]]; then
   path=("$HOME/.rbenv/bin" $path)
-  eval "$(rbenv init - zsh)"
+  eval "$(rbenv init --no-rehash - zsh)"
 
 # Load package manager installed rbenv into the shell session.
 elif (( $+commands[rbenv] )); then
