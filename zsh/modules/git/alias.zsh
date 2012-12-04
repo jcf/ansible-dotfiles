@@ -46,8 +46,11 @@ alias gca='git commit -avS'
 alias gco='git checkout'
 
 alias gb='git branch'
-alias gbs='git branches'
 alias gbv='git branch -v'
+alias gbm='git branch --merged'
+alias gbr='git branch --remote'
+alias gbrm='git branch --remote --merged'
+alias gbs='git branches'
 
 alias s='git status -sb'
 
