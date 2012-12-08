@@ -153,7 +153,7 @@ Bundle 'tpope/vim-abolish'
 Bundle 'scrooloose/syntastic'
 
 " Comment with ease
-Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-commentary'
 
 " Add support for Ack
 Bundle 'mileszs/ack.vim'

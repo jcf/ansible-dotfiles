@@ -8,9 +8,6 @@ if has("gui_running")
   " Command-Shift-F for Ack
   map <D-F> :Ack<space>
 
-  " Command-/ to toggle comments
-  map <D-/> <plug>NERDCommenterToggle<CR>
-
   " Command-][ to increase/decrease indentation
   vmap <D-]> >gv
   vmap <D-[> <gv
