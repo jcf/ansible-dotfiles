@@ -42,6 +42,7 @@ alias d='git diff'
 
 alias gc='git commit -vS'
 alias gca='git commit -avS'
+alias gcm='git commit -S -m'
 
 alias gco='git checkout'
 
