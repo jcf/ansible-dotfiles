@@ -10,9 +10,4 @@ def quick(repetitions = 1000, &block)
   nil
 end
 
-begin
-  load File.expand_path('~/.railsrc') if defined?(Rails) && Rails.env
-rescue LoadError
-end
-
 alias q exit
