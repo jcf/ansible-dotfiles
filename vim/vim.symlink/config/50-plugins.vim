@@ -93,3 +93,7 @@
   let g:splice_initial_layout_grid = 1
   let g:splice_initial_layout_compare = 0
 " }}}
+
+" Golden Ratio {{{
+  let g:golden_ratio_autocommand = 0
+" }}}
