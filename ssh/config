@@ -47,11 +47,11 @@ Host ev-web2
 
 Host ev-bc1
   User ubuntu
-  HostName broadcast1.live.evently.info
+  HostName ec2-176-34-211-251.eu-west-1.compute.amazonaws.com
 
 Host ev-bc2
   User ubuntu
-  HostName broadcast2.live.evently.info
+  HostName ec2-79-125-99-107.eu-west-1.compute.amazonaws.com
 
 # Evently Staging Servers
 
