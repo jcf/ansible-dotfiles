@@ -147,11 +147,3 @@ let mapleader = ','
 " Convert 1.8 style Ruby hashes to terser 1.9 style {{{
   nnoremap <Leader>hh :%s/\v:(\w{-}) \=\> /\1: /g<CR>''
 " }}}
-
-" Use pairing preferences {{{
-  function TimeToPair()
-    set guifont=Menlo:h16
-  endfunction
-
-  command TimeToPair :call TimeToPair()
-" }}}
