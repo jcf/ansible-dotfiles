@@ -97,3 +97,7 @@
 " Golden Ratio {{{
   let g:golden_ratio_autocommand = 0
 " }}}
+
+" Switch.vim {{{
+  nnoremap - :Switch<cr>
+" }}}
