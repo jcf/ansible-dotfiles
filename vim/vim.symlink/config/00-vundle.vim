@@ -158,9 +158,6 @@ Bundle 'tpope/vim-commentary'
 " Add support for Ack
 Bundle 'mileszs/ack.vim'
 
-" Visualise your current buffer's tags
-Bundle 'majutsushi/tagbar'
-
 " Grep more easily with some useful mappings
 Bundle 'EasyGrep'
 

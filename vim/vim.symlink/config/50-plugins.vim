@@ -20,24 +20,6 @@
   let g:colorv_no_global_map = 1  " Skip all colorv bindings
 " }}}
 
-" Toggle tagbar {{{
-  nmap <Leader>b :TagbarToggle<CR>
-  let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-
-  let g:tagbar_type_javascript = {
-        \ 'ctagsbin' : '/usr/local/bin/jsctags'
-        \ }
-
-  let g:tagbar_type_coffee = {
-        \ 'ctagstype' : 'coffee',
-        \ 'kinds' : [
-        \   'c:classes',
-        \   'f:functions',
-        \   'v:variables'
-        \ ],
-        \ }
-" }}}
-
 " neocompcache {{{
   let g:neocomplcache_enable_at_startup = 1
 " }}}
