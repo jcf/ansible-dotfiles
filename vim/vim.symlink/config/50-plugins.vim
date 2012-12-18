@@ -66,7 +66,7 @@
   nmap <silent> <D-L> :call RunRspecCurrentLineConque()<CR>
 
   " ,Cmd-R for Last conque command
-  nmap <silent> ,<D-R> :call RunLastConqueCommand()<CR>
+  nmap <silent> <Leader><D-R> :call RunLastConqueCommand()<CR>
 
   " Use zeus to run specs & cukes
   let g:ruby_conque_rspec_command='zeus rspec'
