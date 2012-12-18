@@ -64,9 +64,6 @@ Bundle 'gmarik/vundle'
 
   " Get the history behind some part of a file from Git
   Bundle 'gregsexton/gitv'
-
-  " Git log -- [file] viewer
-  Bundle 'int3/vim-extradite'
 " }}}
 
 " Additional filetypes {{{
