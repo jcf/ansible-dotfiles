@@ -1,7 +1,12 @@
 let mapleader = ','
 
+" Open Vundle config quickly {{{
+  nnoremap <Leader>vu :e ~/.dotfiles/vim/vim.symlink/config/00-vundle.vim<CR>
+" }}}
+
 " Buffer mappings {{{
   nnoremap <silent> <Leader>d :bd<CR>
+  nnoremap <silent> <Leader>c :clo<CR>
 " }}}
 
 " Sudo tee to write a file as root {{{
@@ -12,13 +17,12 @@ let mapleader = ','
   map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " }}}
 
-" Opens edit command with the path of buffer {{{
+" Quick edit commands {{{
   " NOTE This is overridden by CamelCaseMotion
   map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-" }}}
-
-" Opens tabedit command with the path of buffer {{{
   map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+  map <Leader>ve :vsp <C-R>=expand("%:p:h") . "/" <CR>
+  map <Leader>se :sp <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
 
 " Inserts the path of buffer in to command {{{
@@ -50,6 +54,7 @@ let mapleader = ','
 " }}}
 
 " Search with more magic {{{
+  " NOTE This is overridden by IndexedSearch
   nnoremap / /\v
   vnoremap / /\v
 " }}}
@@ -93,6 +98,10 @@ let mapleader = ','
 
   vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
   vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
+" }}}
+
+" Convert 1.8 style Ruby hashes to terser 1.9 style {{{
+  nnoremap <Leader>hh :%s/\v:(\w{-}) \=\> /\1: /g<CR>''
 " }}}
 
 " Go to next/previous line with same indentation {{{
@@ -142,8 +151,4 @@ let mapleader = ','
   onoremap <silent> <D-j> :call NextIndent(0, 1, 0, 1)<CR>
   onoremap <silent> <D-K> :call NextIndent(1, 0, 1, 1)<CR>
   onoremap <silent> <D-J> :call NextIndent(1, 1, 1, 1)<CR>
-" }}}
-
-" Convert 1.8 style Ruby hashes to terser 1.9 style {{{
-  nnoremap <Leader>hh :%s/\v:(\w{-}) \=\> /\1: /g<CR>''
 " }}}
