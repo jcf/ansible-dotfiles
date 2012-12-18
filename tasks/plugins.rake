@@ -25,9 +25,10 @@ namespace :plugins do
 
   # Just takes an array of strings that resolve to plugins from Vundle
   def add_plugins_to_readme(plugins = [])
-    lines = File.readlines(README_FILE).map{|l| l.chomp}
+    lines = File.readlines(README_FILE).map &:chomp
     index = lines.index(PLUGIN_LIST_TAG)
-    unless index.nil?
+
+    if index
       lines.insert(index+1, "\n#{PLUGIN_LIST_NOTE}\n\n")
       lines.insert(index+2, plugins.map{|p| " * [#{p[:name]}](#{p[:uri]}) - #{p[:description]}"})
       lines << "\nThat's #{plugins.length} plugins."
@@ -37,6 +38,7 @@ namespace :plugins do
     end
   end
 
+  # TODO Prevent removal of lines after plugin list
   def delete_old_plugins_from_readme
     lines = []
     File.readlines(README_FILE).map do |line|
@@ -86,11 +88,20 @@ namespace :plugins do
     link_hash
   end
 
+  def credentials
+    if ENV['GITHUB_CLIENT_ID'] && ENV['GITHUB_CLIENT_SECRET']
+      "?client_id=#{ENV['GITHUB_CLIENT_ID']}&" \
+        "client_secret=#{ENV['GITHUB_CLIENT_SECRET']}"
+    else
+      ''
+    end
+  end
+
   def fetch_github_repo_description(user, name)
     url = "https://api.github.com/repos/#{user}/#{name}"
 
     puts "Download repo info for #{url}..."
-    response = open(url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE).read
+    response = open(url + credentials, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE).read
 
     JSON.parse(response)['description']
 
