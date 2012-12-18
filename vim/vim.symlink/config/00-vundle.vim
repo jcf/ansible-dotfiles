@@ -158,9 +158,6 @@ Bundle 'tpope/vim-commentary'
 " Add support for Ack
 Bundle 'mileszs/ack.vim'
 
-" Grep more easily with some useful mappings
-Bundle 'EasyGrep'
-
 " Adds functions to remove/rename files etc.
 Bundle 'tpope/vim-eunuch'
 
