@@ -1,9 +1,23 @@
-" Open Vundle config quickly {{{
-  nnoremap <Leader>vu :e ~/.dotfiles/vim/vim.symlink/config/00-vundle.vim<CR>
+" Fugitive {{{
+  nmap <Leader>gs :Gstatus<CR>
+  nmap <Leader>gc :Gcommit -v<CR>
+  nmap <Leader>gw :Gwrite<CR>
+  nmap <Leader>gl :Gblame<CR>
+  nmap <Leader>gb :Gbrowse<CR>
+  nmap <Leader>gd :Gdiff<CR>
+  nmap <Leader>gg :Ggrep<Space>
+" }}}
+
+" Gitv {{{
+  nmap <Leader>gv :Gitv<CR>
 " }}}
 
 " Run Hammer to preview this buffer {{{
   nmap <Leader>p :Hammer<CR>
+" }}}
+
+" colorv {{{
+  let g:colorv_no_global_map = 1  " Skip all colorv bindings
 " }}}
 
 " Toggle tagbar {{{
@@ -53,10 +67,6 @@
   let g:syntastic_quiet_warnings=1
 " }}}
 
-" NERDCommenter {{{
-  let NERDSpaceDelims=1
-" }}}
-
 " Powerline {{{
   " Use fancy symbols
   let g:Powerline_symbols = 'fancy'
@@ -100,4 +110,10 @@
 
 " Switch.vim {{{
   nnoremap - :Switch<cr>
+" }}}
+
+" Tabular.vim {{{
+  vnoremap <Leader>t: :Tabularize /:\zs<CR>
+  vnoremap <Leader>t= :Tabularize /=<CR>
+  vnoremap <Leader>t> :Tabularize /=><CR>
 " }}}
