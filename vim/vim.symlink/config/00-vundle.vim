@@ -190,3 +190,6 @@ Bundle 'ZoomWin'
 
 " Make it easier to work with files owned by root
 Bundle 'sudo.vim'
+
+" Switch things like if to unless, and && to ||
+Bundle 'AndrewRadev/switch.vim'
