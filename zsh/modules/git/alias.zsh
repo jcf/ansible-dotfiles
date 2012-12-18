@@ -40,9 +40,8 @@ alias gap='git add -p'
 
 alias d='git diff'
 
-alias gc='git commit -vS'
-alias gca='git commit -avS'
-alias gcm='git commit -S -m'
+alias gc='git commit -v'
+alias gca='git commit -av'
 
 alias gco='git checkout'
 
