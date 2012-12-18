@@ -89,98 +89,102 @@ Bundle 'gmarik/vundle'
   Bundle 'tpope/vim-vividchalk'
 " }}}
 
-" Improved completion
-Bundle 'Shougo/neocomplcache'
+" Vim modes {{{
+  " Explore buffers in a buffer
+  Bundle 'corntrace/bufexplorer'
 
-" At match #N out of M matches
-Bundle 'IndexedSearch'
+  " Fuzzy file finder
+  Bundle 'kien/ctrlp.vim'
+
+  " File browser
+  Bundle 'scrooloose/nerdtree'
+
+  " Merge tool inspired by Adobe Lightroom
+  Bundle 'sjl/splice.vim'
+
+  " Add a scratch buffer to keep hold of random snippets
+  Bundle 'duff/vim-scratch'
+
+  " Quickly run the current buffer
+  Bundle 'thinca/vim-quickrun'
+" }}}
+
+" Vim powerups {{{
+  " Improved completion
+  Bundle 'Shougo/neocomplcache'
+
+  " At match #N out of M matches
+  Bundle 'IndexedSearch'
+
+  " Probably the best statusline replacement in the world
+  Bundle 'Lokaltog/vim-powerline'
+
+  " Golden-ratio splits
+  Bundle 'roman/golden-ratio'
+
+  " Identation-based text objects
+  Bundle 'michaeljsmith/vim-indent-object'
+
+  " Use space to repeat yourself
+  Bundle 'spiiph/vim-space'
+
+  " Customisable completion
+  Bundle 'Shougo/neocomplcache'
+
+  " TextMate style snippets, powered by Python
+  Bundle 'SirVer/ultisnips'
+
+  " Enables opening files at a specific line (e.g. file.rb:11)
+  Bundle 'bogado/file-line'
+
+  " Visual undo
+  Bundle 'sjl/gundo.vim'
+
+  " Move around quickly and effectively
+  Bundle 'Lokaltog/vim-easymotion'
+
+  " Abbreviation, substitution, coercion
+  Bundle 'tpope/vim-abolish'
+
+  " Syntax check files using external executables
+  Bundle 'scrooloose/syntastic'
+
+  " Comment with ease
+  Bundle 'tpope/vim-commentary'
+
+  " Add support for Ack
+  Bundle 'mileszs/ack.vim'
+
+  " Adds functions to remove/rename files etc.
+  Bundle 'tpope/vim-eunuch'
+
+  " Repeat the last Tim Popeism you performed
+  Bundle 'tpope/vim-repeat'
+
+  " Use CTRL-A/X to increment dates, times, and more
+  Bundle 'tpope/vim-speeddating'
+
+  " Surround with visual selections
+  Bundle 'tpope/vim-surround'
+
+  " Complementary pairs of mappings
+  Bundle 'tpope/vim-unimpaired'
+
+  " Align text based on a given pattern
+  Bundle 'godlygeek/tabular'
+
+  " Add highlighting to make it easier to see indentation level
+  Bundle 'Indent-Guides'
+
+  " Zoom in on the current buffer hiding others
+  Bundle 'ZoomWin'
+
+  " Make it easier to work with files owned by root
+  Bundle 'sudo.vim'
+
+  " Switch things like if to unless, and && to ||
+  Bundle 'AndrewRadev/switch.vim'
+" }}}
 
 " Swap parameters
 Bundle 'mutewinter/swap-parameters'
-
-" Customisable completion
-Bundle 'Shougo/neocomplcache'
-
-" TextMate style snippets, powered by Python
-Bundle 'SirVer/ultisnips'
-
-" Enables opening files at a specific line (e.g. file.rb:11)
-Bundle 'bogado/file-line'
-
-" Move around quickly and effectively
-Bundle 'Lokaltog/vim-easymotion'
-
-" Visual undo
-Bundle 'sjl/gundo.vim'
-
-" Explore buffers in a buffer
-Bundle 'corntrace/bufexplorer'
-
-" Add a scratch buffer to keep hold of random snippets
-Bundle 'duff/vim-scratch'
-
-" Probably the best statusline replacement in the world
-Bundle 'Lokaltog/vim-powerline'
-
-" Fuzzy file finder
-Bundle 'kien/ctrlp.vim'
-
-" Golden-ratio splits
-Bundle 'roman/golden-ratio'
-
-" Identation-based text objects
-Bundle 'michaeljsmith/vim-indent-object'
-
-" File browser
-Bundle 'scrooloose/nerdtree'
-
-" Merge tool inspired by Adobe Lightroom
-Bundle 'sjl/splice.vim'
-
-" Use space to repeat yourself
-Bundle 'spiiph/vim-space'
-
-" Quickly run the current buffer
-Bundle 'thinca/vim-quickrun'
-
-" Abbreviation, substitution, coercion
-Bundle 'tpope/vim-abolish'
-
-" Syntax check files using external executables
-Bundle 'scrooloose/syntastic'
-
-" Comment with ease
-Bundle 'tpope/vim-commentary'
-
-" Add support for Ack
-Bundle 'mileszs/ack.vim'
-
-" Adds functions to remove/rename files etc.
-Bundle 'tpope/vim-eunuch'
-
-" Repeat the last Tim Popeism you performed
-Bundle 'tpope/vim-repeat'
-
-" Use CTRL-A/X to increment dates, times, and more
-Bundle 'tpope/vim-speeddating'
-
-" Surround with visual selections
-Bundle 'tpope/vim-surround'
-
-" Complementary pairs of mappings
-Bundle 'tpope/vim-unimpaired'
-
-" Align text based on a given pattern
-Bundle 'godlygeek/tabular'
-
-" Add highlighting to make it easier to see indentation level
-Bundle 'Indent-Guides'
-
-" Zoom in on the current buffer hiding others
-Bundle 'ZoomWin'
-
-" Make it easier to work with files owned by root
-Bundle 'sudo.vim'
-
-" Switch things like if to unless, and && to ||
-Bundle 'AndrewRadev/switch.vim'
