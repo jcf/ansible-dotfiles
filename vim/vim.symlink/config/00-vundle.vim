@@ -185,6 +185,3 @@ Bundle 'gmarik/vundle'
   " Switch things like if to unless, and && to ||
   Bundle 'AndrewRadev/switch.vim'
 " }}}
-
-" Swap parameters
-Bundle 'mutewinter/swap-parameters'
