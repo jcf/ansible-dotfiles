@@ -29,7 +29,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'prompt' \
   'archive' \
-  'command-not-found' \
   'history-substring-search' \
   'syntax-highlighting' \
   'git' \
