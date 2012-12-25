@@ -95,12 +95,5 @@ fi
 # Tail the test log, ignoring TRUNCATE output from database_cleaner
 alias rlog='tail -f log/test.log | grep -v TRUNCATE | grep -v "ALTER TABLE"'
 
-if (( $+commands[heroku] )); then
-  # Heroku aliases
-  alias h='heroku'
-  alias hc='heroku console'
-  alias hr='heroku run'
-fi
-
 # Use Nailgun to run some Ruby
 alias rbng='ruby --ng -S'
