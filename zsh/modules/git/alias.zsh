@@ -39,6 +39,7 @@ alias ga='git add'
 alias gap='git add -p'
 
 alias d='git diff'
+alias ds='git diff --staged'
 
 alias gc='git commit -v'
 alias gca='git commit -av'
