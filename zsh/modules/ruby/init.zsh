@@ -21,7 +21,7 @@ elif [[ -s "$HOME/.rbenv/bin/rbenv" ]]; then
 
 # Load package manager installed rbenv into the shell session.
 elif (( $+commands[rbenv] )); then
-  eval "$(rbenv init - zsh)"
+  eval "$(rbenv init --no-rehash - zsh)"
 
 # Install local gems according to operating system conventions.
 else
@@ -80,26 +80,27 @@ if (( $+commands[bundle] )); then
     && print .bundle       >>! .gitignore \
     && print vendor/bundle >>! .gitignore \
     && print vendor/cache  >>! .gitignore'
+
+  alias be='bundle exec'
+  alias bc='bundle console'
+  alias bch='bundle check'
+  alias bi='bundle install'
+  alias bu='bundle update'
+  alias bs='bundle show'
+
+  # Start Guard using bundle exec
+  alias beg='bundle exec guard'
 fi
-
-alias be='bundle exec'
-alias bc='bundle console'
-alias bch='bundle check'
-alias bi='bundle install'
-alias bis='bundle install --standalone --binstubs'
-alias bil='bundle install --local'
-alias bu='bundle update'
-alias bs='bundle show'
-
-# Start Guard using bundle exec
-alias beg='bundle exec guard'
 
 # Tail the test log, ignoring TRUNCATE output from database_cleaner
 alias rlog='tail -f log/test.log | grep -v TRUNCATE | grep -v "ALTER TABLE"'
 
-# Heroku aliases
-alias hc='heroku console'
-alias hr='heroku run'
+if (( $+commands[heroku] )); then
+  # Heroku aliases
+  alias h='heroku'
+  alias hc='heroku console'
+  alias hr='heroku run'
+fi
 
 # Use Nailgun to run some Ruby
-alias ng='ruby --ng -S'
+alias rbng='ruby --ng -S'
