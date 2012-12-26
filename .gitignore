@@ -3,10 +3,11 @@
 \#*#
 *.zsh.zwc
 /bin/mate
+/clojure/lein.symlink/*
+!/clojure/lein.symlink/profiles.clj
 /emacs/emacs.d.symlink/elpa
 /haskell/cabal.symlink/*
 !/haskell/cabal.symlink/config
-/shell/private.sh
 /vim/.netrwhist
 /vim/view/
 /vim/vim.symlink/bundle
