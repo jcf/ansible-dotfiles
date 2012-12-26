@@ -1,0 +1,6 @@
+[submodule "zsh/modules/syntax-highlighting/external"]
+	path = zsh/modules/syntax-highlighting/external
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "zsh/modules/completion/external"]
+	path = zsh/modules/completion/external
+	url = git://github.com/zsh-users/zsh-completions.git
