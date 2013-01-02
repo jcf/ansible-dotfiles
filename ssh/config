@@ -35,7 +35,7 @@ Host ev-marketing
 
 Host ev-master
   User ubuntu
-  HostName master.bullseyehub.com
+  HostName master7.live.evently.info
 
 Host ev-web1
   User ubuntu
