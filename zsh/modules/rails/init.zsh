@@ -2,6 +2,7 @@
 # Defines Ruby on Rails aliases.
 #
 # Authors:
+#   James Conroy-Finn <james@logi.cl>
 #   Robby Russell <robby@planetargon.com>
 #   Jake Bell <jake.b.bell@gmail.com>
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
@@ -16,23 +17,24 @@ fi
 # Aliases (Compatible with Rails 2)
 #
 
-alias r='rails'
-alias rc='_rails-command console'
-alias rdc='_rails-command dbconsole'
-alias rdm='rake db:migrate'
-alias rdM='rake db:migrate db:test:clone'
-alias rdr='rake db:rollback'
-alias rg='_rails-command generate'
+alias r='_rails-command'
+alias rc='r console'
+alias rdc='r dbconsole'
+alias rg='r generate'
+alias rp='r plugin'
+alias rr='r runner'
+alias rs='r server'
+alias rsd='r server --debugger'
+alias rx='r destroy'
 alias rl='tail -f log/development.log'
-alias rlc='rake log:clear'
-alias rp='_rails-command plugin'
-alias rr='_rails-command runner'
-alias rs='_rails-command server'
-alias rsd='_rails-command server --debugger'
-alias rx='_rails-command destroy'
+
+alias rdm='_rake-command db:migrate'
+alias rdM='_rake-command db:migrate db:test:clone'
+alias rdr='_rake-command db:rollback'
+alias rlc='_rake-command log:clear'
 
 # Migrate and clone structure in to test database
-alias migrate='rake db:migrate db:test:clone_structure'
+alias migrate='_rake-command db:migrate db:test:clone_structure'
 
 # Zeus commands
 alias z='zeus start'
@@ -50,9 +52,19 @@ alias zrake='zeus rake'
 #
 
 function _rails-command {
-  if [[ -e "script/server" ]]; then
+  if [[ -e ".zeus.sock" ]]; then
+    zeus "$@"
+  elif [[ -e "script/server" ]]; then
     ruby script/"$@"
   else
     ruby script/rails "$@"
+  fi
+}
+
+function _rake-command {
+  if [[ -e ".zeus.sock" ]]; then
+    zeus rake "$@"
+  else
+    rake "$@"
   fi
 }
