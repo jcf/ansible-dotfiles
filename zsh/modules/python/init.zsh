@@ -2,6 +2,7 @@
 # Enables local Python package installation.
 #
 # Authors:
+#   James Conroy-Finn <james@logi.cl>
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #   Sebastian Wiesner <lunaryorn@googlemail.com>
 #
@@ -11,8 +12,14 @@ if [[ -s $HOME/.pythonz/bin/pythonz ]]; then
   path=($HOME/.pythonz/bin $path)
 fi
 
+# Load pyenv into the shell session.
+if [[ -s $HOME/.pyenv/bin/pyenv ]]; then
+  path=($HOME/.pyenv/bin $path)
+  eval "$(pyenv init - zsh)"
+fi
+
 # Return if requirements are not found.
-if (( ! $+commands[python] && ! $+commands[pythonz] )); then
+if (( ! $+commands[python] && ! ( $+commands[pythonz] || $+commands[pyenv] ) )); then
   return 1
 fi
 
@@ -36,21 +43,6 @@ if (( $+commands[virtualenvwrapper_lazy.sh] )); then
   VIRTUAL_ENV_DISABLE_PROMPT=1
 
   source "$commands[virtualenvwrapper_lazy.sh]"
-fi
-
-# Virtualenv Burrito & virtualenvwrapper
-#
-# https://github.com/brainsik/virtualenv-burrito
-#
-# virtualenvwrapper can be installed via easy_install and pip as root:
-#
-#   sudo easy_install pip
-#   sudo pip install virtualenv
-#   sudo pip install virtualenvwrapper
-if [[ -r $HOME/.venvburrito/startup.sh ]]; then
-  source $HOME/.venvburrito/startup.sh
-elif [[ -r /usr/local/bin/virtualenvwrapper.sh && -z $VIRTUALENVWRAPPER_PYTHON ]]; then
-  source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 #
