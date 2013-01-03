@@ -1,7 +1,11 @@
 # Executes commands at the start of an interactive session.
 
-# Source Prezto.
 export DOT="${ZDOTDIR:-$HOME}/.dotfiles"
 export DOTZSH="$DOT/zsh"
+
+# Add bin directory of DOTFILES to path
+path=("$DOT/bin" $path)
+
+# Source Prezto.
 [[ -s "$DOTZSH/init.zsh" ]] && source "$DOTZSH/init.zsh"
 [[ -s "$DOTZSH/private.zsh" ]] && source "$DOTZSH/private.zsh"

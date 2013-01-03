@@ -15,6 +15,3 @@
     done
   fi
 } &!
-
-# Add bin directory of DOTFILES to path
-path=("$DOT/bin" $path)
