@@ -5,6 +5,10 @@ augroup SourceVimrc " {{{
   " }}}
 augroup END " }}}
 
+" Open Quickfix list after any grep-like command {{{
+autocmd! QuickFixCmdPost *grep* cwindow
+" }}}
+
 augroup Whitespace " {{{
   autocmd!
   " Remove trailing whitespace from selected filetypes {{{
