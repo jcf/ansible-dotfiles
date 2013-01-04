@@ -156,6 +156,9 @@ Bundle 'gmarik/vundle'
   " Add support for Ack
   Bundle 'mileszs/ack.vim'
 
+  " Add support for Ag (the_silver_surfer)
+  Bundle 'epmatsw/ag.vim'
+
   " Adds functions to remove/rename files etc.
   Bundle 'tpope/vim-eunuch'
 
