@@ -66,7 +66,7 @@ let mapleader = ','
 
 " Use enter to insert newlines in normal mode, but not in quickfix {{{
   function! s:insert_line(direction)
-    if &buftype == "quickfix"
+    if &buftype == "quickfix" || &buftype == "nofile"
       execute "normal! \<Enter>"
     else
       if a:direction == 'below'
