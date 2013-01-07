@@ -90,9 +90,6 @@ set nocompatible
   set nowritebackup
   set noswapfile
 
-  " Because I love ack
-  set grepprg=ack\ -a
-
   set pastetoggle=<F2>
 
   set spelllang=en spellfile=~/.dotfiles/vim/vim.symlink/spell/en.utf-8.add
