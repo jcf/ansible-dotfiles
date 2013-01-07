@@ -47,10 +47,10 @@ set nocompatible
   set expandtab
   set autoindent
 
-  " folding settings
-  set foldmethod=indent   "fold based on indent
-  set foldnestmax=3       "deepest fold is 3 levels
-  set nofoldenable        "dont fold by default
+  " Fold settings
+  set foldmethod=indent   " Fold based on indent
+  set foldnestmax=3       " Deepest fold is 3 levels
+  set foldenable          " Fold by default
 
   " Tab completion
   set wildmenu
