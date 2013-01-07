@@ -41,7 +41,7 @@ set nocompatible
   " Stop highlighting ridiculously long lines
   set synmaxcol=400
 
-  " indent settings
+  " Indent settings
   set shiftwidth=2
   set softtabstop=2
   set expandtab
@@ -57,16 +57,16 @@ set nocompatible
   set wildmode=list:longest,list:full
   set wildignore=*.o,*.obj,*~,.git,*.rbc
 
-  " display tabs and trailing spaces
+  " Display tabs and trailing spaces
   set list
   set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
-  " vertical/horizontal scroll off settings
+  " Vertical/horizontal scroll off settings
   set scrolloff=3
   set sidescrolloff=7
   set sidescroll=1
 
-  " some stuff to get the mouse going in term
+  " Some stuff to get the mouse going in term
   set mouse=a
   set ttymouse=xterm2
 
@@ -75,10 +75,10 @@ set nocompatible
   " One line for commands beneath buffers
   set cmdheight=1
 
-  " tell the term has 256 colors
+  " Tell the term has 256 colors
   set t_Co=256
 
-  " hide buffers when not displayed
+  " Hide buffers when not displayed
   set hidden
 
   " Clever, lazy case sensitive searches
