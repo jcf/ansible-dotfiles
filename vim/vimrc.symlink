@@ -49,6 +49,7 @@ set nocompatible
 
   " Fold settings
   set foldmethod=indent   " Fold based on indent
+  set foldlevel=1         " Fold one level of indentation in
   set foldnestmax=3       " Deepest fold is 3 levels
   set foldenable          " Fold by default
 
