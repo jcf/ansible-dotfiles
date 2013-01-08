@@ -54,8 +54,8 @@
   let g:Powerline_symbols = 'fancy'
 
   " Go Solarized
-  let g:Powerline_theme = 'skwp'
-  let g:Powerline_colorscheme = 'skwp'
+  let g:Powerline_theme = 'solarized256'
+  let g:Powerline_colorscheme = 'solarized256'
 " }}}
 
 " Vim Ruby Conque {{{
