@@ -11,6 +11,6 @@ fi
 alias heroku='nocorrect heroku'
 
 alias h='heroku'
-alias hc='heroku console'
+alias hc='heroku run console'
 alias hr='heroku run'
 alias hv='heroku config'
