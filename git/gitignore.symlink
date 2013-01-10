@@ -9,8 +9,9 @@
 *~
 *.rdb
 ._*
-.rvmrc
 .rbenv-version
+.ruby-version
+.rvmrc
 .rake_tasks
 \#*#
 .netrwhist
