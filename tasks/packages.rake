@@ -11,11 +11,6 @@
 #   curl http://npmjs.org/install.sh | sh
 
 namespace :packages do
-  TAPS = %w(
-    adamv/alt
-    homebrew/dupes
-  )
-
   PACKAGES = %w(
     ack
     couchdb
@@ -64,10 +59,6 @@ namespace :packages do
     motion-cocoapods
     pry
   )
-
-  task :taps do
-    TAPS.each { |tap| system "brew tap #{tap}" }
-  end
 
   task :homebrew do
     system 'brew install --HEAD --override-system-vim macvim'
