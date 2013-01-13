@@ -28,24 +28,14 @@ alias rsd='r server --debugger'
 alias rx='r destroy'
 alias rl='tail -f log/development.log'
 
-alias rdm='_rake-command db:migrate'
-alias rdM='_rake-command db:migrate db:test:clone'
-alias rdr='_rake-command db:rollback'
-alias rlc='_rake-command log:clear'
+alias rk='_rake-command'
+alias rdm='rk db:migrate'
+alias rdM='rk db:migrate db:test:clone'
+alias rdr='rk db:rollback'
+alias rlc='rk log:clear'
 
 # Migrate and clone structure in to test database
-alias migrate='_rake-command db:migrate db:test:clone_structure'
-
-# Zeus commands
-alias z='zeus start'
-alias zg='zeus generate'
-alias zs='zeus server'
-alias zc='zeus console'
-alias zr='zeus rspec'
-alias zk='zeus cucumber'
-alias zrn='zeus runner'
-alias zdb='zeus dbconsole'
-alias zrake='zeus rake'
+alias migrate='rk db:migrate db:test:clone_structure'
 
 #
 # Functions
