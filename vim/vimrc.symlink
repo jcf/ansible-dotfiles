@@ -82,6 +82,10 @@ set nocompatible
   " Hide buffers when not displayed
   set hidden
 
+  " Automatically read and write buffers
+  set autoread
+  set autowrite
+
   " Clever, lazy case sensitive searches
   set ignorecase
   set smartcase
