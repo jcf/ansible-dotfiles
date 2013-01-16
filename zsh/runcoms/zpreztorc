@@ -33,6 +33,7 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'git' \
   'ruby' \
+  'haskell' \
   'heroku' \
   'rails' \
   'python' \
