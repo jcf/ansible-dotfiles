@@ -16,6 +16,9 @@ Bundle 'gmarik/vundle'
   Bundle 'tpope/vim-rails'
   Bundle 'hallison/vim-ruby-sinatra'
 
+  " Haskell template support
+  Bundle 'pbrisbin/html-template-syntax'
+
   " Open the system color picker
   Bundle 'PickAColor.vim'
 
