@@ -18,3 +18,7 @@ else
   path=($HOME/.cabal/bin(/N) $path)
   manpath=($HOME/.cabal/man(/N) $manpath)
 fi
+
+if (( $+commands[yesod] )); then
+  alias y='yesod'
+fi
