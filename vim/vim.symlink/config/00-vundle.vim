@@ -31,6 +31,9 @@ Bundle 'gmarik/vundle'
   " Convert markup to HTML
   Bundle 'matthias-guenther/hammer.vim'
 
+  " Run commands in your Terminal
+  Bundle 'gcmt/tube.vim'
+
   " Run an interactive shell inside Vim
   Bundle 'rson/vim-conque'
 
