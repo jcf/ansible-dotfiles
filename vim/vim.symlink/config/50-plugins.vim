@@ -12,6 +12,42 @@
   nmap <Leader>gv :Gitv<CR>
 " }}}
 
+" Tube.vim {{{
+  let g:tube_terminal = 'iterm' " Or Terminal if you prefer
+
+  function! TubeThis(...) abort
+    let l:cmd = []
+    let l:path = expand('%')
+
+    if filewritable('.zeus.sock')
+      call add(l:cmd, 'zeus')
+    elseif filereadable('Gemfile')
+      call add(l:cmd, 'bundle exec')
+    endif
+
+    if l:path =~# '_spec\.rb$'
+      let l:executable = 'rspec'
+    else
+      let l:executable = &ft
+    end
+
+    if exists('a:1')
+      call extend(l:cmd, [l:executable, l:path . ':' . a:1])
+    else
+      call extend(l:cmd, [l:executable, l:path])
+    end
+
+    let l:cmd_string = join(l:cmd, ' ')
+    echo l:cmd_string
+
+    silent exe 'TubeClear'
+    silent exe 'Tube ' . l:cmd_string
+  endfunction
+
+  nmap <Leader>t :call TubeThis(line('.'))<CR>
+  nmap <Leader>T :call TubeThis()<CR>
+" }}}
+
 " Run Hammer to preview this buffer {{{
   nmap <Leader>p :Hammer<CR>
 " }}}
