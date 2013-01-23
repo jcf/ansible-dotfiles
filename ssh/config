@@ -65,6 +65,9 @@ Host ev-pocahontas
 
 # Spoonfed Servers
 
+Host sp-dev
+  HostName dev.spoonfeduk.com
+
 Host sp-web
   User ubuntu
   HostName spoonfed.co.uk
