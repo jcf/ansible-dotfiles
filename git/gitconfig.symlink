@@ -23,6 +23,7 @@
   outgoing = !git-outgoing
   pending = !git --no-pager log origin/master..master && echo
   pr = pull-request
+  pr-merged = !git-pr-merged
   push-all = "!for i in $(git config --list | grep -E ^remote\\..+\\.url | sed -E 's/^remote\\.(.*)\\.url=.*/\\1/'); do git push $i master; done"
   put = push origin HEAD
   resolve = !git ls-files --unmerged | cut -c51- | sort -u | xargs git add
