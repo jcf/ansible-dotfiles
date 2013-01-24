@@ -48,7 +48,7 @@ Bundle 'gmarik/vundle'
 
   " Additional filetypes {{{
     Bundle 'wavded/vim-stylus'
-    Bundle 'bbommarito/vim-slim'
+    Bundle 'slim-template/vim-slim'
     Bundle 'tpope/vim-haml'
     Bundle 'groenewege/vim-less'
     Bundle 'kchmck/vim-coffee-script'
