@@ -139,3 +139,7 @@ PYTHON
   vnoremap <Leader>t= :Tabularize /=<CR>
   vnoremap <Leader>t> :Tabularize /=><CR>
 " }}}
+
+" Highlight indentation level {{{
+  let g:indentLine_color_gui = '#073642'
+" }}}

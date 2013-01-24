@@ -180,8 +180,8 @@ Bundle 'gmarik/vundle'
   " Align text based on a given pattern
   Bundle 'godlygeek/tabular'
 
-  " Add highlighting to make it easier to see indentation level
-  Bundle 'Indent-Guides'
+  " Highlight levels of indentation
+  Bundle 'Yggdroot/indentLine'
 
   " Zoom in on the current buffer hiding others
   Bundle 'ZoomWin'
