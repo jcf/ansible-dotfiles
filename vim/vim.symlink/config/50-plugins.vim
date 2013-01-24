@@ -12,6 +12,15 @@
   nmap <Leader>gv :Gitv<CR>
 " }}}
 
+" Powerline {{{
+python <<PYTHON
+import sys; sys.path.append("/Users/jcf/.local/lib/python2.7/site-packages")
+from powerline.bindings.vim import source_plugin; source_plugin()
+PYTHON
+
+  set fillchars+=stl:\ ,stlnc:\
+" }}}
+
 " Tube.vim {{{
   let g:tube_terminal = 'iterm' " Or Terminal if you prefer
 
