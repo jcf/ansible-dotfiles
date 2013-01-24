@@ -123,9 +123,6 @@ Bundle 'gmarik/vundle'
   " At match #N out of M matches
   Bundle 'IndexedSearch'
 
-  " Probably the best statusline replacement in the world
-  Bundle 'Lokaltog/vim-powerline'
-
   " Golden-ratio splits
   Bundle 'roman/golden-ratio'
 
