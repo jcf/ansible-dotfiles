@@ -1,6 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -23,6 +23,8 @@
     (package-install p)))
 
 (load-theme 'solarized-dark t)
+
+(set-face-attribute 'default nil :font "Source Code Pro-16")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
