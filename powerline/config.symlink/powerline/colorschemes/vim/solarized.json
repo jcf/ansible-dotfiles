@@ -1,153 +1,100 @@
 {
-  "name": "Solarized by JCF",
+  "name": "Solarized Dark",
   "colors": {
-    "black": 16,
-    "white": 231,
-
-    "darkestgreen": 22,
-    "darkgreen": 28,
-    "mediumgreen": 70,
-    "brightgreen": 148,
-
-    "darkestcyan": 23,
-    "darkcyan": 74,
-    "mediumcyan": 117,
-    "brightcyan": 159,
-
-    "darkestblue": 24,
-    "darkblue": 31,
-
-    "darkestred": 52,
-    "darkred": 88,
-    "mediumred": 124,
-    "brightred": 160,
-    "brightestred": 196,
-
-    "darkestpurple": 55,
-    "mediumpurple": 98,
-    "brightpurple": 189,
-
-    "darkorange": 94,
-    "mediumorange": 166,
-    "brightorange": 208,
-    "brightestorange": 214,
-
-    "brightyellow": 220,
-
-    "gray0": 233,
-    "gray1": 235,
-    "gray2": 236,
-    "gray3": 239,
-    "gray4": 240,
-    "gray5": 241,
-    "gray6": 244,
-    "gray7": 245,
-    "gray8": 247,
-    "gray9": 250,
-    "gray10": 252,
-
-    "gradient1": 190,
-    "gradient2": 184,
-    "gradient3": 178,
-    "gradient4": 172,
-    "gradient5": 166,
-    "gradient6": 160
+    "base03": [8, "002b36"],
+    "base02": [0, "073642"],
+    "base01": [10, "586e75"],
+    "base00": [11, "657b83"],
+    "base0": [12, "839496"],
+    "base1": [14, "93a1a1"],
+    "base2": [7, "eee8d5"],
+    "base3": [15, "fdf6e3"],
+    "yellow": [3, "b58900"],
+    "orange": [9, "cb4b16"],
+    "red": [1, "dc322f"],
+    "magenta": [5, "d33682"],
+    "violet": [13, "6c71c4"],
+    "blue": [4, "268bd2"],
+    "cyan": [6, "2aa198"],
+    "green": [2, "719e07"]
   },
   "groups": {
-    "background": { "fg": "white", "bg": "gray2" },
-    "background:divider": { "fg": "gray6", "bg": "gray2" },
-    "mode": { "fg": "darkestgreen", "bg": "brightgreen", "attr": ["bold"] },
-    "modified_indicator": { "fg": "brightyellow", "bg": "gray4", "attr": ["bold"] },
-    "paste_indicator": { "fg": "white", "bg": "mediumorange", "attr": ["bold"] },
-    "readonly_indicator": { "fg": "brightestred", "bg": "gray4" },
-    "branch": { "fg": "gray9", "bg": "gray4" },
-    "branch:divider": { "fg": "gray7", "bg": "gray4" },
-    "file_directory": { "fg": "gray9", "bg": "gray4" },
-    "file_name": { "fg": "white", "bg": "gray4", "attr": ["bold"] },
-    "file_size": { "fg": "gray8", "bg": "gray2" },
-    "file_name_no_file": { "fg": "gray9", "bg": "gray4", "attr": ["bold"] },
-    "file_name_empty": { "fg": "gray9", "bg": "gray4" },
-    "file_format": { "fg": "gray8", "bg": "gray2" },
-    "file_encoding": { "fg": "gray8", "bg": "gray2" },
-    "file_type": { "fg": "gray8", "bg": "gray2" },
-    "file_vcs_status": { "fg": "brightestred", "bg": "gray4" },
-    "file_vcs_status_M": { "fg": "brightyellow", "bg": "gray4" },
-    "file_vcs_status_A": { "fg": "brightgreen", "bg": "gray4" },
-    "line_percent": { "fg": "gray9", "bg": "gray4" },
-    "line_percent_gradient1": { "fg": "gradient1", "bg": "gray4" },
-    "line_percent_gradient2": { "fg": "gradient2", "bg": "gray4" },
-    "line_percent_gradient3": { "fg": "gradient3", "bg": "gray4" },
-    "line_percent_gradient4": { "fg": "gradient4", "bg": "gray4" },
-    "line_percent_gradient5": { "fg": "gradient5", "bg": "gray4" },
-    "line_percent_gradient6": { "fg": "gradient6", "bg": "gray4" },
-    "line_current": { "fg": "gray1", "bg": "gray10", "attr": ["bold"] },
-    "line_current_symbol": { "fg": "gray1", "bg": "gray10" },
-    "col_current": { "fg": "gray6", "bg": "gray10" }
+    "background":             { "fg": "base3", "bg": "base02" },
+    "background:divider":     { "fg": "base00", "bg": "base02" },
+    "mode":                   { "fg": "base3", "bg": "green", "attr": ["bold"] },
+    "modified_indicator":     { "fg": "yellow", "bg": "base01", "attr": ["bold"] },
+    "paste_indicator":        { "fg": "base3", "bg": "orange", "attr": ["bold"] },
+    "readonly_indicator":     { "fg": "red", "bg": "base01" },
+    "branch":                 { "fg": "base2", "bg": "base01" },
+    "branch:divider":         { "fg": "base1", "bg": "base01" },
+    "file_directory":         { "fg": "base2", "bg": "base01" },
+    "file_name":              { "fg": "base3", "bg": "base01", "attr": ["bold"] },
+    "file_size":              { "fg": "base3", "bg": "base01" },
+    "file_name_no_file":      { "fg": "base3", "bg": "base01", "attr": ["bold"] },
+    "file_name_empty":        { "fg": "base3", "bg": "base01" },
+    "file_format":            { "fg": "base1", "bg": "base02" },
+    "file_encoding":          { "fg": "base1", "bg": "base02" },
+    "file_type":              { "fg": "base1", "bg": "base02" },
+    "file_vcs_status":        { "fg": "red", "bg": "base01" },
+    "file_vcs_status_M":      { "fg": "yellow", "bg": "base01" },
+    "file_vcs_status_A":      { "fg": "green", "bg": "base01" },
+    "line_percent":           { "fg": "base3", "bg": "base00" },
+    "line_current":           { "fg": "base03", "bg": "base2", "attr": ["bold"] },
+    "line_current_symbol":    { "fg": "base03", "bg": "base2" },
+    "col_current":            { "fg": "base0", "bg": "base2" }
   },
   "mode_translations": {
     "nc": {
       "colors": {
-        "brightyellow": "darkorange",
-        "brightestred": "darkred",
-        "gray0": "gray0",
-        "gray1": "gray0",
-        "gray2": "gray0",
-        "gray3": "gray1",
-        "gray4": "gray1",
-        "gray5": "gray1",
-        "gray6": "gray1",
-        "gray7": "gray4",
-        "gray8": "gray4",
-        "gray9": "gray4",
-        "gray10": "gray5",
-        "white": "gray6",
-        "gradient1": "gray5",
-        "gradient2": "gray5",
-        "gradient3": "gray5",
-        "gradient4": "gray5",
-        "gradient5": "gray5",
-        "gradient6": "gray5"
+        "base02": "base02",
+        "base01": "base02",
+        "base00": "base02",
+        "base0": "base01",
+        "base1": "base00",
+        "base2": "base0",
+        "base3": "base1"
       }
     },
     "i": {
-      "colors": {
-        "gray0": "darkestblue",
-        "gray1": "darkestblue",
-        "gray2": "darkestblue",
-        "gray3": "darkblue",
-        "gray4": "darkblue",
-        "gray5": "darkestcyan",
-        "gray6": "darkestcyan",
-        "gray7": "darkestcyan",
-        "gray8": "mediumcyan",
-        "gray9": "mediumcyan",
-        "gray10": "mediumcyan",
-        "gradient1": "mediumcyan",
-        "gradient2": "mediumcyan",
-        "gradient3": "mediumcyan",
-        "gradient4": "mediumcyan",
-        "gradient5": "mediumcyan",
-        "gradient6": "mediumcyan"
-      },
       "groups": {
-        "mode": { "fg": "darkestcyan", "bg": "white", "attr": ["bold"] },
-        "background:divider": { "fg": "darkcyan", "bg": "darkestblue" },
-        "branch:divider": { "fg": "darkcyan", "bg": "darkblue" }
+        "background":             { "fg": "base3", "bg": "base01" },
+        "background:divider":     { "fg": "base2", "bg": "base01" },
+        "mode":                   { "fg": "base3", "bg": "blue", "attr": ["bold"] },
+        "modified_indicator":     { "fg": "yellow", "bg": "base2", "attr": ["bold"] },
+        "paste_indicator":        { "fg": "base3", "bg": "orange", "attr": ["bold"] },
+        "readonly_indicator":     { "fg": "red", "bg": "base2" },
+        "branch":                 { "fg": "base01", "bg": "base2" },
+        "branch:divider":         { "fg": "base00", "bg": "base2" },
+        "file_directory":         { "fg": "base01", "bg": "base2" },
+        "file_name":              { "fg": "base02", "bg": "base2", "attr": ["bold"] },
+        "file_size":              { "fg": "base02", "bg": "base2" },
+        "file_name_no_file":      { "fg": "base02", "bg": "base2", "attr": ["bold"] },
+        "file_name_empty":        { "fg": "base02", "bg": "base2" },
+        "file_format":            { "fg": "base2", "bg": "base01" },
+        "file_encoding":          { "fg": "base2", "bg": "base01" },
+        "file_type":              { "fg": "base2", "bg": "base01" },
+        "file_vcs_status":        { "fg": "red", "bg": "base2" },
+        "file_vcs_status_M":      { "fg": "yellow", "bg": "base2" },
+        "file_vcs_status_A":      { "fg": "green", "bg": "base2" },
+        "line_percent":           { "fg": "base3", "bg": "base1" },
+        "line_current":           { "fg": "base03", "bg": "base3", "attr": ["bold"] },
+        "line_current_symbol":    { "fg": "base03", "bg": "base3" },
+        "col_current":            { "fg": "base0", "bg": "base3" }
       }
     },
     "v": {
       "groups": {
-        "mode": { "fg": "darkorange", "bg": "brightestorange", "attr": ["bold"] }
+        "mode": { "fg": "base3", "bg": "orange", "attr": ["bold"] }
       }
     },
     "V": {
       "groups": {
-        "mode": { "fg": "darkorange", "bg": "brightestorange", "attr": ["bold"] }
+        "mode": { "fg": "base3", "bg": "orange", "attr": ["bold"] }
       }
     },
     "R": {
       "groups": {
-        "mode": { "fg": "white", "bg": "brightred", "attr": ["bold"] }
+        "mode": { "fg": "base3", "bg": "red", "attr": ["bold"] }
       }
     }
   }
