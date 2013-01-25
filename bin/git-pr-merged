@@ -16,5 +16,5 @@ else
 fi
 
 git checkout master
-git pull --rebase origin master
+git pull --rebase
 git db $branch
