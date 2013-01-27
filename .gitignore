@@ -1,9 +1,11 @@
 **/*~
 **/.*
-*.zsh.zwc
+*.zwc
+*.zwc.old
 \#*#
 bin/mate
 emacs/emacs.d.symlink/elpa
+zsh/modules/*/cache.zsh
 powerline/config.symlink/hub
 vim/.netrwhist
 vim/view/
