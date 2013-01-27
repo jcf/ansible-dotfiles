@@ -37,6 +37,7 @@ zstyle ':prezto:load' pmodule \
   'heroku' \
   'rails' \
   'python' \
+  'node' \
   'ssh-agent' \
   'osx'
 
