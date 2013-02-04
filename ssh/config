@@ -80,6 +80,10 @@ Host sp-cms
   User ubuntu
   HostName hcms.spoonfeduk.com
 
+Host sp-newcms
+  User admin
+  HostName newcms.spoonfeduk.com
+
 Host sp-flavour
   User xypoonfed
   HostName spoonfedflavour.com
