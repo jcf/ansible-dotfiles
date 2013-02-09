@@ -97,3 +97,7 @@ alias rlog='tail -f log/test.log | grep -v TRUNCATE | grep -v "ALTER TABLE"'
 
 # Use Nailgun to run some Ruby
 alias rbng='ruby --ng -S'
+
+if (( $+commands[foreman] )); then
+  alias fs='foreman start'
+fi
