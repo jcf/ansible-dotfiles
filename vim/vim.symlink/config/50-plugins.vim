@@ -30,8 +30,8 @@ PYTHON
 
     if filewritable('.zeus.sock')
       call add(l:cmd, 'zeus')
-    elseif filereadable('Gemfile')
-      call add(l:cmd, 'bundle exec')
+    " elseif filereadable('Gemfile')
+    "   call add(l:cmd, 'bundle exec')
     endif
 
     if l:path =~# '_spec\.rb$'
