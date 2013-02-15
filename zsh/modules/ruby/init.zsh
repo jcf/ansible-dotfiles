@@ -98,6 +98,14 @@ alias rlog='tail -f log/test.log | grep -v TRUNCATE | grep -v "ALTER TABLE"'
 # Use Nailgun to run some Ruby
 alias rbng='ruby --ng -S'
 
+if (( $+commands[drip] )); then
+  export JAVACMD=$commands[drip]
+  export DRIP_INIT_CLASS=org.jruby.main.DripMain
+
+  # Settings from: https://github.com/jruby/jruby/wiki/Improving-startup-time
+  export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify"
+fi
+
 if (( $+commands[foreman] )); then
   alias fs='foreman start'
 fi
