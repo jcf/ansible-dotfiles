@@ -117,6 +117,9 @@ Bundle 'gmarik/vundle'
   " At match #N out of M matches
   Bundle 'IndexedSearch'
 
+  " Speed up handling of large files by turning off some features
+  Bundle 'LargeFile'
+
   " Golden-ratio splits
   Bundle 'roman/golden-ratio'
 
