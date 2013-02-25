@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Updates submodules, updates Homebrew formulae, and tells you what's changed.
+
+cd $DOT
+git update-submodules
+
+brew update --head
+brew outdated
+
+git status -sb
