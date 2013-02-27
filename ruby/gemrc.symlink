@@ -6,5 +6,5 @@
 - http://gems.rubyforge.org
 :update_sources: true
 :verbose: false
-install: --no-ri --no-rdoc
-update: --no-ri --no-rdoc
+install: --no-ri --no-rdoc --no-document
+update: --no-ri --no-rdoc --no-document
