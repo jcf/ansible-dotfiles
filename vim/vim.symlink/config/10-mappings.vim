@@ -25,11 +25,6 @@ let mapleader = ','
   map <Leader>se :sp <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
 
-" Inserts the path of buffer in to command {{{
-  " Command mode: Ctrl+P
-  cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-" }}}
-
 " <C-L> clear highlight as well as redraw {{{
   nnoremap <C-L> :nohls<CR><C-L>
   inoremap <C-L> <C-O>:nohls<CR>
