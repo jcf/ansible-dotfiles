@@ -131,7 +131,7 @@ PYTHON
 " }}}
 
 " Switch.vim {{{
-  nnoremap - :Switch<cr>
+  nnoremap <Leader>s :Switch<CR>
 " }}}
 
 " Tabular.vim {{{
