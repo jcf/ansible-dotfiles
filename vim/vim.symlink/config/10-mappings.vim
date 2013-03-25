@@ -38,8 +38,8 @@ let mapleader = ','
   nnoremap Y y$
 " }}}
 
-" jk to exit insert mode {{{
-  imap jk <Esc>
+" jj to exit insert mode {{{
+  imap jj <Esc>
 " }}}
 
 " Semi-colon to enter command mode {{{
