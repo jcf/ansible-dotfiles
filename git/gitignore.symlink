@@ -20,3 +20,4 @@ tmp/**/*
 tags
 *.rbc
 doc/tags-ja
+*.sublime-*
