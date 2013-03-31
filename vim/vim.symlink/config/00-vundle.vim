@@ -186,6 +186,9 @@ Bundle 'gmarik/vundle'
   " Make it easier to work with files owned by root
   Bundle 'sudo.vim'
 
+  " GPG help
+  Bundle 'jamessan/vim-gnupg'
+
   " Switch things like if to unless, and && to ||
   Bundle 'AndrewRadev/switch.vim'
 " }}}
