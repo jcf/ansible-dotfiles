@@ -74,6 +74,11 @@ PYTHON
   map <Leader>n :NERDTreeToggle<CR>
 " }}}
 
+" Haskell {{{
+  " Use default browser to browse online resources
+  let g:haddock_browser = '/usr/bin/open'
+" }}}
+
 " Rake.vim {{{
   nmap <Leader>a :AV<CR>
   nmap <C-a> :A<CR>

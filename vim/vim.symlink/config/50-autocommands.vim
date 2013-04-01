@@ -67,6 +67,11 @@ augroup Git " {{{
   " }}}
 augroup END " }}}
 
+augroup Haskell " {{{
+  " :h ghc-compiler
+  autocmd! BufEnter *.hs compiler ghc
+augroup END " }}}
+
 " TODO Stop inserting comments when pressing o/O!!!
 "
 " This doesn't work because Vim executes ftplugin files, which typically
