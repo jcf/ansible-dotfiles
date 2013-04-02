@@ -117,6 +117,9 @@ Bundle 'gmarik/vundle'
   " At match #N out of M matches
   Bundle 'IndexedSearch'
 
+  " Like make but async, with support for tmux and more
+  Bundle 'tpope/vim-dispatch'
+
   " Speed up handling of large files by turning off some features
   Bundle 'LargeFile'
 
