@@ -44,6 +44,8 @@ alias migrate='rk db:migrate db:test:clone_structure'
 function _rails-command {
   if [[ -e ".zeus.sock" ]]; then
     zeus "$@"
+  elif [[ -e "bin/rails" ]]; then
+    bin/rails "$@"
   elif [[ -e "script/server" ]]; then
     ruby script/"$@"
   else
