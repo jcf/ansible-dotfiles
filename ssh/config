@@ -10,13 +10,8 @@ Host *.evently.info
 
 # Evently Servers
 
-Host pmini
+Host pmini wmini zinc
   User ladmin
-  HostName pmini.local
-
-Host zinc
-  User ladmin
-  HostName zinc.local
 
 Host ev-splat
   User jcf
