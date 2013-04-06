@@ -5,7 +5,7 @@
 \#*#
 bin/mate
 emacs/emacs.d.symlink/elpa
-powerline/config.symlink/hub
+misc/config.symlink/hub
 vim/.netrwhist
 vim/view/
 vim/vim.symlink/bundle
