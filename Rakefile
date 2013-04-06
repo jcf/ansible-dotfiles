@@ -1,2 +1,1 @@
-#!/usr/bin/env rake
-Rake.add_rakelib 'tasks'
+task :default => :install
