@@ -46,7 +46,6 @@ end
 desc 'Remove any linked .symlink files, restoring backups where present'
 task :uninstall do
   Dir.glob('**/*.symlink').each do |linkable|
-
     file = linkable.split('/').last.split('.symlink').last
     target = "#{ENV["HOME"]}/.#{file}"
 
@@ -59,8 +58,5 @@ task :uninstall do
     if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
       `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
     end
-
   end
 end
-
-task :default => 'install'
