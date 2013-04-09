@@ -1,3 +1,2 @@
 #!/usr/bin/env zsh
-echo "Updating all submodules..."
 git submodule -q foreach 'printf "\e[33mUpdating\e[0m $path..." && git pull -q --rebase || :'
