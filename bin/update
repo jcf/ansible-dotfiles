@@ -5,7 +5,7 @@
 cd $DOT
 git update-submodules
 
-brew update --head
+brew update --head &>/dev/null
 brew outdated
 
 git status -sb
