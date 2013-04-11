@@ -111,6 +111,9 @@ Bundle 'gmarik/vundle'
 " }}}
 
 " Vim powerups {{{
+  " Improved status line
+  Bundle 'Lokaltog/powerline'
+
   " Improved completion
   Bundle 'Shougo/neocomplcache'
 
