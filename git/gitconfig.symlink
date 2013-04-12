@@ -83,8 +83,8 @@
   trustExitCode = true
 
 # http://bitfission.com/blog/2010/07/auto-merge-gemfile-lock.html
-[merge "bundlelock"]
-  name = lock Gemfile
+[merge "gemfilelock"]
+  name = relocks the gemfile.lock
   driver = bundle install
 
 # http://tbaggery.com/2010/10/24/reduce-your-rails-schema-conflicts.html
