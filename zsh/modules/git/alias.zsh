@@ -29,6 +29,9 @@ zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_subm
 # Git
 alias g='git'
 
+alias gf='git fetch'
+alias gfa='gf --all'
+
 alias gl='git pull'
 alias glr='git pull --rebase'
 
@@ -64,3 +67,4 @@ alias gmt='git mergetool'
 
 alias gr="git rebase"
 alias grc="git rebase --continue"
+alias gra="git rebase --abort"
