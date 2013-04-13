@@ -2,10 +2,23 @@
 
 # Updates submodules, updates Homebrew formulae, and tells you what's changed.
 
-cd $DOT
-git update-submodules
+updating() {
+  echo "\033[33mUpdating\033[0m $@..."
+}
 
+updating "dotfiles"
+cd $DOT
+git update-submodules &>/dev/null
+git status -s
+
+updating "homebrew"
 brew update --head &>/dev/null
 brew outdated
 
-git status -sb
+updating "rbenv"
+cd ~/.rbenv
+git pull --rebase
+
+updating "ruby-build"
+cd ~/.rbenv/plugins/ruby-build
+git pull --rebase
