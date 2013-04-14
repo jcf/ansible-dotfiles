@@ -91,6 +91,9 @@ Bundle 'gmarik/vundle'
   " Explore buffers in a buffer
   Bundle 'corntrace/bufexplorer'
 
+  " Use your Rbenv rubies in Vim
+  Bundle 'tpope/vim-rbenv'
+
   " Fuzzy file finder
   Bundle 'kien/ctrlp.vim'
 
