@@ -7,9 +7,6 @@ Bundle 'gmarik/vundle'
 
   " Insert 'end' automatically
   Bundle 'tpope/vim-endwise'
-
-  " Toggle Ruby block-style
-  Bundle 'blockle.vim'
 " }}}
 
 " Web Development {{{
