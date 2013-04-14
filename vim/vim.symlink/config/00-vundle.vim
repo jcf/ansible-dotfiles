@@ -94,6 +94,9 @@ Bundle 'gmarik/vundle'
   " Use your Rbenv rubies in Vim
   Bundle 'tpope/vim-rbenv'
 
+  " Make sessions like there's no tomorrow
+  Bundle 'tpope/vim-obsession'
+
   " Fuzzy file finder
   Bundle 'kien/ctrlp.vim'
 
