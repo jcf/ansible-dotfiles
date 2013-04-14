@@ -111,7 +111,7 @@ Bundle 'gmarik/vundle'
   " Improved status line
   Bundle 'Lokaltog/powerline'
 
-  " Improved completion
+  " Improved and highly customisable completion
   Bundle 'Shougo/neocomplcache'
 
   " At match #N out of M matches
@@ -131,9 +131,6 @@ Bundle 'gmarik/vundle'
 
   " Use space to repeat yourself
   Bundle 'spiiph/vim-space'
-
-  " Customisable completion
-  Bundle 'Shougo/neocomplcache'
 
   " TextMate style snippets, powered by Python
   Bundle 'SirVer/ultisnips'
