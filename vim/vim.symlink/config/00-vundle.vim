@@ -105,9 +105,6 @@ Bundle 'gmarik/vundle'
 
   " Add a scratch buffer to keep hold of random snippets
   Bundle 'duff/vim-scratch'
-
-  " Quickly run the current buffer
-  Bundle 'thinca/vim-quickrun'
 " }}}
 
 " Vim powerups {{{
