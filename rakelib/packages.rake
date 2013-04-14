@@ -70,8 +70,23 @@ namespace :packages do
     system "gem install #{GEMS.join(' ')}"
   end
 
+  task :rbenv_plugins do
+    %w( git://github.com/sstephenson/ruby-build.git
+        git://github.com/tpope/rbenv-ctags.git
+        git://github.com/tpope/rbenv-readline.git ).each do |url|
+      system "git clone #{url} ~/.rbenv/plugins/#{File.basename(url, '.git')}"
+    end
+  end
+
   task :heroku_plugins do
-    system 'heroku plugins:install git://github.com/ddollar/heroku-accounts.git'
+    %w( git://github.com/ddollar/heroku-accounts.git
+        https://github.com/tpope/heroku-binstubs.git
+        https://github.com/tpope/heroku-wildcards.git
+        https://github.com/tpope/heroku-remote.git
+        https://github.com/tpope/heroku-surrogate.git
+        https://github.com/tpope/heroku-pgbackups-pull.git ).each do |url|
+      system "heroku plugins:install #{url}"
+    end
   end
 
   desc 'Install dev dependencies'
