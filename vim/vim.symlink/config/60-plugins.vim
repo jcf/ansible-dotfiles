@@ -69,6 +69,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " NERDTree {{{
   let NERDTreeIgnore=['\.rbc$', '\.zsh\.zwc$', '\~$']
   map <Leader>n :NERDTreeToggle<CR>
+  map <Leader>f :NERDTreeFind<CR>
 " }}}
 
 " Haskell {{{
