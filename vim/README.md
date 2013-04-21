@@ -1,5 +1,27 @@
 # Dotfiles for Vim
 
+## Structure
+
+Everything is kept in vim.symlink. This directory is linked to from
+`~/.vim` when you run `rake install`.
+
+Any vim files in vim.symlink/config will be loaded automatically when
+Vim starts up.
+
+### Config files
+
+- **00-vundle.vim** contains all instructions for Vundle.
+- **05-gui.vim** contains all configuration that will be loaded only in
+  GUI mode.
+- **05-terminal.vim** contains configuration that will be loaded for
+  both GUI and terminal Vim.
+- **10-mappings.vim** contains all custom keymapping.
+- **50-autocommands.vim** modifies Vims behaviour based on current
+  state.
+- **60-plugins.vim** configures Vim and installed plugins.
+
+## Plugins
+
 **Plugins are managed via [Vundle][vundle]**. That means dependencies
 can be installed and updated interactively.
 
