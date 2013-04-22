@@ -111,6 +111,9 @@ Bundle 'gmarik/vundle'
 " }}}
 
 " Vim powerups {{{
+  " Improved % matching
+  Bundle 'matchit.zip'
+
   " Improved status line
   Bundle 'Lokaltog/powerline'
 
