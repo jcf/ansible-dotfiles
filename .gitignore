@@ -6,13 +6,13 @@
 bin/mate
 emacs/emacs.d.symlink/elpa
 misc/config.symlink/hub
+priv
 vim/.netrwhist
 vim/view/
 vim/vim.symlink/bundle
 vim/vim.symlink/haskellmode.config
 vim/vim.symlink/spell/en.utf-8.add.spl
 zsh/modules/*/cache.zsh
-zsh/private.zsh
 
 clojure/lein.symlink/*
 !clojure/lein.symlink/profiles.clj

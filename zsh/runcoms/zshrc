@@ -8,4 +8,4 @@ path=("$DOT/bin" $path)
 
 # Source Prezto.
 [[ -s "$DOTZSH/init.zsh" ]] && source "$DOTZSH/init.zsh"
-[[ -s "$DOTZSH/private.zsh" ]] && source "$DOTZSH/private.zsh"
+[[ -s "$DOT/priv/env.zsh" ]] && source "$DOT/priv/env.zsh"
