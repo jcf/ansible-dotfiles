@@ -1,6 +1,4 @@
-export AWS_CONFIG_DIR="$DOT/priv/aws"
-
-if [[ ! -d $AWS_CONFIG_DIR ]]; then
+if [[ ! -d "$DOT/priv/aws" ]]; then
   return 1
 fi
 
