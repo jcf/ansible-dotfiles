@@ -1,6 +1,4 @@
-local dir
-local accounts
-local command
+local accounts cmd dir
 
 dir=$DOT/priv/aws
 [ -d $dir ] || mkdir -p $dir
@@ -48,9 +46,9 @@ _aws_init() {
 if [[ $# -eq 0 || $1 == 'help' || $1 == '-h' || $1 == '--help' ]]; then
   _aws_usage
 else
-  command=$1
+  cmd=$1
   shift
-  eval "_aws_$command" $@
+  eval "_aws_$cmd" $@
 fi
 
 # vim: ft=zsh
