@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+# Usage: dotfiles link [-f|--force]
+#
+# Summary: Link runcoms and `.symlink' files in to home folder
+#
+# Help: You should only need to run this once. It will skip any files that
+# already exist.
+#
+# You can pass `--force' to overwrite files.
+set -e
+
+force=''
+for arg in $@; do
+  if [[ $arg == '--force' || $arg == '-f' ]]; then
+    force=1
+  fi
+done
+
+link_dotfile() {
+  local to="$1"
+  local from=${1:t:s/\.symlink//}
+
+  if [ -z $force ]; then
+    ln -s $to .$from 2>/dev/null || true
+  else
+    ln -sf $to .$from
+  fi
+}
+
+symlinks=($DOTFILES_ROOT/**/*.symlink(N))
+runcoms=($DOTFILES_ROOT/zsh/runcoms/*(N))
+links=($symlinks $runcoms)
+
+for file in $links; do
+  link_dotfile $file
+done
