@@ -7,7 +7,11 @@ dir=$DOT/priv/aws
 accounts=($dir/*.sh(N))
 
 _aws_usage() {
-  echo "aws [list|switch]"
+  echo "Usage: aws <command>"
+  echo
+  echo "Available commands:"
+  echo "  list"
+  echo "  switch <account>"
 }
 
 _aws_name() {
