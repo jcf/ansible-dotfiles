@@ -4,64 +4,16 @@
 
 # Setup
 
-1. Install a recent version of vim with your favourite package manager.
+To get started you'll want to install Homebrew as it's required to
+install development dependencies.
 
-   ``` shell
-   brew install macvim
-   ```
+With Homebrew installed there's a dotfiles executable in `bin/dotfiles`.
 
-   Optionally install emacs as well.
-
-   ``` shell
-   brew install emacs --cocoa --use-git-head --HEAD
-   ```
-
-2. Install git, because if you don't have it you need it in your life.
-
-    ``` shell
-    brew install git
-    ```
-
-3. Clone the repo.
-
-   ``` shell
-   git clone git://github.com/jcf/dotfiles ~/.dotfiles
-
-4. Link dotfiles and install all the best packages.
-
-   ``` shell
-   cd ~/.dotfiles
-   rake install packages:install
-   ```
-
-5. Wipe out my ssh config. It's no use to you.
-
-   ``` shell
-   echo "" > ssh/config
-   ```
-
-6. Replace my name, email, and Github user in `git/gitconfig.symlink`
-   with your details.
-
-7. Remove my PGP key, and add your own.
-
-   ``` shell
-   gpg -a --export <KEY_ID> > key.asc
-   ```
-
-# Tasks
-
-**Install packages via Homebrew:**
-
-``` shell
-rake packages:install
+``` sh
+PATH="./bin:$PATH" dotfiles install
 ```
 
-**Update plugin list:**
-
-``` shell
-rake plugins:update_readme
-```
+All the logic behind `dotfiles` can be found in the libexec directory.
 
 # License
 
