@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+# Usage: dotfiles install
+#
+# Summary: Install required dependencies
+#
+# Help: Checks for required external dependencies that are a pain to install
+# automatically, and then install those dependencies that aren't.
+#
+# Install will check for Homebrew, and install the most basic of packages with
+# it. It will then clone Vundle for Vim bundles, and 
+set -e
+
+brew_install() {
+  brew install "$1" 2>/dev/null
+}
+
+brew_install_head() {
+  brew install --HEAD "$1"
+}
+
+git_clone() {
+  [[ -d $2 ]] || { git clone $1 $2 }
+}
+
+github_clone() {
+  git_clone "git://github.com/$1.git" $2
+}
+
+require() {
+  type $x >/dev/null 2>&1 || {
+    echo >&2 "dotfiles: $x not installed."; exit 1;
+  }
+}
+
+require 'brew'
+
+brew_install 'git'
+brew_install 'git-extras'
+brew_install 'hub'
+brew_install 'macvim'
+brew_install 'zsh'
+
+github_clone 'gmarik/vundle' vim/vim.symlink/bundle/vundle
+github_clone 'sstephenson/rbenv' ~/.rbenv
+github_clone 'sstephenson/ruby-build' ~/.rbenv/plugins/ruby-build
+github_clone 'tpope/rbenv-ctags' ~/.rbenv/plugins/rbenv-ctags
+github_clone 'tpope/rbenv-readline' ~/.rbenv/plugins/rbenv-readline
+
+dotfiles-link
+dotfiles-packages
+dotfiles-ruby
+dotfiles-heroku

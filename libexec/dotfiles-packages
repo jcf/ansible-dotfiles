@@ -1,0 +1,53 @@
+#!/usr/bin/env zsh
+set -e
+
+say() {
+  echo "\e[33m=>\e[0m $@"
+}
+
+brew_install() {
+  brew install "$1" 2>/dev/null || true
+}
+
+brew_install_head() {
+  brew install --HEAD "$1" 2>/dev/null || true
+}
+
+require() {
+  type $x >/dev/null 2>&1 || {
+    echo >&2 "dotfiles: $x not installed."; exit 1;
+  }
+}
+
+require 'brew'
+
+say "Installing missing packages..."
+
+brew_install 'ack'
+brew_install 'ctags'
+brew_install 'erlang'
+brew_install 'graphviz'
+brew_install 'htop-osx'
+brew_install 'jsl'
+brew_install 'libxml2'
+brew_install 'libxslt'
+brew_install 'lorem'
+brew_install 'memcached'
+brew_install 'mongodb'
+brew_install 'moreutils'
+brew_install 'node'
+brew_install 'phantomjs'
+brew_install 'postgis'
+brew_install 'postgresql'
+brew_install 'pv'
+brew_install 'redis'
+brew_install 'rlwrap'
+brew_install 'ruby-build'
+brew_install 'siege'
+brew_install 'the_silver_surfer'
+brew_install 'tree'
+brew_install 'vimpager'
+brew_install 'wget'
+brew_install 'zeromq'
+
+brew_install_head 'rebar'
