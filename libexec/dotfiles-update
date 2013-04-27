@@ -1,0 +1,44 @@
+#!/usr/bin/env zsh
+# Usage: dotfiles update
+#
+# Summary: Update installed dependencies
+set -e
+
+say() {
+  echo "\e[33m=>\e[0m $@"
+}
+
+updating() {
+  say "Updating $1..."
+}
+
+pull() {
+  cd $1
+  git pull -q --rebase
+}
+
+updating "dotfiles"
+pull $DOT
+git update-submodules &>/dev/null
+git status -s
+
+updating "homebrew"
+brew update --head &>/dev/null
+list=$(brew outdated)
+
+if [[ -n $list ]]; then
+  echo "The following packages have updates:"
+  echo $list
+fi
+
+updating "rbenv"
+pull ~/.rbenv
+
+updating "ruby-build"
+pull ~/.rbenv/plugins/ruby-build
+
+updating "rbenv ctags"
+pull ~/.rbenv/plugins/rbenv-ctags
+
+updating "rbenv readline"
+pull ~/.rbenv/plugins/rbenv-readline

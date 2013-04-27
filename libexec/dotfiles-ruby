@@ -1,0 +1,42 @@
+#!/usr/bin/env zsh
+set -e
+
+say() {
+  echo "\e[33m=>\e[0m $@"
+}
+
+gem_install() {
+  gem install $1 --no-document
+}
+
+require() {
+  type $x >/dev/null 2>&1 || {
+    echo >&2 "dotfiles: $x not installed."; exit 1;
+  }
+}
+
+require 'rbenv'
+
+say "Installing missing Ruby versions..."
+
+versions=('2.0.0-p0' 'jruby-1.7.2' 'jruby-1.7.3')
+installed=$(rbenv versions --bare)
+
+for version in $versions; do
+  if [[ -z $installed[(r)$version] ]]; then
+    rbenv install $version
+  fi
+
+  # rbenv local $version
+
+  # gem_install 'gem-browse'
+  # gem_install 'gem-ctags'
+  # gem_install 'pry'
+done
+
+# rbenv shell --unset
+
+# gem_install 'cocoapods'
+# gem_install 'consular'
+# gem_install 'consular-iterm'
+# gem_install 'motion-cocoapods'
