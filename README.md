@@ -1,9 +1,5 @@
 # dotfiles
 
-### Handcrafted with all the love in the world.
-
-# Setup
-
 To get started you'll want to install Homebrew as it's required to
 install development dependencies.
 
