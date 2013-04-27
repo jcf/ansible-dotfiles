@@ -20,7 +20,6 @@ pull() {
 updating "dotfiles"
 pull $DOT
 git update-submodules &>/dev/null
-git status -s
 
 updating "homebrew"
 brew update --head &>/dev/null
