@@ -14,7 +14,7 @@ updating() {
 
 pull() {
   cd $1
-  git pull -q --rebase
+  git pull -q --rebase >/dev/null
 }
 
 updating "dotfiles"
