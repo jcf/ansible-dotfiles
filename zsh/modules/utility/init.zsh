@@ -6,6 +6,10 @@ pmodload 'helper' 'spectrum'
 # Correct commands.
 setopt CORRECT
 
+if (( $+commands[dotfiles] )); then
+  eval "$(dotfiles init -)"
+fi
+
 #
 # Aliases
 #

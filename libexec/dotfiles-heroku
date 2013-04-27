@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+set -e
+
+say() {
+  echo "\e[33m=>\e[0m $@"
+}
+
+plugin_install() {
+  heroku plugins:install "git://github.com/$1.git"
+}
+
+require() {
+  type $x >/dev/null 2>&1 || {
+    echo >&2 "dotfiles: $x not installed."; exit 1;
+  }
+}
+
+require 'heroku'
+
+say "Installing heroku plugins..."
+
+plugin_install 'ddollar/heroku-accounts'
+plugin_install 'tpope/heroku-binstubs'
+plugin_install 'tpope/heroku-wildcards'
+plugin_install 'tpope/heroku-remote'
+plugin_install 'tpope/heroku-surrogate'
+plugin_install 'tpope/heroku-pgbackups-pull'
