@@ -16,9 +16,10 @@
 .ruby-version
 .rvmrc
 .svn
+Session.vim
 \#*#
 doc/tags-ja
-Session.vim
 tags
 tmp*
 tmp/**/*
+vendor/bundle
