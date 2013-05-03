@@ -27,9 +27,11 @@ link_dotfile() {
   fi
 }
 
-symlinks=($DOTFILES_ROOT/**/*.symlink(N))
-runcoms=($DOTFILES_ROOT/zsh/runcoms/*(N))
+symlinks=($HOME/.dotfiles/**/*.symlink(N))
+runcoms=($HOME/.dotfiles/zsh/runcoms/*(N))
 links=($symlinks $runcoms)
+
+cd
 
 for file in $links; do
   link_dotfile $file
