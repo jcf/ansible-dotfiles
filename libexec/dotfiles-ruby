@@ -21,22 +21,13 @@ say "Installing missing Ruby versions..."
 
 versions=('2.0.0-p0' 'jruby-1.7.2' 'jruby-1.7.3')
 installed=$(rbenv versions --bare)
+gems=(gem-browse gem-ctags pry)
 
 for version in $versions; do
   if [[ -z $installed[(r)$version] ]]; then
     rbenv install $version
   fi
 
-  # rbenv local $version
-
-  # gem_install 'gem-browse'
-  # gem_install 'gem-ctags'
-  # gem_install 'pry'
+  say "Installing global gems for $version..."
+  RBENV_VERSION=$version rbenv exec gem i $gems >/dev/null
 done
-
-# rbenv shell --unset
-
-# gem_install 'cocoapods'
-# gem_install 'consular'
-# gem_install 'consular-iterm'
-# gem_install 'motion-cocoapods'
