@@ -38,6 +38,7 @@ Bundle 'gmarik/vundle'
   Bundle 'skwp/vim-ruby-conque'
 
   " Additional filetypes {{{
+    Bundle 'jcf/go.vim'
     Bundle 'wavded/vim-stylus'
     Bundle 'slim-template/vim-slim'
     Bundle 'tpope/vim-haml'
