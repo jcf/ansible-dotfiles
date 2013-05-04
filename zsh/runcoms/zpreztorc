@@ -110,14 +110,13 @@ zstyle ':prezto:module:prompt' theme 'jcf'
 # Syntax Highlighting
 #
 
-# Set syntax highlighters.
-# By default main, brackets, and cursor are enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'cursor' \
-#   'root'
+#
+# Set syntax highlighting styles.
+# zstyle ':prezto:module:syntax-highlighting' styles \
+#   'builtin' 'bg=blue' \
+#   'command' 'bg=blue' \
+#   'function' 'bg=blue'
+#
 
 #
 # Terminal
