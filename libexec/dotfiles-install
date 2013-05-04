@@ -12,5 +12,6 @@ set -e
 
 dotfiles-packages
 dotfiles-ruby
+dotfiles-go
 dotfiles-python
 dotfiles-heroku
