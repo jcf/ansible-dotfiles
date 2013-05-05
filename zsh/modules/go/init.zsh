@@ -5,8 +5,7 @@ fi
 path=(/usr/local/go/bin $path)
 
 # gc
-prefixes=(5 6 8)
-for p in $prefixes; do
+for p in 5 6 8; do
   compctl -g "*.${p}" ${p}l
   compctl -g "*.go" ${p}g
 done
