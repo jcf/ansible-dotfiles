@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'nokogiri'
+
+def extract(path, selector)
+  if node = Nokogiri::XML(open(path)).css(selector).first
+    node.text
+  else
+    abort "extract-xml: Failed to extract #{selector.inspect} from #{path.inspect}"
+  end
+end
+
+path     = ARGV[0]
+selector = ARGV[1]
+
+if path && selector
+  puts extract(path, selector)
+else
+  abort "extract-xml: #{File.basename(__FILE__)} <path> <css-selector>"
+end
