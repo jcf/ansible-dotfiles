@@ -2,11 +2,13 @@
 
 require 'nokogiri'
 
+PROG = File.basename(__FILE__)
+
 def extract(path, selector)
   if node = Nokogiri::XML(open(path)).css(selector).first
     node.text
   else
-    abort "extract-xml: Failed to extract #{selector.inspect} from #{path.inspect}"
+    abort "#{PROG}: Failed to extract #{selector.inspect} from #{path.inspect}"
   end
 end
 
@@ -16,5 +18,5 @@ selector = ARGV[1]
 if path && selector
   puts extract(path, selector)
 else
-  abort "extract-xml: #{File.basename(__FILE__)} <path> <css-selector>"
+  abort "Usage: #{PROG} <path> <css-selector>"
 end
