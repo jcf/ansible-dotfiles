@@ -17,18 +17,17 @@ pull() {
   git pull -q --rebase >/dev/null
 }
 
+print_packages() {
+  [[ $# -ne 0 ]] && echo "\e[36m=>\e[0m Updates available for" ${(j:, :)@}
+}
+
 updating "dotfiles"
 pull $DOT
 git update-submodules &>/dev/null
 
 updating "homebrew"
 brew update --head &>/dev/null
-list=$(brew outdated)
-
-if [[ -n $list ]]; then
-  echo "The following packages have updates:"
-  echo $list
-fi
+print_packages $(brew outdated)
 
 updating "rbenv"
 pull ~/.rbenv
