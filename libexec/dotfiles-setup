@@ -10,6 +10,10 @@
 # it. It will then clone Vundle for Vim bundles, and 
 set -e
 
+say() {
+  echo "\e[33m=>\e[0m $@"
+}
+
 brew_install() {
   brew install "$1" 2>/dev/null
 }
@@ -32,20 +36,39 @@ require() {
   }
 }
 
+install_packages() {
+  installed=($(brew list))
+  packages=(git git-extras hub macvim trash zsh)
+
+  for package in $packages; do
+    if [[ $installed[(r)$package] != $package ]]; then
+      say "Installing $package"
+      brew_install $package
+    fi
+  done
+}
+
+setup_rbenv() {
+  github_clone 'sstephenson/rbenv' ~/.rbenv
+  github_clone 'sstephenson/ruby-build' ~/.rbenv/plugins/ruby-build
+  github_clone 'tpope/rbenv-ctags' ~/.rbenv/plugins/rbenv-ctags
+  github_clone 'tpope/rbenv-readline' ~/.rbenv/plugins/rbenv-readline
+  github_clone 'tpope/rbenv-communal-gems' ~/.rbenv/plugins/rbenv-communal-gems
+}
+
 require 'brew'
 
-brew_install 'git'
-brew_install 'git-extras'
-brew_install 'hub'
-brew_install 'macvim'
-brew_install 'trash'
-brew_install 'zsh'
+say "Installing packages..."
+install_packages
 
+say "Installing vundle..."
 github_clone 'gmarik/vundle' $DOTFILES_ROOT/vim/vim.symlink/bundle/vundle
-github_clone 'sstephenson/rbenv' ~/.rbenv
-github_clone 'sstephenson/ruby-build' ~/.rbenv/plugins/ruby-build
-github_clone 'tpope/rbenv-ctags' ~/.rbenv/plugins/rbenv-ctags
-github_clone 'tpope/rbenv-readline' ~/.rbenv/plugins/rbenv-readline
+
+say "Setting up rbenv..."
+setup_rbenv
+
+say "Setting up pyenv..."
 github_clone 'yyuu/pyenv' ~/.pyenv
 
+say "Linking dotfiles in to $HOME..."
 dotfiles-link
