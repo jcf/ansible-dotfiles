@@ -6,7 +6,7 @@ install development dependencies.
 With Homebrew installed there's a dotfiles executable in `bin/dotfiles`.
 
 ``` sh
-PATH="./bin:$PATH" dotfiles install
+PATH="./bin:$PATH" dotfiles setup
 ```
 
 All the logic behind `dotfiles` can be found in the libexec directory.
