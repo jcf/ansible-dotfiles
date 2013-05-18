@@ -1,7 +1,0 @@
-before { run 'c ev-web' }
-
-tab 'beg'
-tab 'foreman start'
-tab 'e'
-
-# vim: ft=ruby
