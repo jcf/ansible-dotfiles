@@ -6,14 +6,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Trap signals were generated with 'kill -l'.
-# DEBUG, EXIT, and ZERR are Zsh signals.
-_trap_signals=(
-  ABRT ALRM BUS CHLD CONT EMT FPE HUP ILL INFO INT IO KILL PIPE PROF QUIT
-  SEGV STOP SYS TERM TRAP TSTP TTIN TTOU URG USR1 USR2 VTALRM WINCH XCPU XFSZ
-  DEBUG EXIT ZERR
-)
-
 # Adds a function name to a list to be called when a trap is triggered.
 function add-zsh-trap {
   if (( $# < 2 )); then
@@ -32,7 +24,7 @@ function add-zsh-trap {
   fi
   eval "$trap_functions+="$2""
 
-  if (( ! $+functions[TRAP${1}] )); then
+  if [[ -z "$signals[(r)$1]" ]]; then
     eval "
       function TRAP${1} {
         for trap_function in \"\$TRAP${1}_FUNCTIONS[@]\"; do
