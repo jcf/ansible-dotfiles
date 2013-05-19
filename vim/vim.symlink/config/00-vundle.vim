@@ -115,6 +115,9 @@ Bundle 'gmarik/vundle'
   " Improved % matching
   Bundle 'matchit.zip'
 
+  " Jump to a code directory
+  Bundle 'jcf/vim-jump-to-code'
+
   " Improved status line
   Bundle 'Lokaltog/powerline'
 
