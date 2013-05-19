@@ -1,7 +1,7 @@
 [user]
   name = James Conroy-Finn
   email = james@logi.cl
-  signingkey = A0357CAF
+  signingkey = 8ED1CE42
 [apply]
   whitespace = nowarn
 [alias]
