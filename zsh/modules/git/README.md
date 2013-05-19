@@ -1,9 +1,8 @@
 Git
 ===
 
-Enhances the [Git][1] distributed version control system by providing
-aliases, functions and by exposing repository status information to
-prompts.
+Enhances the [Git][1] distributed version control system by providing aliases,
+functions and by exposing repository status information to prompts.
 
 Git **1.7.2** is the [minimum required version][7].
 
@@ -55,9 +54,10 @@ Aliases
   - `gca` stages all modified and deleted files.
   - `gcm` records changes to the repository with the given message.
   - `gco` checks out a branch or paths to work tree.
-  - `gcO` checks out paths to work tree using the *HEAD* commit.
+  - `gcO` checks out hunks from the index or the tree interactively.
   - `gcf` amends the tip of the current branch using the same log message as
     *HEAD*.
+  - `gcF` amends the tip of the current branch.
   - `gcp` applies changes introduced by existing commits.
   - `gcP` applies changes introduced by existing commits without committing.
   - `gcr` reverts existing commits by reverting patches and recording new
@@ -65,6 +65,16 @@ Aliases
   - `gcR` removes the *HEAD* commit.
   - `gcs` displays various types of objects.
   - `gcl` displays lost commits.
+
+### Conflict
+
+  - `gCl` lists unmerged files.
+  - `gCa` adds unmerged file contents to the index.
+  - `gCe` executes merge-tool on all unmerged file.
+  - `gCo` checks out our changes for unmerged paths.
+  - `gCO` checks out our changes for all unmerged paths.
+  - `gCt` checks out their changes for unmerged paths.
+  - `gCT` checks out their changes for all unmerged paths.
 
 ### Data
 
@@ -99,20 +109,10 @@ Aliases
   - `giu` adds file contents to the index (updates only known files).
   - `gid` displays changes between the index and a named commit (diff).
   - `giD` displays changes between the index and a named commit (word diff).
-  - `gir` resets current HEAD to the specified state.
-  - `giR` resets current index to the specified state.
+  - `gir` resets the current HEAD to the specified state.
+  - `giR` resets the current index interactively.
   - `gix` removes files/directories from the index (recursively).
   - `giX` removes files/directories from the index (recursively and forced).
-
-### Conflict
-
-  - `gCl` lists unmerged files.
-  - `gCa` adds unmerged file contents to the index.
-  - `gCe` executes merge-tool on all unmerged file.
-  - `gCo` checks out our changes for unmerged paths.
-  - `gCO` checks out our changes for all unmerged paths.
-  - `gCt` checks out their changes for unmerged paths.
-  - `gCT` checks out their changes for all unmerged paths.
 
 ### Log
 
@@ -253,19 +253,38 @@ setting a style is as follows.
 | Name      | Format Code | Description
 | --------- | :---------: | ---------------------------------------------------
 | action    |     %s      | Special action name
-| added     |     %a      | Added files count
 | ahead     |     %A      | Commits ahead of remote count
 | behind    |     %B      | Commits behind of remote count
 | branch    |     %b      | Branch name
 | commit    |     %c      | Commit hash
+| position  |     %p      | Commits from the nearest tag count
+| remote    |     %R      | Remote name
+| stashed   |     %S      | Stashed states count
+
+### Concise Contexts
+
+| Name      | Format Code | Description
+| --------- | :---------: | ---------------------------------------------------
+| clean     |     %C      | Clean state
+| dirty     |     %D      | Dirty files count
+| indexed   |     %i      | Indexed files count
+| unindexed |     %I      | Unindexed files count
+| untracked |     %u      | Untracked files count
+
+The following contexts must be enabled with the following zstyle:
+
+    zstyle ':prezto:module:git:info' verbose 'yes'
+
+### Verbose Contexts
+
+| Name      | Format Code | Description
+| --------- | :---------: | ---------------------------------------------------
+| added     |     %a      | Added files count
 | clean     |     %C      | Clean state
 | deleted   |     %d      | Deleted files count
 | dirty     |     %D      | Dirty files count
 | modified  |     %m      | Modified files count
-| position  |     %p      | Commits from the nearest tag count
-| remote    |     %R      | Remote name
 | renamed   |     %r      | Renamed files count
-| stashed   |     %S      | Stashed states count
 | unmerged  |     %U      | Unmerged files count
 | untracked |     %u      | Untracked files count
 
