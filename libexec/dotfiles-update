@@ -32,11 +32,7 @@ print_packages $(brew outdated)
 updating "rbenv"
 pull ~/.rbenv
 
-updating "ruby-build"
-pull ~/.rbenv/plugins/ruby-build
-
-updating "rbenv ctags"
-pull ~/.rbenv/plugins/rbenv-ctags
-
-updating "rbenv readline"
-pull ~/.rbenv/plugins/rbenv-readline
+for plugin in ~/.rbenv/plugins/*(/N); do
+  updating $(basename $plugin)
+  pull $plugin
+done
