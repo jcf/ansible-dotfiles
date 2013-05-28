@@ -75,7 +75,6 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " VimFiler {{{
   let g:vimfiler_as_default_explorer = 1
   map <Leader>n :VimFilerExplorer<CR>
-  map <Leader>f :NERDTreeFind<CR>
 " }}}
 
 " Haskell {{{
