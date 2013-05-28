@@ -109,6 +109,25 @@ Bundle 'gmarik/vundle'
 
   " Add a scratch buffer to keep hold of random snippets
   Bundle 'duff/vim-scratch'
+
+  " Async external commands
+  " Make sure to run `make -f make_mac.mak`
+  Bundle 'Shougo/vimproc.vim'
+
+  " Search and display information from arbitrary sources like files, buffers,
+  " recently used files or registers
+  Bundle 'Shougo/unite.vim'
+
+  " Fancy file browser
+  Bundle 'Shougo/vimfiler.vim'
+" }}}
+
+" Unite plugins {{{
+  Bundle 'tacroe/unite-mark'
+  Bundle 'sgur/unite-git_grep'
+  Bundle 'ujihisa/unite-locate'
+  Bundle 'tsukkee/unite-tag'
+  Bundle 'tsukkee/unite-help'
 " }}}
 
 " Vim powerups {{{
