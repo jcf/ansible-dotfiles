@@ -135,7 +135,7 @@ Bundle 'gmarik/vundle'
   Bundle 'Lokaltog/powerline'
 
   " Improved and highly customisable completion
-  Bundle 'Shougo/neocomplcache'
+  Bundle 'Shougo/neocomplcache.vim'
 
   " At match #N out of M matches
   Bundle 'IndexedSearch'
