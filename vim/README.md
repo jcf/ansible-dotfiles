@@ -54,9 +54,8 @@ Generated automatically with `rake plugins:update_readme`.
  * [colorv.vim](https://github.com/Rykka/colorv.vim) - A powerful color tool.
  * [vim-ragtag](https://github.com/tpope/vim-ragtag) - ragtag.vim: ghetto HTML/XML mappings (formerly allml.vim)
  * [hammer.vim](https://github.com/matthias-guenther/hammer.vim) - vim,  your markup language of choice, and your browser of choice.
- * [tube.vim](https://github.com/gcmt/tube.vim) - MacVim and iTerm or Terminal interaction without leaving MacVim
- * [vim-conque](https://github.com/rson/vim-conque) - An OUT OF DATE mirror of the official svn repo (lost my machine that was syncing this repo)
- * [vim-ruby-conque](https://github.com/skwp/vim-ruby-conque) - Vim plugin to display ruby, rake, and rspec output colorized in ConqueTerm
+ * [tube.vim](https://github.com/gcmt/tube.vim) - MacVim and iTerm/Terminal interaction without leaving MacVim
+ * [go.vim](https://github.com/jcf/go.vim) - Go support on Vim (based on ${GOROOT}/misc/vim), with omnicompletion provided by gocode.
  * [vim-stylus](https://github.com/wavded/vim-stylus) - Syntax Highlighting for Stylus
  * [vim-slim](https://github.com/slim-template/vim-slim) - A clone of the slim vim plugin from stonean. For use with Pathogen.
  * [vim-haml](https://github.com/tpope/vim-haml) - Vim runtime files for Haml, Sass, and SCSS
@@ -91,12 +90,22 @@ Generated automatically with `rake plugins:update_readme`.
  * [bufexplorer](https://github.com/corntrace/bufexplorer) - Clone of Jeff Lanzarotta's bufexplorer from vim.org
  * [vim-rbenv](https://github.com/tpope/vim-rbenv) - rbenv.vim: Minimal rbenv support
  * [vim-obsession](https://github.com/tpope/vim-obsession) - obsession.vim: continuously updated session files
- * [ctrlp.vim](https://github.com/kien/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder.
  * [nerdtree](https://github.com/scrooloose/nerdtree) - A tree explorer plugin for vim.
  * [splice.vim](https://github.com/sjl/splice.vim) - A Vim plugin for managing three-way merges.
  * [vim-scratch](https://github.com/duff/vim-scratch) - Yegappan Lakshmanan's scratch.vim plugin
+ * [vimproc.vim](https://github.com/Shougo/vimproc.vim) - Interactive command execution in Vim.
+ * [unite.vim](https://github.com/Shougo/unite.vim) - Unite and create user interfaces
+ * [vimfiler.vim](https://github.com/Shougo/vimfiler.vim) - Powerful file explorer implemented by Vim script
+ * [vimwiki](https://github.com/vim-scripts/vimwiki) - Personal Wiki for Vim
+ * [unite-mark](https://github.com/tacroe/unite-mark)
+ * [unite-git_grep](https://github.com/sgur/unite-git_grep) - git-grep source for unite.vim inspired by http://subtech.g.hatena.ne.jp/secondlife/20080606/1212729424
+ * [unite-locate](https://github.com/ujihisa/unite-locate)
+ * [unite-tag](https://github.com/tsukkee/unite-tag) - tags soruce for unite.vim
+ * [unite-help](https://github.com/tsukkee/unite-help) - help source for unite.vim
+ * [matchit.zip](https://github.com/vim-scripts/matchit.zip) - extended % matching for HTML, LaTeX, and many other languages
+ * [vim-jump-to-code](https://github.com/jcf/vim-jump-to-code)
  * [powerline](https://github.com/Lokaltog/powerline) - The ultimate statusline/prompt utility.
- * [neocomplcache](https://github.com/Shougo/neocomplcache) - Ultimate auto-completion system for Vim.
+ * [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim) - Ultimate auto-completion system for Vim.
  * [IndexedSearch](https://github.com/vim-scripts/IndexedSearch) - shows  'Nth match out of M'  at every search (index of match+total # matches)
  * [vim-dispatch](https://github.com/tpope/vim-dispatch) - dispatch.vim: asynchronous build and test dispatcher
  * [LargeFile](https://github.com/vim-scripts/LargeFile) - Edit large files quickly (keywords: large huge speed)
@@ -123,5 +132,7 @@ Generated automatically with `rake plugins:update_readme`.
  * [sudo.vim](https://github.com/vim-scripts/sudo.vim) - Allows one to edit a file with prevledges from an unprivledged session.
  * [vim-gnupg](https://github.com/jamessan/vim-gnupg) - This script implements transparent editing of gpg encrypted files. The filename must have a ".gpg", ".pgp" or ".asc" suffix. When opening such a file the content is decrypted, when opening a new file the script will ask for the recipients of the encrypted file. The file content will be encrypted to all recipients before it is written. The script turns off viminfo, swapfile, and undofile to increase security. 
  * [switch.vim](https://github.com/AndrewRadev/switch.vim) - A simple Vim plugin to switch segments of text with predefined replacements
+ * [ref.vim](https://github.com/vim-scripts/ref.vim) - Integrated reference viewer.
+ * [vim-ref-ri](https://github.com/taka84u9/vim-ref-ri) - A vim-ref and Unite.vim source for ri.
 
-That's 81 plugins.
+That's 92 plugins.
