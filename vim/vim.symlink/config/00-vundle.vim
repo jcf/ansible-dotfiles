@@ -120,6 +120,9 @@ Bundle 'gmarik/vundle'
 
   " Fancy file browser
   Bundle 'Shougo/vimfiler.vim'
+
+  " A personal wiki in Vim
+  Bundle 'vimwiki'
 " }}}
 
 " Unite plugins {{{
