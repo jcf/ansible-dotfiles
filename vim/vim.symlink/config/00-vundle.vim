@@ -31,12 +31,6 @@ Bundle 'gmarik/vundle'
   " Run commands in your Terminal
   Bundle 'gcmt/tube.vim'
 
-  " Run an interactive shell inside Vim
-  Bundle 'rson/vim-conque'
-
-  " Colorized Ruby, Rake, RSpec, and Cucumber Vim via ConqueTerm
-  Bundle 'skwp/vim-ruby-conque'
-
   " Additional filetypes {{{
     Bundle 'jcf/go.vim'
     Bundle 'wavded/vim-stylus'
