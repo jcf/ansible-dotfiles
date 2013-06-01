@@ -151,3 +151,10 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " Highlight indentation level {{{
   let g:indentLine_color_gui = '#073642'
 " }}}
+
+" VimWiki {{{
+  let g:vimwiki_list = [{
+    'path': '~/Dropbox/Wiki',
+    'syntax': 'markdown',
+    'ext': '.md'}]
+" }}}
