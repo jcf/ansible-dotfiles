@@ -51,6 +51,8 @@
   editor = mvim -f --nomru
   autocrlf = input
   safecrlf = warn
+[diff]
+  algorithm = patience
 [gui]
   fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [mirror]
