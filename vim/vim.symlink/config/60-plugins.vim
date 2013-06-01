@@ -68,13 +68,8 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " NERDTree {{{
   let NERDTreeIgnore=['\.rbc$', '\.zsh\.zwc$', '\~$']
-  map <Leader>n :NERDTreeToggle<CR>
-  map <Leader>f :NERDTreeFind<CR>
-" }}}
-
-" VimFiler {{{
-  let g:vimfiler_as_default_explorer = 1
-  " map <Leader>n :VimFilerExplorer<CR>
+  " map <Leader>n :NERDTreeToggle<CR>
+  " map <Leader>f :NERDTreeFind<CR>
 " }}}
 
 " Haskell {{{
@@ -153,8 +148,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " }}}
 
 " VimWiki {{{
-  let g:vimwiki_list = [{
-    'path': '~/Dropbox/Wiki',
-    'syntax': 'markdown',
-    'ext': '.md'}]
+  let g:vimwiki_list = [{'path': '~/Dropbox/Wiki',
+        \ 'syntax': 'markdown',
+        \ 'ext': '.md'}]
 " }}}

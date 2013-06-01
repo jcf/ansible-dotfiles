@@ -98,9 +98,6 @@ Bundle 'gmarik/vundle'
   " Make sessions like there's no tomorrow
   Bundle 'tpope/vim-obsession'
 
-  " Fuzzy file finder
-  Bundle 'kien/ctrlp.vim'
-
   " File browser
   Bundle 'scrooloose/nerdtree'
 
@@ -223,4 +220,8 @@ Bundle 'gmarik/vundle'
 
   " Switch things like if to unless, and && to ||
   Bundle 'AndrewRadev/switch.vim'
+
+  " Vim Ref
+  Bundle 'ref.vim'
+  Bundle 'taka84u9/vim-ref-ri'
 " }}}

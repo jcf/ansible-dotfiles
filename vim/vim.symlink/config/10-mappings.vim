@@ -1,9 +1,5 @@
 let mapleader = ','
 
-" Open Vundle config quickly {{{
-  nnoremap <Leader>vu :e ~/.dotfiles/vim/vim.symlink/config/00-vundle.vim<CR>
-" }}}
-
 " Buffer mappings {{{
   nnoremap <silent> <Leader>d :bd<CR>
   nnoremap <silent> <Leader>c :clo<CR>
