@@ -28,23 +28,133 @@
         </ul>
       </header>
       <section>
-        <h1>dotfiles</h1>
+        <h1>
+<a name="dotfiles" class="anchor" href="#dotfiles"><span class="octicon octicon-link"></span></a>dotfiles</h1>
 
-<p>To get started you'll want to install Homebrew as it's required to
+<p>This repository will help you get setup with ZSH and decent development
+environment for a number of programming languages.</p>
+
+<p>There's a <code>dotfiles</code> executable that helps you install the packages that
+you need to build great products, and keep your environment up-to-date.</p>
+
+<h1>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h1>
+
+<p>To get started you'll want to <a href="https://github.com/mxcl/homebrew/wiki/Installation">install Homebrew</a> as it's required to
 install development dependencies.</p>
 
-<p>With Homebrew installed there's a dotfiles executable in <code>bin/dotfiles</code>.</p>
+<p>Last time I checked installing Homebrew was as easy as running:</p>
 
-<div class="highlight"><pre><span class="nv">PATH</span><span class="o">=</span><span class="s2">"./bin:$PATH"</span> dotfiles setup
+<div class="highlight"><pre>ruby -e <span class="s2">"$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"</span>
 </pre></div>
 
-<p>All the logic behind <code>dotfiles</code> can be found in the libexec directory.</p>
+<h2>
+<a name="to-the-bat-shell" class="anchor" href="#to-the-bat-shell"><span class="octicon octicon-link"></span></a>To the bat shell</h2>
 
-<h1>License</h1>
+<p>With Homebrew installed you need to:</p>
+
+<ol>
+<li>Install <code>git</code>.</li>
+<li>Clone the dotfiles repo (optionally from your own fork).</li>
+<li>Run <code>dotfiles setup</code>.</li>
+<li>Purge dotfiles or <code>jcf</code>.</li>
+</ol><div class="highlight"><pre><span class="c"># Install Homebrew</span>
+ruby -e <span class="s2">"$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"</span>
+
+<span class="c"># Install git</span>
+/usr/local/bin/brew install git
+
+<span class="c"># Clone your dotfiles file repo</span>
+/usr/local/bin/git clone git@github.com:&lt;username&gt;/dotfiles.git ~/.dotfiles
+
+<span class="c"># Or if you're using my repo…</span>
+/usr/local/bin/git clone git@github.com:jcf/dotfiles.git ~/.dotfiles
+
+<span class="c"># Activate the dotfiles executable</span>
+<span class="nb">cd</span> ~/.dotfiles
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"./bin:$PATH"</span>
+
+<span class="c"># Run dotfiles setup</span>
+dotfiles setup
+
+<span class="c"># Link the actual dotfiles in to your $HOME</span>
+dotfiles link
+</pre></div>
+
+<h1>
+<a name="things-i-always-do" class="anchor" href="#things-i-always-do"><span class="octicon octicon-link"></span></a>Things I always do</h1>
+
+<h3>
+<a name="restart-terminal" class="anchor" href="#restart-terminal"><span class="octicon octicon-link"></span></a>Restart Terminal</h3>
+
+<p>If you restart your Terminal of choice at this point you should find the
+following ready to go:</p>
+
+<ul>
+<li>Prezto-influenced ZSH configuration.</li>
+<li>Required base packages like <code>hub</code>, <code>macvim</code> and the latest greatest
+<code>zsh</code>.</li>
+<li>Rbenv with some useful plugins.</li>
+<li>Pyenv.</li>
+</ul><h3>
+<a name="download-vim-plugins" class="anchor" href="#download-vim-plugins"><span class="octicon octicon-link"></span></a>Download Vim plugins</h3>
+
+<p>Assuming you're going to use Vim you'll want to fire up your editor and
+get Vundle to work.</p>
+
+<pre><code>vim -c 'BundleInstall'
+</code></pre>
+
+<h3>
+<a name="install-all-the-things" class="anchor" href="#install-all-the-things"><span class="octicon octicon-link"></span></a>Install all the things</h3>
+
+<p><code>dotfiles install</code> is your friend. This will take a while depending on
+your machine so expect to make a cup of tea before everything is
+installed.</p>
+
+<h1>
+<a name="here-be-dragons" class="anchor" href="#here-be-dragons"><span class="octicon octicon-link"></span></a>Here be dragons</h1>
+
+<h3>
+<a name="sudo-make-me-a-sandwich" class="anchor" href="#sudo-make-me-a-sandwich"><span class="octicon octicon-link"></span></a>Sudo make me a sandwich</h3>
+
+<p>Use <code>visudo</code> to allow all admins to use sudo without entering their
+password.</p>
+
+<div class="highlight"><pre><span class="c"># Change this line:</span>
+%admin  <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> ALL
+
+<span class="c"># To this:</span>
+%admin  <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD: ALL
+</pre></div>
+
+<h3>
+<a name="stop-path_helper-from-messing-with-our-path" class="anchor" href="#stop-path_helper-from-messing-with-our-path"><span class="octicon octicon-link"></span></a>Stop path_helper from messing with our path</h3>
+
+<div class="highlight"><pre>sudo chmod -x /usr/libexec/path_helper
+</pre></div>
+
+<h3>
+<a name="switch-to-using-homebrew-installed-zsh" class="anchor" href="#switch-to-using-homebrew-installed-zsh"><span class="octicon octicon-link"></span></a>Switch to using Homebrew-installed ZSH</h3>
+
+<p>Edit <code>/etc/shells</code> as root and add <code>/usr/local/bin/zsh</code> to the end of
+the file.</p>
+
+<div class="highlight"><pre><span class="c"># WARNING! I would highly recommend editing /etc/shells by hand!</span>
+grep <span class="s1">'/usr/local/bin/zsh'</span> /etc/shells &gt; /dev/null <span class="o">||</span> <span class="se">\</span>
+  sudo <span class="nb">echo</span> <span class="s1">'/usr/local/bin/zsh'</span> &gt;&gt; /etc/shells
+
+<span class="c"># Change shell…</span>
+chsh -s /usr/local/bin/zsh
+</pre></div>
+
+<h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
 
 <p>Unless otherwise stated, everything is covered by the MIT license.</p>
 
-<h1>Screenshots</h1>
+<h1>
+<a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h1>
 
 <p><a href="http://cl.ly/image/1X2g2T1q1H2C">
   <img alt="iTerm 2" src="http://f.cl.ly/items/0v2X3F122p1i3g3K3g31/iterm2-thumb.png"></a></p>
