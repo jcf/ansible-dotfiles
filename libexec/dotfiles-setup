@@ -58,6 +58,9 @@ setup_rbenv() {
 
 require 'brew'
 
+say "Initialising submodules..."
+git submodule update --init
+
 say "Installing packages..."
 install_packages
 
