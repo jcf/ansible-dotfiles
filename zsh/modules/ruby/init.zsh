@@ -54,8 +54,8 @@ export GUARD_NOTIFY='false'
 export RBXOPT='-X19 -Xrbc.db=/tmp/rbx'
 
 # Use custom Java 7 install (http://goo.gl/MkCSa)
-if [[ -d "/Library/Java/JavaVirtualMachines/jdk1.7.0_07.jdk/Contents/Home" ]]; then
-  export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_07.jdk/Contents/Home"
+if [[ -d "/Library/Java/JavaVirtualMachines/jdk1.7.0_10.jdk/Contents/Home" ]]; then
+  export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_10.jdk/Contents/Home"
   path=($JAVA_HOME/bin $path)
 fi
 
@@ -98,13 +98,13 @@ alias rlog='tail -f log/test.log | grep -v TRUNCATE | grep -v "ALTER TABLE"'
 # Use Nailgun to run some Ruby
 alias rbng='ruby --ng -S'
 
-if (( $+commands[drip] )); then
-  export JAVACMD=$commands[drip]
-  export DRIP_INIT_CLASS=org.jruby.main.DripMain
+# if (( $+commands[drip] )); then
+#   export JAVACMD=$commands[drip]
+#   export DRIP_INIT_CLASS=org.jruby.main.DripMain
 
-  # Settings from: https://github.com/jruby/jruby/wiki/Improving-startup-time
-  export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify"
-fi
+#   # Settings from: https://github.com/jruby/jruby/wiki/Improving-startup-time
+#   export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify"
+# fi
 
 if (( $+commands[foreman] )); then
   alias fs='foreman start'
