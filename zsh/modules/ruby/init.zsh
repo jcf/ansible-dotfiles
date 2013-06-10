@@ -106,6 +106,11 @@ alias rbng='ruby --ng -S'
 # Settings from: https://github.com/jruby/jruby/wiki/Improving-startup-time
 export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify"
 
+# Guess JRUBY_HOME for things like vert.x
+if [[ -d "$HOME/.rbenv/versions/jruby-1.7.4" ]]; then
+  export JRUBY_HOME="$HOME/.rbenv/versions/jruby-1.7.4"
+fi
+
 if (( $+commands[foreman] )); then
   alias fs='foreman start'
 fi
