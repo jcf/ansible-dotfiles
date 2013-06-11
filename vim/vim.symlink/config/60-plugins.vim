@@ -150,5 +150,5 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " VimWiki {{{
   let g:vimwiki_list = [{'path': '~/Dropbox/Wiki',
         \ 'syntax': 'markdown',
-        \ 'ext': '.md'}]
+        \ 'ext': '.wiki'}]
 " }}}
