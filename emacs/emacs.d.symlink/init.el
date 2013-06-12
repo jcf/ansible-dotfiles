@@ -11,7 +11,7 @@
                       starter-kit-js
                       starter-kit-lisp
                       starter-kit-bindings
-                      solarized-theme
+                      color-theme-solarized
                       erlang
                       haskell-mode
                       evil
