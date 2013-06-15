@@ -40,7 +40,7 @@ endif
 
 nno <leader>s :<C-u>Unite grep:. -default-action=above<CR>
 nno <leader>S :<C-u>execute 'Unite grep:.::' . expand("<cword>") . ' -default-action=above -auto-preview'<CR>
-nno <leader>b :<C-u>Unite buffer -buffer-name=buffers -start-insert<CR>
+nno <leader>b :<C-u>Unite buffer -buffer-name=buffers -start-insert -quick-match<CR>
 " nno <leader><leader> :<C-u>UniteWithCurrentDir buffer file -buffer-name=united -start-insert<CR>
 nno <leader>ps :<C-u>:Unite process -buffer-name=processes -start-insert<CR>
 nno <leader>u :<C-u>UniteResume<CR>
