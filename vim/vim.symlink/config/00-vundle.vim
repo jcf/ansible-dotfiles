@@ -178,9 +178,6 @@ Bundle 'gmarik/vundle'
   " Comment with ease
   Bundle 'tpope/vim-commentary'
 
-  " Add support for Ack
-  Bundle 'mileszs/ack.vim'
-
   " Add support for Ag (the_silver_surfer)
   Bundle 'epmatsw/ag.vim'
 
