@@ -9,7 +9,7 @@
 # Changes:
 #
 # - Rescue exceptions when connecting to Github.
-# - Use Vundle config file rather than vimrc to find vundled plugins.
+# - Use NeoBundle config file rather than vimrc to find NeoBundled plugins.
 namespace :plugins do
   require 'open-uri'
   require 'openssl'
@@ -18,7 +18,7 @@ namespace :plugins do
   # TODO Refactor plugin list generation
 
   README_FILE = 'vim/README.md'
-  VUNDLE_CONFIG = 'vim/vim.symlink/config/00-vundle.vim'
+  BUNDLE_CONFIG = 'vim/vim.symlink/config/00-bundles.vim'
 
   PLUGIN_LIST_TAG = '# Plugin List'
   PLUGIN_LIST_NOTE = 'Generated automatically with `rake plugins:update_readme`.'
@@ -69,14 +69,14 @@ namespace :plugins do
 
   # Returns an array of plugins denoted with Bundle
   def parse_plugins_from_vimrc
-    File.new(VUNDLE_CONFIG).map do |line|
+    File.new(BUNDLE_CONFIG).map do |line|
       if line =~ /Bundle\s+["'](.+)["']$/
         convert_to_link_hash($1)
       end
     end.compact
   end
 
-  # Converts a Vundle link to a URI
+  # Converts a NeoBundle link to a URI
   def convert_to_link_hash(link)
     link_hash = {}
 

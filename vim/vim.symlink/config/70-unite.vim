@@ -43,7 +43,7 @@ nno <leader>S :<C-u>execute 'Unite grep:.::' . expand("<cword>") . ' -default-ac
 nno <leader>b :<C-u>Unite buffer -buffer-name=buffers -start-insert<CR>
 " nno <leader><leader> :<C-u>UniteWithCurrentDir buffer file -buffer-name=united -start-insert<CR>
 nno <leader>ps :<C-u>:Unite process -buffer-name=processes -start-insert<CR>
-nno <leader>u :<C-u>Unite<space>
+nno <leader>u :<C-u>UniteResume<CR>
 nno <C-p> :<C-u>:Unite history/yank -buffer-name=yanks<CR>
 nno // :<C-u>:Unite line -buffer-name=lines -start-insert -direction=botright -winheight=10<CR>
 

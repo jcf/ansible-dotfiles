@@ -66,10 +66,10 @@ following ready to go:
 ### Download Vim plugins
 
 Assuming you're going to use Vim you'll want to fire up your editor and
-get Vundle to work.
+get NeoBundle to work.
 
 ```
-vim -c 'BundleInstall'
+vim -c 'NeoBundleInstall'
 ```
 
 ### Install all the things
