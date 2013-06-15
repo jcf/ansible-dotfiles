@@ -4,7 +4,7 @@
 *.zwc.old
 \#*#
 bin/mate
-emacs/emacs.d.symlink/elpa
+emacs/emacs.d.symlink
 misc/config.symlink/hub
 priv
 vim/.netrwhist

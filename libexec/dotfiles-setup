@@ -73,5 +73,8 @@ setup_rbenv
 say "Setting up pyenv..."
 github_clone 'yyuu/pyenv' ~/.pyenv
 
+say "Cloning emacs.d..."
+git_clone 'jcf/prelude' $DOTFILES_ROOT/emacs/emacs.d.symlink
+
 say "Linking dotfiles in to $HOME..."
 dotfiles-link
