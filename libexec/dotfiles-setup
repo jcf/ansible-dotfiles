@@ -5,9 +5,6 @@
 #
 # Help: Checks for required external dependencies that are a pain to install
 # automatically, and then install those dependencies that aren't.
-#
-# Install will check for Homebrew, and install the most basic of packages with
-# it. It will then clone Vundle for Vim bundles, and 
 set -e
 
 say() {
@@ -64,8 +61,8 @@ git submodule update --init
 say "Installing packages..."
 install_packages
 
-say "Installing vundle..."
-github_clone 'gmarik/vundle' $DOTFILES_ROOT/vim/vim.symlink/bundle/vundle
+say "Installing neobundle..."
+github_clone 'Shougo/neobundle.vim' $DOTFILES_ROOT/vim/vim.symlink/bundle/neobundle.vim
 
 say "Setting up rbenv..."
 setup_rbenv
