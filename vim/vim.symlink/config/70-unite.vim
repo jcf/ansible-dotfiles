@@ -33,7 +33,7 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 elseif executable('ack')
   " Use ack as unite grep source.
-  let g:unite_source_grep_command = 'ack-grep'
+  let g:unite_source_grep_command = 'ack'
   let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
   let g:unite_source_grep_recursive_opt = ''
 endif
