@@ -10,7 +10,7 @@ Vim starts up.
 
 ### Config files
 
-- **00-vundle.vim** contains all instructions for Vundle.
+- **00-bundles.vim** contains all instructions for NeoBundle.
 - **05-gui.vim** contains all configuration that will be loaded only in
   GUI mode.
 - **05-terminal.vim** contains configuration that will be loaded for
@@ -22,20 +22,20 @@ Vim starts up.
 
 ## Plugins
 
-**Plugins are managed via [Vundle][vundle]**. That means dependencies
+**Plugins are managed via [NeoBundle][]**. That means dependencies
 can be installed and updated interactively.
 
-After installing a dependency you have to tell [Vundle][vundle] about it
-next time Vim starts up. I do this via my [00-vundle.vim][vundleconf]
+After installing a dependency you have to tell NeoBundle about it
+next time Vim starts up. I do this via my [00-bundles.vim][bundle-config]
 file.
 
-With a plugin added to [Vundle][vundle] via the `Bundle` command, you
+With a plugin added to Vundle via the `Bundle` command, you
 can update it using `:BundleInstall!`.
 
-For more information check out [Vundle][vundle].
+For more information check out Vundle.
 
-[vundle]: https://github.com/gmarik/vundle
-[vundleconf]: https://github.com/jcf/dotfiles/blob/master/vim/vim.symlink/config/00-vundle.vim
+[NeoBundle]: https://github.com/Shougo/neobundle.vim
+[bundle-config]: https://github.com/jcf/dotfiles/blob/master/vim/vim.symlink/config/00-bundles.vim
 
 # Plugin List
 
