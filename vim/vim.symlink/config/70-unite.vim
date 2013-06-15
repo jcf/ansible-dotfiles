@@ -57,7 +57,7 @@ endfunction
 autocmd UniteAutoCmd FileType unite call s:unite_settings()
 
 " Open files quickly {{{
-  map <leader>f :<C-u>execute 'Unite file_mru file_rec/async file/new ' .
+  map <leader>f :<C-u>execute 'Unite file_rec/async file/new ' .
         \'-buffer-name=files -start-insert -toggle'<CR>
 " }}}
 
