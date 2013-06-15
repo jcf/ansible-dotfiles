@@ -49,7 +49,7 @@ endfunction
 autocmd UniteAutoCmd FileType unite call s:unite_settings()
 
 " Open files quickly {{{
-  map <leader>f :<C-u>execute 'Unite file file/new -buffer-name=files ' .
+  map <leader>f :<C-u>execute 'Unite file_rec file/new -buffer-name=files ' .
         \ '-start-insert -toggle -profile-name=files'<CR>
 " }}}
 
