@@ -211,9 +211,6 @@ Bundle 'gmarik/vundle'
   " GPG help
   Bundle 'jamessan/vim-gnupg'
 
-  " Switch things like if to unless, and && to ||
-  Bundle 'AndrewRadev/switch.vim'
-
   " Vim Ref
   Bundle 'ref.vim'
   Bundle 'taka84u9/vim-ref-ri'

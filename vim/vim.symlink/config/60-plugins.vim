@@ -133,10 +133,6 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
   let g:golden_ratio_autocommand = 0
 " }}}
 
-" Switch.vim {{{
-  nnoremap <Leader>s :Switch<CR>
-" }}}
-
 " Tabular.vim {{{
   vnoremap <Leader>t: :Tabularize /:\zs<CR>
   vnoremap <Leader>t= :Tabularize /=<CR>
