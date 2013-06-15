@@ -87,7 +87,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Vim modes {{{
   " Explore buffers in a buffer
-  NeoBundle 'corntrace/bufexplorer'
+  NeoBundle 'bufexplorer'
 
   " Use your Rbenv rubies in Vim
   NeoBundle 'tpope/vim-rbenv'
