@@ -26,12 +26,20 @@ let g:unite_source_directory_mru_limit = 300
 let g:unite_source_file_mru_limit = 300
 let g:unite_source_file_mru_filename_format = ':~:.'
 
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--column --nocolor --nogroup'
-let g:unite_source_grep_recursive_opt = ''
+if executable('ag')
+  " Use ag as unite grep source.
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden'
+  let g:unite_source_grep_recursive_opt = ''
+elseif executable('ack')
+  " Use ack as unite grep source.
+  let g:unite_source_grep_command = 'ack-grep'
+  let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 
-nno <leader>g :<C-u>Unite grep -default-action=above<CR>
-nno <leader>G :<C-u>execute 'Unite grep:.::' . expand("<cword>") . ' -default-action=above -auto-preview'<CR>
+nno <leader>s :<C-u>Unite grep:. -default-action=above<CR>
+nno <leader>S :<C-u>execute 'Unite grep:.::' . expand("<cword>") . ' -default-action=above -auto-preview'<CR>
 nno <leader>b :<C-u>Unite buffer -buffer-name=buffers -start-insert<CR>
 " nno <leader><leader> :<C-u>UniteWithCurrentDir buffer file -buffer-name=united -start-insert<CR>
 nno <leader>ps :<C-u>:Unite process -buffer-name=processes -start-insert<CR>
@@ -49,8 +57,14 @@ endfunction
 autocmd UniteAutoCmd FileType unite call s:unite_settings()
 
 " Open files quickly {{{
-  map <leader>f :<C-u>execute 'Unite file_rec file/new -buffer-name=files ' .
-        \ '-start-insert -toggle -profile-name=files'<CR>
+  map <leader>f :<C-u>execute 'Unite file_rec/async file/new -buffer-name=files ' .
+        \ '-start-insert -toggle'<CR>
+" }}}
+
+" Jump to a project {{{
+  map <leader>P :<C-u>execute 'Unite directory:' . expand('~/Code') .
+        \ ' -buffer-name=directories ' .
+        \ '-start-insert -toggle -default-action=cd'<CR>
 " }}}
 
 " Open Vim configs quickly {{{
