@@ -90,9 +90,9 @@ Host heroku.logi.cl
   IdentityFile ~/.ssh/identity.heroku.logi.cl
   IdentitiesOnly yes
 
-Host heroku.ev
+Host heroku.work
   HostName heroku.com
-  IdentityFile ~/.ssh/identity.heroku.ev
+  IdentityFile "/Users/jcf/.ssh/identity.heroku.work"
   IdentitiesOnly yes
 
 # vim: syn=sshconfig
