@@ -57,13 +57,14 @@ endfunction
 autocmd UniteAutoCmd FileType unite call s:unite_settings()
 
 " Open files quickly {{{
-  map <leader>f :<C-u>execute 'Unite file_rec/async file/new -buffer-name=files ' .
-        \ '-start-insert -toggle'<CR>
+  map <leader>f :<C-u>execute 'Unite file_mru file_rec/async file/new ' .
+        \'-buffer-name=files -start-insert -toggle'<CR>
 " }}}
 
 " Jump to a project {{{
   map <leader>P :<C-u>execute 'Unite directory:' . expand('~/Code') .
-        \ ' -buffer-name=directories ' .
+        \ ' directory_mru ' .
+        \ '-buffer-name=directories ' .
         \ '-start-insert -toggle -default-action=cd'<CR>
 " }}}
 
