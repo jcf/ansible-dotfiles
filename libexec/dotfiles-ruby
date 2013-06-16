@@ -20,8 +20,8 @@ require 'rbenv'
 say "Installing missing Ruby versions..."
 
 versions=('2.0.0-p195' 'jruby-1.7.4')
-installed=$(rbenv versions --bare)
-gems=(gem-browse gem-ctags pry)
+installed=($(rbenv versions --bare))
+gems=('gem-browse' 'gem-ctags' 'pry')
 
 for version in $versions; do
   if [[ -z $installed[(r)$version] ]]; then
