@@ -71,6 +71,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   NeoBundle 'guns/vim-clojure-static'
   NeoBundle 'tpope/vim-fireplace'
+  NeoBundle 'tpope/vim-classpath'
 
   " Syntax add-on for TomDoc comments
   NeoBundle 'duwanis/tomdoc.vim'
