@@ -28,7 +28,7 @@ cabal_install() {
 }
 
 say "Installing required Haskell support..."
-cabal_install 'cabal-dev' 'lambdabot'
+cabal_install 'cabal-dev' 'goa' 'lambdabot'
 
 say "Installing missing Haskell dependencies..."
 cabal_install 'haxml' 'snap' 'yesod'
