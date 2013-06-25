@@ -119,9 +119,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Fancy file browser
   NeoBundle 'Shougo/vimfiler.vim'
-
-  " A personal wiki in Vim
-  NeoBundle 'vimwiki'
 " }}}
 
 " Unite plugins {{{

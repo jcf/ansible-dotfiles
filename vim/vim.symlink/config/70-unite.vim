@@ -61,6 +61,11 @@ autocmd UniteAutoCmd FileType unite call s:unite_settings()
         \'-buffer-name=files -start-insert -toggle'<CR>
 " }}}
 
+" Lookup the current word via ctags {{{
+  map <leader>w :<C-u>execute 'Unite tag:<C-R><C-W> ' .
+        \'-buffer-name=tags -start-insert -toggle'<CR>
+" }}}
+
 " Jump to a project {{{
   map <leader>P :<C-u>execute 'Unite directory:' . expand('~/Code') .
         \ ' directory_mru ' .
