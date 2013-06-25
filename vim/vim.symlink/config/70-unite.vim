@@ -62,8 +62,7 @@ autocmd UniteAutoCmd FileType unite call s:unite_settings()
 " }}}
 
 " Lookup the current word via ctags {{{
-  map <leader>w :<C-u>execute 'Unite tag:<C-R><C-W> ' .
-        \'-buffer-name=tags -start-insert -toggle'<CR>
+  map <leader>w :UniteWithCursorWord -immediately tag<CR>
 " }}}
 
 " Jump to a project {{{
