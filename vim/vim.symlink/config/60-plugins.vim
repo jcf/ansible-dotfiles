@@ -82,10 +82,6 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
   nmap <C-a> :A<CR>
 " }}}
 
-" Bufexplorer {{
-  nnoremap <C-B> :BufExplorer<cr>
-" }}
-
 " PickHEX {{{
   imap <D-C> <c-o>:PickHEX<CR>
   nmap <D-C> :PickHEX<CR>
