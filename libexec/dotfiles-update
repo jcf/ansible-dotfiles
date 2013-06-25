@@ -36,3 +36,8 @@ for plugin in ~/.rbenv/plugins/*(/N); do
   updating $(basename $plugin)
   pull $plugin
 done
+
+for plugin in ~/.heroku/plugins/*(/N); do
+  updating $(basename $plugin)
+  pull $plugin
+done
