@@ -78,12 +78,6 @@ autocmd UniteAutoCmd FileType unite call s:unite_settings()
         \ '-start-insert -toggle -profile-name=files'<CR>
 " }}}
 
-" VimWiki {{{
-  map <leader>W :<C-u>execute 'Unite file:' . expand('~/Dropbox/Wiki') . ' ' .
-        \ 'file/new -buffer-name=notes ' .
-        \ '-start-insert -toggle -default-action=split -profile-name=files'<CR>
-" }}}
-
 " VimFiler {{{
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_data_directory = expand('~/.vim/tmp/vimfiler/')
