@@ -168,3 +168,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " Highlight indentation level {{{
   let g:indentLine_color_gui = '#073642'
 " }}}
+
+" Ultisnips {{{
+  let g:UltiSnipsSnippetDirectories  = ['snippets']
+" }}}
