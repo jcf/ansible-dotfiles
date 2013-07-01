@@ -62,8 +62,38 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
   let g:colorv_no_global_map = 1  " Skip all colorv bindings
 " }}}
 
-" neocompcache {{{
-  let g:neocomplcache_enable_at_startup = 1
+" neocomplete {{{
+  " Disable AutoComplPop
+  let g:acp_enableAtStartup = 0
+
+  " Use neocomplete
+  let g:neocomplete#enable_at_startup = 1
+
+  " Use smartcase
+  let g:neocomplete#enable_smart_case = 1
+
+  " Set minimum syntax keyword length
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
+  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+  " Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
+  function! s:my_cr_function()
+    return neocomplete#smart_close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
+
+  " <TAB>: completion.
+  " inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y> neocomplete#close_popup()
+  inoremap <expr><C-e> neocomplete#cancel_popup()
 " }}}
 
 " NERDTree {{{

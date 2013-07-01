@@ -137,7 +137,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'Lokaltog/powerline'
 
   " Improved and highly customisable completion
-  NeoBundle 'Shougo/neocomplcache'
+  NeoBundle 'Shougo/neocomplete'
 
   " At match #N out of M matches
   NeoBundle 'IndexedSearch'
