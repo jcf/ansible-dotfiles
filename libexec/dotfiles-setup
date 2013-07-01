@@ -12,7 +12,7 @@ say() {
 }
 
 brew_install() {
-  brew install "$1" 2>/dev/null
+  brew install "$@" 2>/dev/null
 }
 
 brew_install_head() {
@@ -35,7 +35,7 @@ require() {
 
 install_packages() {
   installed=($(brew list))
-  packages=(git git-extras hub macvim trash zsh)
+  packages=(git git-extras hub trash zsh)
 
   for package in $packages; do
     if [[ $installed[(r)$package] != $package ]]; then
@@ -57,6 +57,9 @@ require 'brew'
 
 say "Initialising submodules..."
 git submodule update --init
+
+say "Installing MacVim..."
+brew_install "macvim" "--with-cscope --with-lua --override-system-vim --HEAD"
 
 say "Installing packages..."
 install_packages
