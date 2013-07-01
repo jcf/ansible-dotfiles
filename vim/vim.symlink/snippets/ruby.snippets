@@ -1,8 +1,13 @@
 global !p
-import re
+import sys, re, os
 
 def classify(string):
   return ''.join(x for x in string.title() if not x.isspace() and x != '_')
+
+def classify_path(path):
+  match = re.match(r'^(?:(?:app/.*?/)|(?:lib/)|(?:src/)|(?:spec/.*?/))?(.*)$', path).group(1)
+  root = os.path.splitext(match)[0]
+  return classify(root.replace('/', '::'))
 
 def despec(string):
   return re.sub(r'_spec$', '', string)
@@ -11,14 +16,14 @@ endglobal
 
 
 snippet cl "class ClassName" !
-class ${1:`!p snip.rv = classify(snip.basename)`}
+class ${1:`!p snip.rv = classify_path(snip.basename)`}
   $0
 end
 endsnippet
 
 
 snippet cla "class ClassName initialize" !
-class ${1:`!p snip.rv = classify(snip.basename)`}
+class ${1:`!p snip.rv = classify_path(snip.basename)`}
   def initialize${2/.+/(/}${2:args}${2/.+/)/}
     $0
   end
@@ -34,14 +39,14 @@ endsnippet
 
 
 snippet m "module" !
-module ${1:`!p snip.rv = classify(snip.basename)`}
+module ${1:`!p snip.rv = classify_path(snip.basename)`}
   $0
 end
 endsnippet
 
 
 snippet mod "module included" !
-module ${1:`!p snip.rv = classify(snip.basename)`}
+module ${1:`!p snip.rv = classify_path(snip.basename)`}
   def self.included${2/.+/(/}${2:args}${2/.+/)/}
     $0
   end
@@ -49,8 +54,8 @@ end
 endsnippet
 
 
-snippet "\b(de)?f" "def <name>..." r!
-def ${1:function_name}${2: ${3:*args}}
+snippet def "def <name>..." !
+def ${1:name}
   ${0:# TODO}
 end
 endsnippet
@@ -80,7 +85,7 @@ endsnippet
 snippet desc "require 'spec_helper' ... describe" !
 require 'spec_helper'
 
-describe ${1:`!p snip.rv = classify(despec(snip.basename))`} do
+describe ${1:`!p snip.rv = classify_path(despec(snip.basename))`} do
   $0
 end
 endsnippet
@@ -89,8 +94,8 @@ endsnippet
 snippet descc "require 'spec_helper' ... describe subject" !
 require 'spec_helper'
 
-describe ${1:`!p snip.rv = classify(despec(snip.basename))`} do
-  subject(:`!p snip.rv = despec(snip.basename)`) { `!p snip.rv = classify(despec(snip.basename))`.new }
+describe ${1:`!p snip.rv = classify_path(despec(snip.basename))`} do
+  subject(:`!p snip.rv = despec(snip.basename)`) { `!p snip.rv = classify_path(despec(snip.basename))`.new }
 
   $0
 end
@@ -127,4 +132,8 @@ snippet it "it 'does'" !
 it '${1:does}' do
   $0
 end
+endsnippet
+
+snippet jcf "jcf" !b
+`!p snip.rv = classify_path(path)`
 endsnippet
