@@ -37,6 +37,9 @@ for plugin in ~/.rbenv/plugins/*(/N); do
   pull $plugin
 done
 
+updating "pyenv"
+pull ~/.pyenv
+
 for plugin in ~/.heroku/plugins/*(/N); do
   updating $(basename $plugin)
   pull $plugin
