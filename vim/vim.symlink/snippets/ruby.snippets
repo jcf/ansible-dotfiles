@@ -61,6 +61,18 @@ end
 endsnippet
 
 
+snippet r "attr_reader ..." !b
+attr_reader :${0:name}
+endsnippet
+
+snippet w "attr_writer ..." !b
+attr_writer :${0:name}
+endsnippet
+
+snippet rw "attr_accessor ..." !b
+attr_accessor :${0:name}
+endsnippet
+
 snippet "\b(de)?fi" "def initialize ..." r!
 def initialize${1/.+/(/}${1:args}${1/.+/)/}
   ${0:# TODO}
