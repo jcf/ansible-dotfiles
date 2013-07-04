@@ -54,12 +54,6 @@ end
 endsnippet
 
 
-snippet def "def <name>..." !
-def ${1:name}
-  ${0:# TODO}
-end
-endsnippet
-
 
 snippet r "attr_reader ..." !b
 attr_reader :${0:name}
@@ -73,11 +67,25 @@ snippet rw "attr_accessor ..." !b
 attr_accessor :${0:name}
 endsnippet
 
+
+snippet defs "def self.<name>..." !
+def self.${1:name}
+  ${0:# TODO}
+end
+endsnippet
+
+snippet def "def <name>..." !
+def ${1:name}
+  ${0:# TODO}
+end
+endsnippet
+
 snippet "\b(de)?fi" "def initialize ..." r!
 def initialize${1/.+/(/}${1:args}${1/.+/)/}
   ${0:# TODO}
 end
 endsnippet
+
 
 
 snippet al "alias <to> <from>" !
