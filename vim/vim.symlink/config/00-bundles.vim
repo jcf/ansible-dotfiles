@@ -145,6 +145,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Like make but async, with support for tmux and more
   NeoBundle 'tpope/vim-dispatch'
 
+  " Maps from files to tests, and works with dispatch!
+  NeoBundle 'jgdavey/vim-turbux'
+
   " Speed up handling of large files by turning off some features
   NeoBundle 'LargeFile'
 
