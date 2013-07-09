@@ -18,42 +18,6 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
   set fillchars+=stl:\ ,stlnc:\
 " }}}
 
-" Tube.vim {{{
-  let g:tube_terminal = 'iterm' " Or Terminal if you prefer
-
-  function! TubeThis(...) abort
-    let l:cmd = []
-    let l:path = expand('%')
-
-    if filewritable('.zeus.sock')
-      call add(l:cmd, 'zeus')
-    elseif filereadable('Gemfile')
-      call add(l:cmd, 'bundle exec')
-    endif
-
-    if l:path =~# '_spec\.rb$'
-      let l:executable = 'rspec'
-    else
-      let l:executable = &ft
-    end
-
-    if exists('a:1')
-      call extend(l:cmd, [l:executable, l:path . ':' . a:1])
-    else
-      call extend(l:cmd, [l:executable, l:path])
-    end
-
-    let l:cmd_string = join(l:cmd, ' ')
-    echo l:cmd_string
-
-    silent exe 'TubeClear'
-    silent exe 'Tube ' . l:cmd_string
-  endfunction
-
-  nmap <Leader>t :call TubeThis(line('.'))<CR>
-  nmap <Leader>T :call TubeThis()<CR>
-" }}}
-
 " Run Hammer to preview this buffer {{{
   nmap <Leader>p :Hammer<CR>
 " }}}
@@ -132,20 +96,9 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
   let g:Powerline_colorscheme = 'solarized256'
 " }}}
 
-" Vim Ruby Conque {{{
-  " Cmd-Shift-R for RSpec
-  nmap <silent> <D-R> :call RunRspecCurrentFileConque()<CR>
-
-  " Cmd-Shift-L for RSpec Current Line
-  nmap <silent> <D-L> :call RunRspecCurrentLineConque()<CR>
-
-  " ,Cmd-R for Last conque command
-  nmap <silent> <Leader><D-R> :call RunLastConqueCommand()<CR>
-
-  " Use zeus to run specs & cukes
-  let g:ruby_conque_rspec_command='zeus rspec'
-  let g:turbux_command_rspec='zeus rspec'
-  let g:turbux_command_cucumber='zeus cucumber'
+" Turbux {{{
+  let g:turbux_command_rspec='bundle exec rspec'
+  let g:turbux_command_cucumber='bundle exec cucumber'
 " }}}
 
 " Splice {{{
