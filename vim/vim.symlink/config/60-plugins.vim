@@ -97,7 +97,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " }}}
 
 " Turbux {{{
-  let g:turbux_command_rspec='bundle exec rspec'
+  let g:turbux_command_rspec='bundle exec rspec --tty'
   let g:turbux_command_cucumber='bundle exec cucumber'
 " }}}
 
