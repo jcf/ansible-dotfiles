@@ -27,7 +27,7 @@ alias rl='tail -f log/development.log'
 
 alias rk='_rake-command'
 alias rdm='rk db:migrate'
-alias rdM='rk db:migrate db:test:clone'
+alias rdM='rk db:migrate db:test:clone_structure'
 alias rdr='rk db:rollback'
 alias rlc='rk log:clear'
 
