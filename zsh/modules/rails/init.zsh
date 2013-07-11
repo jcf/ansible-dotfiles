@@ -17,15 +17,12 @@ fi
 # Aliases (Compatible with Rails 2)
 #
 
-alias r='_rails-command'
-alias rc='r console'
-alias rdc='r dbconsole'
-alias rg='r generate'
-alias rp='r plugin'
-alias rr='r runner'
-alias rs='r server'
-alias rsd='r server --debugger'
-alias rx='r destroy'
+alias rc='_rails-command console'
+alias rdc='_rails-command dbconsole'
+alias rg='_rails-command generate'
+alias rr='_rails-command runner'
+alias rs='_rails-command server'
+alias rx='_rails-command destroy'
 alias rl='tail -f log/development.log'
 
 alias rk='_rake-command'
