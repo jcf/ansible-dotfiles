@@ -60,6 +60,9 @@ alias -g H='|head'
 alias -g N='&>/dev/null&'
 alias -g W='|wc'
 
+# Disable built-in r command
+disable r
+
 # dotfiles
 alias reload="source ~/.zshrc"
 alias edot="e -c \"cd $DOT\" $DOT"
