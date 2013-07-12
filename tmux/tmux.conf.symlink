@@ -1,6 +1,3 @@
-# Better clipboard support
-set-option -g default-command "reattach-to-user-namespace -l zsh"
-
 # All the colours please
 set -g default-terminal "screen-256color"
 

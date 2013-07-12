@@ -35,7 +35,7 @@ require() {
 
 install_packages() {
   installed=($(brew list))
-  packages=(git git-extras hub trash zsh reattach-to-user-namespace)
+  packages=(git git-extras hub trash zsh)
 
   for package in $packages; do
     if [[ $installed[(r)$package] != $package ]]; then
