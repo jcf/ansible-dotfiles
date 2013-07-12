@@ -48,7 +48,7 @@
 [core]
   attributesfile = ~/.gitattributes
   excludesfile = ~/.gitignore
-  editor = mvim -f --nomru
+  editor = vim -f
   autocrlf = input
   safecrlf = warn
 [diff]
@@ -81,7 +81,7 @@
 [merge]
   tool = splice
 [mergetool "splice"]
-  cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+  cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
   trustExitCode = true
 
 # http://bitfission.com/blog/2010/07/auto-merge-gemfile-lock.html
