@@ -1,3 +1,5 @@
+# All the colours please
+set -g default-terminal "screen-256color"
 
 # Use a black background with white text in status bar
 set -g status-bg black
