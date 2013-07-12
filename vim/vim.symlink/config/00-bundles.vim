@@ -148,6 +148,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Maps from files to tests, and works with dispatch!
   NeoBundle 'jgdavey/vim-turbux'
 
+  " Bindings for jumping between splits
+  NeoBundle 'christoomey/vim-tmux-navigator'
+
   " Speed up handling of large files by turning off some features
   NeoBundle 'LargeFile'
 
