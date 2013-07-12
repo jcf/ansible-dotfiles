@@ -17,14 +17,8 @@ fi
 # Editors
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export EDITOR='mvim'
-  export VISUAL='mvim'
-else
-  export EDITOR='vim'
-  export VISUAL='vim'
-fi
-
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
 #
