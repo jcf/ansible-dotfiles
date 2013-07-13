@@ -8,4 +8,33 @@ def quick(repetitions = 100, &block)
   nil
 end
 
+def reset_irb
+  exec $0
+end
+
 alias q exit
+
+begin
+  load File.expand_path('~/.railsrc') if defined?(Rails) && Rails.env
+rescue LoadError
+end
+
+# Interactive editor inspired by Giles Bowkett
+require 'tempfile'
+
+class InteractiveBuffer
+  def initialize(path)
+    @file = Tempfile.new(path)
+  end
+
+  def to_s
+    @file.path
+  end
+end
+
+def mvim(path = 'irb_interactive_buffer')
+  @interactive_buffer ||= InteractiveBuffer.new(path)
+  system("mvim -g -f -c 'au VimLeave * !open -a iTerm' -c 'set ft=ruby' #{@interactive_buffer}")
+  Object.class_eval(`cat #{@interactive_buffer}`)
+end
+alias e mvim
