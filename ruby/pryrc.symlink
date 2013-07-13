@@ -1,6 +1,6 @@
 # vim:set ft=ruby:
 
-Pry.config.editor = '/usr/local/bin/vim -f'
+Pry.config.editor = '/usr/local/bin/mvim -f'
 
 def quick(repetitions = 1000, &block)
   require 'benchmark'
