@@ -88,8 +88,10 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " }}}
 
 " Powerline {{{
-  " Use fancy symbols
-  let g:Powerline_symbols = 'fancy'
+  if has('gui_running')
+    " Use fancy symbols
+    let g:Powerline_symbols = 'fancy'
+  endif
 
   " Go Solarized
   let g:Powerline_theme = 'solarized256'
