@@ -78,6 +78,11 @@ autocmd UniteAutoCmd FileType unite call s:unite_settings()
         \ '-start-insert -toggle -profile-name=files'<CR>
 " }}}
 
+" Open dotfiles quickly {{{
+  map <leader>df :<C-u>execute 'Unite file_rec/async:' . expand('~/.dotfiles') .
+        \ ' -buffer-name=files -start-insert -toggle'<CR>
+" }}}
+
 " VimFiler {{{
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_data_directory = expand('~/.vim/tmp/vimfiler/')
