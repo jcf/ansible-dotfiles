@@ -30,10 +30,6 @@ let mapleader = ','
   noremap Q gq
 " }}}
 
-" Goodbye window {{{
-  noremap <leader>q :quitall<CR>
-" }}}
-
 " make Y consistent with C and D {{{
   nnoremap Y y$
 " }}}
