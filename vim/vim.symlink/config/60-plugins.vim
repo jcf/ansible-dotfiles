@@ -12,14 +12,11 @@
   nmap <Leader>gv :Gitv<CR>
 " }}}
 
-" Powerline {{{
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" Airline {{{
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme = 'solarized'
 
-  set fillchars+=stl:\ ,stlnc:\
-" }}}
-
-" Run Hammer to preview this buffer {{{
-  nmap <Leader>p :Hammer<CR>
+  set fillchars+=stl:\ ,stlnc:\  " Space
 " }}}
 
 " colorv {{{

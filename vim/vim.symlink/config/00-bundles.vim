@@ -133,8 +133,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Improved % matching
   NeoBundle 'matchit.zip'
 
-  " Improved status line
-  NeoBundle 'Lokaltog/powerline'
+  " Lightweight status line replacement
+  NeoBundle 'bling/vim-airline'
 
   " Improved and highly customisable completion
   NeoBundle 'Shougo/neocomplete.vim'
