@@ -72,6 +72,20 @@ augroup Haskell " {{{
   autocmd! BufEnter *.hs compiler ghc
 augroup END " }}}
 
+augroup Session " {{{
+  autocmd!
+  " Load the Session.vim in current directory {{{
+    function! LoadSession()
+      let b:sessionfile = getcwd() . '/Session.vim'
+      if (filereadable(b:sessionfile))
+        exe 'source ' b:sessionfile
+      endif
+    endfunction
+
+    au VimEnter * nested :call LoadSession()
+  " }}}
+augroup END" }}}
+
 " TODO Stop inserting comments when pressing o/O!!!
 "
 " This doesn't work because Vim executes ftplugin files, which typically
