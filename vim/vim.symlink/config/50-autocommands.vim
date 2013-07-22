@@ -77,7 +77,7 @@ augroup Session " {{{
   " Load the Session.vim in current directory {{{
     function! LoadSession()
       let b:sessionfile = getcwd() . '/Session.vim'
-      if (filereadable(b:sessionfile))
+      if (filereadable(b:sessionfile)) && &filetype != "gitcommit"
         exe 'source ' b:sessionfile
       endif
     endfunction
