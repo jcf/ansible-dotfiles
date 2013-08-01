@@ -1,0 +1,4 @@
+dir=`pwd`
+export GOPATH="$dir"
+path=("$dir/bin" $path)
+echo "\e[32mAdded $dir\e[0m"
