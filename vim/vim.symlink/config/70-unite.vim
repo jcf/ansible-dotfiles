@@ -20,23 +20,8 @@ let g:unite_data_directory = '~/.vim/tmp/unite/'
 let g:unite_source_process_enable_confirm = 1
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_split_vertically = 0
-let g:unite_winheight = 20
-
-let g:unite_source_directory_mru_limit = 300
-let g:unite_source_file_mru_limit = 300
+let g:unite_winheight = 10
 let g:unite_source_file_mru_filename_format = ':~:.'
-
-if executable('ag')
-  " Use ag as unite grep source.
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden'
-  let g:unite_source_grep_recursive_opt = ''
-elseif executable('ack')
-  " Use ack as unite grep source.
-  let g:unite_source_grep_command = 'ack'
-  let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
-  let g:unite_source_grep_recursive_opt = ''
-endif
 
 nno <leader>s :<C-u>Unite grep:. -default-action=above<CR>
 nno <leader>S :<C-u>execute 'Unite grep:.::' . expand("<cword>") . ' -default-action=above -auto-preview'<CR>
