@@ -123,7 +123,7 @@
     let l:cmd_string = join(l:cmd, ' ')
     echo l:cmd_string
 
-    silent exe 'TubeClear'
+    silent exe 'TubeClr'
     silent exe 'Tube ' . l:cmd_string
   endfunction
 
