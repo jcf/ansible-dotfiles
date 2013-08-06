@@ -23,8 +23,8 @@ let g:unite_enable_split_vertically = 0
 let g:unite_winheight = 10
 let g:unite_source_file_mru_filename_format = ':~:.'
 
-nno <leader>s :<C-u>Unite grep:. -default-action=above<CR>
-nno <leader>S :<C-u>execute 'Unite grep:.::' . expand("<cword>") . ' -default-action=above -auto-preview'<CR>
+nno <leader>s :<C-u>Unite grep:. -default-action=above -winheight=30 -auto-preview<CR>
+nno <leader>S :<C-u>execute 'Unite grep:.::' . expand("<cword>") . ' -default-action=above -winheight=30 -auto-preview'<CR>
 nno <leader>b :<C-u>Unite buffer -buffer-name=buffers -start-insert<CR>
 " nno <leader><leader> :<C-u>UniteWithCurrentDir buffer file -buffer-name=united -start-insert<CR>
 nno <leader>ps :<C-u>:Unite process -buffer-name=processes -start-insert<CR>
