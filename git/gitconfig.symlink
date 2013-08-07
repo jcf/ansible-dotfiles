@@ -51,8 +51,6 @@
   editor = mvim -f --nomru
   autocrlf = input
   safecrlf = warn
-[diff]
-  algorithm = patience
 [gui]
   fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [mirror]
@@ -71,15 +69,15 @@
 [heroku]
   account = logi.cl
 
-[url "git@gist.github.com:"]
-  insteadOf = "gst:"
-  pushInsteadOf = "gist:"
-  pushInsteadOf = "git://gist.github.com/"
-[url "git://gist.github.com/"]
-  insteadOf = "gist:"
+[diff]
+  algorithm = patience
+[difftool]
+  prompt = false
 
 [merge]
   tool = splice
+[mergetool]
+  prompt = false
 [mergetool "splice"]
   cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
   trustExitCode = true
@@ -100,5 +98,12 @@
     end\n\
     File.open(%(%A), %(w)) {|f| f.write(b)}\n\
     exit 1 if b.include?(%(<)*%L)'"
+
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
 
 # vim: ft=gitconfig
