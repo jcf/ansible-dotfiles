@@ -114,3 +114,10 @@ fi
 if (( $+commands[foreman] )); then
   alias fs='foreman start'
 fi
+
+# Workaround for Ruby not being able to validate SSL certificates.
+#
+# To get the crt `brew install curl-ca-bundle`.
+if [[ -f /usr/local/opt/curl-ca-bundle/share/ca-bundle.crt ]]; then
+  export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+fi
