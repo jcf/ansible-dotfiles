@@ -19,6 +19,7 @@ require 'heroku'
 
 say "Installing heroku plugins..."
 
+plugin_install 'heroku/heroku-orgs'
 plugin_install 'ddollar/heroku-accounts'
 plugin_install 'tpope/heroku-binstubs'
 plugin_install 'tpope/heroku-wildcards'
