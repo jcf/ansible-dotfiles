@@ -53,6 +53,16 @@ function prompt_jcf_precmd {
 
   # Format VCS info
   prompt_jcf_vcs_info
+
+  # Setup vi-mode prefix
+  prompt_jcf_prefix
+}
+
+function prompt_jcf_prefix {
+  _prompt_jcf_cmd_mode="%F{000}${_prompt_jcf_pwd}%f"
+  _prompt_jcf_ins_mode="%F{004}${_prompt_jcf_pwd}%f"
+
+  _prompt_jcf_prefix="${${KEYMAP/vicmd/${_prompt_jcf_cmd_mode}}/(main|viins)/${_prompt_jcf_ins_mode}}"
 }
 
 function prompt_jcf_setup {
@@ -67,6 +77,19 @@ function prompt_jcf_setup {
   # Add hook for calling vcs_info before each command
   add-zsh-hook precmd prompt_jcf_precmd
 
+  function zle-line-init zle-keymap-select {
+    prompt_jcf_prefix
+    zle reset-prompt
+    zle -R
+  }
+  zle -N zle-line-init
+  zle -N zle-keymap-select
+
+  function zle-line-finish {
+    prompt_jcf_prefix
+  }
+  zle -N zle-line-finish
+
   # Set vcs_info parameters
   zstyle ':vcs_info:*'      enable bzr git hg svn
   zstyle ':vcs_info:*'      get-revision       true
@@ -79,8 +102,8 @@ function prompt_jcf_setup {
   zstyle ':vcs_info:svn:*'  branchformat       "%b"
 
   # Define prompts
-  PROMPT='%F{004}${_prompt_jcf_pwd}%f%(!. %B%F{red}#%f%b.) '
-  RPROMPT="%F{242}"'${_prompt_jcf_vsc_info}'"%f"
+  PROMPT='${_prompt_jcf_prefix}%(!. %B%F{red}#%f%b.) '
+  RPROMPT='%F{242}${_prompt_jcf_vsc_info}%f'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 

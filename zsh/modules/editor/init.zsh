@@ -275,9 +275,25 @@ bindkey -M vicmd "$key_info[Control]R" redo
 if (( $+widgets[history-incremental-pattern-search-backward] )); then
   bindkey -M vicmd "?" history-incremental-pattern-search-backward
   bindkey -M vicmd "/" history-incremental-pattern-search-forward
+
+  bindkey -M vicmd '^r' history-incremental-pattern-search-backward
 else
   bindkey -M vicmd "?" history-incremental-search-backward
   bindkey -M vicmd "/" history-incremental-search-forward
+
+  bindkey -M viins '^r' history-incremental-search-backward
+fi
+
+# Quick, exit insert mode JJ!
+bindkey -M viins 'jj' vi-cmd-mode
+
+# Emacs style
+bindkey -M viins '^a' beginning-of-line
+bindkey -M viins '^e' end-of-line
+
+if (( $+widgets[history-search-backward] )); then
+  bindkey -M viins '^p' history-search-backward
+  bindkey -M viins '^n' history-search-forward
 fi
 
 #
