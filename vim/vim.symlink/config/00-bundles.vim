@@ -98,7 +98,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'scrooloose/nerdtree'
 
   " Merge tool inspired by Adobe Lightroom
-  NeoBundle 'sjl/splice.vim'
+  NeoBundle 'killphi/splice.vim', 'fix_spliceinit_crash'
 
   " Add a scratch buffer to keep hold of random snippets
   NeoBundle 'duff/vim-scratch'
