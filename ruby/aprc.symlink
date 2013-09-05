@@ -22,3 +22,5 @@ AwesomePrint.defaults = {
     :variable   => :cyanish
   }
 }
+
+# vim: ft=ruby
