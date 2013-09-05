@@ -141,4 +141,4 @@ def quick(repetitions = 1000, &block)
   nil
 end
 
-# vim:set ft=ruby
+# vim: ft=ruby
