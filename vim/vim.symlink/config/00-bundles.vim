@@ -220,4 +220,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Vim Ref
   NeoBundle 'ref.vim'
   NeoBundle 'taka84u9/vim-ref-ri'
+
+  " Version control changes in signs
+  NeoBundle 'mhinz/vim-signify'
 " }}}
