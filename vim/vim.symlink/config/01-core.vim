@@ -86,13 +86,13 @@
 
   set pastetoggle=<F2>
 
-  set spelllang=en spellfile=~/.dotfiles/vim/vim.symlink/spell/en.utf-8.add
+  set spelllang=en spellfile=~/.vim/spell/en.utf-8.add
 
   " Don't insert a comment when pressing o/O
   set formatoptions-=o
 
   set undofile
-  set undodir="$HOME/.vim/tmp/undo"
+  set undodir=~/.vim/tmp/undo
   set undolevels=1000
   set undoreload=10000
 " }}}
