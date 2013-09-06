@@ -99,6 +99,16 @@
 
   set backupdir=~/.vim/tmp/backup
   set directory=~/.vim/tmp/swap
+
+  if executable('ack')
+    set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
+    set grepformat=%f:%l:%c:%m
+  endif
+
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+    set grepformat=%f:%l:%c:%m
+  endif
 " }}}
 
 function! EnsureDirectoryExists(path) " {{{
