@@ -56,7 +56,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'tpope/vim-git'
 
   " Get the history behind some part of a file from Git
-  NeoBundle 'gregsexton/gitv'
+  NeoBundle 'gregsexton/gitv', {
+        \ 'depends': ['tpope/vim-fugitive'],
+        \ 'autoload': {'commands': 'Gitv'}}
 " }}}
 
 " Additional filetypes {{{
