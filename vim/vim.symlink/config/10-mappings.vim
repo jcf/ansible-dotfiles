@@ -41,9 +41,11 @@ let mapleader = ','
 " }}}
 
 " Search with more magic {{{
-  " NOTE This is overridden by IndexedSearch
-  nnoremap / :call <SNR>117_DelaySearchIndex(0, '')<CR>/\v
-  vnoremap / :call <SNR>117_DelaySearchIndex(0, '')<CR>/\v
+  nnoremap / /\v
+  vnoremap / /\v
+  nnoremap ? ?\v
+  vnoremap ? ?\v
+  nnoremap :s/ :s/\v
 " }}}
 
 " Go to column and row when looking up a bookmark by default {{{
