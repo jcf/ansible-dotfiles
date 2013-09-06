@@ -144,9 +144,14 @@
 " }}}
 
 " Tabular.vim {{{
-  vnoremap <Leader>t: :Tabularize /:\zs<CR>
-  vnoremap <Leader>t= :Tabularize /=<CR>
-  vnoremap <Leader>t> :Tabularize /=><CR>
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+  nmap <Leader>a, :Tabularize /,<CR>
+  vmap <Leader>a, :Tabularize /,<CR>
+  nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 " }}}
 
 " Highlight indentation level {{{
