@@ -14,11 +14,7 @@ let mapleader = ','
 " }}}
 
 " Quick edit commands {{{
-  " NOTE This is overridden by CamelCaseMotion
   map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-  map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-  map <Leader>ve :vsp <C-R>=expand("%:p:h") . "/" <CR>
-  map <Leader>se :sp <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
 
 " <C-L> clear highlight as well as redraw {{{
