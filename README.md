@@ -8,8 +8,9 @@ you need to build great products, and keep your environment up-to-date.
 
 # Getting started
 
-To get started you'll want to [install Homebrew][] as it's required to
-install development dependencies.
+To get started you'll want to install [Xcode][] (installing Command Line
+Tools is not enough to get MacVim installed), and [Homebrew][] as they
+are required to install development dependencies .
 
 Last time I checked installing Homebrew was as easy as running:
 
@@ -127,4 +128,5 @@ Unless otherwise stated, everything is covered by the MIT license.
   <img alt="MacVim" src="http://f.cl.ly/items/1m1M41221S233C0h0D2T/macvim.png"></img>
 </a>
 
-[install Homebrew]: https://github.com/mxcl/homebrew/wiki/Installation
+[Xcode]: https://developer.apple.com/xcode/
+[Homebrew]: https://github.com/mxcl/homebrew/wiki/Installation
