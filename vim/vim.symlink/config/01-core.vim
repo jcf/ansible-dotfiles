@@ -1,3 +1,4 @@
+
 " Basic configuration {{{
   filetype off
   syntax on
@@ -95,4 +96,17 @@
   set undodir=~/.vim/tmp/undo
   set undolevels=1000
   set undoreload=10000
+
+  set backupdir=~/.vim/tmp/backup
+  set directory=~/.vim/tmp/swap
 " }}}
+
+function! EnsureDirectoryExists(path) " {{{
+  if !isdirectory(expand(a:path))
+    call mkdir(expand(a:path))
+  endif
+endfunction " }}}
+
+call EnsureDirectoryExists(&undodir)
+call EnsureDirectoryExists(&backupdir)
+call EnsureDirectoryExists(&directory)
