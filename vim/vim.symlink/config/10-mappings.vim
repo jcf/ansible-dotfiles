@@ -54,6 +54,13 @@ let mapleader = ','
   nnoremap q? q?i
 " }}}
 
+" Folds {{{
+  nnoremap zr zr:echo &foldlevel<cr>
+  nnoremap zm zm:echo &foldlevel<cr>
+  nnoremap zR zR:echo &foldlevel<cr>
+  nnoremap zM zM:echo &foldlevel<cr>
+" }}}
+
 " Go to column and row when looking up a bookmark by default {{{
   nnoremap ' `
   nnoremap ` '
