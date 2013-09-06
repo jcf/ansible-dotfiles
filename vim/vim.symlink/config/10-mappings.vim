@@ -48,6 +48,12 @@ let mapleader = ','
   nnoremap :s/ :s/\v
 " }}}
 
+" Command-line window {{{
+  nnoremap q: q:i
+  nnoremap q/ q/i
+  nnoremap q? q?i
+" }}}
+
 " Go to column and row when looking up a bookmark by default {{{
   nnoremap ' `
   nnoremap ` '
