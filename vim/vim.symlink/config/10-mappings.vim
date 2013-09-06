@@ -61,6 +61,17 @@ let mapleader = ','
   nnoremap zM zM:echo &foldlevel<cr>
 " }}}
 
+" Auto center next match {{{
+  nnoremap <silent> n nzz
+  nnoremap <silent> N Nzz
+  nnoremap <silent> * *zz
+  nnoremap <silent> # #zz
+  nnoremap <silent> g* g*zz
+  nnoremap <silent> g# g#zz
+  nnoremap <silent> <C-o> <C-o>zz
+  nnoremap <silent> <C-i> <C-i>zz
+"}}}
+
 " Go to column and row when looking up a bookmark by default {{{
   nnoremap ' `
   nnoremap ` '
