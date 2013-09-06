@@ -68,11 +68,6 @@
   let g:haddock_browser = '/usr/bin/open'
 " }}}
 
-" Rake.vim {{{
-  nmap <Leader>a :AV<CR>
-  nmap <C-a> :A<CR>
-" }}}
-
 " PickHEX {{{
   imap <D-C> <c-o>:PickHEX<CR>
   nmap <D-C> :PickHEX<CR>
