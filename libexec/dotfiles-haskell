@@ -22,7 +22,7 @@ cabal_install() {
   for dep in $@; do
     if [[ -z $installed[(r)$dep] ]]; then
       say "Installing $dep..."
-      cabal install $dep >/dev/null
+      cabal install $dep &>/dev/null
     fi
   done
 }
@@ -31,4 +31,4 @@ say "Installing required Haskell support..."
 cabal_install 'cabal-dev' 'goa' 'lambdabot'
 
 say "Installing missing Haskell dependencies..."
-cabal_install 'haxml' 'snap' 'yesod'
+cabal_install 'ghc-mod' 'snap'

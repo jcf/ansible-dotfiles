@@ -14,9 +14,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'tpope/vim-rails'
   NeoBundle 'hallison/vim-ruby-sinatra'
 
-  " Haskell template support
-  NeoBundle 'pbrisbin/html-template-syntax'
-
   " Open the system color picker
   NeoBundle 'PickAColor.vim'
 
@@ -69,7 +66,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'jcf/vim-latex'
   NeoBundle 'leshill/vim-json'
   NeoBundle 'jimenezrick/vimerl'
-  NeoBundle 'lukerandall/haskellmode-vim'
+
+  " Better Haskell support {{{
+    NeoBundle 'lukerandall/haskellmode-vim'
+    NeoBundle 'eagletmt/ghcmod-vim'
+    NeoBundle 'dag/vim2hs'
+    NeoBundle 'ujihisa/neco-ghc'
+    NeoBundle 'pbrisbin/html-template-syntax'
+  " }}}
 
   NeoBundle 'guns/vim-clojure-static'
   NeoBundle 'tpope/vim-fireplace'
