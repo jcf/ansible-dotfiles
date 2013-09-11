@@ -41,6 +41,8 @@
   up = !git pull --rebase && git push
   update-submodules = !git-update-submodules
   workdir = !git-new-workdir
+  # Trash any any untracked files
+  wipe = !git status -sb | grep '??' | awk '{ print $2 }' | xargs trash
 [color]
   diff = auto
   status = auto
