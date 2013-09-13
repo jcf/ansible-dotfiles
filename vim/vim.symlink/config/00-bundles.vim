@@ -75,10 +75,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'pbrisbin/html-template-syntax'
   " }}}
 
-  NeoBundle 'guns/vim-clojure-static'
-  NeoBundle 'tpope/vim-fireplace'
-  NeoBundle 'tpope/vim-classpath'
-  NeoBundle 'paredit.vim'
+  " Better Clojure support {{{
+    NeoBundle 'guns/vim-clojure-static'
+    NeoBundle 'tpope/vim-fireplace'
+    NeoBundle 'tpope/vim-classpath'
+    NeoBundle 'paredit.vim'
+    NeoBundle 'kien/rainbow_parentheses.vim'
+  " }}}
 
   " Syntax add-on for TomDoc comments
   NeoBundle 'duwanis/tomdoc.vim'
