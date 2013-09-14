@@ -165,3 +165,90 @@ let mapleader = ','
   onoremap <silent> <D-K> :call NextIndent(1, 0, 1, 1)<CR>
   onoremap <silent> <D-J> :call NextIndent(1, 1, 1, 1)<CR>
 " }}}
+
+" Tabular.vim {{{
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+  nmap <Leader>a, :Tabularize /,<CR>
+  vmap <Leader>a, :Tabularize /,<CR>
+  nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+" }}}
+
+" Fugitive {{{
+  nmap <Leader>gs :Gstatus<CR>
+  nmap <Leader>gc :Gcommit -v<CR>
+  nmap <Leader>gw :Gwrite<CR>
+  nmap <Leader>gl :Gblame<CR>
+  nmap <Leader>gb :Gbrowse<CR>
+  nmap <Leader>gd :Gdiff<CR>
+  nmap <Leader>gg :Ggrep<Space>
+" }}}
+
+" Gitv {{{
+  nmap <Leader>gv :Gitv<CR>
+" }}}
+
+" NeoComplete {{{
+  " Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
+  function! s:my_cr_function()
+    return neocomplete#smart_close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
+
+  " <TAB>: completion.
+  " inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y> neocomplete#close_popup()
+  inoremap <expr><C-e> neocomplete#cancel_popup()
+" }}}
+
+" PickHEX {{{
+  imap <D-C> <c-o>:PickHEX<CR>
+  nmap <D-C> :PickHEX<CR>
+" }}}
+
+" Tube.vim {{{
+  let g:tube_terminal = 'iterm' " Or Terminal if you prefer
+
+  function! TubeThis(...) abort
+    let l:cmd = []
+    let l:path = expand('%')
+
+    if filewritable('.zeus.sock')
+      call add(l:cmd, 'zeus')
+    elseif filereadable('Gemfile')
+      call add(l:cmd, 'bundle exec')
+    endif
+
+    if l:path =~# '_spec\.rb$'
+      let l:executable = 'rspec'
+    else
+      let l:executable = &ft
+    end
+
+    if exists('a:1')
+      call extend(l:cmd, [l:executable, l:path . ':' . a:1])
+    else
+      call extend(l:cmd, [l:executable, l:path])
+    end
+
+    let l:cmd_string = join(l:cmd, ' ')
+    echo l:cmd_string
+
+    silent exe 'TubeClr'
+    silent exe 'Tube ' . l:cmd_string
+  endfunction
+
+  nmap <Leader>t :call TubeThis(line('.'))<CR>
+  nmap <Leader>T :call TubeThis()<CR>
+" }}}
