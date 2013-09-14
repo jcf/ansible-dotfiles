@@ -48,6 +48,20 @@ augroup Markdown " {{{
   " }}}
 augroup END " }}}
 
+augroup Clojure " {{{
+  autocmd!
+  " Highlight pairs of parens {{{
+    function! Rainbows()
+      silent exe 'RainbowParenthesesLoadRound'
+      silent exe 'RainbowParenthesesLoadSquare'
+      silent exe 'RainbowParenthesesLoadBraces'
+    endfunction
+
+    au VimEnter * RainbowParenthesesToggle
+    au FileType clojure call Rainbows()
+  " }}}
+augroup END " }}}
+
 augroup JumpToLastPosition " {{{
   autocmd!
   " Jump to last position when returning to a buffer {{{
