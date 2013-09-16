@@ -1,2 +1,4 @@
 % io:format("Starting SASL~n").
 % application:start(sasl), ok.
+
+% vim: ft=erlang
