@@ -149,6 +149,11 @@ fi
 
 # Miscellaneous
 
+# Prints a timestamp without a trailing newline
+function now {
+  date +"%Y%m%d%H%M%S" | tr -d "\n"
+}
+
 # Serves a directory via HTTP.
 alias http-serve='python -m SimpleHTTPServer'
 
