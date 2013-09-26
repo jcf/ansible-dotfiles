@@ -59,6 +59,7 @@ alias -g T='|tail'
 alias -g H='|head'
 alias -g N='&>/dev/null&'
 alias -g W='|wc'
+alias -g C='|pbcopy'
 
 # Disable built-in r command
 disable r
