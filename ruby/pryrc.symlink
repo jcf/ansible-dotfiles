@@ -4,10 +4,10 @@ Pry.commands.alias_command 'c', 'continue' rescue nil
 Pry.commands.alias_command 's', 'step' rescue nil
 Pry.commands.alias_command 'n', 'next' rescue nil
 
-Pry.prompt = [
-  proc { |obj, nest_level, _| "#{RUBY_VERSION} [#{nest_level}] > " },
-  proc { |obj, nest_level, _| "#{RUBY_VERSION} [#{nest_level}] * " }
-]
+# Pry.prompt = [
+#   proc { |obj, nest_level, _| "#{RUBY_VERSION} [#{nest_level}] > " },
+#   proc { |obj, nest_level, _| "#{RUBY_VERSION} [#{nest_level}] * " }
+# ]
 
 # TODO Use better colours
 Pry.config.ls.heading_color = :magenta
