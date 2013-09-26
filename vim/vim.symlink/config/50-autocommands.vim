@@ -57,7 +57,7 @@ augroup Clojure " {{{
       silent exe 'RainbowParenthesesLoadBraces'
     endfunction
 
-    au VimEnter * RainbowParenthesesToggle
+    au VimEnter * RainbowParenthesesActivate
     au FileType clojure call Rainbows()
   " }}}
 augroup END " }}}
