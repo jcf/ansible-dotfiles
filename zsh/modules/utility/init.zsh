@@ -117,10 +117,8 @@ alias sl='ls'            # I often screw this up.
 # Mac OS X Everywhere
 if [[ "$OSTYPE" == darwin* ]]; then
   alias o='open'
-  alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 else
   alias o='xdg-open'
-  alias get='wget --continue --progress=bar --timestamping'
 
   if (( $+commands[xclip] )); then
     alias pbcopy='xclip -selection clipboard -in'
@@ -135,6 +133,13 @@ fi
 
 alias pbc='pbcopy'
 alias pbp='pbpaste'
+
+# File Download
+if (( $+commands[curl] )); then
+  alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
+elif (( $+commands[wget] )); then
+  alias get='wget --continue --progress=bar --timestamping'
+fi
 
 # Resource Usage
 alias df='df -kh'
