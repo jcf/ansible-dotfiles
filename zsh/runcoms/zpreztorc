@@ -35,11 +35,12 @@ zstyle ':prezto:load' pmodule \
   'ruby' \
   'erlang' \
   'haskell' \
-  'heroku' \
+  'clojure' \
   'rails' \
   'python' \
   'go' \
   'node' \
+  'heroku' \
   'osx' \
   'aws'
 
