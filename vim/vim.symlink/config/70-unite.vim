@@ -36,6 +36,9 @@ function! s:unite_settings()
   imap <buffer> jj <Plug>(unite_insert_leave)
   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
   imap <buffer> <leader> <Esc><leader>
+
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
   call s:unite_tabs_and_windows()
 endfunction
 
