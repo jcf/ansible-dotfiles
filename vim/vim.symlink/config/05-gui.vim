@@ -34,3 +34,14 @@ if has("gui_running")
   map  <D-9> 9gt
   imap <D-9> <Esc>9gt
 endif
+
+if has("gui_macvim")
+  let cinema_display =
+        \ system("system_profiler SPDisplaysDataType | grep -i 'Cinema HD'")
+
+  if v:shell_error
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+  else
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  endif
+endif
