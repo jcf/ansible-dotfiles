@@ -86,6 +86,11 @@ augroup Haskell " {{{
   autocmd! BufEnter *.hs compiler ghc
 augroup END " }}}
 
+augroup Go " {{{
+  " Automatically format our Go code when we write the current buffer to disk
+  autocmd! FileType go autocmd BufWritePre <buffer> Fmt
+augroup END " }}
+
 " TODO Stop inserting comments when pressing o/O!!!
 "
 " This doesn't work because Vim executes ftplugin files, which typically

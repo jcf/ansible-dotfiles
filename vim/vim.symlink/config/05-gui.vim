@@ -44,4 +44,6 @@ if has("gui_macvim")
   else
     set guifont=Source\ Code\ Pro\ for\ Powerline:h14
   endif
+else
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 endif
