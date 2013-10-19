@@ -1,4 +1,3 @@
-
 " Basic configuration {{{
   filetype off
   syntax on
