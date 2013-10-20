@@ -5,6 +5,6 @@
 
 export VI_SERVER=${(z)VI_SERVER:-$(basename $(pwd))}
 
-e --servername $VI_SERVER --remote-silent $*
+$EDITOR --servername $VI_SERVER --remote-silent $*
 
 # vim: ft=zsh
