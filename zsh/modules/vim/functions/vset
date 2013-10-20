@@ -1,0 +1,10 @@
+# Set the name of any vim session from the current shell
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: vset <server_name>"
+  return 1
+else
+  export VI_SERVER=$1
+fi
+
+# vim: ft=zsh
