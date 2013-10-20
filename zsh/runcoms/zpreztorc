@@ -22,6 +22,7 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'editor' \
+  'vim' \
   'history' \
   'directory' \
   'spectrum' \

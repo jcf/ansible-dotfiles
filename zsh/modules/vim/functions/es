@@ -1,0 +1,10 @@
+# Starts up Vim, connecting to an existing server if one exists.
+#
+# If `$VI_SERVER` is set, we'll use this value. If however it is missing we'll
+# use the current directory as our servername.
+
+export VI_SERVER=${(z)VI_SERVER:-$(basename $(pwd))}
+
+e --servername $VI_SERVER --remote-silent $*
+
+# vim: ft=zsh
