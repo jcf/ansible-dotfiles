@@ -36,13 +36,18 @@ if has("gui_running")
 endif
 
 if has("gui_macvim")
-  let cinema_display =
-        \ system("system_profiler SPDisplaysDataType | grep -i 'Cinema HD'")
+  fun! b:has_display(name)
+    let _ = system("system_profiler SPDisplaysDataType | grep -i '" . a:name . "'")
+    return v:shell_error == 0
+  endfun
 
-  if v:shell_error
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+  let cinema_display = b:has_display("Cinema HD")
+  let thunderbolt_display = b:has_display("Thunderbolt Display")
+
+  if cinema_display || thunderbolt_display
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h15
   else
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h13
   endif
 else
   set guifont=Source\ Code\ Pro\ for\ Powerline:h13
