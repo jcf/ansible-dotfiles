@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+# Adds staging and production remotes based on the origin remote.
+#
+# For example,
+#
+#   git@github.com:org/app-name.git
+#
+# …produces:
+#
+#   production  git@heroku.logi.cl:app-name-production.git
+#   staging     git@heroku.logi.cl:app-name-staging.git
+
+origin = %x(git config remote.origin.url)
+_, _, app_name = *origin.match(%r|:(.*?)/(.*?)\.git$|)
+
+%w(staging production).each do |env|
+  system "git remote add #{env} git@heroku.logi.cl:#{app_name}-#{env}.git"
+end
