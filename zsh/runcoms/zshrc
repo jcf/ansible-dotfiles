@@ -9,3 +9,6 @@ path=("$DOT/bin" $path)
 # Source Prezto.
 [[ -s "$DOTZSH/init.zsh" ]] && source "$DOTZSH/init.zsh"
 [[ -s "$DOT/priv/env.zsh" ]] && source "$DOT/priv/env.zsh"
+
+# added by travis gem
+[ -f /Users/jcf/.travis/travis.sh ] && source /Users/jcf/.travis/travis.sh
