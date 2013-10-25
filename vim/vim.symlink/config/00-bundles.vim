@@ -129,6 +129,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Fancy file browser
   NeoBundle 'Shougo/vimfiler.vim'
+
+  " Tag browser
+  NeoBundle 'majutsushi/tagbar'
 " }}}
 
 " Unite plugins {{{
