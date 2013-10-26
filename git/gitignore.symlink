@@ -1,3 +1,4 @@
+*.elc
 *.rbc
 *.rdb
 *.ser
