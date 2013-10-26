@@ -30,6 +30,7 @@
 
 (use-package dired-x)
 (use-package winner-mode)
+(use-package sh-mode)
 
 (use-package helm
   :init
@@ -433,3 +434,5 @@
 (let ((sandbox-path (f-expand "sandbox" user-emacs-directory)))
   (when (f-dir? sandbox-path)
     (-each (f--files sandbox-path (equal (f-ext it) "el")) 'load)))
+
+(server-start)

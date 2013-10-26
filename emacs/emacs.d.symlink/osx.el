@@ -43,3 +43,6 @@
 
 ;; Quit with Command-q
 (global-set-key (kbd "M-q") 'save-buffers-kill-emacs)
+
+;; Paste
+(global-set-key (kbd "M-v") 'simpleclip-paste)

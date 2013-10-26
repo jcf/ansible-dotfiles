@@ -200,8 +200,3 @@ function find-exec {
 function psu {
   ps -U "${1:-$USER}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
-
-# Open a file or the current directory in Emacs
-function ec {
-  open -a /usr/local/Cellar/emacs/24.3/Emacs.app ${1-.}
-}

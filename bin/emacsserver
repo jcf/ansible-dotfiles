@@ -1,0 +1,2 @@
+#!/bin/bash
+open -a /usr/local/Cellar/emacs/24.3/Emacs.app "$@"
