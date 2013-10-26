@@ -29,6 +29,7 @@
 ;;;; Packages
 
 (use-package dired-x)
+(use-package winner-mode)
 
 (use-package helm
   :init
