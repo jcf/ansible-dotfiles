@@ -22,7 +22,6 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'editor' \
-  'vim' \
   'emacs' \
   'history' \
   'directory' \
