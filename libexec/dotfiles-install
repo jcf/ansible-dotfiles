@@ -5,12 +5,10 @@
 #
 # Help: Checks for required external dependencies that are a pain to install
 # automatically, and then install those dependencies that aren't.
-#
-# Install will check for Homebrew, and install the most basic of packages with
-# it. It will then clone Vundle for Vim bundles, and 
 set -e
 
 dotfiles-packages
+dotfiles-emacs
 dotfiles-ruby
 # dotfiles-go
 dotfiles-python

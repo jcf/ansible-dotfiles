@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+set -e
+
+cd ~/.emacs.d
+~/.cask/bin/cask install >/dev/null
