@@ -61,20 +61,23 @@ git submodule update --init
 say "Installing MacVim..."
 brew_install "macvim" "--with-cscope --with-lua --override-system-vim --HEAD"
 
+say "Installing Emacs..."
+brew_install "emacs" "--cocoa --keep-ctags --use-git-head --with-gnutls --with-x --HEAD"
+
 say "Installing packages..."
 install_packages
 
 say "Installing neobundle..."
 github_clone 'Shougo/neobundle.vim' $DOTFILES_ROOT/vim/vim.symlink/bundle/neobundle.vim
 
+say "Installing Cask..."
+curl -fsSkL https://raw.github.com/cask/cask/master/go | python
+
 say "Setting up rbenv..."
 setup_rbenv
 
 say "Setting up pyenv..."
 github_clone 'yyuu/pyenv' ~/.pyenv
-
-say "Cloning emacs.d..."
-github_clone 'jcf/prelude' $DOTFILES_ROOT/emacs/emacs.d.symlink
 
 say "Linking dotfiles in to $HOME..."
 dotfiles-link

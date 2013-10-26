@@ -4,3 +4,6 @@
 [submodule "zsh/modules/completion/external"]
 	path = zsh/modules/completion/external
 	url = git://github.com/zsh-users/zsh-completions.git
+[submodule "emacs/emacs.d.symlink/snippets"]
+	path = emacs/emacs.d.symlink/snippets
+	url = git://github.com/jcf/yasnippets.git
