@@ -24,6 +24,7 @@ require 'brew'
 say "Installing missing packages..."
 
 brew_install 'ack'
+brew_install 'coreutils'
 brew_install 'ctags'
 brew_install 'erlang'
 brew_install 'graphviz'
