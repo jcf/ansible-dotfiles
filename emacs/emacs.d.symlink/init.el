@@ -37,34 +37,53 @@
     (helm-mode 1)
     (use-package helm-ag)
     (use-package helm-git-grep)
-    (use-package helm-go-package)))
+    (use-package helm-go-package))
+  :config
+  (progn
+    (global-set-key (kbd "C-x C-f") 'helm-find-files)))
+
+(use-package simpleclip
+  :init (simpleclip-mode 1))
 
 (use-package evil
   :init
   (progn
     (evil-mode 1)
+
     (use-package evil-leader
       :init (global-evil-leader-mode)
       :config
       (progn
        (evil-leader/set-leader ",")
+
        (evil-leader/set-key
          "b" 'helm-buffers-list
          "c" 'ido-dired
-         "d" 'kill-buffer)))
+         "d" 'kill-buffer
+         "f" 'helm-find-files)
+
+       (evil-leader/set-key-for-mode 'ruby-mode
+         "a" 'rspec-toggle-spec-and-target
+         "v" 'rspec-verify
+         "V" 'rspec-verify-all)
+
+       (evil-leader/set-key-for-mode 'feature-mode
+         "v" 'feature-verify-scenario-at-pos
+         "V" 'feature-verify-all-scenarios-in-buffer)))
+
     (use-package evil-surround
       :init (global-surround-mode 1))
+
     (use-package evil-matchit
       :init (global-evil-matchit-mode 1))
+
     (use-package key-chord
       :init (key-chord-mode 1)
       :config
       (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)))
+
   :config
   (setq evil-default-cursor t))
-
-(use-package simpleclip
-  :init (simpleclip-mode 1))
 
 (use-package ido
   :init (ido-mode 1)
@@ -194,6 +213,8 @@
          ("Gemfile$" . ruby-mode)
          ("Capfile$" . ruby-mode)
          ("Guardfile$" . ruby-mode)))
+
+(use-package feature-mode)
 
 (use-package markdown-mode
   :config
