@@ -4,12 +4,12 @@
 # Authors: Sebastian Wiesner <lunaryorn@gmail.com>
 #
 
-# Enable Carton
-if [[ -d "$HOME/.carton" ]]; then
-    path=($HOME/.carton/bin $path)
+# Enable Cask
+if [[ -d "$HOME/.cask" ]]; then
+  path=($HOME/.cask/bin $path)
 
-    alias cai='carton install'
-    alias cau='carton update'
-    alias caI='carton init'
-    alias cae='carton exec'
+  alias cai='cask install'
+  alias cau='cask update'
+  alias caI='cask init'
+  alias cae='cask exec'
 fi

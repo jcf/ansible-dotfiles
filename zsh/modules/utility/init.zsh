@@ -203,5 +203,5 @@ function psu {
 
 # Open a file or the current directory in Emacs
 function ec {
-  open -a /usr/local/Cellar/emacs/24.2/Emacs.app ${1-.}
+  open -a /usr/local/Cellar/emacs/24.3/Emacs.app ${1-.}
 }
