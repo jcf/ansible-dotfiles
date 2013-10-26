@@ -18,6 +18,7 @@ emacs/emacs.d.symlink/.mc-lists.el
 emacs/emacs.d.symlink/auto-save-list
 emacs/emacs.d.symlink/elpa
 emacs/emacs.d.symlink/flycheck-*.el
+emacs/emacs.d.symlink/places
 emacs/emacs.d.symlink/projectile-bookmarks.eld
 emacs/emacs.d.symlink/projectile.cache
 emacs/emacs.d.symlink/sandbox
