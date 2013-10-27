@@ -16,6 +16,8 @@ pmodload 'helper'
 # Source module files
 source "${0:h}/alias.zsh"
 
+export GIT_EDITOR='emacsclient --quiet'
+
 # hub (http://github.com/defunkt/hub)
 if (( $+commands[hub] )); then
   function git() {

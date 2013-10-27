@@ -19,7 +19,7 @@ fi
 
 # TODO Make this version-independent
 export ALTERNATE_EDITOR='emacsserver'
-export EDITOR='emacsclient'
+export EDITOR='emacsclient --no-wait --quiet'
 export VISUAL=$EDITOR
 export PAGER='less'
 
