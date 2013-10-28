@@ -26,12 +26,6 @@
 ;; Truncate lines
 (set-default 'truncate-lines t)
 
-;; Do not blink cursor
-(blink-cursor-mode -1)
-
-;; Do not show any tooltips
-(tooltip-mode -1)
-
 ;; Remove selected region if typing
 (pending-delete-mode 1)
 
