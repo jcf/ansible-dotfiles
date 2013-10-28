@@ -5,6 +5,7 @@
 (depends-on "ag")
 (depends-on "bind-key")
 (depends-on "cider")
+(depends-on "clojure-mode")
 (depends-on "coffee-mode")
 (depends-on "color-theme")
 (depends-on "commander")
