@@ -50,6 +50,9 @@
       (remq 'process-kill-buffer-query-function
             kill-buffer-query-functions))
 
+;; Remove trailing whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Highlight symbol at point
 (add-hook 'find-file-hook 'idle-highlight-mode)
 

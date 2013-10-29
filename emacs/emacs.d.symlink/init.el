@@ -29,6 +29,7 @@
 
 ;;;; Packages
 
+(use-package smooth-scroll)
 (use-package dired-x)
 (use-package winner-mode)
 (use-package sh-mode)
@@ -190,6 +191,11 @@
 (use-package ruby-mode
   :init
   (progn
+    (use-package rbenv
+      :init (global-rbenv-mode)
+      :config
+      (progn
+        (setq rbenv-modeline-function 'rbenv--modeline-plain)))
     (use-package ruby-tools)
     (use-package rhtml-mode
       :mode (("\\.rhtml$" . rhtml-mode)
@@ -212,9 +218,7 @@
     (add-hook 'ruby-mode-hook 'rspec-mode)
     (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
     (setq ruby-deep-indent-paren nil))
-  :bind (("C-M-h" . backward-kill-word)
-         ("C-M-n" . scroll-up-five)
-         ("C-M-p" . scroll-down-five))
+  :bind (("C-M-h" . backward-kill-word))
   :mode (("\\.rake$" . ruby-mode)
          ("\\.gemspec$" . ruby-mode)
          ("\\.ru$" . ruby-mode)
