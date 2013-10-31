@@ -47,6 +47,7 @@ brew_install 'the_silver_surfer'
 brew_install 'tree'
 brew_install 'vimpager'
 brew_install 'wget'
+brew_install 'wrk'
 brew_install 'zeromq'
 
 brew_install_head 'rebar'
