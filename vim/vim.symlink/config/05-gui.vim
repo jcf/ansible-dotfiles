@@ -35,20 +35,22 @@ if has("gui_running")
   imap <D-9> <Esc>9gt
 endif
 
-if has("gui_macvim")
-  fun! b:has_display(name)
-    let _ = system("system_profiler SPDisplaysDataType | grep -i '" . a:name . "'")
-    return v:shell_error == 0
-  endfun
+" Set guifont based on the type of displays connected. If we're not running in
+" MacVim the font will be set to the default value.
+"
+" When running MacVim requires `system_profiler` to determine connected
+" displays.
+ruby <<RUBY
+  size = 13
+  sizes = {
+    'Cinema HD' => 14,
+    'Thunderbolt Display' => 15
+  }
 
-  let cinema_display = b:has_display("Cinema HD")
-  let thunderbolt_display = b:has_display("Thunderbolt Display")
+  if Vim.evaluate('has("gui_macvim")')
+    displays = %x(system_profiler SPDisplaysDataType)
+    size = sizes.each { |name, size| break size if displays.include?(name) }
+  end
 
-  if cinema_display || thunderbolt_display
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h15
-  else
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-  endif
-else
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-endif
+  Vim.set_option("guifont=Source\\ Code\\ Pro\\ for\\ Powerline:h#{size}")
+RUBY
