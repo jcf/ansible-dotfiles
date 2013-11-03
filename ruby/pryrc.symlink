@@ -9,6 +9,9 @@ Pry.commands.alias_command 'n', 'next' rescue nil
 #   proc { |obj, nest_level, _| "#{RUBY_VERSION} [#{nest_level}] * " }
 # ]
 
+# No more pager. It's awful.
+Pry.config.pager = nil
+
 # TODO Use better colours
 Pry.config.ls.heading_color = :magenta
 Pry.config.ls.public_method_color = :green
