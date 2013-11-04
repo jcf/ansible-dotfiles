@@ -56,12 +56,12 @@ autocmd UniteAutoCmd FileType unite call s:unite_settings()
 " Jump to a project {{{
   map <leader>P :<C-u>execute 'Unite directory:' . expand('~/Code') .
         \ ' directory_mru ' .
-        \ '-buffer-name=directories ' .
+        \ '-buffer-name=cdable -profile-name=cdable ' .
         \ '-start-insert -toggle -default-action=cd'<CR>
 " }}}
 
 " Open Vim configs quickly {{{
-  map <leader>vc :<C-u>execute 'Unite file:' . expand('~/.vim/config') .
+  map <leader>vc :<C-u>execute 'Unite file_rec/async:' . expand('~/.vim/config') .
         \ ' -buffer-name=configs ' .
         \ '-start-insert -toggle -profile-name=files'<CR>
 " }}}
