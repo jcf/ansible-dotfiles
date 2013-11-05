@@ -1,0 +1,2 @@
+export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+# vim: ft=sh
