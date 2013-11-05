@@ -102,6 +102,7 @@ snippet pry "Pry that binding" !
 require 'pry'; binding.pry$0
 endsnippet
 
+
 snippet desc "require 'spec_helper' ... describe" !
 require 'spec_helper'
 
@@ -109,7 +110,6 @@ describe ${1:`!p snip.rv = classify_path(despec(snip.basename))`} do
   $0
 end
 endsnippet
-
 
 snippet descc "require 'spec_helper' ... describe subject" !
 require 'spec_helper'
@@ -121,13 +121,15 @@ describe ${1:`!p snip.rv = classify_path(despec(snip.basename))`} do
 end
 endsnippet
 
+snippet sub "subject(:etc)" !
+subject(:`!p snip.rv = despec(snip.basename)`) { `!p snip.rv = classify_path(despec(snip.basename))`.new }
+endsnippet
 
 snippet des "describe 'method_name'" !
 describe '${1:method_name}' do
   $0
 end
 endsnippet
-
 
 snippet bef "before do ... end" !
 before do
