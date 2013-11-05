@@ -49,7 +49,9 @@ ruby <<RUBY
 
   if Vim.evaluate('has("gui_macvim")')
     displays = %x(system_profiler SPDisplaysDataType)
-    size = sizes.each { |name, size| break size if displays.include?(name) }
+    if match = sizes.detect { |name, _| displays.include?(name) }
+      size = match.last
+    end
   end
 
   Vim.set_option("guifont=Source\\ Code\\ Pro\\ for\\ Powerline:h#{size}")
