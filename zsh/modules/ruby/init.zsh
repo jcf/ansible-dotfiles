@@ -104,7 +104,7 @@ alias rbng='ruby --ng -S'
 # fi
 
 # Settings from: https://github.com/jruby/jruby/wiki/Improving-startup-time
-export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify --2.0"
+export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify -J-Djruby.launch.inproc=true"
 
 if (( $+commands[foreman] )); then
   alias fs='foreman start'
