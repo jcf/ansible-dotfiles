@@ -13,10 +13,9 @@
 .hg*
 .lein-repl-history
 .netrwhist
+.nrepl-port
 .rake_tasks
-.rbenv-version
 .ruby-version
-.rvmrc
 .svn
 Session.vim
 \#*#
