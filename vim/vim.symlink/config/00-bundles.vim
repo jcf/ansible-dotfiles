@@ -143,6 +143,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
 
 " Vim powerups {{{
+  " Orgmode
+  NeoBundle 'jceb/vim-orgmode'
+
   " Improved % matching
   NeoBundle 'matchit.zip'
 
