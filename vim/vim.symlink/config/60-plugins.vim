@@ -79,8 +79,3 @@
 " Ultisnips {{{
   let g:UltiSnipsSnippetDirectories  = ['snippets']
 " }}}
-
-" Paredit {{{
-  " Disable paredit by default
-  let g:paredit_mode = 0
-" }}}
