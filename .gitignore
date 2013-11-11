@@ -27,6 +27,7 @@ emacs/emacs.d.symlink/tramp
 emacs/emacs.d.symlink/var
 
 clojure/lein.symlink/*
+!clojure/lein.symlink/dev
 !clojure/lein.symlink/profiles.clj
 
 haskell/cabal.symlink/*
