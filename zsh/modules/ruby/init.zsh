@@ -88,6 +88,8 @@ if (( $+commands[bundle] )); then
   alias bu='bundle update'
   alias bs='bundle show'
 
+  export BUNDLE_JOBS=4
+
   # Start Guard using bundle exec
   alias beg='bundle exec guard'
 fi
