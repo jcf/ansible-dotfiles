@@ -162,6 +162,9 @@ function now {
 # Serves a directory via HTTP.
 alias http-serve='python -m SimpleHTTPServer'
 
+# Prints a UUID
+alias uuid='python -c "import uuid; print(str(uuid.uuid4()))"'
+
 #
 # Functions
 #
