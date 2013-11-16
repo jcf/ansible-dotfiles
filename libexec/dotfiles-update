@@ -4,9 +4,30 @@
 # Summary: Update installed dependencies
 set -e
 
-say() {
-  echo "\e[33m=>\e[0m $@"
-}
+skip_repo=""
+syslog=""
+for args in "$@"
+do
+  if [ "$args" = "--skip-repo" ]; then
+    skip_repo=1
+    shift
+  fi
+
+  if [ "$args" = "--syslog" ]; then
+    syslog=1
+    shift
+  fi
+done
+
+if [ -z $syslog ]; then
+  say() {
+    echo "\e[33m=>\e[0m $@"
+  }
+else
+  say() {
+    logger $@
+  }
+fi
 
 updating() {
   say "Updating $1..."
@@ -21,9 +42,11 @@ print_packages() {
   [[ $# -ne 0 ]] && echo "\e[36m=>\e[0m Updates available for" ${(j:, :)@}
 }
 
-updating "dotfiles"
-pull $DOT
-git update-submodules &>/dev/null
+if [ -z $skip_repo ]; then
+  updating "dotfiles"
+  pull $DOT
+  git update-submodules &>/dev/null
+fi
 
 updating "homebrew"
 brew update --head &>/dev/null

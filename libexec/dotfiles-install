@@ -7,6 +7,7 @@
 # automatically, and then install those dependencies that aren't.
 set -e
 
+dotfiles-autoupdate
 dotfiles-packages
 dotfiles-emacs
 dotfiles-ruby

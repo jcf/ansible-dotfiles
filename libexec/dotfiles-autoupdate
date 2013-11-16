@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+# Usage: dotfiles autoupdate
+#
+# Summary: Sets up a daily dotfiles update via launchd.
+#
+# Help: Runs `dotfiles update --skip-repo` to keep your environment up-to-date.
+#
+# The dotfiles repo is not pulled, and its submodules are not updated, as a
+# clean working directory is required to complete this task and automating
+# commits, and resolution of conflicts is best left to the user.
+set -e
+
+ln -sf $DOT/osx/dotfiles.autoupdate.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/dotfiles.autoupdate.plist
