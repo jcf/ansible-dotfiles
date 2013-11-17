@@ -226,6 +226,8 @@ let mapleader = ','
 
     if filewritable('.zeus.sock')
       call add(l:cmd, 'zeus')
+    elseif filereadable('project.clj')
+      call add(l:cmd, 'lein with-profile test')
     elseif filereadable('Gemfile')
       call add(l:cmd, 'bundle exec')
     endif
