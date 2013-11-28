@@ -13,6 +13,9 @@
     [clojure.test :as test]
     [clojure.tools.namespace.repl :refer (refresh refresh-all)]))
 
+(try (require 'leiningen.hooks.difftest)
+  (catch java.io.FileNotFoundException _))
+
 (defmacro local-bindings
   "Produces a map of the names of local bindings to their values."
   []
