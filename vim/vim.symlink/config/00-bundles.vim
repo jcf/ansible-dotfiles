@@ -81,6 +81,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'tpope/vim-classpath'
     NeoBundle 'paredit.vim'
     NeoBundle 'kien/rainbow_parentheses.vim'
+    NeoBundle 'jgdavey/vim-hearth' " Run tests from inside Vim
   " }}}
 
   " Syntax add-on for TomDoc comments
