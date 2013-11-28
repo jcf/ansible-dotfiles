@@ -44,7 +44,7 @@ ruby <<RUBY
   size = 13
   sizes = {
     'Cinema HD' => 14,
-    'Thunderbolt Display' => 15
+    'Thunderbolt Display' => 14
   }
 
   if Vim.evaluate('has("gui_macvim")')
