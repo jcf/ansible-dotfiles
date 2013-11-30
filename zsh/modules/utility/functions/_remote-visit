@@ -1,2 +1,0 @@
-#compdef remote-visit
-compdef _ssh remote-visit=ssh
