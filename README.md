@@ -6,6 +6,10 @@ environment for a number of programming languages.
 There's a `dotfiles` executable that helps you install the packages that
 you need to build great products, and keep your environment up-to-date.
 
+Everything related to Z-Shell is in my fork of [Prezto][]. All things
+zsh used to be vendored in this repo, but this meant a manual update
+process any time new features were added to Prezto.
+
 # Getting started
 
 To get started you'll want to install [Xcode][] (installing Command Line
@@ -128,5 +132,6 @@ Unless otherwise stated, everything is covered by the MIT license.
   <img alt="MacVim" src="http://f.cl.ly/items/1m1M41221S233C0h0D2T/macvim.png"></img>
 </a>
 
+[Prezto]: https://github.com/jcf/prezto
 [Xcode]: https://developer.apple.com/xcode/
 [Homebrew]: https://github.com/mxcl/homebrew/wiki/Installation
