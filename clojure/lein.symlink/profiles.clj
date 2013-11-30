@@ -1,9 +1,11 @@
 {:user {:dependencies [[slamhound "1.3.1"]
                        [org.clojure/tools.namespace "0.2.4"]
                        [clj-stacktrace "0.2.7"]]
-        :plugins [[lein-difftest "2.0.0"]
+
+        :plugins [[lein-pprint "1.1.1"]
+                  [lein-difftest "2.0.0"]
+                  [lein-cloverage "1.0.2"]
                   [lein-marginalia "0.7.1"]
-                  [lein-pprint "1.1.1"]
                   [lein-swank "1.4.4"]
                   [lein-kibit "0.0.8"]]
 
