@@ -45,6 +45,7 @@ print_packages() {
 if [ -z $skip_repo ]; then
   updating "dotfiles"
   pull $DOT
+  pull "$DOT/zsh"
   git update-submodules &>/dev/null
 fi
 
