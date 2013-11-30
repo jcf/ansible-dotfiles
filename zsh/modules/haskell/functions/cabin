@@ -1,5 +1,0 @@
-cabal init --minimal \
-  --version=0.0.1 \
-  --author="James Conroy-Finn" \
-  --email="james@logi.cl" \
-  $@

@@ -1,2 +1,0 @@
-#compdef vb
-_files -W ~/.dotfiles/vim/vim.symlink/bundle -/

@@ -1,8 +1,0 @@
-ssh -T $@ <<'EOF'
-  osascript -e "
-    tell application \"Google Chrome\"
-      tell active tab of window 1 to reload
-      tell application \"System Events\" to keystroke \"j\"
-    end tell
-  "
-EOF

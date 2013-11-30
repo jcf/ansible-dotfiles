@@ -1,2 +1,0 @@
-#!/usr/bin/env zsh
-for code in {000..255}; do print -nP -- "%F{$code}$code%f "; done
