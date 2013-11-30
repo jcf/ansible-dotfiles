@@ -1,18 +1,42 @@
 # All the colours please
 set -g default-terminal "screen-256color"
 
-# Use a black background with white text in status bar
-set -g status-bg black
-set -g status-fg white
+# Move status bar to top of screen
+set-option -g status-position top
 
-# Current or active window in status bar
-set-window-option -g window-status-current-format '#[bg=blue,fg=white,bold]#I #[fg=white]#W#[fg=dim]#F'
+# Use a black background with white text in status bar
+set-option -g status-fg colour10
+set-option -g status-bg black
+set-option -g status-attr default
+
+# Default window title colors
+set-window-option -g window-status-fg default
+set-window-option -g window-status-bg default
+set-window-option -g window-status-attr dim
+
+# Active window title colors
+set-window-option -g window-status-current-fg white
+set-window-option -g window-status-current-bg blue
+set-window-option -g window-status-current-attr default
+
+# Command/message line colors
+set-option -g message-fg white
+set-option -g message-bg black
+set-option -g message-attr bright
 
 # Inactive windows in status bar
-set-window-option -g window-status-format '#[fg=cyan,dim]#I#[fg=blue]:#[default]#W#[fg=grey,dim]#F'
+set -g window-status-format '#[fg=colour10]#I #W#F'
+
+# Current or active window in status bar
+set -g window-status-current-format '#[bg=black,fg=white]#I #[fg=white]#W#[fg=dim]#F'
+
+# Left side of status bar
+set -g status-left '#[fg=colour10]#S '
 
 # Right side of status bar
-set -g status-right ''
+set -g status-right '#H  %b %d %R'
+
+set-option -g display-time 1000
 
 # Subtle pane borders
 set-option -g pane-active-border-fg colour8
@@ -28,6 +52,7 @@ bind | split-window -h
 bind _ split-window -v
 
 # Act like Vim
+set -g status-keys vi
 setw -g mode-keys vi
 bind h select-pane -L
 bind j select-pane -D
@@ -35,11 +60,9 @@ bind k select-pane -U
 bind l select-pane -R
 bind-key -r C-h select-window -t :-
 bind-key -r C-l select-window -t :+
-set-option -g status-keys vi
-set-window-option -g mode-keys vi
 
 # Let go of an escape keypress quickly
-set-option -s escape-time 10
+set-option -s escape-time 0
 
 # Start window count at 1, not zero
 set -g base-index 1
