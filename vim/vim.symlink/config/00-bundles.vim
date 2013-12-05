@@ -162,6 +162,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Like make but async, with support for tmux and more
   NeoBundle 'tpope/vim-dispatch'
 
+  " Switch panes with C-hjkl
+  NeoBundle 'christoomey/vim-tmux-navigator'
+
   " Maps from files to tests, and works with dispatch!
   NeoBundle 'jgdavey/vim-turbux'
 
