@@ -165,6 +165,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Switch panes with C-hjkl
   NeoBundle 'christoomey/vim-tmux-navigator'
 
+  " Control tmux from inside Vim!
+  NeoBundle 'mhinz/vim-tmuxify'
+
   " Maps from files to tests, and works with dispatch!
   NeoBundle 'jgdavey/vim-turbux'
 
