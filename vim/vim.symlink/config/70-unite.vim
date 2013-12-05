@@ -3,14 +3,10 @@ augroup UniteAutoCmd
 augroup END
 
 function! s:unite_tabs_and_windows()
-  nmap <buffer> <C-h> <C-w>h
-  nmap <buffer> <C-j> <C-w>j
-  nmap <buffer> <C-k> <C-w>k
-  nmap <buffer> <C-l> <C-w>l
-  imap <buffer> <C-h> <Esc><C-w>h
-  imap <buffer> <C-j> <Esc><C-w>j
-  imap <buffer> <C-k> <Esc><C-w>k
-  imap <buffer> <C-l> <Esc><C-w>l
+  imap <buffer> <C-h> <Esc><C-h>
+  imap <buffer> <C-j> <Esc><C-j>
+  imap <buffer> <C-k> <Esc><C-k>
+  imap <buffer> <C-l> <Esc><C-l>
   nmap <buffer> H gT
   nmap <buffer> L gt
   nmap <buffer> <leader>x :bd!<CR>

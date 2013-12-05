@@ -18,8 +18,8 @@ let mapleader = ','
 " }}}
 
 " <C-L> clear highlight as well as redraw {{{
-  nnoremap <C-L> :nohls<CR><C-L>
-  inoremap <C-L> <C-O>:nohls<CR>
+  nnoremap <C-;> :nohls<CR><C-L>
+  inoremap <C-;> <C-O>:nohls<CR>
 " }}}
 
 " map Q to something useful {{{
