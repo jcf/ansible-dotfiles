@@ -168,8 +168,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Control tmux from inside Vim!
   NeoBundle 'mhinz/vim-tmuxify'
 
+  " Disabled until https://github.com/sjl/vitality.vim/issues/19 resolved.
+  "
   " Switch cursors when in insert mode (works with iTerm2+tmux)
-  NeoBundle 'sjl/vitality.vim'
+  " NeoBundle 'sjl/vitality.vim'
 
   " Maps from files to tests, and works with dispatch!
   NeoBundle 'jgdavey/vim-turbux'
