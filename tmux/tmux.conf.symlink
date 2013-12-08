@@ -69,8 +69,14 @@ unbind [
 bind ` copy-mode
 unbind p
 bind p paste-buffer
-bind -t vi-copy v begin-selection
-bind -t vi-copy y copy-selection
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Let go of an escape keypress quickly
 set-option -s escape-time 0
@@ -80,9 +86,6 @@ set -g base-index 1
 
 # Keep tmux msgs around longer
 set -g display-time 3000
-
-# Copy and paste to OS X
-set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 # Enable some mouse support
 set -g mode-mouse on
