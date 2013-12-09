@@ -44,17 +44,6 @@
   let g:syntastic_auto_loc_list = 0
 " }}}
 
-" Powerline {{{
-  if has('gui_running')
-    " Use fancy symbols
-    let g:Powerline_symbols = 'fancy'
-  endif
-
-  " Go Solarized
-  let g:Powerline_theme = 'solarized256'
-  let g:Powerline_colorscheme = 'solarized256'
-" }}}
-
 " Turbux {{{
   let g:no_turbux_mappings = 1
   let g:turbux_command_rspec='bundle exec rspec --tty'
