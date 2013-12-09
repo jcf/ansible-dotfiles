@@ -1,3 +1,4 @@
+# vim: ft=gitconfig
 [user]
   name = James Conroy-Finn
   email = james@logi.cl
@@ -107,5 +108,5 @@
   pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
-
-# vim: ft=gitconfig
+[rerere]
+  enabled = true
