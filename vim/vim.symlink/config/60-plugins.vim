@@ -62,7 +62,8 @@
 " }}}
 
 " Highlight indentation level {{{
-  let g:indentLine_color_gui = '#073642'
+    let g:indentLine_color_term = 000
+    let g:indentLine_color_gui = '#073642'
 " }}}
 
 " Ultisnips {{{
