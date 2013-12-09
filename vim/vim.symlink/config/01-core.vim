@@ -65,9 +65,6 @@
   " Two lines for commands. This tends to shut up some naggy commands.
   set cmdheight=2
 
-  " Tell the term has 256 colors
-  set t_Co=256
-
   " Hide buffers when not displayed
   set hidden
 
