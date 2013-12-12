@@ -1,5 +1,5 @@
 set background=dark
-colorscheme solarized
+colorscheme wombat256mod
 
 " textwidth < 81 please
 set colorcolumn=81
