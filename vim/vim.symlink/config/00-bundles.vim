@@ -92,9 +92,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
 
 " Colour schemes {{{
-  NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'Lokaltog/vim-distinguished'
+  NeoBundle 'Wombat'
+  NeoBundle 'wombat256.vim'
+  NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'sjl/badwolf'
+  NeoBundle 'tomasr/molokai'
   NeoBundle 'tpope/vim-vividchalk'
+  NeoBundle 'w0ng/vim-hybrid'
+  NeoBundle 'zeis/vim-kolor'
 " }}}
 
 " Vim modes {{{
