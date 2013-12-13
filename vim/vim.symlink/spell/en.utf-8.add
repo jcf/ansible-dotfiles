@@ -24,3 +24,6 @@ hyperlink
 keypresses
 REPL
 js
+scrollback
+iTerm2
+tmux
