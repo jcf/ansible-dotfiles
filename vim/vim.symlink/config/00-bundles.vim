@@ -254,4 +254,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Version control changes in signs
   NeoBundle 'mhinz/vim-signify'
+
+  " Follow coding guidelines implemented with http://editorconfig.org/
+  NeoBundle 'editorconfig/editorconfig-vim'
 " }}}
