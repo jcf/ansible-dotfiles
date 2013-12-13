@@ -124,12 +124,12 @@ Unless otherwise stated, everything is covered by the MIT license.
 
 # Screenshots
 
-<a href="http://cl.ly/image/1X2g2T1q1H2C">
-  <img alt="iTerm 2" src="http://f.cl.ly/items/0v2X3F122p1i3g3K3g31/iterm2-thumb.png"></img>
+<a href="http://cl.ly/image/2P1h270Z3n3a">
+  <img alt="iTerm2" src="http://f.cl.ly/items/2A0p2z1B212Z1d341S2x/shell.png"></img>
 </a>
 
-<a href="http://cl.ly/image/2B253h193q0z">
-  <img alt="MacVim" src="http://f.cl.ly/items/1m1M41221S233C0h0D2T/macvim.png"></img>
+<a href="http://cl.ly/image/0F2J1f331J3v">
+  <img alt="MacVim" src="http://f.cl.ly/items/2z0E2U0G0F3V2m3s3m0j/editor.png"></img>
 </a>
 
 [Prezto]: https://github.com/jcf/prezto
