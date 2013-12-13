@@ -11,7 +11,7 @@ set -g default-terminal "xterm-256color"
 set-option -g status-position top
 
 # Use a black background with white text in status bar
-set-option -g status-fg colour10
+set-option -g status-fg white
 set-option -g status-bg black
 set-option -g status-attr default
 
@@ -23,7 +23,7 @@ set-window-option -g window-status-attr dim
 # Active window title colors
 set-window-option -g window-status-current-fg white
 set-window-option -g window-status-current-bg blue
-set-window-option -g window-status-current-attr default
+set-window-option -g window-status-current-attr bold
 
 # Command/message line colors
 set-option -g message-fg white
@@ -31,16 +31,16 @@ set-option -g message-bg black
 set-option -g message-attr bright
 
 # Inactive windows in status bar
-set -g window-status-format '#[fg=colour10]#I #W#F'
+set -g window-status-format '#[fg=colour240]#I #W#F'
 
 # Current or active window in status bar
 set -g window-status-current-format '#[bg=black,fg=white]#I #[fg=white]#W#[fg=dim]#F'
 
 # Left side of status bar
-set -g status-left '#[fg=colour10]#S '
+set -g status-left '#[fg=colour240]#S '
 
 # Right side of status bar
-set -g status-right '#H  %b %d %R'
+set -g status-right '#[fg=colour240]#H  %b %d %R'
 
 set-option -g display-time 1000
 
