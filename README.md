@@ -1,5 +1,10 @@
 # dotfiles
 
+These dotfiles are my own, and I'm constantly making changes. As such
+they're **unstable**. They might not work on your computer, after some
+amount of setup. If you want to try them out please feel free, but bear
+in mind I won't be able to support you in getting started.
+
 This repository will help you get setup with ZSH and decent development
 environment for a number of programming languages.
 
