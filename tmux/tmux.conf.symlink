@@ -1,6 +1,9 @@
 # Use the current shell, which is most likely zsh
 set-option -g default-shell $SHELL
 
+# Lots of history. It's not like memory is hard to come by!
+set-option -g history-limit 10000
+
 # All the colours please
 set -g default-terminal "xterm-256color"
 
