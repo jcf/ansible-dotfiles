@@ -1,0 +1,103 @@
+#!/usr/bin/env zsh
+set -e
+
+say() {
+  echo "\e[33m=>\e[0m $@"
+}
+
+require() {
+  type $x >/dev/null 2>&1 || {
+    echo >&2 "dotfiles: $x not installed."; exit 1;
+  }
+}
+
+brew_tap() {
+  brew tap "$1" 2>/dev/null || true
+}
+
+brew_install() {
+  brew install "$1" 2>/dev/null || true
+}
+
+cask_install() {
+  brew cask install "$1" &>/dev/null || true
+}
+
+require 'brew'
+
+say 'Setting up brew-cask...'
+brew_tap 'phinze/homebrew-cask'
+brew_install 'brew-cask'
+
+say 'Installing casks...'
+cask_install 'adium'
+cask_install 'airfoil'
+cask_install 'airmail-beta'
+cask_install 'caffeine'
+cask_install 'colloquy'
+cask_install 'dropbox'
+cask_install 'evernote'
+cask_install 'flip4mac'
+cask_install 'flux'
+cask_install 'github'
+cask_install 'google-chrome'
+cask_install 'google-drive'
+cask_install 'google-earth'
+cask_install 'google-hangouts'
+cask_install 'handbrake'
+cask_install 'hazel'
+cask_install 'hipchat'
+cask_install 'heroku-toolbelt'
+cask_install 'istat-menus'
+cask_install 'iterm2'
+cask_install 'launchbar'
+cask_install 'livereload'
+cask_install 'omnifocus'
+cask_install 'skype'
+cask_install 'sonos'
+cask_install 'spotify'
+cask_install 'visualvm'
+cask_install 'vlc'
+cask_install 'vmware-fusion'
+cask_install 'transmit'
+
+say 'Installing QuickLook plugins...'
+cask_install 'betterzipql'
+cask_install 'qlcolorcode'
+cask_install 'qlmarkdown'
+cask_install 'qlprettypatch'
+cask_install 'qlstephen'
+cask_install 'quicklook-csv'
+cask_install 'quicklook-json'
+cask_install 'suspicious-package'
+cask_install 'webp-quicklook'
+
+say 'Reloading QuickLook plugins...'
+qlmanage -r &>/dev/null
+
+say 'Installing fonts...'
+cask_install 'font-anonymous-pro'
+cask_install 'font-babelstone-han'
+cask_install 'font-code2000'
+cask_install 'font-code2001'
+cask_install 'font-code2002'
+cask_install 'font-cousine'
+cask_install 'font-cousine-bold'
+cask_install 'font-cousine-bolditalic'
+cask_install 'font-cousine-italic'
+cask_install 'font-dejavu'
+cask_install 'font-freesans'
+cask_install 'font-inconsolata'
+cask_install 'font-liberation-sans'
+cask_install 'font-musica'
+cask_install 'font-noto-sans'
+cask_install 'font-pt-mono'
+cask_install 'font-pt-sans'
+cask_install 'font-pt-serif'
+cask_install 'font-quivira'
+cask_install 'font-source-code-pro'
+cask_install 'font-source-sans-pro'
+cask_install 'font-symbola'
+cask_install 'font-terminus'
+cask_install 'font-terminusbold'
+cask_install 'font-ubuntu'
