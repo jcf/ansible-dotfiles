@@ -7,9 +7,6 @@ set-option -g history-limit 10000
 # All the colours please
 set -g default-terminal "xterm-256color"
 
-# Move status bar to top of screen
-set-option -g status-position top
-
 # Use a black background with white text in status bar
 set-option -g status-fg white
 set-option -g status-bg black
