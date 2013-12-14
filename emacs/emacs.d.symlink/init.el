@@ -12,7 +12,7 @@
 (require 'f)
 (require 'git)
 (require 'ert)
-; (require 'evm)
+(require 'evm)
 (require 'dash)
 (require 'use-package)
 
