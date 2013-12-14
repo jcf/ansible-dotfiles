@@ -51,6 +51,12 @@
   (progn
     (evil-mode 1)
 
+    (define-key evil-normal-state-map "Y" (kbd "y$"))
+    (define-key evil-normal-state-map ";" 'evil-ex)
+    (define-key evil-normal-state-map (kbd "SPC") 'evil-repeat-find-char)
+    (define-key
+      evil-normal-state-map (kbd "S-SPC") 'evil-repeat-find-char-reverse)
+
     (use-package evil-leader
       :init (global-evil-leader-mode)
       :config
