@@ -64,9 +64,6 @@ git submodule update --init --recursive
 say "Installing MacVim..."
 brew_install "macvim" "--with-cscope --with-lua --override-system-vim --HEAD"
 
-say "Installing Emacs..."
-brew_install "emacs" "--cocoa --keep-ctags --use-git-head --with-gnutls --with-x --HEAD"
-
 say "Installing packages..."
 install_packages
 
@@ -81,6 +78,10 @@ setup_rbenv
 
 say "Setting up pyenv..."
 github_clone 'yyuu/pyenv' ~/.pyenv
+
+say "Setting up evm..."
+github_clone 'rejeep/evm' ~/.evm
+mkdir -p /usr/local/evm || true
 
 say "Linking dotfiles in to $HOME..."
 dotfiles-link

@@ -1,5 +1,13 @@
 #!/usr/bin/env zsh
 set -e
 
+say() {
+  echo "\e[33m=>\e[0m $@"
+}
+
+say "Installing emacs 24.3"
+evm install emacs-24.3 &>/dev/null
+evm use emacs-24.3
+
 cd ~/.emacs.d
 ~/.cask/bin/cask install >/dev/null
