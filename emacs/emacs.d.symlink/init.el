@@ -375,8 +375,7 @@
     (setq eshell-history-size 5000)
     (setq eshell-save-history-on-exit t)))
 
-(use-package solarized-theme
-  :init (load-theme 'solarized-dark t))
+(load-theme 'wombat t)
 
 
 ;;;; Bindings
