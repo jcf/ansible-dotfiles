@@ -13,8 +13,8 @@ hi! link SignColumn LineNr
 " Use a more subtle color to highlight whitespace when using 'listchars'.
 hi! SpecialKey gui=NONE guifg=#113245 guibg=#002b36
 
-hi! ColorColumn ctermbg=black
+hi! ColorColumn guibg=black ctermbg=black
 
 " Use the same background colour everywhere, including non-text regions.
-hi! Normal ctermbg=NONE
-hi! NonText ctermbg=NONE
+hi! Normal guibg=NONE ctermbg=NONE
+hi! NonText guibg=NONE ctermbg=NONE
