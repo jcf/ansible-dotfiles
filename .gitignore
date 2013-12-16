@@ -4,6 +4,7 @@
 *.zwc.old
 \#*#
 bin/mate
+misc/config.symlink/configstore
 misc/config.symlink/hub
 priv
 vim/.netrwhist
