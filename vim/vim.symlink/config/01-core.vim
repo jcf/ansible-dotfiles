@@ -62,8 +62,9 @@
 
   set shell=zsh\ -l
 
-  " Two lines for commands. This tends to shut up some naggy commands.
-  set cmdheight=2
+  " One line for commands. Although two will often supress some naggy
+  " commands, it's too much within tmux.
+  set cmdheight=1
 
   " Hide buffers when not displayed
   set hidden
