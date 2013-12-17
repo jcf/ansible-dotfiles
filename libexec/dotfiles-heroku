@@ -22,7 +22,6 @@ say "Installing heroku plugins..."
 plugin_install 'ddollar/heroku-accounts'
 plugin_install 'ddollar/heroku-config'
 plugin_install 'heroku/heroku-oauth'
-plugin_install 'heroku/heroku-orgs'
 plugin_install 'tpope/heroku-binstubs'
 plugin_install 'tpope/heroku-pgbackups-pull'
 plugin_install 'tpope/heroku-remote'
