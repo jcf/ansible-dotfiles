@@ -20,6 +20,8 @@
   " Set minimum syntax keyword length
   let g:neocomplete#sources#syntax#min_keyword_length = 3
   let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+  let g:neocomplcache_force_overwrite_completefunc = 1
 " }}}
 
 " NERDTree {{{
