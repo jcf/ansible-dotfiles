@@ -7,7 +7,8 @@
                   [lein-cloverage "1.0.2"]
                   [lein-marginalia "0.7.1"]
                   [lein-swank "1.4.4"]
-                  [lein-kibit "0.0.8"]]
+                  [lein-kibit "0.0.8"]
+                  [jonase/eastwood "0.0.2"]]
 
         :injections [(let [orig (ns-resolve (doto 'clojure.stacktrace require)
                                             'print-cause-trace)
