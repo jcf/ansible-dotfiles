@@ -20,7 +20,7 @@ brew_install_head() {
 }
 
 git_clone() {
-  [[ -d $2 ]] || { git clone $1 $2 }
+  [[ -d $2 ]] || { git clone $1 $2 &>/dev/null }
 }
 
 github_clone() {
@@ -45,6 +45,11 @@ install_packages() {
   done
 }
 
+install_prezto() {
+  git clone --recursive \
+    git@github.com:jcf/prezto.git $HOME/.dotfiles/zsh &>/dev/null
+}
+
 setup_rbenv() {
   github_clone 'sstephenson/rbenv' ~/.rbenv
   github_clone 'sstephenson/ruby-build' ~/.rbenv/plugins/ruby-build
@@ -55,11 +60,10 @@ setup_rbenv() {
 require 'brew'
 
 say "Installing Prezto..."
-[[ -d "$HOME/.dotfiles/zsh" ]] ||
-  git clone --recursive git@github.com:jcf/prezto.git $HOME/.dotfiles/zsh
+[[ -d "$HOME/.dotfiles/zsh" ]] || install_prezto
 
 say "Initialising submodules..."
-git submodule update --init --recursive
+git submodule update --init --recursive &>/dev/null
 
 say "Installing MacVim..."
 brew_install "macvim" "--with-cscope --with-lua --override-system-vim --HEAD"
