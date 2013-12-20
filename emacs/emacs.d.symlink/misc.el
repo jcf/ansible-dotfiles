@@ -69,6 +69,10 @@
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
+;; Show line numbers
+(global-linum-mode t)
+(setq linum-format "%d ")
+
 ;; Show trailing whitespace
 (setq-default show-trailing-whitespace t)
 
