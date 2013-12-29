@@ -15,6 +15,8 @@ hi! SpecialKey gui=NONE guifg=#113245 guibg=#002b36
 
 hi! ColorColumn guibg=black ctermbg=black
 
-" Use the same background colour everywhere, including non-text regions.
-hi! Normal guibg=NONE ctermbg=NONE
-hi! NonText guibg=NONE ctermbg=NONE
+" Use the same background colour behind text, and non-text. This removes the
+" two different background colours you get out-of-the-box.
+hi! Normal ctermbg=NONE
+hi! NonText ctermbg=NONE
+hi! link NonText Normal
