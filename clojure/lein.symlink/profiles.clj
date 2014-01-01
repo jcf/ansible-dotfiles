@@ -14,7 +14,7 @@
                                             'print-cause-trace)
                            new (ns-resolve (doto 'clj-stacktrace.repl require)
                                            'pst)]
-                       (alter-var-root orig (constantly (deref new))))]}}
+                       (alter-var-root orig (constantly (deref new))))]
 
         :aliases {"slamhound" ["run" "-m" "slam.hound"]}
         :source-paths ["/Users/jcf/.lein/dev"]
