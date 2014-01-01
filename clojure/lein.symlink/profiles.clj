@@ -2,13 +2,13 @@
                        [org.clojure/tools.namespace "0.2.4"]
                        [clj-stacktrace "0.2.7"]]
 
-        :plugins [[lein-pprint "1.1.1"]
-                  [lein-difftest "2.0.0"]
+        :plugins [[jonase/eastwood "0.0.2"]
                   [lein-cloverage "1.0.2"]
-                  [lein-marginalia "0.7.1"]
-                  [lein-swank "1.4.4"]
+                  [lein-difftest "2.0.0"]
                   [lein-kibit "0.0.8"]
-                  [jonase/eastwood "0.0.2"]]
+                  [lein-marginalia "0.7.1"]
+                  [lein-pprint "1.1.1"]
+                  [lein-swank "1.4.4"]]
 
         :injections [(let [orig (ns-resolve (doto 'clojure.stacktrace require)
                                             'print-cause-trace)
