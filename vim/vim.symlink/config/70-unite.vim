@@ -62,15 +62,9 @@ autocmd UniteAutoCmd FileType unite call s:unite_settings()
         \ '-start-insert -toggle -profile-name=files'<CR>
 " }}}
 
-" VimFiler {{{
-  let g:vimfiler_as_default_explorer = 1
-  let g:vimfiler_data_directory = expand('~/.vim/tmp/vimfiler/')
-  let g:vimfiler_safe_mode_by_default = 0
-  let g:vimfiler_execute_file_list = { "_": "vim" }
-
+" Vimfiler {{{
   nno <leader>n :<C-u>:VimFilerCurrentDir -buffer-name=explorer -toggle<CR>
   nno <leader>N :<C-u>:VimFilerBufferDir -buffer-name=explorer -toggle<CR>
-  " nno ` :<C-u>:VimFilerBufferDir -buffer-name=explorer -toggle<CR>
 
   function! s:vimfiler_settings()
     call s:unite_tabs_and_windows()
@@ -82,17 +76,4 @@ autocmd UniteAutoCmd FileType unite call s:unite_settings()
   endfunction
 
   autocmd UniteAutoCmd Filetype vimfiler call s:vimfiler_settings()
-" }}}
-
-" Ref {{{
-  let g:ref_use_vimproc = 1
-  let g:ref_open = 'vsplit'
-  let g:ref_cache_dir = expand('~/.vim/tmp/ref_cache/')
-  nno <leader>K :<C-u>Unite ref/ri -buffer-name=erlang_docs -start-insert
-        \ -vertical -default-action=split<CR>
-" }}}
-
-" netrw {{{
-  let g:netrw_http_cmd='curl -0 -k -L -vv'
-  let g:netrw_http_xcmd='-o'
 " }}}
