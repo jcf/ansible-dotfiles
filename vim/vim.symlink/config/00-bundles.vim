@@ -112,9 +112,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Make sessions like there's no tomorrow
   NeoBundle 'tpope/vim-obsession'
 
-  " File browser
-  NeoBundle 'scrooloose/nerdtree'
-
   " Merge tool inspired by Adobe Lightroom
   NeoBundle 'killphi/splice.vim', 'fix_spliceinit_crash'
 

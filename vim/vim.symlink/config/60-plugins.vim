@@ -25,12 +25,6 @@
   let g:neocomplete#force_overwrite_completefunc = 1
 " }}}
 
-" NERDTree {{{
-  let NERDTreeIgnore=['\.rbc$', '\.zsh\.zwc$', '\~$']
-  " map <Leader>n :NERDTreeToggle<CR>
-  " map <Leader>f :NERDTreeFind<CR>
-" }}}
-
 " Haskell {{{
   " Use default browser to browse online resources
   let g:haddock_browser = '/usr/bin/open'
