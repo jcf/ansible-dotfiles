@@ -79,7 +79,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundle 'guns/vim-clojure-static'
     NeoBundle 'tpope/vim-fireplace'
     NeoBundle 'tpope/vim-classpath'
-    NeoBundle 'paredit.vim'
+    " NeoBundle 'paredit.vim'
+    NeoBundle 'guns/vim-sexp'
+    NeoBundle 'tpope/vim-sexp-mappings-for-regular-people'
     NeoBundle 'kien/rainbow_parentheses.vim'
     NeoBundle 'jgdavey/vim-hearth' " Run tests from inside Vim
   " }}}
