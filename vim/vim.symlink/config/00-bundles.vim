@@ -155,6 +155,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " Orgmode
   NeoBundle 'jceb/vim-orgmode'
 
+  " Enhanced characters information, including Unicode character names, and
+  " emoji support.
+  NeoBundle 'tpope/vim-characterize'
   " Improved % matching
   NeoBundle 'matchit.zip'
 
