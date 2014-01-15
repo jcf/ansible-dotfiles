@@ -203,7 +203,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'bogado/file-line'
 
   " Visual undo
-  NeoBundle 'sjl/gundo.vim'
+  " NeoBundle 'sjl/gundo.vim'
 
   " Move around quickly and effectively
   NeoBundle 'Lokaltog/vim-easymotion'
