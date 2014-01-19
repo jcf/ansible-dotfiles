@@ -2,261 +2,261 @@
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Ruby {{{
-  NeoBundle 'vim-ruby/vim-ruby'
-  NeoBundle 'tpope/vim-rake'
-  NeoBundle 'tpope/vim-bundler'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-bundler'
 
-  " Insert 'end' automatically
-  NeoBundle 'tpope/vim-endwise'
+" Insert 'end' automatically
+NeoBundle 'tpope/vim-endwise'
 " }}}
 
 " Web Development {{{
-  NeoBundle 'tpope/vim-rails'
-  NeoBundle 'hallison/vim-ruby-sinatra'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'hallison/vim-ruby-sinatra'
 
-  " Open the system color picker
-  NeoBundle 'PickAColor.vim'
+" Open the system color picker
+NeoBundle 'PickAColor.vim'
 
-  " Print colour representations in colour!
-  NeoBundle 'Rykka/colorv.vim'
+" Print colour representations in colour!
+NeoBundle 'Rykka/colorv.vim'
 
-  " Ease manipulation of dynamic HTML templates
-  NeoBundle 'tpope/vim-ragtag'
+" Ease manipulation of dynamic HTML templates
+NeoBundle 'tpope/vim-ragtag'
 
-  " Convert markup to HTML
-  NeoBundle 'matthias-guenther/hammer.vim'
+" Convert markup to HTML
+NeoBundle 'matthias-guenther/hammer.vim'
 
-  " Run commands in your Terminal
-  NeoBundle 'gcmt/tube.vim'
+" Run commands in your Terminal
+NeoBundle 'gcmt/tube.vim'
 
-  " Additional filetypes {{{
-    NeoBundle 'jcf/go.vim'
-    NeoBundle 'wavded/vim-stylus'
-    NeoBundle 'slim-template/vim-slim'
-    NeoBundle 'tpope/vim-haml'
-    NeoBundle 'groenewege/vim-less'
-    NeoBundle 'kchmck/vim-coffee-script'
-    NeoBundle 'pangloss/vim-javascript'
-    NeoBundle 'statianzo/vim-jade'
-    NeoBundle 'timcharper/textile.vim'
-    NeoBundle 'tpope/vim-liquid'
-    NeoBundle 'tpope/vim-markdown'
-    NeoBundle 'itspriddle/vim-jquery'
-    NeoBundle 'nono/vim-handlebars'
-    NeoBundle 'mutewinter/nginx.vim'
-    NeoBundle 'hail2u/vim-css3-syntax'
-  " }}}
+" Additional filetypes {{{
+NeoBundle 'jcf/go.vim'
+NeoBundle 'wavded/vim-stylus'
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'statianzo/vim-jade'
+NeoBundle 'timcharper/textile.vim'
+NeoBundle 'tpope/vim-liquid'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'itspriddle/vim-jquery'
+NeoBundle 'nono/vim-handlebars'
+NeoBundle 'mutewinter/nginx.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+" }}}
 " }}}
 
 " Git {{{
-  NeoBundle 'tpope/vim-fugitive'
-  NeoBundle 'tpope/vim-git'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-git'
 
-  " Get the history behind some part of a file from Git
-  NeoBundle 'gregsexton/gitv', {
-        \ 'depends': ['tpope/vim-fugitive'],
-        \ 'autoload': {'commands': 'Gitv'}}
+" Get the history behind some part of a file from Git
+NeoBundle 'gregsexton/gitv', {
+      \ 'depends': ['tpope/vim-fugitive'],
+      \ 'autoload': {'commands': 'Gitv'}}
 " }}}
 
 " Additional filetypes {{{
-  NeoBundle 'applescript.vim'
-  NeoBundle 'tpope/vim-cucumber'
-  NeoBundle 'ajf/puppet-vim'
-  NeoBundle 'jcf/cocoa.vim'
-  NeoBundle 'jcf/vim-latex'
-  NeoBundle 'leshill/vim-json'
-  NeoBundle 'jimenezrick/vimerl'
+NeoBundle 'applescript.vim'
+NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'ajf/puppet-vim'
+NeoBundle 'jcf/cocoa.vim'
+NeoBundle 'jcf/vim-latex'
+NeoBundle 'leshill/vim-json'
+NeoBundle 'jimenezrick/vimerl'
 
-  " Better Haskell support {{{
-    NeoBundle 'lukerandall/haskellmode-vim'
-    NeoBundle 'eagletmt/ghcmod-vim'
-    NeoBundle 'dag/vim2hs'
-    NeoBundle 'ujihisa/neco-ghc'
-    NeoBundle 'pbrisbin/html-template-syntax'
-  " }}}
+" Better Haskell support {{{
+NeoBundle 'lukerandall/haskellmode-vim'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'dag/vim2hs'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'pbrisbin/html-template-syntax'
+" }}}
 
-  " Better Clojure support {{{
-    NeoBundle 'guns/vim-clojure-static'
-    NeoBundle 'tpope/vim-fireplace'
-    NeoBundle 'tpope/vim-classpath'
-    " NeoBundle 'paredit.vim'
-    NeoBundle 'guns/vim-sexp'
-    NeoBundle 'tpope/vim-sexp-mappings-for-regular-people'
-    NeoBundle 'kien/rainbow_parentheses.vim'
-    NeoBundle 'jgdavey/vim-hearth' " Run tests from inside Vim
-  " }}}
+" Better Clojure support {{{
+NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'tpope/vim-fireplace'
+NeoBundle 'tpope/vim-classpath'
+" NeoBundle 'paredit.vim'
+NeoBundle 'guns/vim-sexp'
+NeoBundle 'tpope/vim-sexp-mappings-for-regular-people'
+NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'jgdavey/vim-hearth' " Run tests from inside Vim
+" }}}
 
-  " Syntax add-on for TomDoc comments
-  NeoBundle 'duwanis/tomdoc.vim'
+" Syntax add-on for TomDoc comments
+NeoBundle 'duwanis/tomdoc.vim'
 
-  " Some helper functions to add TomDoc templates to your Ruby code
-  NeoBundle 'jc00ke/vim-tomdoc'
+" Some helper functions to add TomDoc templates to your Ruby code
+NeoBundle 'jc00ke/vim-tomdoc'
 " }}}
 
 " Colour schemes {{{
-  NeoBundle 'Lokaltog/vim-distinguished'
-  NeoBundle 'Wombat'
-  NeoBundle 'wombat256.vim'
-  NeoBundle 'altercation/vim-colors-solarized'
-  NeoBundle 'sjl/badwolf'
-  NeoBundle 'tomasr/molokai'
-  NeoBundle 'tpope/vim-vividchalk'
-  NeoBundle 'w0ng/vim-hybrid'
-  NeoBundle 'zeis/vim-kolor'
+NeoBundle 'Lokaltog/vim-distinguished'
+NeoBundle 'Wombat'
+NeoBundle 'wombat256.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'sjl/badwolf'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'tpope/vim-vividchalk'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'zeis/vim-kolor'
 " }}}
 
 " Vim modes {{{
-  " Use your Rbenv rubies in Vim
-  NeoBundle 'tpope/vim-rbenv'
+" Use your Rbenv rubies in Vim
+NeoBundle 'tpope/vim-rbenv'
 
-  " Make sessions like there's no tomorrow
-  NeoBundle 'tpope/vim-obsession'
+" Make sessions like there's no tomorrow
+NeoBundle 'tpope/vim-obsession'
 
-  " Merge tool inspired by Adobe Lightroom
-  NeoBundle 'killphi/splice.vim', 'fix_spliceinit_crash'
+" Merge tool inspired by Adobe Lightroom
+NeoBundle 'killphi/splice.vim', 'fix_spliceinit_crash'
 
-  " Add a scratch buffer to keep hold of random snippets
-  NeoBundle 'duff/vim-scratch'
+" Add a scratch buffer to keep hold of random snippets
+NeoBundle 'duff/vim-scratch'
 
-  " Async external commands
-  " Make sure to run `make -f make_mac.mak`
-  NeoBundle 'Shougo/vimproc', {
-        \ 'build' : {
-        \     'windows' : 'make -f make_mingw32.mak',
-        \     'cygwin' : 'make -f make_cygwin.mak',
-        \     'mac' : 'make -f make_mac.mak',
-        \     'unix' : 'make -f make_unix.mak',
-        \    },
-        \ }
+" Async external commands
+" Make sure to run `make -f make_mac.mak`
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 
-  " Search and display information from arbitrary sources like files, buffers,
-  " recently used files or registers
-  NeoBundle 'Shougo/unite.vim'
+" Search and display information from arbitrary sources like files, buffers,
+" recently used files or registers
+NeoBundle 'Shougo/unite.vim'
 
-  " Fancy file browser
-  NeoBundle 'Shougo/vimfiler.vim'
+" Fancy file browser
+NeoBundle 'Shougo/vimfiler.vim'
 
-  " Tag browser
-  NeoBundle 'majutsushi/tagbar'
+" Tag browser
+NeoBundle 'majutsushi/tagbar'
 " }}}
 
 " Unite plugins {{{
-  NeoBundle 'tacroe/unite-mark'
-  NeoBundle 'sgur/unite-git_grep'
-  NeoBundle 'ujihisa/unite-locate'
-  NeoBundle 'tsukkee/unite-tag'
-  NeoBundle 'tsukkee/unite-help'
+NeoBundle 'tacroe/unite-mark'
+NeoBundle 'sgur/unite-git_grep'
+NeoBundle 'ujihisa/unite-locate'
+NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'tsukkee/unite-help'
 " }}}
 
 " Vim powerups {{{
-  " Orgmode
-  NeoBundle 'jceb/vim-orgmode'
+" Orgmode
+NeoBundle 'jceb/vim-orgmode'
 
-  " Enhanced characters information, including Unicode character names, and
-  " emoji support.
-  NeoBundle 'tpope/vim-characterize'
-  " Improved % matching
-  NeoBundle 'matchit.zip'
+" Enhanced characters information, including Unicode character names, and
+" emoji support.
+NeoBundle 'tpope/vim-characterize'
+" Improved % matching
+NeoBundle 'matchit.zip'
 
-  " Lightweight status line replacement
-  NeoBundle 'bling/vim-airline'
+" Lightweight status line replacement
+NeoBundle 'bling/vim-airline'
 
-  " Improved and highly customisable completion
-  NeoBundle 'Shougo/neocomplete.vim'
+" Improved and highly customisable completion
+NeoBundle 'Shougo/neocomplete.vim'
 
-  " At match #N out of M matches
-  NeoBundle 'IndexedSearch'
+" At match #N out of M matches
+NeoBundle 'IndexedSearch'
 
-  " Like make but async, with support for tmux and more
-  NeoBundle 'tpope/vim-dispatch'
+" Like make but async, with support for tmux and more
+NeoBundle 'tpope/vim-dispatch'
 
-  " Switch panes with C-hjkl
-  NeoBundle 'christoomey/vim-tmux-navigator'
+" Switch panes with C-hjkl
+NeoBundle 'christoomey/vim-tmux-navigator'
 
-  " Control tmux from inside Vim!
-  NeoBundle 'mhinz/vim-tmuxify'
+" Control tmux from inside Vim!
+NeoBundle 'mhinz/vim-tmuxify'
 
-  " Disabled until https://github.com/sjl/vitality.vim/issues/19 resolved.
-  "
-  " Switch cursors when in insert mode (works with iTerm2+tmux)
-  " NeoBundle 'sjl/vitality.vim'
+" Disabled until https://github.com/sjl/vitality.vim/issues/19 resolved.
+"
+" Switch cursors when in insert mode (works with iTerm2+tmux)
+" NeoBundle 'sjl/vitality.vim'
 
-  " Maps from files to tests, and works with dispatch!
-  NeoBundle 'jgdavey/vim-turbux'
+" Maps from files to tests, and works with dispatch!
+NeoBundle 'jgdavey/vim-turbux'
 
-  " Speed up handling of large files by turning off some features
-  NeoBundle 'LargeFile'
+" Speed up handling of large files by turning off some features
+NeoBundle 'LargeFile'
 
-  " Golden-ratio splits
-  NeoBundle 'roman/golden-ratio'
+" Golden-ratio splits
+NeoBundle 'roman/golden-ratio'
 
-  " Identation-based text objects
-  NeoBundle 'michaeljsmith/vim-indent-object'
+" Identation-based text objects
+NeoBundle 'michaeljsmith/vim-indent-object'
 
-  " Use space to repeat yourself
-  NeoBundle 'spiiph/vim-space'
+" Use space to repeat yourself
+NeoBundle 'spiiph/vim-space'
 
-  " TextMate style snippets, powered by Python
-  NeoBundle 'SirVer/ultisnips'
+" TextMate style snippets, powered by Python
+NeoBundle 'SirVer/ultisnips'
 
-  " Enables opening files at a specific line (e.g. file.rb:11)
-  NeoBundle 'bogado/file-line'
+" Enables opening files at a specific line (e.g. file.rb:11)
+NeoBundle 'bogado/file-line'
 
-  " Visual undo
-  " NeoBundle 'sjl/gundo.vim'
+" Visual undo
+" NeoBundle 'sjl/gundo.vim'
 
-  " Move around quickly and effectively
-  NeoBundle 'Lokaltog/vim-easymotion'
+" Move around quickly and effectively
+NeoBundle 'Lokaltog/vim-easymotion'
 
-  " Abbreviation, substitution, coercion
-  NeoBundle 'tpope/vim-abolish'
+" Abbreviation, substitution, coercion
+NeoBundle 'tpope/vim-abolish'
 
-  " Syntax check files using external executables
-  NeoBundle 'scrooloose/syntastic'
+" Syntax check files using external executables
+NeoBundle 'scrooloose/syntastic'
 
-  " Comment with ease
-  NeoBundle 'tpope/vim-commentary'
+" Comment with ease
+NeoBundle 'tpope/vim-commentary'
 
-  " Add support for Ag (the_silver_surfer)
-  NeoBundle 'epmatsw/ag.vim'
+" Add support for Ag (the_silver_surfer)
+NeoBundle 'epmatsw/ag.vim'
 
-  " Adds functions to remove/rename files etc.
-  NeoBundle 'tpope/vim-eunuch'
+" Adds functions to remove/rename files etc.
+NeoBundle 'tpope/vim-eunuch'
 
-  " Repeat the last Tim Popeism you performed
-  NeoBundle 'tpope/vim-repeat'
+" Repeat the last Tim Popeism you performed
+NeoBundle 'tpope/vim-repeat'
 
-  " Use CTRL-A/X to increment dates, times, and more
-  NeoBundle 'tpope/vim-speeddating'
+" Use CTRL-A/X to increment dates, times, and more
+NeoBundle 'tpope/vim-speeddating'
 
-  " Surround with visual selections
-  NeoBundle 'tpope/vim-surround'
+" Surround with visual selections
+NeoBundle 'tpope/vim-surround'
 
-  " Complementary pairs of mappings
-  NeoBundle 'tpope/vim-unimpaired'
+" Complementary pairs of mappings
+NeoBundle 'tpope/vim-unimpaired'
 
-  " Align text based on a given pattern
-  NeoBundle 'godlygeek/tabular'
+" Align text based on a given pattern
+NeoBundle 'godlygeek/tabular'
 
-  " Highlight levels of indentation
-  NeoBundle 'Yggdroot/indentLine'
+" Highlight levels of indentation
+NeoBundle 'Yggdroot/indentLine'
 
-  " Zoom in on the current buffer hiding others
-  NeoBundle 'ZoomWin'
+" Zoom in on the current buffer hiding others
+NeoBundle 'ZoomWin'
 
-  " Make it easier to work with files owned by root
-  NeoBundle 'sudo.vim'
+" Make it easier to work with files owned by root
+NeoBundle 'sudo.vim'
 
-  " GPG help
-  NeoBundle 'jamessan/vim-gnupg'
+" GPG help
+NeoBundle 'jamessan/vim-gnupg'
 
-  " Vim Ref
-  NeoBundle 'ref.vim'
-  NeoBundle 'taka84u9/vim-ref-ri'
+" Vim Ref
+NeoBundle 'ref.vim'
+NeoBundle 'taka84u9/vim-ref-ri'
 
-  " Version control changes in signs
-  NeoBundle 'mhinz/vim-signify'
+" Version control changes in signs
+NeoBundle 'mhinz/vim-signify'
 
-  " Follow coding guidelines implemented with http://editorconfig.org/
-  NeoBundle 'editorconfig/editorconfig-vim'
+" Follow coding guidelines implemented with http://editorconfig.org/
+NeoBundle 'editorconfig/editorconfig-vim'
 " }}}

@@ -1,117 +1,117 @@
 " Basic configuration {{{
-  filetype off
-  syntax on
-  filetype plugin indent on
+filetype off
+syntax on
+filetype plugin indent on
 
-  " allow backspacing over everything in insert mode
-  set backspace=indent,eol,start
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
-  " store lots of :cmdline history
-  set history=1000
+" store lots of :cmdline history
+set history=1000
 
-  set showcmd     " show incomplete cmds down the bottom
-  set noshowmode  " hide current mode
+set showcmd     " show incomplete cmds down the bottom
+set noshowmode  " hide current mode
 
-  set incsearch   " find the next match as we type the search
-  set hlsearch    " hilight searches by default
+set incsearch   " find the next match as we type the search
+set hlsearch    " hilight searches by default
 
-  set nowrap      " dont wrap lines
-  set linebreak   " wrap lines at convenient points
-  set number      " line numbers
-  set laststatus=2
+set nowrap      " dont wrap lines
+set linebreak   " wrap lines at convenient points
+set number      " line numbers
+set laststatus=2
 
-  " No more tubular bells
-  set noerrorbells
-  set visualbell
+" No more tubular bells
+set noerrorbells
+set visualbell
 
-  " Quieten some of those interruptive prompts
-  set shortmess=aoOtTI
+" Quieten some of those interruptive prompts
+set shortmess=aoOtTI
 
-  " Stop highlighting ridiculously long lines
-  set synmaxcol=400
+" Stop highlighting ridiculously long lines
+set synmaxcol=400
 
-  " Indent settings
-  set shiftwidth=2
-  set softtabstop=2
-  set expandtab
-  set autoindent
+" Indent settings
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent
 
-  " Fold settings
-  set foldmethod=indent   " Fold based on indent
-  set foldlevel=1         " Fold one level of indentation in
-  set foldnestmax=10      " Deepest fold is 10 levels
-  set nofoldenable        " Don't fold by default
+" Fold settings
+set foldmethod=indent   " Fold based on indent
+set foldlevel=1         " Fold one level of indentation in
+set foldnestmax=10      " Deepest fold is 10 levels
+set nofoldenable        " Don't fold by default
 
-  " Tab completion
-  set wildmenu
-  set wildmode=list:longest,list:full
-  set wildignore=*.o,*.obj,*~,.git,*.rbc
+" Tab completion
+set wildmenu
+set wildmode=list:longest,list:full
+set wildignore=*.o,*.obj,*~,.git,*.rbc
 
-  " Display tabs and trailing spaces
-  set list
-  set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+" Display tabs and trailing spaces
+set list
+set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
-  " Vertical/horizontal scroll off settings
-  set scrolloff=3
-  set sidescrolloff=7
-  set sidescroll=1
+" Vertical/horizontal scroll off settings
+set scrolloff=3
+set sidescrolloff=7
+set sidescroll=1
 
-  " Some stuff to get the mouse going in term
-  set mouse=a
-  set ttymouse=xterm2
+" Some stuff to get the mouse going in term
+set mouse=a
+set ttymouse=xterm2
 
-  set shell=zsh\ -l
+set shell=zsh\ -l
 
-  " One line for commands. Although two will often supress some naggy
-  " commands, it's too much within tmux.
-  set cmdheight=1
+" One line for commands. Although two will often supress some naggy
+" commands, it's too much within tmux.
+set cmdheight=1
 
-  " Hide buffers when not displayed
-  set hidden
+" Hide buffers when not displayed
+set hidden
 
-  " Automatically read and write buffers
-  set autoread
-  set autowrite
+" Automatically read and write buffers
+set autoread
+set autowrite
 
-  " Clever, lazy case sensitive searches
-  set ignorecase
-  set smartcase
+" Clever, lazy case sensitive searches
+set ignorecase
+set smartcase
 
-  " No backup files!
-  set nobackup
-  set nowritebackup
-  set noswapfile
+" No backup files!
+set nobackup
+set nowritebackup
+set noswapfile
 
-  set pastetoggle=<F2>
+set pastetoggle=<F2>
 
-  set spelllang=en spellfile=~/.vim/spell/en.utf-8.add
+set spelllang=en spellfile=~/.vim/spell/en.utf-8.add
 
-  " Don't insert a comment when pressing o/O
-  set formatoptions-=o
+" Don't insert a comment when pressing o/O
+set formatoptions-=o
 
-  set undofile
-  set undodir=~/.vim/tmp/undo
-  set undolevels=1000
-  set undoreload=10000
+set undofile
+set undodir=~/.vim/tmp/undo
+set undolevels=1000
+set undoreload=10000
 
-  set backupdir=~/.vim/tmp/backup
-  set directory=~/.vim/tmp/swap
+set backupdir=~/.vim/tmp/backup
+set directory=~/.vim/tmp/swap
 
-  if executable('ack')
-    set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
-    set grepformat=%f:%l:%c:%m
-  endif
+if executable('ack')
+  set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
+  set grepformat=%f:%l:%c:%m
+endif
 
-  if executable('ag')
-    set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
-    set grepformat=%f:%l:%c:%m
-  endif
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+  set grepformat=%f:%l:%c:%m
+endif
 " }}}
 
 function! EnsureDirectoryExists(path) " {{{
-  if !isdirectory(expand(a:path))
-    call mkdir(expand(a:path))
-  endif
+if !isdirectory(expand(a:path))
+  call mkdir(expand(a:path))
+endif
 endfunction " }}}
 
 call EnsureDirectoryExists(&undodir)
