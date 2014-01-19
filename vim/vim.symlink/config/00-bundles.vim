@@ -204,12 +204,12 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'bogado/file-line'
 
 " Visual undo
-NeoBundleLazy 'sjl/gundo.vim', {
+NeoBundle 'sjl/gundo.vim', {
       \ 'commands' : 'GundoToggle'
       \ }
 
 " Replace quickfix with something more powerful
-NeoBundleLazy 'thinca/vim-qfreplace', {
+NeoBundle 'thinca/vim-qfreplace', {
       \ 'filetypes' : ['unite', 'quickfix'],
       \ }
 
@@ -246,23 +246,23 @@ NeoBundle 'rhysd/vim-operator-surround', {
       \   'mappings' : '<Plug>(operator-surround',
       \ }
 
-NeoBundleLazy 'kana/vim-operator-replace', {
+NeoBundle 'kana/vim-operator-replace', {
       \ 'depends' : 'vim-operator-user',
       \ 'autoload' : {
       \   'mappings' : [
       \     ['nx', '<Plug>(operator-replace)']]
       \ }}
 
-NeoBundleLazy 'kana/vim-textobj-user'
-NeoBundleLazy 'thinca/vim-textobj-between'
-NeoBundleLazy 'rhysd/vim-textobj-anyblock'
-NeoBundleLazy 'osyo-manga/vim-textobj-multiblock'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'thinca/vim-textobj-between'
+NeoBundle 'rhysd/vim-textobj-anyblock'
+NeoBundle 'osyo-manga/vim-textobj-multiblock'
 
 " Improved visual-block mode
 NeoBundle 'kana/vim-niceblock'
 
 " Because Unite doesn't do fuzzy search well
-NeoBundleLazy 'kien/ctrlp.vim'
+NeoBundle 'kien/ctrlp.vim'
 
 " Complementary pairs of mappings
 NeoBundle 'tpope/vim-unimpaired'
