@@ -25,7 +25,7 @@ nno <leader>b :<C-u>Unite buffer -buffer-name=buffers -start-insert<CR>
 " nno <leader><leader> :<C-u>UniteWithCurrentDir buffer file -buffer-name=united -start-insert<CR>
 nno <leader>ps :<C-u>:Unite process -buffer-name=processes -start-insert<CR>
 nno <leader>u :<C-u>UniteResume<CR>
-nno <C-p> :<C-u>:Unite history/yank -buffer-name=yanks<CR>
+" nno <C-p> :<C-u>:Unite history/yank -buffer-name=yanks<CR>
 " nno // :<C-u>:Unite line -buffer-name=lines -start-insert -direction=botright -winheight=10<CR>
 
 function! s:unite_settings()
@@ -33,7 +33,9 @@ function! s:unite_settings()
   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
   imap <buffer> <leader> <Esc><leader>
 
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  " Fuzzy matching works really, really badly in any reasonably large project.
+  "
+  " call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
   call s:unite_tabs_and_windows()
 endfunction

@@ -10,7 +10,6 @@ NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-endwise'
 " }}}
 
-" Web Development {{{
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'hallison/vim-ruby-sinatra'
 
@@ -45,7 +44,6 @@ NeoBundle 'itspriddle/vim-jquery'
 NeoBundle 'nono/vim-handlebars'
 NeoBundle 'mutewinter/nginx.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
-" }}}
 " }}}
 
 " Git {{{
@@ -145,12 +143,17 @@ NeoBundle 'tacroe/unite-mark'
 NeoBundle 'sgur/unite-git_grep'
 NeoBundle 'ujihisa/unite-locate'
 NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'tsukkee/unite-help'
 " }}}
 
 " Vim powerups {{{
 " Orgmode
 NeoBundle 'jceb/vim-orgmode'
+
+" Preview substitution
+NeoBundle 'osyo-manga/vim-over'
 
 " Enhanced characters information, including Unicode character names, and
 " emoji support.
@@ -164,6 +167,9 @@ NeoBundle 'bling/vim-airline'
 " Improved and highly customisable completion
 NeoBundle 'Shougo/neocomplete.vim'
 
+" Add English word completion
+NeoBundle 'ujihisa/neco-look'
+
 " At match #N out of M matches
 NeoBundle 'IndexedSearch'
 
@@ -175,11 +181,6 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 
 " Control tmux from inside Vim!
 NeoBundle 'mhinz/vim-tmuxify'
-
-" Disabled until https://github.com/sjl/vitality.vim/issues/19 resolved.
-"
-" Switch cursors when in insert mode (works with iTerm2+tmux)
-" NeoBundle 'sjl/vitality.vim'
 
 " Maps from files to tests, and works with dispatch!
 NeoBundle 'jgdavey/vim-turbux'
@@ -203,7 +204,14 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'bogado/file-line'
 
 " Visual undo
-" NeoBundle 'sjl/gundo.vim'
+NeoBundleLazy 'sjl/gundo.vim', {
+      \ 'commands' : 'GundoToggle'
+      \ }
+
+" Replace quickfix with something more powerful
+NeoBundleLazy 'thinca/vim-qfreplace', {
+      \ 'filetypes' : ['unite', 'quickfix'],
+      \ }
 
 " Move around quickly and effectively
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -215,7 +223,7 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'scrooloose/syntastic'
 
 " Comment with ease
-NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tyru/caw.vim'
 
 " Add support for Ag (the_silver_surfer)
 NeoBundle 'epmatsw/ag.vim'
@@ -223,14 +231,38 @@ NeoBundle 'epmatsw/ag.vim'
 " Adds functions to remove/rename files etc.
 NeoBundle 'tpope/vim-eunuch'
 
-" Repeat the last Tim Popeism you performed
+" Extends . to support repeating all kinds of operations
 NeoBundle 'tpope/vim-repeat'
 
 " Use CTRL-A/X to increment dates, times, and more
 NeoBundle 'tpope/vim-speeddating'
 
 " Surround with visual selections
-NeoBundle 'tpope/vim-surround'
+NeoBundle 'kana/vim-operator-user', {
+      \   'functions' : 'operator#user#define',
+      \ }
+
+NeoBundle 'rhysd/vim-operator-surround', {
+      \   'mappings' : '<Plug>(operator-surround',
+      \ }
+
+NeoBundleLazy 'kana/vim-operator-replace', {
+      \ 'depends' : 'vim-operator-user',
+      \ 'autoload' : {
+      \   'mappings' : [
+      \     ['nx', '<Plug>(operator-replace)']]
+      \ }}
+
+NeoBundleLazy 'kana/vim-textobj-user'
+NeoBundleLazy 'thinca/vim-textobj-between'
+NeoBundleLazy 'rhysd/vim-textobj-anyblock'
+NeoBundleLazy 'osyo-manga/vim-textobj-multiblock'
+
+" Improved visual-block mode
+NeoBundle 'kana/vim-niceblock'
+
+" Because Unite doesn't do fuzzy search well
+NeoBundleLazy 'kien/ctrlp.vim'
 
 " Complementary pairs of mappings
 NeoBundle 'tpope/vim-unimpaired'

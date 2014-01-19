@@ -9,14 +9,17 @@ set backspace=indent,eol,start
 " store lots of :cmdline history
 set history=1000
 
-set showcmd     " show incomplete cmds down the bottom
-set noshowmode  " hide current mode
+set noshowcmd   " Don't show incomplete commands
+set noshowmode  " Hide current mode
 
 set incsearch   " find the next match as we type the search
-set hlsearch    " hilight searches by default
+set hlsearch    " Highlight search results
 
-set nowrap      " dont wrap lines
-set linebreak   " wrap lines at convenient points
+set nowrap      " Do not wrap lines
+set whichwrap+=h,l,<,>,[,],b,s,~
+set linebreak
+set showbreak=>\
+
 set number      " line numbers
 set laststatus=2
 
@@ -37,19 +40,32 @@ set expandtab
 set autoindent
 
 " Fold settings
-set foldmethod=indent   " Fold based on indent
-set foldlevel=1         " Fold one level of indentation in
-set foldnestmax=10      " Deepest fold is 10 levels
-set nofoldenable        " Don't fold by default
+set foldenable
+set foldmethod=marker
+set foldlevel=3
+set foldnestmax=10
+
+" Default keyword/help program to Vim's internal help instead of man
+set keywordprg=:help
 
 " Tab completion
 set wildmenu
 set wildmode=list:longest,list:full
 set wildignore=*.o,*.obj,*~,.git,*.rbc
 
+" Display extended information when suggesting completions
+set showfulltag
+
+" Ignore case during completion
+set infercase
+
+" Clever, lazy case sensitive searches
+set ignorecase
+set smartcase
+
 " Display tabs and trailing spaces
 set list
-set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+set listchars=tab:▷\ ,trail:-,extends:»,precedes:«,nbsp:⋅
 
 " Vertical/horizontal scroll off settings
 set scrolloff=3
@@ -62,6 +78,9 @@ set ttymouse=xterm2
 
 set shell=zsh\ -l
 
+" Use tagfile to complete commands
+set wildoptions=tagfile
+
 " One line for commands. Although two will often supress some naggy
 " commands, it's too much within tmux.
 set cmdheight=1
@@ -72,10 +91,6 @@ set hidden
 " Automatically read and write buffers
 set autoread
 set autowrite
-
-" Clever, lazy case sensitive searches
-set ignorecase
-set smartcase
 
 " No backup files!
 set nobackup
@@ -96,6 +111,13 @@ set undoreload=10000
 
 set backupdir=~/.vim/tmp/backup
 set directory=~/.vim/tmp/swap
+
+" Use clipboard register.
+if has('unnamedplus')
+  set clipboard& clipboard+=unnamedplus
+else
+  set clipboard& clipboard+=unnamed
+endif
 
 if executable('ack')
   set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*

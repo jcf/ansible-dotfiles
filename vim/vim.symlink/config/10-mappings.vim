@@ -254,3 +254,18 @@ endfunction
 nmap <Leader>t :call TubeThis(line('.'))<CR>
 nmap <Leader>T :call TubeThis()<CR>
 " }}}
+
+" Operator Surround {{{
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sr <Plug>(operator-surround-replace)
+
+nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
+nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
+
+nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
+nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
+
+nmap <silent>sdb <Plug>(operator-surround-delete)<Plug>(textobj-between-a)
+nmap <silent>srb <Plug>(operator-surround-replace)<Plug>(textobj-between-a)
+" }}}
