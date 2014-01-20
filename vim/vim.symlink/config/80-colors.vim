@@ -1,10 +1,6 @@
 set background=dark
 
-if has("gui_running")
-  colorscheme wombat
-else
-  colorscheme wombat256mod
-endif
+colorscheme hybrid
 
 " Use the same background color for signs as we do for line numbers. This
 " makes signs and line numbers look like one nice big column.
