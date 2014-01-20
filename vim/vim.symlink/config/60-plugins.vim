@@ -57,8 +57,7 @@ let g:golden_ratio_autocommand = 0
 " }}}
 
 " Highlight indentation level {{{
-let g:indentLine_color_term = 000
-let g:indentLine_color_gui = '#073642'
+let g:indentLine_enabled = 0
 " }}}
 
 " Ultisnips {{{
