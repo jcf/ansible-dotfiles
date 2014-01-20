@@ -94,12 +94,13 @@ NeoBundle 'jc00ke/vim-tomdoc'
 " Colour schemes {{{
 NeoBundle 'Lokaltog/vim-distinguished'
 NeoBundle 'Wombat'
-NeoBundle 'wombat256.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'sjl/badwolf'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'tpope/vim-vividchalk'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'wombat256.vim'
 NeoBundle 'zeis/vim-kolor'
 " }}}
 
