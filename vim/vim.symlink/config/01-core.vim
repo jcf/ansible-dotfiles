@@ -112,13 +112,6 @@ set undoreload=10000
 set backupdir=~/.vim/tmp/backup
 set directory=~/.vim/tmp/swap
 
-" Use clipboard register.
-if has('unnamedplus')
-  set clipboard& clipboard+=unnamedplus
-else
-  set clipboard& clipboard+=unnamed
-endif
-
 if executable('ack')
   set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
   set grepformat=%f:%l:%c:%m
