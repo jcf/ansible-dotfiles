@@ -33,12 +33,7 @@
                           [root-cause cause]]
                          [clojure.tools.namespace.repl [refresh refresh]]
                          [clojure.pprint [pprint >pprint]]
-                         [io.aviso.binary [write-binary >bin]]])
-
-                     (alter-var-root #'clojure.main/repl-caught
-                                     (constantly @#'io.aviso.repl/pretty-pst))
-                     (alter-var-root #'clojure.repl/pst
-                                     (constantly @#'io.aviso.repl/pretty-pst))]
+                         [io.aviso.binary [write-binary >bin]]])]
 
         :aliases {"slamhound" ["run" "-m" "slam.hound"]}
         :source-paths ["/Users/jcf/.lein/dev"]
