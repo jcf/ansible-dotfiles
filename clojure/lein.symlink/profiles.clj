@@ -3,7 +3,8 @@
                        [io.aviso/pretty "0.1.8"]
                        [org.clojure/tools.namespace "0.2.4"]
                        [slamhound "1.3.1"]
-                       [spyscope "0.1.4"]]
+                       [spyscope "0.1.4"]
+                       [criterium "0.4.2"]]
 
         :plugins [[codox "0.6.6"]
                   [jonase/eastwood "0.0.2"]
@@ -20,7 +21,8 @@
                               'vinyasa.inject
                               'io.aviso.repl
                               'clojure.repl
-                              'clojure.main)
+                              'clojure.main
+                              '[criterium.core :refer [bench quick-bench]])
 
                      (vinyasa.inject/inject
                        'clojure.core
