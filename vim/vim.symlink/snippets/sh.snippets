@@ -1,11 +1,27 @@
 snippet bs
-echo "Checking for Ruby..."
-type -P ruby &>/dev/null || { echo >&2 "Ruby not found in PATH. Exiting."; exit 1; }
+#!/bin/sh
 
-echo "Checking for Bundler..."
-gem which bundler &>/dev/null || gem install bundler
+set -e
 
-echo "Installing gem dependencies..."
-bundle install
-$0
+say() {
+  echo "\033[34m=>\033[0m $*"
+}
+
+check() {
+  type $1 >/dev/null 2>&1 || missing $2
+}
+
+missing() {
+  echo >&2 "Missing $1"; exit 1;
+}
+
+success() {
+  echo
+  echo "\033[32m=>\033[0m You're all setup!"
+}
+
+say "Checking for require software..."
+check "changeme" "CHANGEME"
+
+success
 endsnippet
