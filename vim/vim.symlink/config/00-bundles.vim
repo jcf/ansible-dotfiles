@@ -112,6 +112,9 @@ NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'tsukkee/unite-help'
 " }}}
 
+"Automatic Tag generation
+NeoBundle 'xolox/vim-easytags', {'depends': ['xolox/vim-misc']}
+
 " Use your Rbenv rubies in Vim
 NeoBundle 'tpope/vim-rbenv'
 
