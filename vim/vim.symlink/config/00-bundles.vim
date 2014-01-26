@@ -96,7 +96,22 @@ NeoBundle 'wombat256.vim'
 NeoBundle 'zeis/vim-kolor'
 " }}}
 
-" Vim modes {{{
+" Search and display information from arbitrary sources like files, buffers,
+" recently used files or registers
+NeoBundle 'Shougo/unite.vim'
+
+" Fancy file browser
+NeoBundle 'Shougo/vimfiler.vim'
+" Unite plugins {{{
+NeoBundle 'tacroe/unite-mark'
+NeoBundle 'sgur/unite-git_grep'
+NeoBundle 'ujihisa/unite-locate'
+NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'tsukkee/unite-help'
+" }}}
+
 " Use your Rbenv rubies in Vim
 NeoBundle 'tpope/vim-rbenv'
 
@@ -120,28 +135,9 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 
-" Search and display information from arbitrary sources like files, buffers,
-" recently used files or registers
-NeoBundle 'Shougo/unite.vim'
-
-" Fancy file browser
-NeoBundle 'Shougo/vimfiler.vim'
-
 " Tag browser
 NeoBundle 'majutsushi/tagbar'
-" }}}
 
-" Unite plugins {{{
-NeoBundle 'tacroe/unite-mark'
-NeoBundle 'sgur/unite-git_grep'
-NeoBundle 'ujihisa/unite-locate'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'osyo-manga/unite-quickfix'
-NeoBundle 'tsukkee/unite-help'
-" }}}
-
-" Vim powerups {{{
 " Orgmode
 NeoBundle 'jceb/vim-orgmode'
 
@@ -284,4 +280,3 @@ NeoBundle 'mhinz/vim-signify'
 
 " Follow coding guidelines implemented with http://editorconfig.org/
 NeoBundle 'editorconfig/editorconfig-vim'
-" }}}
