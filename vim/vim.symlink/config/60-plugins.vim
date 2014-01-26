@@ -33,7 +33,7 @@ let g:haddock_browser = '/usr/bin/open'
 " Syntastic {{{
 " Mark syntax errors with :signs
 let g:syntastic_enable_signs = 1
-let g:syntastic_quiet_warnings = 1
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " Don't open loc list automatically - it's really disruptive
 let g:syntastic_auto_loc_list = 0
