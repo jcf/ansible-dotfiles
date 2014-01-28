@@ -1,6 +1,4 @@
 {:user {:dependencies [[clj-stacktrace "0.2.7"]
-                       [im.chit/vinyasa "0.1.0"]
-                       [io.aviso/pretty "0.1.8"]
                        [org.clojure/tools.namespace "0.2.4"]
                        [slamhound "1.3.1"]
                        [spyscope "0.1.4"]
@@ -18,23 +16,7 @@
                   [lein-swank "1.4.4"]]
 
         :injections [(require 'spyscope.core
-                              'vinyasa.inject
-                              'io.aviso.repl
-                              'clojure.repl
-                              'clojure.main
-                              '[criterium.core :refer [bench quick-bench]])
-
-                     (vinyasa.inject/inject
-                       'clojure.core
-                       '[[vinyasa.inject [inject inject]]
-                         [vinyasa.pull [pull pull]]
-                         [vinyasa.lein [lein lein]]
-                         [clojure.repl apropos dir doc find-doc source
-                          [root-cause cause]]
-                         [clojure.tools.namespace.repl [refresh refresh]]
-                         [clojure.pprint [pprint >pprint]]
-                         [io.aviso.binary [write-binary >bin]]])]
+                              '[criterium.core :refer [bench quick-bench]])]
 
         :aliases {"slamhound" ["run" "-m" "slam.hound"]}
-        :source-paths ["/Users/jcf/.lein/dev"]
         :search-page-size 30}}
