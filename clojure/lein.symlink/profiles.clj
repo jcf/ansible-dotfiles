@@ -16,6 +16,7 @@
                   [lein-swank "1.4.4"]]
 
         :injections [(require 'spyscope.core
+                              '[clojure.repl :refer [source]]
                               '[criterium.core :refer [bench quick-bench]])]
 
         :aliases {"slamhound" ["run" "-m" "slam.hound"]}
