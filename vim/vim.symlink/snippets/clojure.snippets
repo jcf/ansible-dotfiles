@@ -1,0 +1,31 @@
+snippet defn "(defn x []...)" !
+(defn ${1:f} [$2]
+  $0)
+endsnippet
+
+snippet defn- "(defn- x []...)" !
+(defn- ${1:f} [$2]
+  $0)
+endsnippet
+
+snippet defnd "(defn x docstring []...)" !
+(defn ${1:f}
+  "$2"
+  [$3]
+  $0)
+endsnippet
+
+snippet defnd- "(defn- x docstring []...)" !
+(defn- ${1:f}
+  "$2"
+  [$3]
+  $0)
+endsnippet
+
+snippet def "(def x ...)" !
+(def ${1:x} $0)
+endsnippet
+
+snippet defp "(def ^:private x ...)" !
+(def ^:private ${1:x} $0)
+endsnippet
