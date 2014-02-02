@@ -19,6 +19,7 @@
 
         :injections [(require 'spyscope.core
                               '[clojure.repl :refer [source]]
+                              '[clojure.tools.namespace.repl :refer [refresh]]
                               '[criterium.core :refer [bench quick-bench]])]
 
         :aliases {"slamhound" ["run" "-m" "slam.hound"]}
