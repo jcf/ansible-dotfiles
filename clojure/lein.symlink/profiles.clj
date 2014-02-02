@@ -1,4 +1,6 @@
-{:user {:dependencies [[clj-stacktrace "0.2.7"]
+{:user {:signing {:gpg-key "8ED1CE42"}
+
+        :dependencies [[clj-stacktrace "0.2.7"]
                        [org.clojure/tools.namespace "0.2.4"]
                        [slamhound "1.3.1"]
                        [spyscope "0.1.4"]
