@@ -15,10 +15,10 @@ set noshowmode  " Hide current mode
 set incsearch   " find the next match as we type the search
 set hlsearch    " Highlight search results
 
-set nowrap      " Do not wrap lines
 set whichwrap+=h,l,<,>,[,],b,s,~
 set linebreak
 set showbreak=>\
+set nowrap
 
 set number      " line numbers
 set laststatus=2
