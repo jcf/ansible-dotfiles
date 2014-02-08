@@ -193,10 +193,11 @@
   :init
   (progn
     (use-package rbenv
-      :init (global-rbenv-mode)
-      :config
+      :init
       (progn
-        (setq rbenv-modeline-function 'rbenv--modeline-plain)))
+        (setq rbenv-modeline-function 'rbenv--modeline-plain)
+        (setq rbenv-show-active-ruby-in-modeline nil)
+        (global-rbenv-mode)))
     (use-package ruby-tools)
     (use-package rhtml-mode
       :mode (("\\.rhtml$" . rhtml-mode)
