@@ -1,4 +1,6 @@
-;;; init.el - Fragor Maximus
+;;; init.el - All my config
+;;; Commentary:
+;;; Code:
 
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
