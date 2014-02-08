@@ -52,9 +52,9 @@
 (use-package evil
   :init
   (progn
-    ; Do not automatically start evil-mode. Let's try to do things the
-    ; Emacs way.
-    ; (evil-mode 1)
+    ;; Do not automatically start evil-mode. Let's try to do things the
+    ;; Emacs way.
+    ;; (evil-mode 1)
 
     (define-key evil-normal-state-map "Y" (kbd "y$"))
     (define-key evil-normal-state-map (kbd "SPC") 'evil-repeat-find-char)
@@ -146,7 +146,7 @@
     (bind-key "C-c C-a" 'magit-just-amend magit-mode-map))
   :config
   (progn
-                                        ; (setq magit-emacsclient-executable (evm-find "emacsclient"))
+    ;; (setq magit-emacsclient-executable (evm-find "emacsclient"))
     (setq magit-default-tracking-name-function 'magit-default-tracking-name-branch-only)
     (setq magit-set-upstream-on-push t)
     (setq magit-completing-read-function 'magit-ido-completing-read)
