@@ -18,6 +18,7 @@
 (require 'use-package)
 
 (defun load-x (file)
+  "Load FILE relative to `user-emacs-directory'."
   (load (f-expand file user-emacs-directory)))
 
 (let ((default-directory user-emacs-directory))
@@ -51,7 +52,9 @@
 (use-package evil
   :init
   (progn
-    (evil-mode 1)
+    ; Do not automatically start evil-mode. Let's try to do things the
+    ; Emacs way.
+    ; (evil-mode 1)
 
     (define-key evil-normal-state-map "Y" (kbd "y$"))
     (define-key evil-normal-state-map (kbd "SPC") 'evil-repeat-find-char)
@@ -67,8 +70,7 @@
       (progn
         (evil-leader/set-leader ",")
 
-        (evil-leader/set-key
-          "b" 'helm-buffers-list
+        (evil-leader/set-key "b" 'helm-buffers-list
           "c" 'ido-dired
           "d" 'kill-buffer
           "f" 'helm-find-files)
@@ -117,8 +119,8 @@
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)))
 
-(use-package popwin
-  :config (setq display-buffer-function 'popwin:display-buffer))
+;; (use-package popwin
+;;   :config (setq display-buffer-alist 'popwin:display-buffer))
 
 (use-package projectile
   :init (projectile-global-mode 1)
@@ -389,9 +391,13 @@
     (setq eshell-save-history-on-exit t)))
 
 (load-theme 'ujelly t)
+(server-start)
 
 
 ;;;; Bindings
+
+(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+(global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
 (bind-key "C-o" 'occur)
 (bind-key "M-g" 'goto-line)
@@ -410,11 +416,5 @@
 (bind-key "C-M-h" 'backward-kill-word)
 (bind-key "C-c C-n" 'todo)
 
-
-;;;; Sandbox
-
-(let ((sandbox-path (f-expand "sandbox" user-emacs-directory)))
-  (when (f-dir? sandbox-path)
-    (-each (f--files sandbox-path (equal (f-ext it) "el")) 'load)))
-
-(server-start)
+(provide 'init)
+;;; init.el ends here
