@@ -63,6 +63,7 @@
 (depends-on "smex")
 (depends-on "solarized-theme")
 (depends-on "twilight-theme")
+(depends-on "ujelly-theme")
 (depends-on "undo-tree")
 (depends-on "use-package")
 (depends-on "vimrc-mode")

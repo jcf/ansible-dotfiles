@@ -383,7 +383,7 @@
     (setq eshell-history-size 5000)
     (setq eshell-save-history-on-exit t)))
 
-(load-theme 'wombat t)
+(load-theme 'ujelly t)
 
 
 ;;;; Bindings
