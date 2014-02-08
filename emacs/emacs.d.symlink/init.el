@@ -33,7 +33,6 @@
 (use-package smooth-scroll)
 (use-package dired-x)
 (use-package winner-mode)
-(use-package sh-mode)
 
 (use-package helm
   :init
