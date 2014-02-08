@@ -1,10 +1,11 @@
-;;; init.el - Fragor Maximus
+;;; init.el --- All my config
+;;; Commentary:
+;;; Code:
 
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
 
 (require 'cask "~/.cask/cask.el")
-;; (require 'cask "~/Code/cask/cask.el")
 (cask-initialize)
 (require 'pallet)
 
@@ -17,6 +18,7 @@
 (require 'use-package)
 
 (defun load-x (file)
+  "Load FILE relative to `user-emacs-directory'."
   (load (f-expand file user-emacs-directory)))
 
 (let ((default-directory user-emacs-directory))
@@ -28,6 +30,7 @@
 
 ;;;; Packages
 
+(use-package smooth-scroll)
 (use-package dired-x)
 (use-package winner-mode)
 (use-package sh-mode)
@@ -49,7 +52,9 @@
 (use-package evil
   :init
   (progn
-    (evil-mode 1)
+    ; Do not automatically start evil-mode. Let's try to do things the
+    ; Emacs way.
+    ; (evil-mode 1)
 
     (define-key evil-normal-state-map "Y" (kbd "y$"))
     (define-key evil-normal-state-map (kbd "SPC") 'evil-repeat-find-char)
@@ -63,22 +68,21 @@
       :init (global-evil-leader-mode)
       :config
       (progn
-       (evil-leader/set-leader ",")
+        (evil-leader/set-leader ",")
 
-       (evil-leader/set-key
-         "b" 'helm-buffers-list
-         "c" 'ido-dired
-         "d" 'kill-buffer
-         "f" 'helm-find-files)
+        (evil-leader/set-key "b" 'helm-buffers-list
+          "c" 'ido-dired
+          "d" 'kill-buffer
+          "f" 'helm-find-files)
 
-       (evil-leader/set-key-for-mode 'ruby-mode
-         "a" 'rspec-toggle-spec-and-target
-         "v" 'rspec-verify
-         "V" 'rspec-verify-all)
+        (evil-leader/set-key-for-mode 'ruby-mode
+          "a" 'rspec-toggle-spec-and-target
+          "v" 'rspec-verify
+          "V" 'rspec-verify-all)
 
-       (evil-leader/set-key-for-mode 'feature-mode
-         "v" 'feature-verify-scenario-at-pos
-         "V" 'feature-verify-all-scenarios-in-buffer)))
+        (evil-leader/set-key-for-mode 'feature-mode
+          "v" 'feature-verify-scenario-at-pos
+          "V" 'feature-verify-all-scenarios-in-buffer)))
 
     (use-package evil-surround
       :init (global-surround-mode 1))
@@ -115,8 +119,8 @@
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)))
 
-(use-package popwin
-  :config (setq display-buffer-function 'popwin:display-buffer))
+;; (use-package popwin
+;;   :config (setq display-buffer-alist 'popwin:display-buffer))
 
 (use-package projectile
   :init (projectile-global-mode 1)
@@ -142,7 +146,7 @@
     (bind-key "C-c C-a" 'magit-just-amend magit-mode-map))
   :config
   (progn
-    ; (setq magit-emacsclient-executable (evm-find "emacsclient"))
+                                        ; (setq magit-emacsclient-executable (evm-find "emacsclient"))
     (setq magit-default-tracking-name-function 'magit-default-tracking-name-branch-only)
     (setq magit-set-upstream-on-push t)
     (setq magit-completing-read-function 'magit-ido-completing-read)
@@ -189,6 +193,11 @@
 (use-package ruby-mode
   :init
   (progn
+    (use-package rbenv
+      :init (global-rbenv-mode)
+      :config
+      (progn
+        (setq rbenv-modeline-function 'rbenv--modeline-plain)))
     (use-package ruby-tools)
     (use-package rhtml-mode
       :mode (("\\.rhtml$" . rhtml-mode)
@@ -211,9 +220,7 @@
     (add-hook 'ruby-mode-hook 'rspec-mode)
     (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
     (setq ruby-deep-indent-paren nil))
-  :bind (("C-M-h" . backward-kill-word)
-         ("C-M-n" . scroll-up-five)
-         ("C-M-p" . scroll-down-five))
+  :bind (("C-M-h" . backward-kill-word))
   :mode (("\\.rake$" . ruby-mode)
          ("\\.gemspec$" . ruby-mode)
          ("\\.ru$" . ruby-mode)
@@ -365,10 +372,10 @@
 (use-package clojure-mode
   :init
   (progn
+    (use-package clojure-mode)
     (use-package cider
       :init (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode))
     (add-hook 'clojure-mode-hook 'paredit-mode)))
-
 (use-package erlang-mode)
 (use-package haskell-mode)
 
@@ -383,63 +390,31 @@
     (setq eshell-history-size 5000)
     (setq eshell-save-history-on-exit t)))
 
-(load-theme 'wombat t)
+(load-theme 'ujelly t)
+(server-start)
 
 
 ;;;; Bindings
 
-(bind-key "C-a" 'back-to-indentation-or-beginning-of-line)
-(bind-key "C-7" 'comment-or-uncomment-current-line-or-region)
-(bind-key "C-o" 'occur)
-(bind-key "C-6" 'linum-mode)
-(bind-key "C-v" 'scroll-up-five)
+(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+(global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
+(bind-key "C-o" 'occur)
 (bind-key "M-g" 'goto-line)
 (bind-key "M-n" 'open-line-below)
 (bind-key "M-p" 'open-line-above)
 (bind-key "M-+" 'text-scale-increase)
 (bind-key "M-_" 'text-scale-decrease)
-(bind-key "M-j" 'join-line-or-lines-in-region)
-(bind-key "M-v" 'scroll-down-five)
-(bind-key "M-k" 'kill-this-buffer)
-(bind-key "M-o" 'other-window)
-(bind-key "M-1" 'delete-other-windows)
-(bind-key "M-2" 'split-window-below)
-(bind-key "M-3" 'split-window-right)
-(bind-key "M-0" 'delete-window)
-(bind-key "M-}" 'next-buffer)
-(bind-key "M-{" 'previous-buffer)
 (bind-key "M-`" 'other-frame)
 
 (bind-key "C-c g" 'google)
 (bind-key "C-c d" 'duplicate-current-line-or-region)
 (bind-key "C-c n" 'clean-up-buffer-or-region)
-(bind-key "C-c s" 'swap-windows)
 (bind-key "C-c r" 'rename-this-buffer-and-file)
 (bind-key "C-c k" 'delete-this-buffer-and-file)
 
-(bind-key "%" 'match-paren)
 (bind-key "C-M-h" 'backward-kill-word)
 (bind-key "C-c C-n" 'todo)
 
-(bind-key
- "C-x C-c"
- (lambda ()
-   (interactive)
-   (if (y-or-n-p "Quit Emacs? ")
-       (save-buffers-kill-emacs))))
-
-(bind-key
- "C-8"
- (lambda ()
-   (interactive)
-   (find-file (f-expand "init.el" user-emacs-directory))))
-
-
-;;;; Sandbox
-
-(let ((sandbox-path (f-expand "sandbox" user-emacs-directory)))
-  (when (f-dir? sandbox-path)
-    (-each (f--files sandbox-path (equal (f-ext it) "el")) 'load)))
-
-(server-start)
+(provide 'init)
+;;; init.el ends here

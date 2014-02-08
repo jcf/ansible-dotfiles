@@ -29,7 +29,7 @@
 ;; Do not blink cursor
 (blink-cursor-mode -1)
 
-;; Do not show any tooltips
+;; Disable tooltips
 (tooltip-mode -1)
 
 ;; Remove selected region if typing
@@ -56,8 +56,14 @@
       (remq 'process-kill-buffer-query-function
             kill-buffer-query-functions))
 
+;; Remove trailing whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Highlight symbol at point
 (add-hook 'find-file-hook 'idle-highlight-mode)
+
+;; Remove trailing whitespace before save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defalias 'dtw 'delete-trailing-whitespace)
 (defalias 'yes-or-no-p 'y-or-n-p)
