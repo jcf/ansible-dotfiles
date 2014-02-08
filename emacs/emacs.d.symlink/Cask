@@ -88,6 +88,7 @@
 (depends-on "pallet")
 (depends-on "pig-mode")
 (depends-on "popwin")
+(depends-on "powerline")
 (depends-on "pretty-lambdada")
 (depends-on "pretty-mode")
 (depends-on "projectile")
