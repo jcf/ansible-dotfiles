@@ -51,9 +51,7 @@
 (use-package evil
   :init
   (progn
-    ;; Do not automatically start evil-mode. Let's try to do things the
-    ;; Emacs way.
-    ;; (evil-mode 1)
+    (evil-mode 1)
 
     (define-key evil-normal-state-map "Y" (kbd "y$"))
     (define-key evil-normal-state-map (kbd "SPC") 'evil-repeat-find-char)
