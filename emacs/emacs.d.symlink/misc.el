@@ -26,6 +26,12 @@
 ;; Truncate lines
 (set-default 'truncate-lines t)
 
+;; Do not blink cursor
+(blink-cursor-mode -1)
+
+;; Disable tooltips
+(tooltip-mode -1)
+
 ;; Remove selected region if typing
 (pending-delete-mode 1)
 
@@ -55,6 +61,9 @@
 
 ;; Highlight symbol at point
 (add-hook 'find-file-hook 'idle-highlight-mode)
+
+;; Remove trailing whitespace before save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defalias 'dtw 'delete-trailing-whitespace)
 (defalias 'yes-or-no-p 'y-or-n-p)
