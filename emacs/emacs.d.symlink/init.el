@@ -1,7 +1,4 @@
-;;; init.el --- All my config
-;;; Commentary:
-;;; Code:
-
+;; Turn off mouse interface early in startup to avoid momentary display
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
 
@@ -23,9 +20,12 @@
 
 (let ((default-directory user-emacs-directory))
   (load-x "defuns")
-  (load-x "misc")
+  (load-x "config")
   (when (eq system-type 'darwin)
     (load-x "osx")))
+
+(setq inhibit-startup-message t)
+(load-theme 'ujelly t)
 
 
 ;;;; Packages
@@ -175,7 +175,6 @@
   :config (setq-default save-place t))
 
 (use-package diff-hl
-  :init (global-diff-hl-mode)
   :config (add-hook 'vc-checkin-hook 'diff-hl-update))
 
 (use-package page-break-lines
@@ -189,6 +188,10 @@
 
 (use-package windmove
   :config (windmove-default-keybindings 'shift))
+
+(use-package sh-mode
+  :init
+  ((add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))))
 
 (use-package ruby-mode
   :init
@@ -391,7 +394,6 @@
     (setq eshell-history-size 5000)
     (setq eshell-save-history-on-exit t)))
 
-(load-theme 'ujelly t)
 (server-start)
 
 
@@ -416,6 +418,3 @@
 
 (bind-key "C-M-h" 'backward-kill-word)
 (bind-key "C-c C-n" 'todo)
-
-(provide 'init)
-;;; init.el ends here

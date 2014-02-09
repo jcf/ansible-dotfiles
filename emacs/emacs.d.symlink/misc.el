@@ -13,6 +13,15 @@
 ;; Show keystrokes in minibuffer early
 (setq echo-keystrokes 0.1)
 
+;; Show trailing whitespace
+(setq-default show-trailing-whitespace t)
+
+;; Newline at EOF
+(setq next-line-add-newlines nil)
+(setq require-final-newline t)
+
+;; Do not show annoying menu-bar tips
+(setq suggest-key-bindings nil)
 ;; Set default browser
 (setq browse-url-browser-function 'browse-url-generic)
 (setq browse-url-generic-program "google-chrome")
@@ -26,11 +35,10 @@
 ;; Truncate lines
 (set-default 'truncate-lines t)
 
-;; Do not blink cursor
-(blink-cursor-mode -1)
-
-;; Disable tooltips
-(tooltip-mode -1)
+(setq visible-bell t
+      font-lock-maximum-decoration t
+      color-theme-is-global t
+      truncate-partial-width-windows nil)
 
 ;; Remove selected region if typing
 (pending-delete-mode 1)
@@ -47,7 +55,7 @@
 (prefer-coding-system 'utf-8)
 
 ;; Set font size
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 120)
 
 ;; Do not ask for confirmation
 (setq confirm-nonexistent-file-or-buffer nil)
@@ -65,28 +73,9 @@
 ;; Remove trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(defalias 'dtw 'delete-trailing-whitespace)
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-;; Auto refresh buffers
 (global-auto-revert-mode 1)
-
-;; Auto refresh dired, but be quiet about it
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
-;; Show line numbers
-(global-linum-mode t)
-(setq linum-format "%d ")
-
-;; Show trailing whitespace
-(setq-default show-trailing-whitespace t)
-
-;; Newline at EOF
-(setq next-line-add-newlines nil)
-(setq require-final-newline t)
-
-;; Do not show annying menu-bar tips
-(setq suggest-key-bindings nil)
-
-(setq visible-bell t)
+(defalias 'dtw 'delete-trailing-whitespace)
+(defalias 'yes-or-no-p 'y-or-n-p)
