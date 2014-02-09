@@ -34,6 +34,9 @@
 (use-package dired-x)
 (use-package winner-mode)
 
+(use-package auto-complete
+  :init (auto-complete-mode))
+
 (use-package helm
   :init
   (progn
