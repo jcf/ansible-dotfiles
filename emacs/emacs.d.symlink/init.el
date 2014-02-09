@@ -20,7 +20,7 @@
 
 (let ((default-directory user-emacs-directory))
   (load-x "defuns")
-  (load-x "config")
+  (load-x "misc")
   (when (eq system-type 'darwin)
     (load-x "osx")))
 
