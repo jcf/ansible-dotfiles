@@ -18,6 +18,7 @@ zsh
 
 emacs/emacs.d.symlink/.cask
 emacs/emacs.d.symlink/.mc-lists.el
+emacs/emacs.d.symlink/ac-comphist.dat
 emacs/emacs.d.symlink/auto-save-list
 emacs/emacs.d.symlink/elpa
 emacs/emacs.d.symlink/eshell/history
