@@ -120,8 +120,7 @@
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)))
 
-;; (use-package popwin
-;;   :config (setq display-buffer-alist 'popwin:display-buffer))
+(use-package popwin)
 
 (use-package projectile
   :init (projectile-global-mode 1)
