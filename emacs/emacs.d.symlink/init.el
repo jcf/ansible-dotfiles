@@ -220,7 +220,6 @@
   :config
   (progn
     (setenv "JRUBY_OPTS" "--2.0")
-    (setenv "JAVA_OPTS" "-d32")
     (add-hook 'ruby-mode-hook 'rspec-mode)
     (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
     (setq ruby-deep-indent-paren nil))
