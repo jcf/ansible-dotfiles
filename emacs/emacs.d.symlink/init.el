@@ -37,16 +37,16 @@
 (use-package auto-complete
   :init (auto-complete-mode))
 
-(use-package helm
-  :init
-  (progn
-    (helm-mode 1)
-    (use-package helm-ag)
-    (use-package helm-git-grep)
-    (use-package helm-go-package))
-  :config
-  (progn
-    (global-set-key (kbd "C-x C-f") 'helm-find-files)))
+;; (use-package helm
+;;   :init
+;;   (progn
+;;     (helm-mode 1)
+;;     (use-package helm-ag)
+;;     (use-package helm-git-grep)
+;;     (use-package helm-go-package))
+;;   :config
+;;   (progn
+;;     (global-set-key (kbd "C-x C-f") 'helm-find-files)))
 
 (use-package simpleclip
   :init (simpleclip-mode 1))
