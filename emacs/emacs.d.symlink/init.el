@@ -70,10 +70,11 @@
       (progn
         (evil-leader/set-leader ",")
 
-        (evil-leader/set-key "b" 'helm-buffers-list
+        (evil-leader/set-key
+          "b" 'ido-switch-buffer
           "c" 'ido-dired
           "d" 'kill-buffer
-          "f" 'helm-find-files)
+          "f" 'ido-find-file)
 
         (evil-leader/set-key-for-mode 'ruby-mode
           "a" 'rspec-toggle-spec-and-target
