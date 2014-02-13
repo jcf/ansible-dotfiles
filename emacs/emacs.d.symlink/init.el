@@ -72,7 +72,6 @@
 
         (evil-leader/set-key
           "b" 'ido-switch-buffer
-          "c" 'ido-dired
           "d" 'kill-buffer
           "f" 'ido-find-file)
 
