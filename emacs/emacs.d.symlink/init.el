@@ -367,8 +367,10 @@
 (use-package html-script-src)
 (use-package slim-mode)
 (use-package haml-mode)
+
 (use-package sass-mode)
-(use-package scss-mode)
+(use-package scss-mode
+  :config (setq scss-compile-at-save nil))
 
 (use-package paredit)
 (use-package clojure-mode
