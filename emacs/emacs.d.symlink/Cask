@@ -69,6 +69,8 @@
 (depends-on "html-script-src")
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
+(depends-on "ido-ubiquitous")
+(depends-on "ido-vertical-mode")
 (depends-on "indent-guide")
 (depends-on "jade-mode")
 (depends-on "jedi")
