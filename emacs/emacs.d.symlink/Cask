@@ -1,3 +1,4 @@
+(source marmalade)
 (source melpa)
 
 (depends-on "ac-nrepl")
