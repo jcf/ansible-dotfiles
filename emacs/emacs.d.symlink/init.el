@@ -114,7 +114,8 @@
     (setq ido-enable-flex-matching t)
     (setq ido-create-new-buffer 'always)
     (setq ido-max-prospects 10)
-    (setq ido-file-extensions-order '(".rb" ".el" ".coffee" ".js"))
+    (setq ido-file-extensions-order
+          '(".clj" ".rb" ".el" ".coffee" ".js"))
     (add-to-list 'ido-ignore-files "\\.DS_Store")))
 
 (use-package smex
