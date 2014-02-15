@@ -121,11 +121,8 @@
   :init (smex-initialize)
   :bind ("M-x" . smex))
 
-(use-package multiple-cursors
-  :bind (("C->" . mc/mark-next-like-this)
-         ("C-<" . mc/mark-previous-like-this)))
-
-(use-package popwin)
+(use-package popwin
+  :init (popwin-mode 1))
 
 (use-package projectile
   :init (projectile-global-mode 1)
@@ -135,6 +132,10 @@
     (setq projectile-require-project-root nil)
     (setq projectile-completion-system 'projectile-completion-fn)
     (add-to-list 'projectile-globally-ignored-files ".DS_Store")))
+
+(use-package multiple-cursors
+  :bind (("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)))
 
 (use-package drag-stuff
   :init (drag-stuff-global-mode 1)
