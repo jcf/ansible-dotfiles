@@ -39,7 +39,9 @@
     (setq sml/vc-mode-show-backend t)
     (sml/setup)))
 
-(use-package smooth-scroll)
+(use-package smooth-scroll
+  :init (smooth-scroll-mode))
+
 (use-package dired-x)
 (use-package winner-mode
   :init (winner-mode))
