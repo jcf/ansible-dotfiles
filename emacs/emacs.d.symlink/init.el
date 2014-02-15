@@ -25,7 +25,7 @@
     (load-x "osx")))
 
 (setq inhibit-startup-message t)
-(load-theme 'ujelly t)
+(load-theme 'molokai t)
 
 
 ;;;; Packages
