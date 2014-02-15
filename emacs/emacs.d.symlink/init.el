@@ -30,6 +30,15 @@
 
 ;;;; Packages
 
+(use-package smart-mode-line
+  :init
+  (progn
+    (setq sml/theme 'respectful)
+    (setq sml/name-width 40)
+    (setq sml/hidden-modes t)
+    (setq sml/vc-mode-show-backend t)
+    (sml/setup)))
+
 (use-package smooth-scroll)
 (use-package dired-x)
 (use-package winner-mode
