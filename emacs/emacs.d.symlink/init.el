@@ -99,11 +99,17 @@
   (setq evil-default-cursor t))
 
 (use-package ido
-  :init (ido-mode 1)
+  :init
+  (progn
+    (ido-mode 1)
+    (use-package ido-ubiquitous
+      :init (setq ido-everywhere t))
+    (use-package ido-vertical-mode
+      :init (ido-vertical-mode 1)))
+
   :config
   (progn
     (setq ido-case-fold t)
-    (setq ido-everywhere t)
     (setq ido-enable-prefix nil)
     (setq ido-enable-flex-matching t)
     (setq ido-create-new-buffer 'always)
