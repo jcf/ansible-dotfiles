@@ -33,16 +33,19 @@
 (use-package smart-mode-line
   :init
   (progn
-    (setq sml/theme 'respectful)
-    (setq sml/name-width 40)
-    (setq sml/hidden-modes t)
-    (setq sml/vc-mode-show-backend t)
+    (setq
+     sml/theme 'dark
+     sml/name-width 40
+     sml/hidden-modes t
+     sml/vc-mode-show-backend t)
+
     (sml/setup)))
 
 (use-package smooth-scroll
   :init (smooth-scroll-mode))
 
 (use-package dired-x)
+
 (use-package winner-mode
   :init (winner-mode))
 
@@ -67,7 +70,19 @@
 (use-package simpleclip
   :init (simpleclip-mode 1))
 
-(use-package evil
+(use-package m4ue
+  :config
+  (progn
+    (setq
+     mu4e-maildir       "~/Mail"
+     mu4e-sent-folder   "/Sent"
+     mu4e-drafts-folder "/Drafts"
+     mu4e-trash-folder  "/Trash"
+     mu4e-refile-folder "/Archive"
+     mu4e-get-mail-command "offlineimap"
+     mu4e-update-interval 300))
+
+(Use-package evil
   :init
   (progn
     (evil-mode 1)
@@ -125,13 +140,15 @@
 
   :config
   (progn
-    (setq ido-case-fold t)
-    (setq ido-enable-prefix nil)
-    (setq ido-enable-flex-matching t)
-    (setq ido-create-new-buffer 'always)
-    (setq ido-max-prospects 10)
-    (setq ido-file-extensions-order
-          '(".clj" ".rb" ".el" ".coffee" ".js"))
+    (setq
+     ido-case-fold t
+     ido-enable-prefix nil
+     ido-enable-flex-matching t
+     ido-create-new-buffer 'always
+     ido-max-prospects 10
+     ido-file-extensions-order
+     '(".clj" ".rb" ".el" ".coffee" ".js"))
+
     (add-to-list 'ido-ignore-files "\\.DS_Store")))
 
 (use-package smex
@@ -145,9 +162,11 @@
   :init (projectile-global-mode 1)
   :config
   (progn
-    (setq projectile-enable-caching t)
-    (setq projectile-require-project-root nil)
-    (setq projectile-completion-system 'projectile-completion-fn)
+    (setq
+     projectile-enable-caching t
+     projectile-require-project-root nil
+     projectile-completion-system 'projectile-completion-fn)
+
     (add-to-list 'projectile-globally-ignored-files ".DS_Store")))
 
 (use-package multiple-cursors
@@ -167,15 +186,19 @@
   (progn
     (use-package magit-blame)
     (bind-key "C-c C-a" 'magit-just-amend magit-mode-map))
+
   :config
   (progn
-    ;; (setq magit-emacsclient-executable (evm-find "emacsclient"))
-    (setq magit-default-tracking-name-function 'magit-default-tracking-name-branch-only)
-    (setq magit-set-upstream-on-push t)
-    (setq magit-completing-read-function 'magit-ido-completing-read)
-    (setq magit-stage-all-confirm nil)
-    (setq magit-unstage-all-confirm nil)
+    (setq
+     ;; magit-emacsclient-executable (evm-find "emacsclient"))
+     magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
+     magit-set-upstream-on-push t
+     magit-completing-read-function 'magit-ido-completing-read
+     magit-stage-all-confirm nil
+     magit-unstage-all-confirm nil)
+
     (add-hook 'magit-mode-hook 'rinari-launch))
+
   :bind ("C-x g" . magit-status))
 
 (use-package ace-jump-mode
@@ -188,8 +211,9 @@
   :init (cua-mode 1)
   :config
   (progn
-    (setq cua-enable-cua-keys nil)
-    (setq cua-toggle-set-mark nil)))
+    (setq
+     cua-enable-cua-keys nil
+     cua-toggle-set-mark nil)))
 
 (use-package uniquify
   :config (setq uniquify-buffer-name-style 'forward))
@@ -222,8 +246,9 @@
     (use-package rbenv
       :init
       (progn
-        (setq rbenv-modeline-function 'rbenv--modeline-plain)
-        (setq rbenv-show-active-ruby-in-modeline nil)
+        (setq
+         rbenv-modeline-function 'rbenv--modeline-plain
+         rbenv-show-active-ruby-in-modeline nil)
         (global-rbenv-mode)))
     (use-package ruby-tools)
     (use-package rhtml-mode
@@ -279,8 +304,9 @@
     (show-smartparens-global-mode 1))
   :config
   (progn
-    (setq smartparens-strict-mode t)
-    (setq sp-autoinsert-if-followed-by-word t)
+    (setq
+     smartparens-strict-mode t
+     sp-autoinsert-if-followed-by-word t)
     (sp-local-pair 'emacs-lisp-mode "`" nil :when '(sp-in-string-p))
     (sp-local-tag '(sgml-mode html-mode rhtml-mode) "<" "<_>" "</_>" :transform 'sp-match-sgml-tags))
   :bind
@@ -331,8 +357,9 @@
   (progn
     (add-hook 'c-mode-hook (lambda () (c-set-style "bsd")))
     (add-hook 'java-mode-hook (lambda () (c-set-style "bsd")))
-    (setq tab-width 2)
-    (setq c-basic-offset 2)))
+    (setq
+     tab-width 2
+     c-basic-offset 2)))
 
 (use-package css-mode
   :config (setq css-indent-offset 2))
@@ -359,8 +386,9 @@
   (bind-key "C-j" 'coffee-newline-and-indent coffee-mode-map)
   :config
   (progn
-    (setq coffee-tab-width 2)
-    (setq coffee-cleanup-whitespace nil)))
+    (setq
+     coffee-tab-width 2
+     coffee-cleanup-whitespace nil)))
 
 (use-package sh-script
   :config (setq sh-basic-offset 2))
@@ -415,8 +443,9 @@
               (add-to-list 'eshell-visual-commands "htop")))
   :config
   (progn
-    (setq eshell-history-size 5000)
-    (setq eshell-save-history-on-exit t)))
+    (setq
+     eshell-history-size 5000
+     eshell-save-history-on-exit t)))
 
 (server-start)
 
