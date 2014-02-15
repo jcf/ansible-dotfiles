@@ -32,7 +32,8 @@
 
 (use-package smooth-scroll)
 (use-package dired-x)
-(use-package winner-mode)
+(use-package winner-mode
+  :init (winner-mode))
 
 (use-package auto-complete
   :init (auto-complete-mode))
