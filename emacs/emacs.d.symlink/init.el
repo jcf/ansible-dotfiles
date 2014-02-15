@@ -46,6 +46,11 @@
 (use-package winner-mode
   :init (winner-mode))
 
+(use-package undo-tree
+  :config
+  (progn
+    (setq undo-tree-auto-save-history t)))
+
 (use-package auto-complete
   :init (auto-complete-mode))
 
