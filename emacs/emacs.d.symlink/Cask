@@ -78,6 +78,7 @@
 (depends-on "ido-ubiquitous")
 (depends-on "ido-vertical-mode")
 (depends-on "indent-guide")
+(depends-on "jabber")
 (depends-on "jade-mode")
 (depends-on "jedi")
 (depends-on "js2-mode")
