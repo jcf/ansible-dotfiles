@@ -6,6 +6,7 @@
 ;; and modes.
 
 ;;; Code:
+
 (use-package smart-mode-line
   :config
   (progn
@@ -22,11 +23,12 @@
 (use-package dired
   :config
   (progn
-    (setq dired-omit-files
-          (concat dired-omit-files "\\|.DS_Store$"))
-
-    (dired-omit-mode 1)
-    (use-package dired-x)))
+    (use-package dired-x
+      :config
+      (progn
+        (setq-default dired-omit-files-p t)
+        (setq dired-omit-files
+         (concat dired-omit-files "\\|.DS_Store$"))))))
 
 (use-package winner
   :init (winner-mode))
