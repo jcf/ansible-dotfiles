@@ -431,6 +431,8 @@
      eshell-history-size 5000
      eshell-save-history-on-exit t)))
 
+(use-package exec-path-from-shell
+  :init (exec-path-from-shell-initialize))
 
 (provide 'packages)
 ;;; packages.el ends here
