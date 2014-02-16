@@ -31,12 +31,11 @@
 ;;;; Packages
 
 (use-package smart-mode-line
-  :init
+  :config
   (progn
     (setq
      sml/theme 'dark
      sml/name-width 40
-     sml/hidden-modes t
      sml/vc-mode-show-backend t)
 
     (sml/setup)))
@@ -46,7 +45,7 @@
 
 (use-package dired-x)
 
-(use-package winner-mode
+(use-package winner
   :init (winner-mode))
 
 (use-package undo-tree
@@ -80,9 +79,9 @@
      mu4e-trash-folder  "/Trash"
      mu4e-refile-folder "/Archive"
      mu4e-get-mail-command "offlineimap"
-     mu4e-update-interval 300))
+     mu4e-update-interval 300)))
 
-(Use-package evil
+(use-package evil
   :init
   (progn
     (evil-mode 1)
@@ -102,20 +101,20 @@
         (evil-leader/set-leader ",")
 
         (evil-leader/set-key
-          "b" 'ido-switch-buffer
-          "d" 'kill-buffer
-          "f" 'ido-find-file)
+         "b" 'ido-switch-buffer
+         "d" 'kill-buffer
+         "f" 'ido-find-file)
 
         (evil-leader/set-key-for-mode 'ruby-mode
-          "a" 'rspec-toggle-spec-and-target
-          "v" 'rspec-verify
-          "V" 'rspec-verify-all)
+                                      "a" 'rspec-toggle-spec-and-target
+                                      "v" 'rspec-verify
+                                      "V" 'rspec-verify-all)
 
         (evil-leader/set-key-for-mode 'feature-mode
-          "v" 'feature-verify-scenario-at-pos
-          "V" 'feature-verify-all-scenarios-in-buffer)))
+                                      "v" 'feature-verify-scenario-at-pos
+                                      "V" 'feature-verify-all-scenarios-in-buffer)))
 
-    (use-package evil-surround
+    (use-package surround
       :init (global-surround-mode 1))
 
     (use-package evil-matchit
@@ -428,11 +427,11 @@
 (use-package clojure-mode
   :init
   (progn
-    (use-package clojure-mode)
+    (use-package clojure-test-mode)
     (use-package cider
       :init (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode))
     (add-hook 'clojure-mode-hook 'paredit-mode)))
-(use-package erlang-mode)
+(use-package erlang)
 (use-package haskell-mode)
 
 (use-package eshell
