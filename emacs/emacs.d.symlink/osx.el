@@ -36,20 +36,5 @@
 ;;    brew install coreutils
 (setq insert-directory-program "gls")
 
-(use-package exec-path-from-shell
-  :init (exec-path-from-shell-initialize))
-
-;; Save with Command-s
-(global-set-key (kbd "M-s") 'write-file)
-
-;; Close the current split with Command-w
-(global-set-key (kbd "M-w") 'delete-window)
-
-;; Quit with Command-q
-(global-set-key (kbd "M-q") 'save-buffers-kill-emacs)
-
-;; Paste
-(global-set-key (kbd "M-v") 'simpleclip-paste)
-
 (provide 'osx)
 ;;; osx.el ends here
