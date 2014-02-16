@@ -1,3 +1,11 @@
+;;; defuns --- A bag of useful functions
+
+;;; Commentary:
+
+;; A selection of useful, and some not so, functions from all over the
+;; world.
+
+;;; Code:
 (defun nuke-all-buffers ()
   "Kill all buffers, leaving *scratch* only."
   (interactive)
@@ -266,3 +274,6 @@ them. These include the path relative to the project root."
   (unless (f-file? todo-file)
     (f-touch todo-file))
   (find-file todo-file))
+
+(provide 'defuns)
+;;; defuns.el ends here

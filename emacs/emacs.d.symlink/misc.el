@@ -1,4 +1,12 @@
-;; Do not pause on redisplay
+;;; misc.el --- General Emacs config
+
+;;; Commentary:
+
+;; This is where all configuration that doesn't fit into a packages
+;; ends up.
+
+;;; Code:
+
 (setq redisplay-dont-pause t)
 
 ;; Do not make any backup files
@@ -22,6 +30,7 @@
 
 ;; Do not show annoying menu-bar tips
 (setq suggest-key-bindings nil)
+
 ;; Set default browser
 (setq browse-url-browser-function 'browse-url-generic)
 (setq browse-url-generic-program "google-chrome")
@@ -79,3 +88,6 @@
 
 (defalias 'dtw 'delete-trailing-whitespace)
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+(provide 'misc)
+;;; misc.el ends here
