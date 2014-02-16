@@ -1,8 +1,10 @@
-;;; package --- Handles configuration specifc to OS X
-;;; Commentary:
-;;; Code:
+;;; osx.el --- Handles configuration specifc to OS X
 
-(require 'use-package)
+;;; Commentary:
+
+;; All configuration only relevant when running Emacs on OS X.
+
+;;; Code:
 
 ;; Use command as meta key, leave option alone
 (setq mac-command-modifier 'meta)
@@ -50,4 +52,4 @@
 (global-set-key (kbd "M-v") 'simpleclip-paste)
 
 (provide 'osx)
-;;;  osx.el ends here
+;;; osx.el ends here
