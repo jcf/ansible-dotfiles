@@ -51,9 +51,6 @@
   (progn
     (global-set-key (kbd "C-x C-f") 'helm-find-files)))
 
-(use-package simpleclip
-  :init (simpleclip-mode 1))
-
 (use-package m4ue
   :config
   (progn
@@ -433,6 +430,12 @@
 
 (use-package exec-path-from-shell
   :init (exec-path-from-shell-initialize))
+
+;; Load this last to make sure bindings take effect
+(use-package simpleclip
+  :init (simpleclip-mode 1)
+  :bind (("M-c" . simpleclip-copy)
+         ("M-v" . simpleclip-paste)))
 
 (provide 'packages)
 ;;; packages.el ends here
