@@ -325,7 +325,9 @@
       (yas/load-directory snippets-dir)
       (setq yas/snippet-dirs snippets-dir))
     (yas-global-mode 1)
-    (setq-default yas/prompt-functions '(yas/ido-prompt))))
+    (setq-default yas/prompt-functions '(yas/ido-prompt)))
+  :config
+  (setq-default require-final-newline nil))
 
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))
