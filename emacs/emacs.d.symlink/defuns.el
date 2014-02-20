@@ -275,5 +275,12 @@ them. These include the path relative to the project root."
     (f-touch todo-file))
   (find-file todo-file))
 
+(defun chomp-string (s)
+  "Chomp leading and tailing whitespace from S."
+  (replace-regexp-in-string (rx (or (: bos (* (any " \t\n")))
+                                    (: (* (any " \t\n")) eos)))
+                            ""
+                            s))
+
 (provide 'defuns)
 ;;; defuns.el ends here
