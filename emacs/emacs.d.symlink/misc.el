@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+;; Keep things narrow
+(set-default 'fill-column 72)
+
+;; Use loads of memory, before running GC
+(setq gc-cons-threshold 20000000)
+
 (setq redisplay-dont-pause t)
 
 ;; Do not make any backup files

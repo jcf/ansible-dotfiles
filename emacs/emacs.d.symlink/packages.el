@@ -6,6 +6,23 @@
 ;; and modes.
 
 ;;; Code:
+(use-package align-cljlet)
+(use-package ibuffer-git)
+(use-package scratch)
+(use-package volatile-highlights)
+(use-package gist)
+(use-package browse-kill-ring)
+
+(use-package auto-compile
+  :init
+  (progn
+    (auto-compile-on-load-mode 1)
+    (auto-compile-on-save-mode 1)))
+
+(use-package elisp-slime-nav
+  :init
+  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+    (add-hook hook 'elisp-slime-nav-mode)))
 
 (use-package smart-mode-line
   :config
@@ -39,7 +56,11 @@
     (setq undo-tree-auto-save-history t)))
 
 (use-package auto-complete
-  :init (auto-complete-mode))
+  :init
+  (progn
+    (auto-complete-mode)
+    (use-package popup)
+    (use-package fuzzy)))
 
 (use-package helm
   :init
@@ -114,8 +135,14 @@
   :init
   (progn
     (ido-mode 1)
+    (setq ido-use-faces nil)
+
+    (use-package flx-ido
+      :init (flx-ido-mode 1))
+
     (use-package ido-ubiquitous
       :init (setq ido-everywhere t))
+
     (use-package ido-vertical-mode
       :init (ido-vertical-mode 1)))
 
@@ -417,6 +444,19 @@
     (add-hook 'clojure-mode-hook 'paredit-mode)))
 (use-package erlang)
 (use-package haskell-mode)
+
+(use-package nrepl-eval-sexp-fu
+  :init
+  (setq nrepl-eval-sexp-fu-flash-duration 0.5))
+
+;; TODO Slot this into Clojure mode above
+(use-package ac-nrepl
+  :init
+  (progn
+    (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+    (add-hook 'cider-mode-hook 'ac-nrepl-setup)
+    (eval-after-load "auto-complete"
+      '(add-to-list 'ac-modes 'cider-repl-mode))))
 
 (use-package eshell
   :bind ("M-e" . eshell)
