@@ -28,6 +28,7 @@ emacs/emacs.d.symlink/projectile-bookmarks.eld
 emacs/emacs.d.symlink/projectile.cache
 emacs/emacs.d.symlink/sandbox
 emacs/emacs.d.symlink/tramp
+emacs/emacs.d.symlink/url
 emacs/emacs.d.symlink/var
 
 clojure/lein.symlink/*
