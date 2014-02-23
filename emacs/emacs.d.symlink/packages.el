@@ -19,6 +19,10 @@
     (auto-compile-on-load-mode 1)
     (auto-compile-on-save-mode 1)))
 
+(use-package editorconfig
+  :init
+  (add-to-list 'auto-mode-alist '("\\.editorconfig$" . conf-unix-mode)))
+
 (use-package elisp-slime-nav
   :init
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
