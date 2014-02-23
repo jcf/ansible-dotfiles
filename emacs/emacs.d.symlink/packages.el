@@ -135,6 +135,9 @@
   :config
   (setq evil-default-cursor t))
 
+(use-package pretty-symbols
+  :init (pretty-symbols-mode 1))
+
 (use-package ido
   :init
   (progn
