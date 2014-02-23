@@ -128,6 +128,7 @@
 (depends-on "powerline")
 (depends-on "pretty-lambdada")
 (depends-on "pretty-mode")
+(depends-on "pretty-symbols")
 (depends-on "projectile")
 (depends-on "puppet-mode")
 (depends-on "purty-mode")
