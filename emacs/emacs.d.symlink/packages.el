@@ -293,6 +293,12 @@
          ("Capfile$" . ruby-mode)
          ("Guardfile$" . ruby-mode)))
 
+(use-package python-mode
+  :config
+  (progn
+    (use-package elpy
+      :init (elpy-enable))))
+
 (use-package feature-mode)
 
 (use-package markdown-mode
