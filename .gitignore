@@ -5,9 +5,10 @@
 \#*#
 bin/mate
 misc/config.symlink/configstore
-misc/config.symlink/hub
 misc/config.symlink/gh
 misc/config.symlink/gh-update
+misc/config.symlink/hub
+misc/config.symlink/massren
 priv
 vim/.netrwhist
 vim/view/
