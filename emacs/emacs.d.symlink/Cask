@@ -29,6 +29,7 @@
 (depends-on "docker-mode")
 (depends-on "drag-stuff")
 (depends-on "ecukes")
+(depends-on "editorconfig")
 (depends-on "electric-case")
 (depends-on "elein")
 (depends-on "elisp-slime-nav")
