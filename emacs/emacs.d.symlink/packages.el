@@ -105,7 +105,8 @@
         (evil-leader/set-key
          "b" 'ido-switch-buffer
          "d" 'kill-buffer
-         "f" 'ido-find-file)
+         "f" 'ido-find-file
+         "c" 'delete-window)
 
         (evil-leader/set-key-for-mode 'ruby-mode
                                       "a" 'rspec-toggle-spec-and-target
