@@ -103,19 +103,22 @@
         (evil-leader/set-leader ",")
 
         (evil-leader/set-key
-         "b" 'ido-switch-buffer
-         "d" 'kill-buffer
-         "f" 'ido-find-file
-         "c" 'delete-window)
+          "b" 'ido-switch-buffer
+          "d" 'kill-buffer
+          "f" 'ido-find-file
+          "c" 'delete-window)
+
+        (evil-leader/set-key-for-mode 'clojure-mode
+          "a" 'clojure-jump-between-tests-and-code)
 
         (evil-leader/set-key-for-mode 'ruby-mode
-                                      "a" 'rspec-toggle-spec-and-target
-                                      "v" 'rspec-verify
-                                      "V" 'rspec-verify-all)
+          "a" 'rspec-toggle-spec-and-target
+          "v" 'rspec-verify
+          "V" 'rspec-verify-all)
 
         (evil-leader/set-key-for-mode 'feature-mode
-                                      "v" 'feature-verify-scenario-at-pos
-                                      "V" 'feature-verify-all-scenarios-in-buffer)))
+          "v" 'feature-verify-scenario-at-pos
+          "V" 'feature-verify-all-scenarios-in-buffer)))
 
     (use-package surround
       :init (global-surround-mode 1))
