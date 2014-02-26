@@ -32,14 +32,9 @@
   :config
   (progn
     (setq
-     sml/theme 'dark
-     sml/name-width 40
      sml/vc-mode-show-backend t)
 
     (sml/setup)))
-
-(use-package smooth-scroll
-  :init (smooth-scroll-mode))
 
 (use-package dired
   :config
