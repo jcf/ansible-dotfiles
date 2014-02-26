@@ -18,15 +18,33 @@
   "Load FILE relative to `user-emacs-directory'."
   (load (f-expand file user-emacs-directory)))
 
+(setq inhibit-startup-message t)
+
+(use-package color-theme-molokai
+  :init
+  (load-theme 'molokai t))
+
+;; Better scroll settings
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scroll-preserve-screen-position 1)
+
+;; Mode line settings
+(line-number-mode 1)
+(column-number-mode 1)
+(size-indication-mode 1)
+
+;; make the fringe (gutter) smaller
+;; the argument is a width in pixels (the default is 8)
+(if (fboundp 'fringe-mode)
+    (fringe-mode 4))
+
 (load-x "defuns")
 (load-x "misc")
 (load-x "packages")
 
 (when (eq system-type 'darwin)
   (load-x "osx"))
-
-(setq inhibit-startup-message t)
-(load-theme 'molokai t)
 
 (server-start)
 
