@@ -57,9 +57,18 @@
 (use-package auto-complete
   :init
   (progn
-    (auto-complete-mode)
+    (auto-complete-mode 1)
+
     (use-package popup)
-    (use-package fuzzy)))
+    (use-package fuzzy)
+
+    (use-package ac-nrepl
+      :init
+      (progn
+        (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+        (add-hook 'cider-mode-hook 'ac-nrepl-setup)
+        (eval-after-load "auto-complete"
+          '(add-to-list 'ac-modes 'cider-repl-mode))))))
 
 (use-package helm
   :init
@@ -451,15 +460,6 @@
 (use-package nrepl-eval-sexp-fu
   :init
   (setq nrepl-eval-sexp-fu-flash-duration 0.5))
-
-;; TODO Slot this into Clojure mode above
-(use-package ac-nrepl
-  :init
-  (progn
-    (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-    (add-hook 'cider-mode-hook 'ac-nrepl-setup)
-    (eval-after-load "auto-complete"
-      '(add-to-list 'ac-modes 'cider-repl-mode))))
 
 (use-package eshell
   :bind ("M-e" . eshell)
