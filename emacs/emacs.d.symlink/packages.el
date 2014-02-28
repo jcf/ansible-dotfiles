@@ -71,18 +71,6 @@
   (progn
     (global-set-key (kbd "C-x C-f") 'helm-find-files)))
 
-(use-package m4ue
-  :config
-  (progn
-    (setq
-     mu4e-maildir       "~/Mail"
-     mu4e-sent-folder   "/Sent"
-     mu4e-drafts-folder "/Drafts"
-     mu4e-trash-folder  "/Trash"
-     mu4e-refile-folder "/Archive"
-     mu4e-get-mail-command "offlineimap"
-     mu4e-update-interval 300)))
-
 (use-package evil
   :init
   (progn
@@ -249,10 +237,6 @@
 
 (use-package windmove
   :config (windmove-default-keybindings 'shift))
-
-(use-package sh-mode
-  :init
-  ((add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))))
 
 (use-package ruby-mode
   :init
