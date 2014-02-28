@@ -102,8 +102,11 @@
         (evil-leader/set-key
           "b" 'ido-switch-buffer
           "d" 'kill-buffer
-          "f" 'ido-find-file
           "c" 'delete-window
+          "f" 'ido-find-file
+          "pf" 'projectile-find-file
+          "pb" 'projectile-switch-to-buffer
+          "pd" 'projectile-dired
           "ee" 'eval-expression
           "er" 'eval-region
           "eb" 'eval-buffer
