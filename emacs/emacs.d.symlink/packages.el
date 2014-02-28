@@ -94,10 +94,17 @@
           "b" 'ido-switch-buffer
           "d" 'kill-buffer
           "f" 'ido-find-file
-          "c" 'delete-window)
+          "c" 'delete-window
+          "ee" 'eval-expression
+          "er" 'eval-region
+          "eb" 'eval-buffer
+          "gs" 'magit-status)
 
         (evil-leader/set-key-for-mode 'clojure-mode
-          "a" 'clojure-jump-between-tests-and-code)
+          "a" 'clojure-jump-between-tests-and-code
+          "rs" 'cljr-sort-ns
+          "rr" 'cljr-add-require-to-ns
+          "ru" 'cljr-add-use-to-ns)
 
         (evil-leader/set-key-for-mode 'ruby-mode
           "a" 'rspec-toggle-spec-and-target
