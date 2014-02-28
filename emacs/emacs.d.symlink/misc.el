@@ -88,6 +88,9 @@
 ;; Remove trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Load sh-mode when opening a file with a zsh extension
+(add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
+
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
