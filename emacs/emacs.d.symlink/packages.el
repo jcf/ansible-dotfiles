@@ -13,11 +13,11 @@
 (use-package gist)
 (use-package browse-kill-ring)
 
-(use-package auto-compile
-  :init
-  (progn
-    (auto-compile-on-load-mode 1)
-    (auto-compile-on-save-mode 1)))
+;; (use-package auto-compile
+;;   :init
+;;   (progn
+;;     (auto-compile-on-load-mode 1)
+;;     (auto-compile-on-save-mode 1)))
 
 (use-package editorconfig
   :init
