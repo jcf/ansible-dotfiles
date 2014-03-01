@@ -50,9 +50,11 @@
   :init (winner-mode))
 
 (use-package undo-tree
-  :config
+  :init
   (progn
-    (setq undo-tree-auto-save-history t)))
+    (setq
+     undo-tree-auto-save-history t
+     undo-tree-history-directory-alist' (cf. backup-directory-alist))))
 
 (use-package auto-complete
   :init
