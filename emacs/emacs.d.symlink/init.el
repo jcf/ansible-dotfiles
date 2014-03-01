@@ -70,3 +70,8 @@
 
 (bind-key "C-M-h" 'backward-kill-word)
 (bind-key "C-c C-n" 'todo)
+
+(custom-set-faces
+ '(helm-selection ((t (:background "gray12" :foreground "DeepSkyBlue2" :underline nil))))
+ '(helm-separator ((t (:foreground "LightGoldenrod4"))))
+ '(helm-source-header ((t (:foreground "white" :weight bold)))))
