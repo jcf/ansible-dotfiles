@@ -52,9 +52,11 @@
 (use-package undo-tree
   :init
   (progn
+    (global-undo-tree-mode 1)
+
     (setq
      undo-tree-auto-save-history t
-     undo-tree-history-directory-alist' (cf. backup-directory-alist))))
+     undo-tree-history-directory-alist backup-directory-alist)))
 
 (use-package auto-complete
   :init
