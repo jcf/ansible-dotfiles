@@ -158,7 +158,6 @@
 (use-package ido
   :init
   (progn
-    (ido-mode 1)
     (setq ido-use-faces nil)
 
     (use-package flx-ido
