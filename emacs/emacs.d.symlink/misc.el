@@ -15,6 +15,11 @@
 
 (setq redisplay-dont-pause t)
 
+;; Keep Emacs cruft in a platform-specific tmp directory
+(setq
+ backup-directory-alist `((".*" . ,temporary-file-directory))
+ auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
 ;; Do not make any backup files
 (setq make-backup-files nil)
 
