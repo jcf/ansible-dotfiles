@@ -73,12 +73,19 @@
 (use-package helm
   :init
   (progn
+    (helm-mode 1)
     (use-package helm-ag)
+    (use-package helm-ag-r)
+    (use-package helm-c-yasnippet)
+    (use-package helm-dired-recent-dirs)
+    (use-package helm-git)
     (use-package helm-git-grep)
-    (use-package helm-go-package))
-  :config
-  (progn
-    (global-set-key (kbd "C-x C-f") 'helm-find-files)))
+    (use-package helm-go-package)
+    (use-package helm-helm-commands)
+    (use-package helm-projectile)
+    (use-package helm-rails)
+    (use-package helm-rb)
+    (use-package helm-rubygems-local)))
 
 (use-package evil
   :init
@@ -173,8 +180,7 @@
     (add-to-list 'ido-ignore-files "\\.DS_Store")))
 
 (use-package smex
-  :init (smex-initialize)
-  :bind ("M-x" . smex))
+  :init (smex-initialize))
 
 (use-package popwin
   :init (popwin-mode 1))
