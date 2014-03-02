@@ -20,9 +20,9 @@
 
 (setq inhibit-startup-message t)
 
-(use-package color-theme-molokai
+(use-package zenburn-theme
   :init
-  (load-theme 'molokai t))
+  (load-theme 'zenburn t))
 
 ;; Better scroll settings
 (setq scroll-margin 0
@@ -69,8 +69,3 @@
 
 (bind-key "C-M-h" 'backward-kill-word)
 (bind-key "C-c C-n" 'todo)
-
-(custom-set-faces
- '(helm-selection ((t (:background "gray12" :foreground "DeepSkyBlue2" :underline nil))))
- '(helm-separator ((t (:foreground "LightGoldenrod4"))))
- '(helm-source-header ((t (:foreground "white" :weight bold)))))
