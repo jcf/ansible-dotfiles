@@ -7,6 +7,24 @@
 
 ;;; Code:
 
+;; Better scroll settings
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scroll-preserve-screen-position 1)
+
+;; Mode line settings
+(line-number-mode 1)
+(column-number-mode 1)
+(size-indication-mode 1)
+
+;; Show lines numbers in the gutter
+(global-linum-mode 1)
+(setq linum-format "%4d")
+
+;; Make the gutter smaller
+(if (fboundp 'fringe-mode)
+    (fringe-mode 4))
+
 ;; Keep things narrow
 (set-default 'fill-column 72)
 

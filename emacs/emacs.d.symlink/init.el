@@ -20,23 +20,9 @@
 
 (setq inhibit-startup-message t)
 
-(use-package zenburn-theme
+(use-package color-theme-monokai
   :init
-  (load-theme 'zenburn t))
-
-;; Better scroll settings
-(setq scroll-margin 0
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 1)
-
-;; Mode line settings
-(line-number-mode 1)
-(column-number-mode 1)
-(size-indication-mode 1)
-
-;; Make the gutter smaller
-(if (fboundp 'fringe-mode)
-    (fringe-mode 4))
+  (load-theme 'monokai t))
 
 (load-x "defuns")
 (load-x "misc")

@@ -13,12 +13,6 @@
 (use-package gist)
 (use-package browse-kill-ring)
 
-;; (use-package auto-compile
-;;   :init
-;;   (progn
-;;     (auto-compile-on-load-mode 1)
-;;     (auto-compile-on-save-mode 1)))
-
 (use-package editorconfig
   :init
   (add-to-list 'auto-mode-alist '("\\.editorconfig$" . conf-unix-mode)))
@@ -28,13 +22,8 @@
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
     (add-hook hook 'elisp-slime-nav-mode)))
 
-(use-package smart-mode-line
-  :config
-  (progn
-    (setq
-     sml/vc-mode-show-backend t)
-
-    (sml/setup)))
+(use-package powerline
+  :init (powerline-default-theme))
 
 (use-package dired
   :config
@@ -166,9 +155,6 @@
     (use-package ido-ubiquitous
       :init (setq ido-everywhere t))
 
-    (use-package ido-vertical-mode
-      :init (ido-vertical-mode 1)))
-
   :config
   (progn
     (setq
@@ -180,7 +166,7 @@
      ido-file-extensions-order
      '(".clj" ".rb" ".el" ".coffee" ".js"))
 
-    (add-to-list 'ido-ignore-files "\\.DS_Store")))
+    (add-to-list 'ido-ignore-files "\\.DS_Store"))))
 
 (use-package smex
   :init (smex-initialize))
