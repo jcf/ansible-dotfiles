@@ -34,8 +34,7 @@
 (column-number-mode 1)
 (size-indication-mode 1)
 
-;; make the fringe (gutter) smaller
-;; the argument is a width in pixels (the default is 8)
+;; Make the gutter smaller
 (if (fboundp 'fringe-mode)
     (fringe-mode 4))
 
