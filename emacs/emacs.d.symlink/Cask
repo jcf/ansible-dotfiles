@@ -129,6 +129,7 @@
 (depends-on "nyan-mode")
 (depends-on "offlineimap")
 (depends-on "page-break-lines")
+(depends-on "palette")
 (depends-on "pallet")
 (depends-on "pig-mode")
 (depends-on "popwin")
