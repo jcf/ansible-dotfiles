@@ -71,6 +71,7 @@
 (depends-on "gitignore-mode")
 (depends-on "go-eldoc")
 (depends-on "google-this")
+(depends-on "grizzl")
 (depends-on "gruber-darker-theme")
 (depends-on "haml-mode")
 (depends-on "handlebars-mode")
