@@ -110,7 +110,8 @@
           "ee" 'eval-expression
           "er" 'eval-region
           "eb" 'eval-buffer
-          "gs" 'magit-status)
+          "gs" 'magit-status
+          "gb" 'magit-blame-mode)
 
         (evil-leader/set-key-for-mode 'clojure-mode
           "a" 'clojure-jump-between-tests-and-code
