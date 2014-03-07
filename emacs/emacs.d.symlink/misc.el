@@ -28,9 +28,6 @@
 ;; Keep things narrow
 (set-default 'fill-column 72)
 
-;; Use loads of memory, before running GC
-(setq gc-cons-threshold 20000000)
-
 (setq redisplay-dont-pause t)
 
 ;; Keep Emacs cruft in a platform-specific tmp directory
