@@ -156,6 +156,9 @@
     (use-package ido-ubiquitous
       :init (setq ido-everywhere t))
 
+    (use-package ido-vertical-mode
+      :init (ido-vertical-mode 1)))
+
   :config
   (progn
     (setq
@@ -167,7 +170,7 @@
      ido-file-extensions-order
      '(".clj" ".rb" ".el" ".coffee" ".js"))
 
-    (add-to-list 'ido-ignore-files "\\.DS_Store"))))
+    (add-to-list 'ido-ignore-files "\\.DS_Store")))
 
 (use-package smex
   :init (smex-initialize))
