@@ -22,6 +22,9 @@
 ;; Set font
 (set-frame-font "-apple-Source_Code_Pro_for_Powerline-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
 
+;; Cmd-shift-f to toggle full screen
+(bind-key "M-F" 'toggle-frame-fullscreen)
+
 (defun finder ()
   "Opens file directory in Finder."
   (interactive)
