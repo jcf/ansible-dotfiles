@@ -127,6 +127,10 @@
           "gb" 'magit-blame-mode
           "gl" 'magit-log)
 
+        (evil-leader/set-key-for-mode 'org-mode
+          "t" 'org-todo
+          "s" 'org-sort-list)
+
         (evil-leader/set-key-for-mode 'clojure-mode
           "a" 'clojure-jump-between-tests-and-code
           "rs" 'cljr-sort-ns
