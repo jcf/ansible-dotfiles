@@ -17,7 +17,7 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.editorconfig$" . conf-unix-mode)))
 
-(use-package linum-mode
+(use-package linum
   :init
   (progn
     ;; Show lines numbers in the gutter
