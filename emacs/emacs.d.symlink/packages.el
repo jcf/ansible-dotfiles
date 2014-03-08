@@ -102,7 +102,7 @@
           "b" 'ido-switch-buffer
           "d" 'kill-buffer
           "c" 'delete-window
-          "f" 'ido-find-file
+          "f" 'fiplr-find-file
           "pf" 'projectile-find-file
           "pb" 'projectile-switch-to-buffer
           "pd" 'projectile-dired
