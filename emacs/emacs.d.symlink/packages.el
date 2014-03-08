@@ -66,7 +66,6 @@
 (use-package helm
   :init
   (progn
-    (helm-mode 1)
     (use-package helm-ag)
     (use-package helm-ag-r)
     (use-package helm-c-yasnippet)
