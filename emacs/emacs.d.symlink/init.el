@@ -54,4 +54,3 @@
 (bind-key "C-c k" 'delete-this-buffer-and-file)
 
 (bind-key "C-M-h" 'backward-kill-word)
-(bind-key "C-c C-n" 'todo)
