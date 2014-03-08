@@ -116,6 +116,7 @@
           "d" 'kill-buffer
           "c" 'delete-window
           "f" 'fiplr-find-file
+          "n" 'ido-find-file
           "pf" 'projectile-find-file
           "pb" 'projectile-switch-to-buffer
           "pd" 'projectile-dired
