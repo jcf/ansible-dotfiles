@@ -97,6 +97,14 @@
     (define-key evil-normal-state-map ";" 'evil-ex)
     (define-key evil-visual-state-map ";" 'evil-ex)
 
+    (defadvice evil-search-next
+      (after advice-for-evil-search-next activate)
+      (evil-scroll-line-to-center (line-number-at-pos)))
+
+    (defadvice evil-search-previous
+      (after advice-for-evil-search-previous activate)
+      (evil-scroll-line-to-center (line-number-at-pos)))
+
     (use-package evil-leader
       :init (global-evil-leader-mode)
       :config
