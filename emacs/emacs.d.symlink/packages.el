@@ -79,6 +79,11 @@
     (use-package helm-rb)
     (use-package helm-rubygems-local)))
 
+(use-package guide-key
+  :config
+  (progn
+    (setq guide-key/guide-key-sequence '("C-x r" "C-x 4"))))
+
 (use-package evil
   :init
   (progn
