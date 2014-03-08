@@ -20,7 +20,7 @@
 (setq delete-by-moving-to-trash t)
 
 ;; Set font
-(set-frame-font "-apple-Source_Code_Pro-medium-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+(set-frame-font "-apple-Source_Code_Pro_for_Powerline-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
 
 (defun finder ()
   "Opens file directory in Finder."
