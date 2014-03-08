@@ -172,7 +172,8 @@
     (add-to-list 'ido-ignore-files "\\.DS_Store")))
 
 (use-package smex
-  :init (smex-initialize))
+  :init (smex-initialize)
+  :bind (("M-x" . smex)))
 
 (use-package popwin
   :init (popwin-mode 1))
