@@ -17,6 +17,13 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.editorconfig$" . conf-unix-mode)))
 
+(use-package linum-mode
+  :init
+  (progn
+    ;; Show lines numbers in the gutter
+    (global-linum-mode 1)
+    (setq linum-format "%4d")))
+
 (use-package elisp-slime-nav
   :init
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))

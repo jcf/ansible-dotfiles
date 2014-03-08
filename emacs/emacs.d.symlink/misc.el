@@ -17,10 +17,6 @@
 (column-number-mode 1)
 (size-indication-mode 1)
 
-;; Show lines numbers in the gutter
-(global-linum-mode 1)
-(setq linum-format "%4d")
-
 ;; Make the gutter smaller
 (if (fboundp 'fringe-mode)
     (fringe-mode 4))
