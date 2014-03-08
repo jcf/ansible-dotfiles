@@ -1,4 +1,4 @@
-# dotfiles
+# Dotfiles
 
 These dotfiles are my own, and I'm constantly making changes. As such
 they're **unstable**. They might not work on your computer, after some
