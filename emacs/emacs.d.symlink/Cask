@@ -84,7 +84,6 @@
 (depends-on "gh")
 (depends-on "gist")
 (depends-on "git")
-(depends-on "git-commit-mode")
 (depends-on "gitconfig-mode")
 (depends-on "github-browse-file")
 (depends-on "gitignore-mode")
