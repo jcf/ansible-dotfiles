@@ -119,20 +119,21 @@
         (evil-leader/set-leader ",")
 
         (evil-leader/set-key
-          "b" 'ido-switch-buffer
-          "d" 'kill-buffer
           "c" 'delete-window
-          "f" 'ido-find-file
-          "n" 'fiplr-find-file
-          "pf" 'projectile-find-file
-          "pb" 'projectile-switch-to-buffer
-          "pd" 'projectile-dired
+          "d" 'kill-buffer
+          "eb" 'eval-buffer
           "ee" 'eval-expression
           "er" 'eval-region
-          "eb" 'eval-buffer
-          "gs" 'magit-status
+          "fb" 'ido-switch-buffer
+          "fd" 'ido-dired
+          "ff" 'ido-find-file
+          "fp" 'fiplr-find-file
           "gb" 'magit-blame-mode
-          "gl" 'magit-log)
+          "gl" 'magit-log
+          "gs" 'magit-status
+          "pb" 'projectile-switch-to-buffer
+          "pd" 'projectile-dired
+          "pf" 'projectile-find-file)
 
         (evil-leader/set-key-for-mode 'org-mode
           "t" 'org-todo
