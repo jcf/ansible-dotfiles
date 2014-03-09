@@ -94,8 +94,6 @@
 (use-package evil
   :init
   (progn
-    (evil-mode 1)
-
     (define-key evil-normal-state-map "Y" (kbd "y$"))
     (define-key evil-normal-state-map (kbd "SPC") 'evil-repeat-find-char)
     (define-key
@@ -163,7 +161,10 @@
     (use-package key-chord
       :init (key-chord-mode 1)
       :config
-      (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)))
+      (key-chord-define evil-insert-state-map "jj" 'evil-normal-state))
+
+    ;; Activate evil-mode after global-evil-leader-mode (http://j.mp/1i0vLSP)
+    (evil-mode 1))
 
   :config
   (setq evil-default-cursor t))
