@@ -117,8 +117,8 @@
         (evil-leader/set-leader ",")
 
         (evil-leader/set-key
-          "c" 'delete-window
-          "d" 'kill-buffer
+          "db" 'kill-buffer
+          "dw" 'delete-window
           "eb" 'eval-buffer
           "ee" 'eval-expression
           "er" 'eval-region
