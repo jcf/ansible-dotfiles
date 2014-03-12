@@ -139,6 +139,9 @@
 
         (evil-leader/set-key-for-mode 'clojure-mode
           "a" 'clojure-jump-between-tests-and-code
+          "cc" 'cider
+          "cj" 'cider-jack-in
+          "cq" 'cider-quit
           "rs" 'cljr-sort-ns
           "rr" 'cljr-add-require-to-ns
           "ru" 'cljr-add-use-to-ns)
