@@ -6,6 +6,8 @@
 ;; and modes.
 
 ;;; Code:
+(require 'use-package)
+
 (use-package align-cljlet)
 (use-package ibuffer-git)
 (use-package scratch)
@@ -28,99 +30,6 @@
   :init
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
     (add-hook hook 'elisp-slime-nav-mode)))
-
-(use-package powerline
-  :init
-  (progn
-    (defface jcf-powerline-emacs
-      '((t (:background "#af74e6" :foreground "#080808" :inherit mode-line)))
-      "Colour applied to Emacs mode indicator."
-      :group 'powerline)
-
-    (defface jcf-powerline-insert
-      '((t (:background "#66d9ef" :foreground "#080808" :inherit mode-line)))
-      "Colour applied to insert mode indicator."
-      :group 'powerline)
-
-    (defface jcf-powerline-motion
-      '((t (:background "#465457" :foreground "#1b1d1e" :inherit mode-line)))
-      "Colour applied to motion mode indicator."
-      :group 'powerline)
-
-    (defface jcf-powerline-normal
-      '((t (:background "#e6db74" :foreground "#080808" :inherit mode-line)))
-      "Colour applied to normal mode indicator."
-      :group 'powerline)
-
-    (defface jcf-powerline-visual
-      '((t (:background "#fd971f" :foreground "#080808" :inherit mode-line)))
-      "Colour applied to visual mode indicator."
-      :group 'powerline)
-
-    (defun jcf-propertized-evil-mode-tag ()
-      (let* ((x (cond ((evil-emacs-state-p)  '(" EMACS  " jcf-powerline-emacs))
-                      ((evil-insert-state-p) '(" INSERT " jcf-powerline-insert))
-                      ((evil-motion-state-p) '(" MOTION " jcf-powerline-motion))
-                      ((evil-normal-state-p) '(" NORMAL " jcf-powerline-normal))
-                      ((evil-visual-state-p) '(" VISUAL " jcf-powerline-visual))
-                      (t                     '(" WAT?!  " jcf-powerline-emacs))))
-             (text (or (first x) ""))
-             (face (second x)))
-
-        (list
-         (powerline-raw text face face)
-         (powerline-arrow-left face nil))))
-
-    (defun jcf-powerline-theme ()
-      (interactive)
-      (setq-default
-       mode-line-format
-       '("%e"
-         (:eval
-          (let* ((active (powerline-selected-window-active))
-                 (mode-line (if active 'mode-line 'mode-line-inactive))
-                 (face1 (if active 'powerline-active1 'powerline-inactive1))
-                 (face2 (if active 'powerline-active2 'powerline-inactive2))
-                 (separator-left (intern (format "powerline-%s-%s"
-                                                 powerline-default-separator
-                                                 (car powerline-default-separator-dir))))
-                 (separator-right (intern (format "powerline-%s-%s"
-                                                  powerline-default-separator
-                                                  (cdr powerline-default-separator-dir))))
-
-                 (lhs (append
-                       (jcf-propertized-evil-mode-tag)
-                       (list (powerline-raw "%*" nil 'l)
-                             (powerline-buffer-size nil 'l)
-                             (powerline-raw mode-line-mule-info nil 'l)
-                             (powerline-buffer-id nil 'l)
-                             (when (and (boundp 'which-func-mode) which-func-mode)
-                               (powerline-raw which-func-format nil 'l))
-                             (powerline-raw " ")
-                             (funcall separator-left mode-line face1)
-                             (when (boundp 'erc-modified-channels-object)
-                               (powerline-raw erc-modified-channels-object face1 'l))
-                             (powerline-major-mode face1 'l)
-                             (powerline-process face1)
-                             ;; (powerline-minor-modes face1 'l)
-                             (powerline-narrow face1 'l)
-                             (powerline-raw " " face1)
-                             (funcall separator-left face1 face2)
-                             (powerline-vc face2 'r))))
-                 (rhs (list (powerline-raw global-mode-string face2 'r)
-                            (funcall separator-right face2 face1)
-                            (powerline-raw "%4l" face1 'l)
-                            (powerline-raw ":" face1 'l)
-                            (powerline-raw "%3c" face1 'r)
-                            (funcall separator-right face1 mode-line)
-                            (powerline-raw " ")
-                            (powerline-raw "%6p" nil 'r)
-                            (powerline-hud face2 face1))))
-            (concat (powerline-render lhs)
-                    (powerline-fill face2 (powerline-width rhs))
-                    (powerline-render rhs)))))))
-
-    (jcf-powerline-theme)))
 
 (use-package dired
   :config
@@ -180,91 +89,6 @@
   :config
   (progn
     (setq guide-key/guide-key-sequence '("C-x r" "C-x 4"))))
-
-(use-package evil
-  :init
-  (progn
-    (setq
-     evil-insert-state-message nil
-     evil-visual-state-message nil)
-
-    (define-key evil-normal-state-map "Y" (kbd "y$"))
-    (define-key evil-normal-state-map (kbd "SPC") 'evil-repeat-find-char)
-    (define-key
-      evil-normal-state-map (kbd "S-SPC") 'evil-repeat-find-char-reverse)
-
-    (define-key evil-normal-state-map ";" 'evil-ex)
-    (define-key evil-visual-state-map ";" 'evil-ex)
-
-    (defadvice evil-search-next
-      (after advice-for-evil-search-next activate)
-      (evil-scroll-line-to-center (line-number-at-pos)))
-
-    (defadvice evil-search-previous
-      (after advice-for-evil-search-previous activate)
-      (evil-scroll-line-to-center (line-number-at-pos)))
-
-    (use-package evil-leader
-      :init (global-evil-leader-mode)
-      :config
-      (progn
-        (evil-leader/set-leader ",")
-
-        (evil-leader/set-key
-          "db" 'kill-buffer
-          "dw" 'delete-window
-          "eb" 'eval-buffer
-          "ee" 'eval-expression
-          "er" 'eval-region
-          "fb" 'ido-switch-buffer
-          "fd" 'ido-dired
-          "ff" 'ido-find-file
-          "fp" 'fiplr-find-file
-          "gb" 'magit-blame-mode
-          "gl" 'magit-log
-          "gs" 'magit-status
-          "pb" 'projectile-switch-to-buffer
-          "pd" 'projectile-dired
-          "pf" 'projectile-find-file)
-
-        (evil-leader/set-key-for-mode 'org-mode
-          "t" 'org-todo
-          "s" 'org-sort-list)
-
-        (evil-leader/set-key-for-mode 'clojure-mode
-          "a" 'clojure-jump-between-tests-and-code
-          "cc" 'cider
-          "cj" 'cider-jack-in
-          "cq" 'cider-quit
-          "rs" 'cljr-sort-ns
-          "rr" 'cljr-add-require-to-ns
-          "ru" 'cljr-add-use-to-ns)
-
-        (evil-leader/set-key-for-mode 'ruby-mode
-          "a" 'rspec-toggle-spec-and-target
-          "v" 'rspec-verify
-          "V" 'rspec-verify-all)
-
-        (evil-leader/set-key-for-mode 'feature-mode
-          "v" 'feature-verify-scenario-at-pos
-          "V" 'feature-verify-all-scenarios-in-buffer)))
-
-    (use-package surround
-      :init (global-surround-mode 1))
-
-    (use-package evil-matchit
-      :init (global-evil-matchit-mode 1))
-
-    (use-package key-chord
-      :init (key-chord-mode 1)
-      :config
-      (key-chord-define evil-insert-state-map "jj" 'evil-normal-state))
-
-    ;; Activate evil-mode after global-evil-leader-mode (http://j.mp/1i0vLSP)
-    (evil-mode 1))
-
-  :config
-  (setq evil-default-cursor t))
 
 (use-package pretty-symbols
   :init (pretty-symbols-mode 1))
