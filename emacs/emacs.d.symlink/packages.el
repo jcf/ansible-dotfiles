@@ -184,6 +184,10 @@
 (use-package evil
   :init
   (progn
+    (setq
+     evil-insert-state-message nil
+     evil-visual-state-message nil)
+
     (define-key evil-normal-state-map "Y" (kbd "y$"))
     (define-key evil-normal-state-map (kbd "SPC") 'evil-repeat-find-char)
     (define-key
