@@ -56,7 +56,7 @@
 (use-package auto-complete
   :init
   (progn
-    (auto-complete-mode 1)
+    (global-auto-complete-mode 1)
 
     (use-package popup)
     (use-package fuzzy)
