@@ -12,3 +12,7 @@ alias lt ll -tr $*
 ;; alias lm la $* | "$PAGER"
 alias lu lt -u $*
 alias lx lt -XB $*
+
+alias g git $*
+alias s g status -sb $*
+alias d g diff $*
