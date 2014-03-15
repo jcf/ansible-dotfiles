@@ -26,6 +26,8 @@
 
 (load-x "defuns")
 (load-x "misc")
+(load-x "evil-custom")
+(load-x "powerline-custom")
 (load-x "packages")
 
 (when (eq system-type 'darwin)
