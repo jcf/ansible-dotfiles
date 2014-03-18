@@ -57,6 +57,7 @@
   :init
   (progn
     (global-auto-complete-mode 1)
+    (ac-linum-workaround)
 
     (use-package popup)
     (use-package fuzzy)
