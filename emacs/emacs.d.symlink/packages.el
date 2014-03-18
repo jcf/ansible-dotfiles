@@ -167,7 +167,10 @@
      magit-stage-all-confirm nil
      magit-unstage-all-confirm nil)
 
-    (add-hook 'magit-mode-hook 'rinari-launch))
+    (add-hook 'magit-mode-hook 'rinari-launch)
+
+    ;; No weird little popup window that doesn't work with fullscreen apps
+    (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
   :bind ("C-x g" . magit-status))
 
