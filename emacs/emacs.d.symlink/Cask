@@ -166,6 +166,7 @@
 (depends-on "projectile")
 (depends-on "puppet-mode")
 (depends-on "purty-mode")
+(depends-on "python-environment")
 (depends-on "python-mode")
 (depends-on "pyvenv")
 (depends-on "rainbow-delimiters")
