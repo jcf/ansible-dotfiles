@@ -22,6 +22,7 @@
 /emacs/emacs.d.symlink/ac-comphist.dat
 /emacs/emacs.d.symlink/auto-save-list
 /emacs/emacs.d.symlink/eshell/history
+/emacs/emacs.d.symlink/eshell/lastdir
 /emacs/emacs.d.symlink/flycheck*.el
 /emacs/emacs.d.symlink/places
 /emacs/emacs.d.symlink/projectile-bookmarks.eld
