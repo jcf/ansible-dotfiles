@@ -32,6 +32,7 @@
     (define-globalized-minor-mode global-fci-mode fci-mode
       (lambda () (fci-mode 1)))
 
+    (setq-default fill-column 80)
     (global-fci-mode 1)))
 
 (use-package elisp-slime-nav
