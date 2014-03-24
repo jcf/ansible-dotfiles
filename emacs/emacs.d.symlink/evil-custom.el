@@ -31,6 +31,24 @@
       (after advice-for-evil-search-previous activate)
       (evil-scroll-line-to-center (line-number-at-pos)))
 
+    ;; Setup initial Evil mode for a number of commonly used modes.
+    (loop for (mode . state)
+          in '((ielm-mode . insert)
+               (nrepl-mode . insert)
+               (shell-mode . insert)
+               (git-commit-mode . insert)
+               (git-rebase-mode . emacs)
+               (term-mode . emacs)
+               (help-mode . emacs)
+               (helm-grep-mode . emacs)
+               (grep-mode . emacs)
+               (bc-menu-mode . emacs)
+               (magit-branch-manager-mode . emacs)
+               (rdictcc-buffer-mode . emacs)
+               (dired-mode . emacs)
+               (wdired-mode . normal))
+          do (evil-set-initial-state mode state))
+
     (use-package evil-leader
       :init (global-evil-leader-mode)
       :config
