@@ -36,7 +36,6 @@
           in '((ielm-mode . insert)
                (nrepl-mode . insert)
                (shell-mode . insert)
-               (git-commit-mode . insert)
                (git-rebase-mode . emacs)
                (term-mode . emacs)
                (help-mode . emacs)
