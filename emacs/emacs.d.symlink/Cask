@@ -1,5 +1,5 @@
-(source marmalade)
 (source melpa)
+(source marmalade)
 
 (depends-on "ac-cider-compliment")
 (depends-on "ac-etags")
@@ -74,6 +74,7 @@
 (depends-on "facemenu+")
 (depends-on "feature-mode")
 (depends-on "fic-mode")
+(depends-on "fill-column-indicator")
 (depends-on "fill-column-indicator")
 (depends-on "fiplr")
 (depends-on "flx")

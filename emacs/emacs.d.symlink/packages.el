@@ -26,6 +26,14 @@
     (global-linum-mode 1)
     (setq linum-format "%4d")))
 
+(use-package fill-column-indicator
+  :init
+  (progn
+    (define-globalized-minor-mode global-fci-mode fci-mode
+      (lambda () (fci-mode 1)))
+
+    (global-fci-mode 1)))
+
 (use-package elisp-slime-nav
   :init
   (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
