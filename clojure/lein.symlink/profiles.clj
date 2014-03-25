@@ -8,7 +8,7 @@
                        [spyscope "0.1.4"]]
 
         :plugins [[codox "0.6.6"]
-                  [jonase/eastwood "0.0.2"]
+                  [jonase/eastwood "0.1.1"]
                   [lein-ancient "0.5.4"]
                   [lein-cljsbuild "1.0.0"]
                   [lein-clojars "0.9.1"]
