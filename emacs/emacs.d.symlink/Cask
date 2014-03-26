@@ -75,7 +75,6 @@
 (depends-on "feature-mode")
 (depends-on "fic-mode")
 (depends-on "fill-column-indicator")
-(depends-on "fill-column-indicator")
 (depends-on "fiplr")
 (depends-on "flx")
 (depends-on "flx-ido")
