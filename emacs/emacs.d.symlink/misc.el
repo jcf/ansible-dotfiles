@@ -107,6 +107,9 @@
 ;; Load sh-mode when opening a file with a zsh extension
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 
+;; Load conf-mode in a Procfile
+(add-to-list 'auto-mode-alist '("Procfile" . conf-mode))
+
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
