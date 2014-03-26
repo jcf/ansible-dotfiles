@@ -44,7 +44,7 @@
                (bc-menu-mode . emacs)
                (magit-branch-manager-mode . emacs)
                (rdictcc-buffer-mode . emacs)
-               (dired-mode . emacs)
+               (dired-mode . normal)
                (wdired-mode . normal))
           do (evil-set-initial-state mode state))
 
