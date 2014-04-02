@@ -1,0 +1,4 @@
+#!/bin/bash
+# Starts an emacsclient that connects to a running Emacs server
+emacs_bin=$(evm bin)
+${emacs_bin%/Emacs}/bin/emacsclient $@
