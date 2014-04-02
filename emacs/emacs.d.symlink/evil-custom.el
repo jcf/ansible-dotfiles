@@ -111,7 +111,9 @@
     (use-package key-chord
       :init (key-chord-mode 1)
       :config
-      (key-chord-define evil-insert-state-map "jj" 'evil-normal-state))
+      (progn
+        (setq key-chord-two-keys-delay 0.05)
+        (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)))
 
     ;; Activate evil-mode after global-evil-leader-mode (http://j.mp/1i0vLSP)
     (evil-mode 1))
