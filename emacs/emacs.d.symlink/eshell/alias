@@ -1,18 +1,16 @@
-alias d dired $1
-alias ff find-file $1
-alias clear recenter 0
-
-alias l  ls -1A $*
-alias ll ls -lh $*
-alias la ll -A $*
-alias lc ll -trc $*
-alias lk ll -Sr $*
-alias lr ll -R $*
-alias lt ll -tr $*
-;; alias lm la $* | "$PAGER"
-alias lu lt -u $*
-alias lx lt -XB $*
-
-alias g git $*
-alias s g status -sb $*
+alias gbs git-branches
 alias d g diff $*
+alias s g status -sb $*
+alias g git $*
+alias lx lt -XB $*
+alias lu lt -u $*
+alias lt ll -tr $*
+alias lr ll -R $*
+alias lk ll -Sr $*
+alias lc ll -trc $*
+alias la ll -A $*
+alias ll ls -lh $*
+alias l ls -1A $*
+alias clear recenter 0
+alias ff find-file $1
+alias d dired $1
