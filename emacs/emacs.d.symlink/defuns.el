@@ -181,16 +181,6 @@ there's a region, all lines that region covers will be duplicated."
              (join-line))))
         (t (call-interactively 'join-line))))
 
-(defun scroll-down-five ()
-  "Scrolls down five rows."
-  (interactive)
-  (scroll-down 5))
-
-(defun scroll-up-five ()
-  "Scrolls up five rows."
-  (interactive)
-  (scroll-up 5))
-
 (defun re-builder-large ()
   "Just like `re-builder', only make the font and window larger."
   (interactive)
@@ -259,21 +249,6 @@ them. These include the path relative to the project root."
               (s-matches? "\\s+" (buffer-substring-no-properties beg end)))
           (kill-line)
         (sp-kill-sexp)))))
-
-(defun todo (arg)
-  "TODO stuff..."
-  (interactive "P")
-  let* ((project-root
-         (when (and (buffer-file-name) (not arg))
-           (find-project-root (buffer-file-name))))
-        (project-name
-         (when project-root (f-no-ext (f-filename (f-canonical project-root)))))
-        (todo-file
-         (f-expand (concat (or project-name "global") ".org")
-                   (f-join "~" "Dropbox" "todo"))))
-  (unless (f-file? todo-file)
-    (f-touch todo-file))
-  (find-file todo-file))
 
 (defun chomp-string (s)
   "Chomp leading and tailing whitespace from S."
