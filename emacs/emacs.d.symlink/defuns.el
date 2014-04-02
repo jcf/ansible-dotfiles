@@ -238,6 +238,13 @@ them. These include the path relative to the project root."
     (magit-with-refresh
       (shell-command "git --no-pager commit --amend --reuse-message=HEAD"))))
 
+(defun make-shell (name)
+  "Create a shell buffer named NAME."
+  (interactive "sName: ")
+  (setq name (concat "$" name))
+  (eshell)
+  (rename-buffer name))
+
 (defun sp-kill-sexp-with-a-twist-of-lime ()
   (interactive)
   (if (sp-point-in-string)
