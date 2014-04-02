@@ -241,7 +241,7 @@ them. These include the path relative to the project root."
 (defun make-shell (name)
   "Create a shell buffer named NAME."
   (interactive "sName: ")
-  (setq name (concat "$" name))
+  (setq name (concat "eshell: " name))
   (eshell)
   (rename-buffer name))
 
