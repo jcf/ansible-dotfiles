@@ -256,6 +256,12 @@ them. These include the path relative to the project root."
                                     (: (* (any " \t\n")) eos)))
                             ""
                             s))
+(defun jcf-desktop ()
+  "Load the desktop and enable autosaving."
+  (interactive)
+  (let ((desktop-load-locked-desktop "ask"))
+    (desktop-read)
+    (desktop-save-mode 1)))
 
 (provide 'defuns)
 ;;; defuns.el ends here
