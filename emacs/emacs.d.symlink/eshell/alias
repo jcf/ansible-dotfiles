@@ -1,3 +1,4 @@
+alias gp g push $*
 alias gbs git-branches
 alias d g diff $*
 alias s g status -sb $*
