@@ -248,7 +248,7 @@
           (let ((shell-file-name "/bin/bash"))
             ad-do-it))))
 
-    (use-package robe-mode
+    (use-package robe
       :config
       (add-hook 'robe-mode-hook 'ac-robe-setup))
 
