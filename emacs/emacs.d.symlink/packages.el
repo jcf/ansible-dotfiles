@@ -458,7 +458,7 @@
   (setq nrepl-eval-sexp-fu-flash-duration 0.5))
 
 (use-package eshell
-  :bind ("M-e" . eshell)
+  :bind ("M-e" . make-shell)
   :init
   (add-hook 'eshell-first-time-mode-hook
             (lambda ()
