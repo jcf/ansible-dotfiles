@@ -1,9 +1,9 @@
 alias du du -kh
 alias gp g push $*
-alias gbs git-branches
+alias gbs git-branches $*
 alias d g diff $*
 alias s g status -sb $*
-alias g git $*
+alias g git -c color.ui=always $*
 alias lx lt -XB $*
 alias lu lt -u $*
 alias lt ll -tr $*
