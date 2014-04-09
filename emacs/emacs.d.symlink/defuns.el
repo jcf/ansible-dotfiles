@@ -213,21 +213,21 @@ there's a region, all lines that region covers will be duplicated."
 (defun find-project-root (dir)
   (f--up (f-dir? (f-expand ".git" it)) dir))
 
-(defun projectile-completion-fn (prompt choises)
+(defun projectile-completion-fn (prompt choices)
   "Projectile completion function that only shows file name.
 
 If two files have same name, new completion appears to select between
 them. These include the path relative to the project root."
   (interactive)
-  (let* ((stripped-choises
-          (-uniq (--map (file-name-nondirectory it) choises)))
-         (choise
-          (ido-completing-read prompt stripped-choises))
+  (let* ((stripped-choices
+          (-uniq (--map (file-name-nondirectory it) choices)))
+         (choice
+          (ido-completing-read prompt stripped-choices))
          (matching-files
           (-filter
            (lambda (file)
-             (equal (file-name-nondirectory file) choise))
-           choises)))
+             (equal (file-name-nondirectory file) choice))
+           choices)))
     (if (> (length matching-files) 1)
         (ido-completing-read prompt matching-files)
       (car matching-files))))
