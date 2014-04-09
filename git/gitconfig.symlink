@@ -44,10 +44,6 @@
   workdir = !git-new-workdir
   # Trash any any untracked files
   wipe = !git status -sb | grep '??' | awk '{ print $2 }' | xargs trash
-[color]
-  diff = auto
-  status = auto
-  branch = auto
 [core]
   attributesfile = ~/.gitattributes
   excludesfile = ~/.gitignore
