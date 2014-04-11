@@ -64,6 +64,8 @@
         (evil-leader/set-leader ",")
 
         (evil-leader/set-key
+          "a"  'ido-find-alternate-file
+          "b"  'ibuffer
           "db" 'kill-buffer
           "dw" 'delete-window
           "eb" 'eval-buffer
@@ -78,7 +80,8 @@
           "gs" 'magit-status
           "pb" 'projectile-switch-to-buffer
           "pd" 'projectile-dired
-          "pf" 'projectile-find-file)
+          "pf" 'projectile-find-file
+          "x"  'smex-initialize)
 
         (evil-leader/set-key-for-mode 'org-mode
           "t" 'org-todo
