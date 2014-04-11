@@ -62,6 +62,7 @@
 
 ;; Indent with spaces instead of tabs
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 ;; Truncate lines
 (set-default 'truncate-lines t)
