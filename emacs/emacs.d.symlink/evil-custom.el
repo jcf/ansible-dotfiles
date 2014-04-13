@@ -81,7 +81,7 @@
           "pb" 'projectile-switch-to-buffer
           "pd" 'projectile-dired
           "pf" 'projectile-find-file
-          "x"  'smex-initialize)
+          "x"  'smex)
 
         (evil-leader/set-key-for-mode 'org-mode
           "t" 'org-todo
