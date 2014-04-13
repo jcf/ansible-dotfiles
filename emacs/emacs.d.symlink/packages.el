@@ -316,7 +316,9 @@
      smartparens-strict-mode t
      sp-autoinsert-if-followed-by-word t)
     (sp-local-pair 'emacs-lisp-mode "`" nil :when '(sp-in-string-p))
-    (sp-local-tag '(sgml-mode html-mode rhtml-mode) "<" "<_>" "</_>" :transform 'sp-match-sgml-tags))
+    (sp-local-tag '(sgml-mode html-mode rhtml-mode)
+                  "<" "<_>" "</_>"
+                  :transform 'sp-match-sgml-tags))
   :bind
   (("C-M-k" . sp-kill-sexp-with-a-twist-of-lime)
    ("C-M-f" . sp-forward-sexp)
