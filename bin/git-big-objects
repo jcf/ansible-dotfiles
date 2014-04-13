@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 module GitBigObjects
+  # Blob represents an individual file
   class Blob
     include Comparable
 
@@ -33,13 +34,13 @@ module GitBigObjects
         "#{size}B"
       else
         max_exp  = STORAGE_UNITS.size - 1
-        exponent = (Math.log(size) / Math.log(STORAGE_BASE)).to_i # Convert to base
-        exponent = max_exp if exponent > max_exp # we need this to avoid overflow for the highest unit
-        number   = size.to_f / (STORAGE_BASE ** exponent)
+        exponent = (Math.log(size) / Math.log(STORAGE_BASE)).to_i
+        exponent = max_exp if exponent > max_exp
+        number   = size.to_f / (STORAGE_BASE**exponent)
 
         unit = STORAGE_UNITS[exponent]
 
-        "#{'%.02f' % number}#{unit}"
+        "#{sprintf('%.02f', number)}#{unit}"
       end
     end
 
@@ -56,25 +57,30 @@ module GitBigObjects
     end
   end
 
+  # Takes a list of arguments, and generates a report according to the given
+  # specification.
   class Report < Struct.new(:argv)
     PACKS = `git verify-pack -v .git/objects/pack/pack-*.idx`.lines
 
     def to_s
-      PACKS.map { |line| blob_from_line(line) }.compact.sort.first(limit).join("\n")
+      PACKS
+        .map { |line| blob_from_line(line) }
+        .compact
+        .sort
+        .first(limit)
+        .join("\n")
     end
 
     private
 
     def limit
-      if arg = argv.first
-        arg.to_i
-      else
-        10
-      end
+      arg = argv.first
+      arg ? arg.to_i : 10
     end
 
     def blob_from_line(line)
-      sha, type, size, size_in_pack_file, offset_in_packfile = line.scan(/\S+/)
+      sha, type, size, size_in_pack_file, _offset = line.scan(/\S+/)
+
       if type == 'blob'
         Blob.new(sha: sha, size: size, size_in_pack_file: size_in_pack_file)
       end
