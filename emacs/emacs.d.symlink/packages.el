@@ -469,6 +469,13 @@
      eshell-history-size 5000
      eshell-save-history-on-exit t)))
 
+(use-package multi-term
+  :config
+  (setq
+   multi-term-program "/bin/zsh"
+   term-buffer-maximum-size 10000
+   show-trailing-whitespace nil))
+
 (use-package exec-path-from-shell
   :init (exec-path-from-shell-initialize))
 
