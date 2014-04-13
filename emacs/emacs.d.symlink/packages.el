@@ -26,6 +26,10 @@
     (global-linum-mode 1)
     (setq linum-format "%4d")))
 
+(use-package ggtags
+  :init
+  (ggtags-mode 1))
+
 (use-package fill-column-indicator
   :init
   (progn
