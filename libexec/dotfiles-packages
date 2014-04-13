@@ -6,11 +6,11 @@ say() {
 }
 
 brew_install() {
-  brew install "$1" 2>/dev/null || true
+  brew install $@ 2>/dev/null || true
 }
 
 brew_install_head() {
-  brew install --HEAD "$1" 2>/dev/null || true
+  brew install --HEAD $@ 2>/dev/null || true
 }
 
 require() {
@@ -26,6 +26,7 @@ say "Installing missing packages..."
 brew_install 'ack'
 brew_install 'coreutils'
 brew_install 'ctags'
+brew_install 'global' '--with-exuberant-ctags'
 brew_install 'erlang'
 brew_install 'graphviz'
 brew_install 'htop-osx'
