@@ -24,6 +24,9 @@
 Session.vim
 \#*#
 doc/tags-ja
+gpath
+grtags
+gtags
 tags
 tmp*
 tmp/**/*

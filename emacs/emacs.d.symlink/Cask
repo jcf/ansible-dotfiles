@@ -84,6 +84,7 @@
 (depends-on "flycheck-cask")
 (depends-on "fuzzy")
 (depends-on "gandalf-theme")
+(depends-on "ggtags")
 (depends-on "gh")
 (depends-on "gist")
 (depends-on "git")
