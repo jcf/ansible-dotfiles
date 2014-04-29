@@ -15,5 +15,4 @@ alias ll ls -lh $*
 alias l ls -1A $*
 alias clear recenter 0
 alias ff find-file $1
-alias d dired $1
 alias v vagrant $*
