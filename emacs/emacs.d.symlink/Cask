@@ -1,5 +1,5 @@
-(source marmalade)
 (source melpa)
+(source marmalade)
 
 (depends-on "ac-cider-compliment")
 (depends-on "ac-etags")
@@ -93,6 +93,7 @@
 (depends-on "gitconfig-mode")
 (depends-on "github-browse-file")
 (depends-on "gitignore-mode")
+(depends-on "go-autocomplete")
 (depends-on "go-eldoc")
 (depends-on "go-mode")
 (depends-on "google-this")
