@@ -459,6 +459,9 @@
 (use-package erlang)
 (use-package haskell-mode)
 
+(use-package go-mode
+  :init (add-hook 'before-save-hook #'gofmt-before-save))
+
 (use-package nrepl-eval-sexp-fu
   :init
   (setq nrepl-eval-sexp-fu-flash-duration 0.5))
