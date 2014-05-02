@@ -16,7 +16,8 @@
 (use-package browse-kill-ring)
 
 (use-package editorconfig
-  :init
+  :mode "\\.editorconfig\\'"
+  :config
   (add-to-list 'auto-mode-alist '("\\.editorconfig$" . conf-unix-mode)))
 
 (use-package linum
@@ -38,11 +39,6 @@
 
     (setq-default fill-column 80)
     (global-fci-mode 1)))
-
-(use-package elisp-slime-nav
-  :init
-  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
-    (add-hook hook 'elisp-slime-nav-mode)))
 
 (use-package dired
   :config
@@ -82,22 +78,6 @@
         (add-hook 'cider-mode-hook 'ac-nrepl-setup)
         (eval-after-load "auto-complete"
           '(add-to-list 'ac-modes 'cider-repl-mode))))))
-
-(use-package helm
-  :init
-  (progn
-    (use-package helm-ag)
-    (use-package helm-ag-r)
-    (use-package helm-c-yasnippet)
-    (use-package helm-dired-recent-dirs)
-    (use-package helm-git)
-    (use-package helm-git-grep)
-    (use-package helm-go-package)
-    (use-package helm-helm-commands)
-    (use-package helm-projectile)
-    (use-package helm-rails)
-    (use-package helm-rb)
-    (use-package helm-rubygems-local)))
 
 (use-package guide-key
   :config
@@ -161,9 +141,6 @@
   :bind (("M-N" . drag-stuff-down)
          ("M-P" . drag-stuff-up)))
 
-(use-package misc
-  :bind ("M-z" . zap-up-to-char))
-
 (use-package magit
   :init
   (progn
@@ -205,7 +182,7 @@
   :config (setq uniquify-buffer-name-style 'forward))
 
 (use-package saveplace
-  :config (setq-default save-place t))
+  :init (setq-default save-place t))
 
 (use-package diff-hl
   :config (add-hook 'vc-checkin-hook 'diff-hl-update))
@@ -221,67 +198,6 @@
 
 (use-package windmove
   :config (windmove-default-keybindings 'shift))
-
-(use-package ruby-mode
-  :init
-  (progn
-    (use-package rbenv
-      :init
-      (progn
-        (setq
-         rbenv-modeline-function 'rbenv--modeline-plain
-         rbenv-show-active-ruby-in-modeline nil)
-        (global-rbenv-mode)))
-
-    (use-package ruby-tools)
-
-    (use-package rhtml-mode
-      :mode (("\\.rhtml$" . rhtml-mode)
-             ("\\.html\\.erb$" . rhtml-mode)))
-
-    (use-package rinari
-      :init (global-rinari-mode 1)
-      :config (setq ruby-insert-encoding-magic-comment nil))
-
-    (use-package rspec-mode
-      :config
-      (progn
-        (setq rspec-use-rake-flag nil)
-        (defadvice rspec-compile (around rspec-compile-around activate)
-          "Use BASH shell for running the specs because of ZSH issues."
-          (let ((shell-file-name "/bin/bash"))
-            ad-do-it))))
-
-    (use-package robe
-      :config
-      (add-hook 'robe-mode-hook 'ac-robe-setup))
-
-    (use-package enh-ruby-mode
-      :config
-      (progn
-        (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
-        (add-hook 'ruby-mode-hook 'rspec-mode)
-        (add-hook 'enh-ruby-mode-hook 'robe-mode)
-        (add-hook 'enh-ruby-mode-hook 'yard-mode))))
-
-  :config
-  (progn
-    (setenv "JRUBY_OPTS" "--2.0")
-    (add-hook 'ruby-mode-hook 'robe-mode)
-    (add-hook 'ruby-mode-hook 'yard-mode)
-    (add-hook 'ruby-mode-hook 'rspec-mode)
-    (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
-
-    (setq ruby-deep-indent-paren nil))
-  :bind (("C-M-h" . backward-kill-word))
-  :mode (("\\.rake$" . ruby-mode)
-         ("\\.gemspec$" . ruby-mode)
-         ("\\.ru$" . ruby-mode)
-         ("Rakefile$" . ruby-mode)
-         ("Thorfile$" . ruby-mode)
-         ("Gemfile$" . ruby-mode)
-         ("Capfile$" . ruby-mode)
-         ("Guardfile$" . ruby-mode)))
 
 (use-package python-mode
   :config
@@ -349,14 +265,13 @@
 
 (use-package yasnippet
   :init
-  (progn
-    (let ((snippets-dir (f-expand "snippets" user-emacs-directory)))
-      (yas/load-directory snippets-dir)
-      (setq yas/snippet-dirs snippets-dir))
-    (yas-global-mode 1)
-    (setq-default yas/prompt-functions '(yas/ido-prompt)))
+  (yas-global-mode 1)
+
   :config
-  (setq-default require-final-newline nil))
+  (progn
+    (setq yas/snippet-dirs (f-expand "snippets" user-emacs-directory))
+    (setq-default yas/prompt-functions '(yas/ido-prompt)
+                  require-final-newline nil)))
 
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))
@@ -374,16 +289,12 @@
      c-basic-offset 2)))
 
 (use-package css-mode
+  :mode "\\.css$"
   :config (setq css-indent-offset 2))
-
-(use-package js-mode
-  :mode ("\\.json$" . js-mode)
-  :init
-  (progn
-    (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))))
 
 (use-package js2-mode
   :mode (("\\.js$" . js2-mode)
+         ("\\.json$" . js2-mode)
          ("Jakefile$" . js2-mode))
   :interpreter ("node" . js2-mode)
   :bind (("C-a" . back-to-indentation-or-beginning-of-line)
@@ -394,10 +305,9 @@
     (add-hook 'js2-mode-hook (lambda () (setq js2-basic-offset 2)))))
 
 (use-package coffee-mode
-  :init
-  (bind-key "C-j" 'coffee-newline-and-indent coffee-mode-map)
   :config
   (progn
+    (bind-key "C-j" 'coffee-newline-and-indent coffee-mode-map)
     (setq
      coffee-tab-width 2
      coffee-cleanup-whitespace nil)))
