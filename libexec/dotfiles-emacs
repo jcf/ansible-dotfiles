@@ -5,9 +5,18 @@ say() {
   echo "\e[33m=>\e[0m $@"
 }
 
+git_clone() {
+  [[ -d $2 ]] || { git clone $1 $2 &>/dev/null }
+}
+
+github_clone() {
+  git_clone "git://github.com/$1.git" $2
+}
+
 say "Installing emacs 24.3"
 evm install emacs-24.3 &>/dev/null
 evm use emacs-24.3
 
+github_clone jcf/emacs.d.git ~/.emacs.d
 cd ~/.emacs.d
 ~/.cask/bin/cask install >/dev/null
