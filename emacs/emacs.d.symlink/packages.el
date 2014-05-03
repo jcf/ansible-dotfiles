@@ -349,22 +349,23 @@
 (use-package clojure-mode
   :init
   (progn
+    (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+    (add-hook 'cider-repl-mode-hook 'subword-mode)
+    (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+    (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode))
+  :config
+  (progn
     (use-package clojure-test-mode)
 
     (use-package cider
-      :init
+      :config
       (progn
         (setq
          cider-repl-pop-to-buffer-on-connect nil
          cider-popup-stacktraces nil
          cider-repl-popup-stacktraces t
          cider-auto-select-error-buffer t
-         cider-repl-wrap-history t)
-
-        (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-        (add-hook 'cider-repl-mode-hook 'subword-mode)
-        (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-        (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)))))
+         cider-repl-wrap-history t)))))
 
 (use-package erlang)
 (use-package haskell-mode)
