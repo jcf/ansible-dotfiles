@@ -89,7 +89,7 @@
 
         (evil-leader/set-key-for-mode 'clojure-mode
           "a" 'clojure-jump-between-tests-and-code
-          "cc" 'cider
+          "cc" 'cider-connect
           "cj" 'cider-jack-in
           "cq" 'cider-quit
           "rs" 'cljr-sort-ns
