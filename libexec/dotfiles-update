@@ -49,6 +49,9 @@ if [ -z $skip_repo ]; then
   git update-submodules &>/dev/null
 fi
 
+updating "emacs.d"
+pull ~/.emacs.d
+
 updating "homebrew"
 brew update --head &>/dev/null
 print_packages $(brew outdated)
