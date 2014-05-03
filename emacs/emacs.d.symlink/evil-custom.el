@@ -89,6 +89,8 @@
 
         (evil-leader/set-key-for-mode 'clojure-mode
           "a" 'clojure-jump-between-tests-and-code
+          "v" 'clojure-test-run-test
+          "V" 'clojure-test-run-tests
           "cc" 'cider-connect
           "cj" 'cider-jack-in
           "cq" 'cider-quit
