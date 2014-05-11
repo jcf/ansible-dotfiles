@@ -5,6 +5,10 @@ say() {
   echo "\e[33m=>\e[0m $@"
 }
 
+brew_tap() {
+  brew tap "$1" 2>/dev/null || true
+}
+
 brew_install() {
   brew install $@ 2>/dev/null || true
 }
@@ -21,15 +25,19 @@ require() {
 
 require 'brew'
 
+say 'Adding jenv/jenv tap...'
+brew_tap 'jenv/jenv'
+
 say "Installing missing packages..."
 
 brew_install 'ack'
 brew_install 'coreutils'
 brew_install 'ctags'
-brew_install 'global' '--with-exuberant-ctags'
 brew_install 'erlang'
+brew_install 'global' '--with-exuberant-ctags'
 brew_install 'graphviz'
 brew_install 'htop-osx'
+brew_install 'jenv'
 brew_install 'jsl'
 brew_install 'libxml2'
 brew_install 'libxslt'
