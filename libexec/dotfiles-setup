@@ -78,6 +78,9 @@ say "Setting up evm..."
 github_clone 'rejeep/evm' ~/.evm
 mkdir -p /usr/local/evm || true
 
+say "Setting up nvm..."
+github_clone 'creationix/nvm' ~/.nvm
+
 say "Linking dotfiles in to $HOME..."
 dotfiles-link
 
