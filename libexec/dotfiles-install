@@ -10,6 +10,7 @@ set -e
 dotfiles-autoupdate
 dotfiles-packages
 dotfiles-emacs
+dotfiles-vim
 dotfiles-ruby
 # dotfiles-go
 dotfiles-python

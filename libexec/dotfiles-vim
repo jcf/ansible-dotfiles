@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+set -e
+
+say() {
+  echo "\e[33m=>\e[0m $@"
+}
+
+brew_install() {
+  brew install "$@" 2>/dev/null
+}
+
+say "Installing MacVim..."
+brew_install "macvim" "--with-cscope --with-lua --override-system-vim --HEAD"
+
+say "Cloning vim config..."
+github_clone 'jcf/vimrc' $HOME/.vim
+
+say "Installing neobundle..."
+github_clone 'Shougo/neobundle.vim' $HOME/.vim/bundle/neobundle.vim

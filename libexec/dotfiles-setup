@@ -65,17 +65,8 @@ say "Installing Prezto..."
 say "Initialising submodules..."
 git submodule update --init --recursive &>/dev/null
 
-say "Installing MacVim..."
-brew_install "macvim" "--with-cscope --with-lua --override-system-vim --HEAD"
-
 say "Installing packages..."
 install_packages
-
-say "Installing neobundle..."
-github_clone 'Shougo/neobundle.vim' $HOME/.dotfiles/vim/vim.symlink/bundle/neobundle.vim
-
-say "Installing Cask..."
-[[ -d ~/.cask ]] || curl -fsSkL https://raw.github.com/cask/cask/master/go | python
 
 say "Setting up rbenv..."
 setup_rbenv
@@ -89,3 +80,5 @@ mkdir -p /usr/local/evm || true
 
 say "Linking dotfiles in to $HOME..."
 dotfiles-link
+
+echo "\e[32m=>\e[0m Success! Now would be a good time to restart your shell."
