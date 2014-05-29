@@ -15,9 +15,7 @@ link_dotfile() {
   ln -snf "$to" ".$from" 2>/dev/null || true
 }
 
-symlinks=($HOME/.dotfiles/**/*.symlink(N))
-runcoms=($HOME/.dotfiles/zsh/runcoms/*(N))
-links=($symlinks $runcoms)
+links=($HOME/.dotfiles/**/*.symlink(N))
 
 for file in $links; do
   link_dotfile $file

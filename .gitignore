@@ -10,11 +10,6 @@
 /misc/config.symlink/hub
 /misc/config.symlink/massren
 /priv
-/vim/.netrwhist
-/vim/view/
-/vim/vim.symlink/bundle
-/vim/vim.symlink/haskellmode.config
-/vim/vim.symlink/spell/en.utf-8.add.spl
 /zsh
 
 /clojure/lein.symlink/*
