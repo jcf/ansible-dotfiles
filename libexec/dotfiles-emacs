@@ -18,8 +18,3 @@ evm install emacs-24.3 &>/dev/null
 evm use emacs-24.3
 
 github_clone jcf/emacs.d.git ~/.emacs.d
-cd ~/.emacs.d
-~/.cask/bin/cask install >/dev/null
-
-say "Installing Cask..."
-[[ -d ~/.cask ]] || curl -fsSkL https://raw.github.com/cask/cask/master/go | python
