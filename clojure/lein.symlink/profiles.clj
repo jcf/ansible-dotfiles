@@ -7,7 +7,8 @@
                        [slamhound "1.5.3"]
                        [spyscope "0.1.4"]]
 
-        :plugins [[codox "0.6.6"]
+        :plugins [[cider/cider-nrepl "0.7.0-SNAPSHOT"]
+                  [codox "0.6.6"]
                   [jonase/eastwood "0.1.1"]
                   [lein-ancient "0.5.4"]
                   [lein-cljsbuild "1.0.0"]
