@@ -14,5 +14,6 @@ dotfiles-vim
 dotfiles-ruby
 # dotfiles-go
 dotfiles-python
+dotfiles-javascript
 dotfiles-haskell
 dotfiles-heroku
