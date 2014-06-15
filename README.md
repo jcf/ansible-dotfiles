@@ -2,7 +2,17 @@
 
 **Dotfiles** helps you get your dev environment up and running.
 
+![[emacs-preview-thumb](http://cl.ly/image/2H251O20393B/emacs-preview-thumb.png)](http://cl.ly/image/3u2f3R1d3G2L)
+
 ## What's in the box?
+
+The following repositories are pulled in and setup:
+
+- [emacs.d][] holds all of my Evil Emacs config.
+- [prezto][] configures zsh.
+- [vimrc][] sets up Vim for those times when Emacs isn't available.
+
+And there's pretty good support for the following languages:
 
 - [Clojure][]
 - [Emacs][]
@@ -13,6 +23,16 @@
 - [MacVim][]
 - [Python][] via [pyenv][]
 - [Ruby][] via [rbenv][]
+
+Each feature/language is grouped using [Ansible][] roles, and can be
+found in the [roles][] directory.
+
+All the dotfiles that get linked into `$HOME` are grouped by language
+or feature where possible, and failing that lumped into the `dotfiles`
+role.
+
+Roles look at the `vars` kept in [group_vars][] for things like
+packages to install, and versions of certain runtime environments.
 
 ## Getting Started
 
@@ -67,6 +87,11 @@ which internally runs all Ansible tasks with the tag `update`.
 [Python]: https://www.python.org/
 [Ruby]: https://www.ruby-lang.org/en/
 [Xcode]: https://developer.apple.com/xcode/
+[emacs.d]: https://github.com/jcf/emacs.d
+[group_vars]: https://github.com/jcf/dotfiles/tree/master/group_vars
 [nvm]: https://github.com/creationix/nvm
+[prezto]: https://github.com/jcf/prezto
 [pyenv]: https://github.com/yyuu/pyenv
 [rbenv]: https://github.com/sstephenson/rbenv
+[roles]: https://github.com/jcf/dotfiles/tree/master/roles
+[vimrc]: https://github.com/jcf/vimrc
