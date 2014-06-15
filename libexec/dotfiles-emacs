@@ -14,7 +14,7 @@ github_clone() {
 }
 
 say "Installing emacs 24.3"
-evm install emacs-24.3 &>/dev/null
+evm install emacs-24.3 &>/dev/null || true
 evm use emacs-24.3
 
 github_clone jcf/emacs.d.git ~/.emacs.d
