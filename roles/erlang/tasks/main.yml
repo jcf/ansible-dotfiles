@@ -4,3 +4,8 @@
 
 - name: Install rebar
   homebrew: name=rebar state=head
+
+- name: Link dotfiles
+  file: src={{ item }} dest=~/.{{ item | basename }} state=link
+  with_fileglob:
+    - ./*
