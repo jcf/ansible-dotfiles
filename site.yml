@@ -1,0 +1,19 @@
+---
+- hosts: dotfiles
+  roles:
+    - homebrew
+    - dotfiles
+    - zsh
+    - emacs
+    - vim
+    - ssh
+    - clojure
+    #- haskell # Disabled due to cabal depenency hell
+    - heroku
+    - javascript
+    - go
+    - python
+    - ruby
+    - osx
+    #- fonts # Disabled because it errors lots, and is slow.
+    - quicklook

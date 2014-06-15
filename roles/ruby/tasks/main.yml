@@ -1,0 +1,32 @@
+---
+- name: Clone rbenv
+  git: >
+    repo=git://github.com/sstephenson/rbenv.git
+    dest=~/.rbenv
+
+- name: Clone ruby-build
+  git: >
+    repo=git://github.com/sstephenson/ruby-build.git
+    dest=~/.rbenv/plugins/ruby-build
+
+- name: Clone rbenv-ctags
+  git: >
+    repo=git://github.com/tpope/rbenv-ctags.git
+    dest=~/.rbenv/plugins/rbenv-ctags
+
+- name: Clone rbenv-readline
+  git: >
+    repo=git://github.com/tpope/rbenv-readline.git
+    dest=~/.rbenv/plugins/rbenv-readline
+
+- name: Install Rubies
+  shell: 'rbenv install --skip-existing {{ item }}'
+  with_items: dotfiles.ruby.versions
+  changed_when: no
+
+- name: Install global gems
+  environment:
+    rbenv_version: '{{ item }}'
+  shell: 'rbenv exec gem install {{ dotfiles.ruby.packages | join(" ") }}'
+  with_items: dotfiles.ruby.versions
+  changed_when: no

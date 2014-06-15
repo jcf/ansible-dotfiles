@@ -1,0 +1,16 @@
+---
+- name: Clone Vim config
+  git: >
+    repo=git@github.com:jcf/vimrc.git
+    dest=~/.vim
+
+- name: Install Emacs
+  homebrew: >
+    name=macvim
+    state=head
+    install_options=override-system-vim,with-cscope,with-lua
+
+- name: Clone Neobundle
+  git: >
+    repo=git://github.com/Shougo/neobundle.vim.git
+    dest=~/.vim/bundle/neobundle.vim
