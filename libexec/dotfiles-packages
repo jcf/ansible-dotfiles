@@ -6,15 +6,15 @@ say() {
 }
 
 brew_tap() {
-  brew tap "$1" 2>/dev/null || true
+  brew tap "$1" &>/dev/null || true
 }
 
 brew_install() {
-  brew install $@ 2>/dev/null || true
+  brew install $@ &>/dev/null || true
 }
 
 brew_install_head() {
-  brew install --HEAD $@ 2>/dev/null || true
+  brew install --HEAD $@ &>/dev/null || true
 }
 
 require() {
