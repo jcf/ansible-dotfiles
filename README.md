@@ -58,6 +58,7 @@ which internally runs all Ansible tasks with the tag `update`.
 [Dotfiles]: https://github.com/jcf/dotfiles
 [EVM]: https://github.com/rejeep/evm
 [Emacs]: http://www.gnu.org/software/emacs
+[Erlang]: http://www.erlang.org/
 [Go]: http://golang.org/
 [Haskell]: https://www.haskell.org/
 [Homebrew]: http://brew.sh/
