@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+set -e
+
+source ~/.nvm/nvm.sh
+
+say() {
+  echo "\e[33m=>\e[0m $@"
+}
+
+node_install() {
+  nvm install $1 &>/dev/null
+}
+
+node_default() {
+  nvm alias default 0.10 &>/dev/null
+}
+
+npm_install() {
+  $HOME/.nvm/v$version/bin/npm install -g $@ &>/dev/null
+}
+
+require() {
+  type $x >/dev/null 2>&1 || {
+    echo >&2 "dotfiles: $x not installed."; exit 1;
+  }
+}
+
+require 'nvm'
+
+say 'Installing missing Node.js versions...'
+
+versions=('0.10.29' '0.11.13')
+
+for version in $versions; do
+  say "Setting up Node.js v${version}"
+  node_install $version
+  npm_install express tern
+done
+
+node_default 0.10
