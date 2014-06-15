@@ -73,6 +73,9 @@ done
 updating "pyenv"
 pull ~/.pyenv
 
+updating "nvm"
+pull ~/.nvm
+
 for plugin in ~/.heroku/plugins/*(/N); do
   updating $(basename $plugin)
   pull $plugin
