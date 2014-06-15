@@ -1,0 +1,21 @@
+---
+- name: Clone nvm
+  git: >
+    repo=git://github.com/creationix/nvm.git
+    dest=~/.nvm
+  tags: update
+
+- name: Install Node.js versions
+  shell: 'source ~/.nvm/nvm.sh && nvm install {{ item }}'
+  with_items: dotfiles.javascript.versions
+  # TODO Improve change detection
+  changed_when: no
+
+- name: Install packages
+  shell: '~/.nvm/v{{ item }}/bin/npm install --global {{ dotfiles.javascript.packages | join(" ") }}'
+  with_items: dotfiles.javascript.versions
+  changed_when: no
+
+- name: Setup default version
+  shell: 'source ~/.nvm/nvm.sh && nvm alias default {{ dotfiles.javascript.default_version }}'
+  changed_when: no

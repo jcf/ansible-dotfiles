@@ -1,0 +1,6 @@
+---
+- name: Install Erlang
+  homebrew: name=erlang state=latest
+
+- name: Install rebar
+  homebrew: name=rebar state=head

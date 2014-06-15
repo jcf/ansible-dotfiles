@@ -1,0 +1,8 @@
+---
+- name: Update
+  homebrew: update_homebrew=yes
+  tags: update
+
+- name: Brew base packages
+  homebrew: name={{ item }} state=latest
+  with_items: dotfiles.packages

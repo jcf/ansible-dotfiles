@@ -1,0 +1,8 @@
+---
+- name: Create SSH directory
+  file: dest=~/.ssh state=directory
+
+- name: Link files
+  file: src={{ item }} dest=~/.ssh/{{ item | basename }} state=link
+  with_fileglob:
+    - ./*

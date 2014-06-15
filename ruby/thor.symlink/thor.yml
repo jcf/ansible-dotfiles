@@ -1,7 +1,0 @@
----
-heroku.thor:
-  :filename: !binary |-
-    NzQ1MjE0NTQ3ZTNhM2I3Mzc2NDg0ZWUyNTE2MDgzYzY=
-  :location: /Users/jcf/Code/ev-splat/lib/tasks/heroku.thor
-  :namespaces:
-  - heroku:db

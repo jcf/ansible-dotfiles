@@ -1,0 +1,21 @@
+---
+- name: Add jenv tap
+  homebrew_tap: name=jenv/jenv
+
+- name: Install jenv
+  homebrew: name=jenv
+  tags: update
+
+- name: Set current JVM
+  shell: 'jenv global {{ dotfiles.jvm.version }}'
+
+- name: Install Leiningen
+  homebrew: name=leiningen
+
+- name: Create ~/.lein
+  file: dest=~/.lein state=directory
+
+- name: Link profiles.clj
+  file: src={{ item }} dest=~/.lein/{{ item | basename }} state=link
+  with_fileglob:
+    - ./*

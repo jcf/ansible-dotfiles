@@ -1,0 +1,19 @@
+---
+- name: Install zsh
+  homebrew: name=zsh
+
+- name: Clone Prezto
+  git: >
+    repo=git@github.com:jcf/prezto.git
+    dest=~/.prezto
+  tags: update
+
+- name: Link runcoms
+  file: src={{ item }} dest=~/.{{ item | basename }} state=link
+  with_items:
+    - ~/.prezto/runcoms/zlogin
+    - ~/.prezto/runcoms/zlogout
+    - ~/.prezto/runcoms/zpreztorc
+    - ~/.prezto/runcoms/zprofile
+    - ~/.prezto/runcoms/zshenv
+    - ~/.prezto/runcoms/zshrc
