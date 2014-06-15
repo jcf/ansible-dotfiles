@@ -34,3 +34,8 @@
   shell: 'rbenv exec gem install {{ dotfiles.ruby.packages | join(" ") }}'
   with_items: dotfiles.ruby.versions
   changed_when: no
+
+- name: Link dotfiles
+  file: src={{ item }} dest=~/.{{ item | basename }} state=link
+  with_fileglob:
+    - ./*
