@@ -17,3 +17,4 @@
     - tpope/heroku-remote
     - tpope/heroku-surrogate
     - tpope/heroku-wildcards
+  tags: update

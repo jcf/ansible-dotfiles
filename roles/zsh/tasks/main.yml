@@ -6,6 +6,7 @@
   git: >
     repo=git@github.com:jcf/prezto.git
     dest=~/.prezto
+  tags: update
 
 - name: Link runcoms
   file: src={{ item }} dest=~/.{{ item | basename }} state=link

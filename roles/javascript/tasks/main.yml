@@ -3,6 +3,7 @@
   git: >
     repo=git://github.com/creationix/nvm.git
     dest=~/.nvm
+  tags: update
 
 - name: Install Node.js versions
   shell: 'source ~/.nvm/nvm.sh && nvm install {{ item }}'
