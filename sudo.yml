@@ -1,0 +1,19 @@
+---
+- name: One-time tasks that require root access
+  hosts: dotfiles
+  sudo: yes
+
+  tasks:
+    - name: Add Homebrew zsh to shells
+      lineinfile: dest=/etc/shells line=/usr/local/bin/zsh
+
+    - name: Use Homebrew zsh
+      shell: chsh -s /usr/local/bin/zsh
+
+    - name: Passwordless sudo
+      lineinfile: >
+        dest=/etc/sudoers
+        state=present
+        regexp='^%admin ALL\='
+        line='%admin ALL=(ALL) NOPASSWD:ALL'
+        validate='visudo -cf %s'
