@@ -1,2 +1,0 @@
-#!/usr/bin/env zsh
-git submodule -q foreach 'printf "\e[33mUpdating\e[0m $path..." && git pull -q --rebase || :'

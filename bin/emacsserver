@@ -1,4 +1,0 @@
-#!/bin/bash
-# Opens Emacs.app within a non-bin version of Emacs installed via EVM.
-emacs_bin=$(evm bin)
-open -a ${emacs_bin%/Contents/MacOS/Emacs} "$@"
