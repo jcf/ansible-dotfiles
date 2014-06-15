@@ -1,6 +1,6 @@
 ---
 - name: Enable GCC
-  homebrew: gcc state=linked
+  homebrew: name=gcc state=linked
 
 - name: Install Haskell Platform
   homebrew: name=haskell-platform state=installed
