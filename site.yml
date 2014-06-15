@@ -8,6 +8,7 @@
     - vim
     - ssh
     - clojure
+    - erlang
     #- haskell # Disabled due to cabal depenency hell
     - heroku
     - javascript
