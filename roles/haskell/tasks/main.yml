@@ -1,0 +1,6 @@
+---
+- name: Install Haskell Platform
+  homebrew_cask: name=haskell-platform state=installed
+
+- name: Install packages
+  shell: 'cabal install {{ dotfiles.haskell.packages | join(" ")}}'

@@ -1,0 +1,139 @@
+---
+user: jcf
+
+dotfiles:
+  apps:
+    - adium
+    - airfoil
+    - caffeine
+    - colloquy
+    - dropbox
+    - evernote
+    - flip4mac
+    - github
+    - google-chrome
+    - google-drive
+    - google-earth
+    - google-hangouts
+    - handbrake
+    - hazel
+    - heroku-toolbelt
+    - istat-menus
+    - iterm2
+    - launchbar
+    - livereload
+    - omnifocus
+    - skype
+    - slack
+    - sonos
+    - spotify
+    - subler
+    - transmit
+    - visualvm
+    - vlc
+    - vmware-fusion
+
+  fonts:
+    - font-anonymous-pro
+    - font-babelstone-han
+    - font-code2000
+    - font-code2001
+    - font-code2002
+    - font-cousine
+    - font-cousine-bold
+    - font-cousine-bolditalic
+    - font-cousine-italic
+    - font-dejavu
+    - font-freesans
+    - font-inconsolata
+    - font-liberation-sans
+    - font-musica
+    - font-noto-sans
+    - font-pt-mono
+    - font-pt-sans
+    - font-pt-serif
+    - font-quivira
+    - font-source-code-pro
+    - font-source-sans-pro
+    - font-symbola
+    - font-terminus
+    - font-terminusbold
+    - font-ubuntu
+
+  go:
+    path: ~/Go
+    packages:
+      - github.com/nsf/gocode
+
+  haskell:
+    packages:
+      - cabal-dev
+      - ghc-mod
+      - goa
+      - lambdabot
+      - snap
+
+  javascript:
+    default_version: 0.10.29
+    versions:
+      - 0.10.29
+      - 0.11.13
+    packages:
+      - express
+      - grunt-cli
+      - gulp
+      - jshint
+      - tern
+
+  jvm:
+    version: oracle64-1.7.0.51
+
+  packages:
+    - ack
+    - coreutils
+    # - ctags # Disabled because we have a custom ctags install
+    - git
+    - git-extras
+    - graphviz
+    - htop-osx
+    - libxml2
+    - libxslt
+    - lorem
+    - moreutils
+    - phantomjs # TODO Move into Javascript/Node.js land?
+    - pv
+    - rlwrap
+    - siege
+    - the_silver_searcher
+    - trash
+    - tree
+    - wget
+    - wrk
+
+  python:
+    versions:
+      - 2.7.3
+      - pypy-1.9
+
+  ruby:
+    packages:
+      - bundler
+      - gem-browse
+      - gem-ctags
+      - pry
+    versions:
+      - 2.0.0-p451
+      - 2.1.2
+      - jruby-1.7.12
+
+  quicklook:
+    plugins:
+      - betterzipql
+      - qlcolorcode
+      - qlmarkdown
+      - qlprettypatch
+      - qlstephen
+      - quicklook-csv
+      - quicklook-json
+      - suspicious-package
+      - webp-quicklook

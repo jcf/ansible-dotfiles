@@ -1,0 +1,5 @@
+---
+- name: Clone Emacs config
+  git: >
+    repo=git@github.com:jcf/emacs.d.git
+    dest=~/.emacs.d
