@@ -80,3 +80,7 @@ for plugin in ~/.heroku/plugins/*(/N); do
   updating $(basename $plugin)
   pull $plugin
 done
+
+say "Updating cabal..."
+cabal update &>/dev/null
+cabal install cabal-update &>/dev/null
