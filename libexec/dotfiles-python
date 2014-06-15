@@ -23,8 +23,3 @@ for version in $versions; do
     pyenv install $version
   fi
 done
-
-say "Installing powerline with Python 2.7.3..."
-PYENV_VERSION=2.7.3 pyenv exec \
-  pip install --user --upgrade \
-  "git+https://github.com/Lokaltog/powerline.git@develop#egg=powerline" \ >/dev/null
