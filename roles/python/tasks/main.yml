@@ -3,6 +3,7 @@
   git: >
     repo=git://github.com/yyuu/pyenv.git
     dest=~/.pyenv
+  tags: update
 
 - name: Install Pythons
   shell: 'pyenv install --skip-existing {{ item }}'

@@ -3,3 +3,4 @@
   git: >
     repo=git@github.com:jcf/emacs.d.git
     dest=~/.emacs.d
+  tags: update

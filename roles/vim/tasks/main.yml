@@ -3,12 +3,14 @@
   git: >
     repo=git@github.com:jcf/vimrc.git
     dest=~/.vim
+  tags: update
 
 - name: Install Emacs
   homebrew: >
     name=macvim
     state=head
     install_options=override-system-vim,with-cscope,with-lua
+  tags: update
 
 - name: Clone Neobundle
   git: >

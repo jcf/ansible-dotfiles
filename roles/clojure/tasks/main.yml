@@ -4,6 +4,7 @@
 
 - name: Install jenv
   homebrew: name=jenv
+  tags: update
 
 - name: Set current JVM
   shell: 'jenv global {{ dotfiles.jvm.version }}'
