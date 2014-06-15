@@ -5,7 +5,7 @@
     dest=~/.vim
   tags: update
 
-- name: Install Emacs
+- name: Install MacVim
   homebrew: >
     name=macvim
     state=head
