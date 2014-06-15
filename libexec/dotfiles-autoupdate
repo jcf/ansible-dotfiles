@@ -11,4 +11,4 @@
 set -e
 
 ln -sf $DOT/osx/dotfiles.autoupdate.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/dotfiles.autoupdate.plist
+launchctl load ~/Library/LaunchAgents/dotfiles.autoupdate.plist &>/dev/null
