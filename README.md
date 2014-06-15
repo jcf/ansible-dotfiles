@@ -2,7 +2,7 @@
 
 **Dotfiles** helps you get your dev environment up and running.
 
-![[emacs-preview-thumb](http://cl.ly/image/2H251O20393B/emacs-preview-thumb.png)](http://cl.ly/image/3u2f3R1d3G2L)
+[![emacs-preview-thumb](http://cl.ly/image/2H251O20393B/emacs-preview-thumb.png)](http://cl.ly/image/3u2f3R1d3G2L)
 
 ## What's in the box?
 
