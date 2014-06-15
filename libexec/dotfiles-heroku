@@ -6,7 +6,7 @@ say() {
 }
 
 plugin_install() {
-  heroku plugins:install "git://github.com/$1.git"
+  heroku plugins:install "git://github.com/$1.git" &>/dev/null
 }
 
 require() {

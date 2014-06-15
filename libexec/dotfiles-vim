@@ -9,6 +9,14 @@ brew_install() {
   brew install "$@" 2>/dev/null
 }
 
+git_clone() {
+  [[ -d $2 ]] || { git clone $1 $2 &>/dev/null }
+}
+
+github_clone() {
+  git_clone "git://github.com/$1.git" $2
+}
+
 say "Installing MacVim..."
 brew_install "macvim" "--with-cscope --with-lua --override-system-vim --HEAD"
 
