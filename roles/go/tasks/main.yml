@@ -1,0 +1,14 @@
+---
+- name: Install go
+  homebrew: name=go state=latest
+
+- name: Create GOPATH
+  file: dest={{ dotfiles.go.path }} state=directory
+
+- name: Install packages
+  environment:
+    gopath: dotfiles.go.path
+  shell: 'go get {{ item }}'
+  with_items: dotfiles.go.packages
+  # TODO Improve changed_when detection
+  changed_when: no

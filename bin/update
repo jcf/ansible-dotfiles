@@ -1,0 +1,2 @@
+#!/bin/sh
+ansible-playbook -i hosts.ini site.yml --tags 'update'

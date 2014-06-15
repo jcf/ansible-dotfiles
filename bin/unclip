@@ -1,7 +1,0 @@
-#!/bin/sh
-if [[ $# -eq 1 ]]; then
-  DeRez -only TEXT $1 | perl -ne 'm|/\* (.*) \*/| && print $1; END {print "\n"}'
-else
-  echo "Usage: unclip <path>" >&2
-  exit 1
-fi

@@ -1,0 +1,20 @@
+---
+- name: Install Heroku Toolbelt
+  homebrew_cask: name=heroku-toolbelt state=installed
+
+- name: Install plugins
+  git: >
+    repo=git://github.com/{{ item }}.git
+    dest=~/.heroku/plugins/{{ item | basename }}
+  with_items:
+    - ddollar/heroku-accounts
+    - ddollar/heroku-config
+    - heroku/heroku-oauth
+    - heroku/heroku-pg-extras
+    - heroku/heroku-repo
+    - tpope/heroku-binstubs
+    - tpope/heroku-pgbackups-pull
+    - tpope/heroku-remote
+    - tpope/heroku-surrogate
+    - tpope/heroku-wildcards
+  tags: update

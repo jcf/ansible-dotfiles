@@ -1,0 +1,7 @@
+---
+- name: Install fonts
+  homebrew_cask: name={{ item }} state=installed
+  with_items: dotfiles.fonts
+  # Ignore errors, because everything blows up when a font is already
+  # installed?!
+  ignore_errors: yes

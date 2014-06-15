@@ -1,0 +1,5 @@
+---
+- name: Link dotfiles
+  file: src={{ item }} dest=~/.{{ item | basename }} state=link
+  with_fileglob:
+    - ./*

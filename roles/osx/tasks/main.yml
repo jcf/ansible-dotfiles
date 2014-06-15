@@ -1,0 +1,19 @@
+---
+- name: Install apps
+  homebrew_cask: name={{ item }} state=installed
+  with_items: dotfiles.apps
+
+- name: Show ~/Library
+  shell: chflags nohidden ~/Library
+  changed_when: no
+
+- name: Set defaults
+  shell: '{{ item }}'
+  with_items: osx.defaults
+  changed_when: no
+
+- name: Restart Finder
+  shell: killall Finder
+
+- name: Restart Dock
+  shell: killall Dock
