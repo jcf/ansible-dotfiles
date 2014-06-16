@@ -4,3 +4,16 @@
     repo=git@github.com:jcf/emacs.d.git
     dest=~/.emacs.d
   tags: update
+
+# http://emacsformacosx.com/tips
+- name: Install Emacs
+  mac_pkg: >
+    pkg_type=app
+    url=http://emacsformacosx.com/emacs-builds/Emacs-2014-06-14_01-33-01-117333-universal-10.6.8.dmg
+    archive_type=dmg archive_path=Emacs.app
+
+- name: Link emacsclient
+  file: >
+    src=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+    dest=/usr/local/bin/emacsclient
+    state=link
