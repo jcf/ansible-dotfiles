@@ -1,4 +1,4 @@
-# vim: ft=gitconfig
+# -*- mode: gitconfig -*-
 [user]
   name = James Conroy-Finn
   email = james@logi.cl
@@ -74,12 +74,11 @@
   prompt = false
 
 [merge]
-  tool = splice
+  tool = ediff
 [mergetool]
   prompt = false
-[mergetool "splice"]
-  cmd = "$EDITOR -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-  trustExitCode = true
+[mergetool "ediff"]
+  cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 
 # http://bitfission.com/blog/2010/07/auto-merge-gemfile-lock.html
 [merge "gemfilelock"]
