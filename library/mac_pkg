@@ -1,0 +1,588 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+# Borrowed from Battleschool (http://j.mp/1pyTv5M)
+
+DOCUMENTATION = '''
+---
+module: mac_pkg
+author: Spencer Gibb
+short_description: Installs Mac packages
+description:
+    - Installs Mac .pkg or .app files, optionally unarchiving the package first
+version_added: "1.1"
+options:
+    state:
+        description:
+            - state of the package
+        choices: [ 'present', 'absent' ]
+        required: false
+        default: present
+notes:  []
+'''
+EXAMPLES = '''
+- mac_pkg: name=foo state=present
+- mac_pkg: name=foo state=present update_cache=yes
+'''
+
+import abc
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import tempfile
+import traceback
+
+from os import path
+
+
+def run_command(module, args, check_rc=False, close_fds=False, executable=None, data=None, cwd=None):
+    '''
+    Execute a command, returns rc, stdout, and stderr.
+    args is the command to run
+    If args is a list, the command will be run with shell=False.
+    Otherwise, the command will be run with shell=True when args is a string.
+    Other arguments:
+    - check_rc (boolean)  Whether to call fail_json in case of
+                          non zero RC.  Default is False.
+    - close_fds (boolean) See documentation for subprocess.Popen().
+                          Default is False.
+    - executable (string) See documentation for subprocess.Popen().
+                          Default is None.
+    - cwd (string) See documentation for subprocess.Popen().
+                          Default is None.
+    '''
+    if isinstance(args, list):
+        shell = False
+    elif isinstance(args, basestring):
+        shell = True
+    else:
+        msg = "Argument 'args' to run_command must be list or string"
+        module.fail_json(rc=257, cmd=args, msg=msg)
+    rc = 0
+    msg = None
+    st_in = None
+    if data:
+        st_in = subprocess.PIPE
+    try:
+        cmd = subprocess.Popen(args,
+                               executable=executable,
+                               shell=shell,
+                               close_fds=close_fds,
+                               stdin=st_in,
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE,
+                               cwd=cwd)
+        if data:
+            cmd.stdin.write(data)
+            cmd.stdin.write('\n')
+        out, err = cmd.communicate()
+        rc = cmd.returncode
+    except (OSError, IOError), e:
+        module.fail_json(rc=e.errno, msg=str(e), cmd=args)
+    except:
+        module.fail_json(rc=257, msg=traceback.format_exc(), cmd=args)
+    if rc != 0 and check_rc:
+        msg = err.rstrip()
+        module.fail_json(cmd=args, rc=rc, stdout=out, stderr=err, msg=msg)
+    return rc, out, err
+
+
+class Archive(object):
+
+    __metaclass__ = abc.ABCMeta
+
+    def __init__(self, module, pkg):
+        self.module = module
+        self.params = module.params
+        self.curl_path = module.get_bin_path('curl', True, ['/usr/bin'])
+        self.chown_path = module.get_bin_path('chown', True)
+        self.pkg = pkg
+        self._pkg_path = None
+        return
+
+    @abc.abstractmethod
+    def open(self):
+        """ Open the archive """
+
+    def pkg_path(self):
+        return self._pkg_path
+
+    def clone(self):
+        """ close the archive """
+        pass
+
+    def source(self):
+        if exists(self.params, 'src'):
+            return self.params['src']
+
+        return self.params['url']
+
+
+    def chown_dir(self, chown_user, target_path):
+        if chown_user is not None:
+            rc, out, err = self.module.run_command("%s -R %s %s" % (self.chown_path, chown_user, target_path))
+            if rc > 0:
+                self.module.fail_json(msg="failed to install %s: %s\n\t%s" % (self.pkg.name(), out, err))
+
+    def acquire(self):
+        acquired = False
+        if exists(self.params, 'src'):
+            src = self.params['src']
+
+            self._pkg_path = src
+            # module.exit_json(changed=False, msg="src: '%s'" % src)
+            acquired = True
+        else:
+            #get pkg from url
+            #wget --no-cookies --no-check-certificate --directory-prefix=${WORK_DIR} -c --header "Cookie: $COOKIE" ${URL}
+            #wget --no-cookies --no-check-certificate --directory-prefix=${WORK_DIR} -c ${URL}
+            #curl --location --insecure --cookie gpw_e24=http%3A%2F%2Fwww.oracle.com
+            #TODO: verify url
+            url = self.params['url']
+
+            curl_opts = ""
+
+            if exists(self.params, 'curl_opts'):
+                curl_opts = self.params['curl_opts']
+
+            #TODO: make chown optional?
+            chown_user = get_env('sudo_user', None)
+            # self.module.exit_json(changed=False, msg="chown_user %s" % chown_user)
+
+            #TODO: use environment variable to override cachedir
+            cache_dir = path.expanduser(get_env("battleschool_cache_dir", "~/Library/Caches/battleschool"))
+            download_dir = path.join(cache_dir, "downloads")
+            if not path.exists(download_dir):
+                os.makedirs(download_dir)
+                #TODO: only chown downloaded item, only chown if just downloaded
+                self.chown_dir(chown_user, download_dir)
+            # self.module.exit_json(changed=False, msg="download_dir %s" % download_dir)
+            # self.module.exit_json(changed=False, msg="cache_dir %s" % get_env('battleschool_cache_dir', ""))
+
+            #TODO: verify write perms of dest parent
+            if exists(self.params, 'dest'):
+                dest = self.params['dest']
+
+                if not path.isabs(dest):
+                    dest = "%s/%s" % (download_dir, dest)
+
+                cwd = None
+                output_opts = "--output %s" % dest
+                do_download = not path.exists(dest)
+            else:
+                sha1 = hashlib.sha1(url).hexdigest()
+                dest = "%s/%s" % (download_dir, sha1)
+                if not path.exists(dest):
+                    os.makedirs(dest)
+                    self.chown_dir(chown_user, dest)
+                do_download = not os.listdir(dest)
+                cwd = dest
+                output_opts = "--remote-name --remote-header-name"
+
+            # self.module.exit_json(changed=False, msg="pre_cmd %s, output_opts %s, curl_opts %s, do_download %s"
+            #                                          % (pre_cmd, output_opts, curl_opts, do_download))
+
+            #force delete
+            if path.exists(dest) and self.params['force']:
+                do_download = True
+                if path.isfile(dest):
+                    os.unlink(dest)
+                elif path.isdir(dest):
+                    files = os.listdir(dest)
+                    for file in files:
+                        file_path = "%s/%s" % (dest, file)
+                        os.unlink(file_path)
+
+            if do_download:
+                download_cmd = "%s --insecure --silent --location %s %s %s" % (
+                        self.curl_path, output_opts, curl_opts, url)
+                # self.module.exit_json(changed=False, msg="download_cmd %s" % download_cmd)
+                rc, out, err = run_command(self.module, download_cmd, cwd=cwd)
+                if rc > 0:
+                    self.module.fail_json(msg="failed to install %s: %s\n\t%s" % (self.pkg.name(), out, err))
+                acquired = True
+
+            if not exists(self.params, 'dest'):
+                # need to find out the path of the downloaded file
+                files = os.listdir(dest)
+                # self.module.exit_json(changed=False, msg="files %s" % files)
+                num_files = len(files)
+
+                if num_files != 1:
+                    self.module.fail_json(msg="failed to locate download for %s: %s file(s) found in %s"
+                                              % (self.pkg.name(), num_files, dest))
+
+                dest = "%s/%s" % (dest, files[0])
+            # self.module.exit_json(changed=False, msg="dest %s" % dest)
+
+            #TODO: only chown downloaded item
+            if do_download and acquired:
+                self.chown_dir(chown_user, download_dir)
+
+            self._pkg_path = dest
+
+        return acquired
+
+
+class ZipArchive(Archive):
+
+    def __init__(self, module, pkg):
+        super(ZipArchive, self).__init__(module, pkg)
+        self.unzip_path = module.get_bin_path('unzip', True, ['/usr/bin'])
+        #TODO: override target_dir
+        self.target_dir = tempfile.mkdtemp(suffix='-zip-extract', prefix='mac_pkg-')
+
+    def open(self):
+        # self.module.exit_json(changed=False, msg="unzip_path %s, pkg_path %s, target_dir %s, archive_path %s"
+        #       % (self.unzip_path, self.pkg_path(), self.target_dir, self.params['archive_path']))
+        rc, out, err = self.module.run_command("%s %s -d %s" % (self.unzip_path, self.pkg_path(), self.target_dir))
+        if rc > 0:
+            self.module.fail_json(msg="failed to unzip %s: %s\n\t%s" % (self.pkg_path(), out, err))
+        self._pkg_path = "%s/%s" % (self.target_dir, self.params['archive_path'])
+
+    def close(self):
+        shutil.rmtree(self.target_dir)
+
+
+class TarArchive(Archive):
+
+    def __init__(self, module, pkg):
+        super(TarArchive, self).__init__(module, pkg)
+        self.tar_path = module.get_bin_path('tar', True, ['/usr/bin'])
+        self.tar_opts = self.params['tar_opts']
+        #TODO: override target_dir
+        self.target_dir = tempfile.mkdtemp(suffix='-tar-extract', prefix='mac_pkg-')
+
+    def open(self):
+        #self.module.exit_json(changed=False,msg="tar_path %s, tar_opts %s, pkg_path %s, target_dir %s, archive_path %s"
+        #                                        % (self.tar_path, self.tar_opts, self.pkg_path(), self.target_dir,
+        #                                           self.params['archive_path']))
+        rc, out, err = self.module.run_command("%s %s %s -C %s" % (self.tar_path, self.tar_opts, self.pkg_path(),
+                                                                   self.target_dir))
+        if rc > 0:
+            self.module.fail_json(msg="failed to extract tar %s: %s\n\t%s" % (self.pkg_path(), out, err))
+        self._pkg_path = "%s/%s" % (self.target_dir, self.params['archive_path'])
+
+    def close(self):
+        shutil.rmtree(self.target_dir)
+
+
+class DmgArchive(Archive):
+
+    def __init__(self, module, pkg):
+        super(DmgArchive, self).__init__(module, pkg)
+        self.hdiutil_path = module.get_bin_path('hdiutil', True, ['/usr/bin'])
+        self.dmg_volume = None
+        self.dmg_license = self.params['dmg_license']
+
+    def open(self):
+        hdi_pre = ""
+        hdi_post = "| grep Volumes"
+
+        if self.dmg_license:
+            hdi_pre = "echo y |"
+            hdi_post = ""
+
+        #if dmg mount and record volume path
+        #hdiutil attach Vagrant-1.3.0.dmg | grep Volumes | awk '{print $3}'
+        command = "%s %s attach \"%s\" %s " % (hdi_pre, self.hdiutil_path, self._pkg_path, hdi_post)
+        # self.module.exit_json(changed=False, msg="hdicmd: %s" % command)
+        rc, out, err = run_command(self.module, command)
+        if rc > 0:
+            self.module.fail_json(msg="failed to install %s: rc: %s, %s, err: %s" % (self.pkg.name(), rc, out, err))
+
+        idx = out.index("/Volumes/")
+        self.dmg_volume = out[idx:].strip()
+        archive_path = self.params['archive_path']
+        self._pkg_path = "%s/%s" % (self.dmg_volume, archive_path)
+        # self.module.exit_json(changed=False, msg="pkg_path %s, archive_path %s" % (self._pkg_path, archive_path))
+
+    def close(self):
+        rc, out, err = self.module.run_command("%s unmount \"%s\"" % (self.hdiutil_path, self.dmg_volume))
+        if rc > 0:
+            self.module.fail_json(msg="failed to install %s: %s\n\t%s" % (self.pkg.name(), out, err))
+
+
+class NoneArchive(Archive):
+
+    def open(self):
+        pass
+
+    def close(self):
+        pass
+
+
+class Package(object):
+
+    __metaclass__ = abc.ABCMeta
+
+    def __init__(self, module):
+        self.module = module
+        self.params = module.params
+        return
+
+    @abc.abstractmethod
+    def install(self, pkg_path):
+        """ Install the package """
+
+    @abc.abstractmethod
+    def is_installed(self):
+        """ Is the package installed """
+
+    @abc.abstractmethod
+    def name(self):
+        """ the name of the package """
+
+    @abc.abstractmethod
+    def version(self):
+        """ the version of the package """
+
+
+class PkgPackage(Package):
+
+    def __init__(self, module):
+        super(PkgPackage, self).__init__(module)
+        self.installer_path = module.get_bin_path('installer', True, ['/usr/sbin'])
+        self.pkgutil_path = module.get_bin_path('pkgutil', True, ['/usr/sbin'])
+        #TODO: add creates which would override pkg_version
+
+        self._pkg_name = self.params['pkg_name']
+        #find installed version
+        self._version = self.find_version(module)
+        # self.module.exit_json(changed=False, msg="_version %s, _pkg_name %s" % (self._version, self._pkg_name))
+
+    def find_version(self, module):
+        rc, out, err = run_command(self.module, "%s --pkg-info=%s 2>&1 |grep version| awk '{print $2}'" %
+                                  (self.pkgutil_path, self._pkg_name))
+        if rc > 0:
+            module.fail_json(msg="failed to install %s: %s %s" % (self._pkg_name, out, err))
+        return out.strip()
+
+    def install(self, pkg_path):
+        #install package file
+        #installer -pkg "${PGK_DIR}"/"${PKG_FILE}" -target /
+        #TODO: support target param
+        rc, out, err = self.module.run_command("%s -pkg \"%s\" -target /" % (self.installer_path, pkg_path))
+        if rc > 0:
+            return out, err
+
+        #no error, update the version from pkg_util
+        self._version = self.find_version(self.module)
+        return False
+
+    def is_installed(self):
+        pkg_version = None
+        if exists(self.params, 'pkg_version'):
+            pkg_version = self.params['pkg_version']
+
+        if pkg_version is not None:
+            return self._version == pkg_version
+
+        if self._version:
+            return True
+
+        return False
+
+    def name(self):
+        return self._pkg_name
+
+    def version(self):
+        return self._version
+
+
+class AppPackage(Package):
+
+    def __init__(self, module):
+        super(AppPackage, self).__init__(module)
+        if exists(self.params, 'creates'):
+            self._app_creates = self.params['creates']
+            if not self._app_creates.startswith("/"):
+                #not an absolute path, prepend /Applications
+                self.set_applications_path('creates')
+        elif exists(self.params, 'archive_path'):
+            self.set_applications_path('archive_path')
+        else:
+            self.module.fail_json(msg="for pkg_type=app one of app_creates or archive_path must not be empty")
+
+    def set_applications_path(self, param_name):
+        self._app_creates = '/Applications/%s' % self.params[param_name]
+
+    def install(self, pkg_path):
+        # self.module.fail_json(msg="pkg_path %s - _app_creates %s" % (pkg_path, self._app_creates))
+        # TODO: symlinks is an option?
+        shutil.copytree(pkg_path, self._app_creates, symlinks=True)
+
+    def is_installed(self):
+        return path.exists(self._app_creates)
+
+    def name(self):
+        return self._app_creates
+
+    def version(self):
+        return "N/A"
+
+
+class ScriptPackage(Package):
+
+    def __init__(self, module):
+        super(ScriptPackage, self).__init__(module)
+        self._creates = self.params['creates']
+        self._exe_path = module.get_bin_path(self.params['script_executable'], True, ['/usr/bin', '/usr/local/bin'])
+
+        if exists(self.params, 'script_prefix'):
+            self._prefix = self.params['script_prefix']
+        else:
+            self._prefix = ''
+        # self.module.exit_json(changed=False, msg="_prefix %s, _exe_path %s, _creates %s" % (self._prefix, self._exe_path, self._creates))
+
+    def install(self, pkg_path):
+        rc, out, err = self.module.run_command("%s%s \"%s\"" % (self._prefix, self._exe_path, pkg_path))
+        if rc > 0:
+            return out, err
+
+        return False
+
+    def is_installed(self):
+        return path.exists(self._creates)
+
+    def name(self):
+        return self._creates
+
+    def version(self):
+        return "N/A"
+
+
+def exists(dict, key):
+    """ is key in dict and is dict[key] not none """
+    if key in dict and dict[key] is not None:
+        return True
+
+    return False
+
+
+class Installer(object):
+
+    def __init__(self, module):
+        self.module = module
+        self.params = module.params
+
+    def install(self, acquire_only):
+        pkg = self._instantiate('pkg_type', 'Package')
+        # self.module.exit_json(changed=False, msg="params %s" % self.params)
+
+        if pkg.is_installed() and not acquire_only:
+            self.module.exit_json(changed=False, version=pkg.version(), msg="package %s already present" % pkg.name())
+        else:
+            archive = self._instantiate('archive_type', 'Archive', pkg)
+
+            acquired = archive.acquire()
+
+            if acquire_only:
+                if acquired:
+                    state = "Acquired"
+                else:
+                    state = "Skipped acquisition of"
+                self.module.exit_json(changed=acquired, msg="%s pkg %s" % (state, archive.source()))
+                return
+
+            archive.open()
+
+            failed = pkg.install(archive.pkg_path())
+
+            if failed:
+                archive.close()
+                self.module.fail_json(msg="failed to install %s: %s %s" % (archive.pkg_path(), failed[0], failed[1]))
+
+            archive.close()
+            #self.module.exit_json(changed=False, msg="pkg %s, archive %s" % (pkg, archive))
+            self.module.exit_json(changed=True,  version=pkg.version(), msg="installed package %s" % pkg.name())
+
+    def _instantiate(self, class_key, class_suffix, pkg=None):
+        class_name = "%s%s" % (self.params[class_key].title(), class_suffix)
+        m = __import__(self.__module__)
+        klass = getattr(m, class_name)
+
+        if pkg is None:
+            instance = klass(self.module)
+        else:
+            instance = klass(self.module, pkg)
+
+        return instance
+
+    def validate(self):
+        if self.params['pkg_type'] == "app" and self.params['archive_type'] == "none":
+            self.module.fail_json(msg="pkg_type can not = 'app' with archive_type = 'none'")
+
+        if not exists(self.params, 'src') and not exists(self.params, 'url'):
+            self.module.fail_json(msg="one of src or url must not be empty")
+
+
+tempdir = tempfile.gettempdir()
+extra_vars_path = path.join(tempdir, "battleschool_extra_vars.json")
+if path.isfile(extra_vars_path):
+    with open(extra_vars_path) as f:
+        extra_vars = json.load(f)
+else:
+    extra_vars = {}
+
+def get_env(name, default, converter = None):
+    if name in extra_vars:
+        val = extra_vars[name]
+    elif name in os.environ:
+        val = os.environ[name]
+    elif name.upper() in os.environ:
+        val = os.environ[name.upper()]
+    else:
+        val = default
+
+    if converter:
+        return converter(val)
+    else:
+        return val
+
+
+def main():
+    module = AnsibleModule(
+        argument_spec=dict(
+            state=dict(default="present", choices=["present", "installed"]),
+            archive_type=dict(default="none", choices=["zip", "dmg", "tar", "none"]),
+            src=dict(aliases=["source"], required=False),
+            url=dict(aliases=[], required=False),
+            dest=dict(aliases=["destination"], required=False),
+            force=dict(default='no', type='bool'),
+            curl_opts=dict(aliases=[], required=False),
+            tar_opts=dict(aliases=[], default="xf", required=False),
+            archive_path=dict(required=False),
+            pkg_type=dict(default="pkg", choices=["pkg", "app", "script"]),
+            pkg_name=dict(required=False),
+            pkg_version=dict(required=False),
+            creates=dict(aliases=["app_creates", "script_creates"], required=False),
+            dmg_license=dict(default='no', type='bool'),
+            script_executable=dict(aliases=["script_exe"], required=False),
+            script_prefix=dict(aliases=["script_prefix"], required=False),
+        )
+    )
+
+    p = module.params
+
+    installer = Installer(module)
+
+    installer.validate()
+
+    acquire_only = get_env('mac_pkg_acquire_only', False, module.boolean)
+
+    # module.exit_json(changed=False, msg="acquire_only %s, env %s" % (acquire_only, extra_vars))
+
+    if p["state"] in ["present", "installed"]:
+        installer.install(acquire_only)
+
+    #TODO: implement remove
+    elif p["state"] in ["absent", "removed"]:
+        #remove_package(module, pkgutil_path, pkg)
+        module.fail_json(changed=False, msg="remove package NOT IMPLEMENTED")
+
+# this is magic, see lib/ansible/module_common.py
+#<<INCLUDE_ANSIBLE_MODULE_COMMON>>
+
+main()
