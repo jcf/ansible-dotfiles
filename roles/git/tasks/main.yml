@@ -1,0 +1,12 @@
+---
+- name: Install git
+  homebrew: package={{ item }} state=latest
+  with_items:
+    - gh
+    - git
+    - git-extras
+
+- name: Link dotfiles
+  file: src={{ item }} dest=~/.{{ item | basename }} state=link
+  with_fileglob:
+    - ./*
