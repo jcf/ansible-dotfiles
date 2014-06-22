@@ -10,4 +10,4 @@ if [[ $# -gt 0 ]]; then
     tags="--tags=$(join , $@)"
 fi
 
-ansible-playbook -i hosts.ini $tags site.yml
+ansible-playbook -i $DOT/hosts.ini $tags $DOT/site.yml
