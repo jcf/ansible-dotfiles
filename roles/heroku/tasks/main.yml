@@ -2,6 +2,14 @@
 - name: Install Heroku Toolbelt
   homebrew_cask: name=heroku-toolbelt state=installed
 
+- name: Create ~/.bin
+  file: dest=~/.bin state=directory
+
+- name: Link executables
+  file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
+  with_fileglob:
+    - ./*
+
 - name: Install plugins
   git: >
     repo=git://github.com/{{ item }}.git
