@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+# Returns a heroku command with the app name appended based on whether you pass
+# `s` or `p` as an argument. If you pass -a all app name logic will be
+# bypassed.
+#
+# For example,
+#
+#  heroku-app run rake db:migrate s
+#
+# …produces:
+#
+#   heroku run rake db:migrate -a app-anme-staging
+#
+# You can pass `s` or `p` anywhere in the list of arguments, so the following
+# will also work:
+#
+#   heroku-app run s rake db:migrate
+#
+# It is assumed your app will be named similarly to your origin remote, for
+# example:
+#
+#   origin = 'git@github.com:jcf/app-name.git'
+#
+# …with `s` would produce:
+#
+#   heroku <args> -a app-name-staging
+
+def heroku(args, app = nil)
+  cmd = "heroku #{args.join(' ')}#{app}"
+  $stderr.puts "\e[33m=>\e[0m #{cmd}"
+  exec cmd
+end
+
+def app_name
+  origin = %x(git config remote.origin.url)
+  origin.match(%r|:(.*?)/(.*?)\.git$|).to_a.last
+end
+
+# Bypass app name logic if you've specified the app directly
+if ARGV.include?('-a') || ARGV.include?('--app')
+  heroku(ARGV)
+end
+
+shortcuts = {'s' => 'staging', 'p' => 'production'}
+shortcut, args = ARGV.partition { |arg| shortcuts[arg] }
+
+if shortcut.length > 1
+  abort "Usage: #{File.basename(__FILE__)} <args> <s|p>"
+end
+
+if env = shortcuts[shortcut.first]
+  app = ' -a ' << [app_name, env].join('-')
+end
+
+heroku(args, app)
