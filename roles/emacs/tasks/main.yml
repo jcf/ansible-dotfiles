@@ -12,8 +12,16 @@
     url=http://emacsformacosx.com/emacs-builds/Emacs-2014-06-14_01-33-01-117333-universal-10.6.8.dmg
     archive_type=dmg archive_path=Emacs.app
 
+- name: Create ~/.bin
+  file: dest=~/.bin state=directory
+
 - name: Link emacsclient
   file: >
     src=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
-    dest=/usr/local/bin/emacsclient
+    dest=~/.bin/emacsclient
     state=link
+
+- name: Link executables
+  file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
+  with_fileglob:
+    - ./*
