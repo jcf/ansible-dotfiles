@@ -1,2 +1,13 @@
-#!/bin/sh
-ansible-playbook -i hosts.ini site.yml
+#!/bin/bash
+
+join() {
+    IFS="$1"
+    shift
+    echo "$*"
+}
+
+if [[ $# -gt 0 ]]; then
+    tags="--tags=$(join , $@)"
+fi
+
+ansible-playbook -i hosts.ini $tags site.yml
