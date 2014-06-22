@@ -9,8 +9,15 @@
 - name: Set current JVM
   shell: 'jenv global {{ dotfiles.jvm.version }}'
 
-- name: Install Leiningen
-  homebrew: name=leiningen
+- name: Create ~/.bin
+  file: dest=~/.bin state=directory
+
+# HACK: Ansible won't link relative files?!
+# https://github.com/ansible/ansible/issues/7627
+- name: Link lein
+  file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
+  with_fileglob:
+    - ./lein*
 
 - name: Create ~/.lein
   file: dest=~/.lein state=directory
