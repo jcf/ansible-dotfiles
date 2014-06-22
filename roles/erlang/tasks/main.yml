@@ -8,4 +8,9 @@
 - name: Link dotfiles
   file: src={{ item }} dest=~/.{{ item | basename }} state=link
   with_fileglob:
-    - ./*
+    - ./conf/*
+
+- name: Link executables
+  file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
+  with_fileglob:
+    - ./bin/*
