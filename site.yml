@@ -1,21 +1,22 @@
 ---
 - hosts: dotfiles
   roles:
-    - homebrew
-    - dotfiles
-    - zsh
-    - git
-    - emacs
-    - vim
-    - ssh
-    - clojure
-    - erlang
-    - haskell
-    - heroku
-    - javascript
-    - go
-    - python
-    - ruby
-    - osx
-    #- fonts # Disabled because it errors lots, and is slow.
-    - quicklook
+    - { role: homebrew, tags: ['homebrew'] }
+    - { role: dotfiles, tags: ['dotfiles'] }
+    - { role: zsh, tags: ['zsh'] }
+    - { role: git, tags: ['git'] }
+    - { role: emacs, tags: ['emacs'] }
+    - { role: vim, tags: ['vim'] }
+    - { role: ssh, tags: ['ssh'] }
+    - { role: clojure, tags: ['clojure'] }
+    - { role: erlang, tags: ['erlang'] }
+    - { role: haskell, tags: ['haskell'] }
+    - { role: heroku, tags: ['heroku'] }
+    - { role: javascript, tags: ['javascript'] }
+    - { role: go, tags: ['go'] }
+    - { role: python, tags: ['python'] }
+    - { role: ruby, tags: ['ruby'] }
+    - { role: osx, tags: ['osx'] }
+    # Disabled because it errors lots, and is slow.
+    #- { role: fonts, tags: ['fonts] }
+    - { role: quicklook, tags: ['quicklook'] }
