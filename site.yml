@@ -4,6 +4,7 @@
     - homebrew
     - dotfiles
     - zsh
+    - git
     - emacs
     - vim
     - ssh
