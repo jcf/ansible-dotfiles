@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "${BASH_SOURCE%/*}/.."
+
 join() {
     IFS="$1"
     shift
@@ -10,4 +12,4 @@ if [[ $# -gt 0 ]]; then
     tags="--tags=$(join , $@)"
 fi
 
-ansible-playbook -i $DOT/hosts.ini $tags $DOT/site.yml
+ansible-playbook -i hosts.ini $tags site.yml
