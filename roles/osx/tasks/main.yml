@@ -5,6 +5,7 @@
 - name: Install apps
   homebrew_cask: name={{ item }} state=installed
   with_items: dotfiles.apps
+  tags: apps
 
 - name: Show ~/Library
   shell: chflags nohidden ~/Library

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd "${BASH_SOURCE%/*}/.."
+ansible-playbook -i hosts.ini --tags=apps site.yml
