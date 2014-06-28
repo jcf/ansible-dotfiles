@@ -1,4 +1,7 @@
 ---
+- name: Create ~/.bin
+  file: dest=~/.bin state=directory
+
 - name: Link dotfiles
   file: src={{ item }} dest=~/.{{ item | basename }} state=link
   with_fileglob:
