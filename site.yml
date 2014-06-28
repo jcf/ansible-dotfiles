@@ -17,6 +17,5 @@
     - { role: python, tags: ['python'] }
     - { role: ruby, tags: ['ruby'] }
     - { role: osx, tags: ['osx'] }
-    # Disabled because it errors lots, and is slow.
-    #- { role: fonts, tags: ['fonts] }
+    - { role: fonts, tags: ['fonts'] }
     - { role: quicklook, tags: ['quicklook'] }

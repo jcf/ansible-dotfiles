@@ -1,4 +1,7 @@
 ---
+- name: Tap fonts
+  homebrew_tap: tap=caskroom/fonts state=present
+
 - name: Install fonts
   homebrew_cask: name={{ item }} state=installed
   with_items: dotfiles.fonts

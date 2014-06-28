@@ -42,10 +42,7 @@ dotfiles:
     - font-code2001
     - font-code2002
     - font-cousine
-    - font-cousine-bold
-    - font-cousine-bolditalic
-    - font-cousine-italic
-    - font-dejavu
+    - font-dejavu-sans
     - font-freesans
     - font-inconsolata
     - font-liberation-sans
@@ -59,7 +56,6 @@ dotfiles:
     - font-source-sans-pro
     - font-symbola
     - font-terminus
-    - font-terminusbold
     - font-ubuntu
 
   go:
