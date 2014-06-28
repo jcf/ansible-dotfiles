@@ -11,7 +11,7 @@ dotfiles:
     - evernote
     - flip4mac
     - github
-    - google-chrome
+    - google-chrome-dev
     - google-drive
     - google-earth
     - google-hangouts
