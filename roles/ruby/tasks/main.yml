@@ -28,9 +28,12 @@
   with_items: dotfiles.ruby.versions
   changed_when: no
 
+- name: Set default Ruby version
+  shell: 'rbenv global {{ dotfiles.ruby.default_version }}'
+
 - name: Install global gems
   environment:
-    rbenv_version: '{{ item }}'
+    RBENV_VERSION: '{{ item }}'
   shell: 'rbenv exec gem install {{ dotfiles.ruby.packages | join(" ") }}'
   with_items: dotfiles.ruby.versions
   changed_when: no
