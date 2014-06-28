@@ -1,4 +1,7 @@
 ---
+- name: Tap Cask versions
+  homebrew_tap: tap=caskroom/versions state=present
+
 - name: Install apps
   homebrew_cask: name={{ item }} state=installed
   with_items: dotfiles.apps
