@@ -1,9 +1,8 @@
 ---
-- name: Add jenv tap
-  homebrew_tap: name=jenv/jenv
-
 - name: Install jenv
-  homebrew: name=jenv
+  git: >
+    repo=git://github.com/gcuisinier/jenv.git
+    dest=~/.jenv
   tags: update
 
 - name: Set current JVM
