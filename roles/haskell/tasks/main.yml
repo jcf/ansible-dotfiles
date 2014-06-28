@@ -5,6 +5,10 @@
 - name: Install Haskell Platform
   homebrew: name=haskell-platform state=installed
 
+- name: Update cabal
+  shell: 'cabal update'
+  tags: update
+
 - name: Install packages
   shell: 'cabal install {{ dotfiles.haskell.packages | join(" ")}}'
 
