@@ -1,0 +1,9 @@
+- name: Install Evernote
+  mac_pkg: >
+    pkg_type=app
+    url=https://www.evernote.com/about/download/get.php?file=EvernoteMac
+    dest=Evernote.dmg
+    archive_type=dmg archive_path=Evernote.app
+    dmg_license=yes
+  sudo: yes
+  tags: pkg

@@ -1,11 +1,10 @@
 ---
-- name: Tap Cask versions
-  homebrew_tap: tap=caskroom/versions state=present
+# - name: Tap Cask versions
+#   homebrew_tap: tap=caskroom/versions state=present
 
-- name: Install apps
-  homebrew_cask: name={{ item }} state=installed
-  with_items: dotfiles.apps
-  tags: apps
+# - name: Install apps
+#   homebrew_cask: name={{ item }} state=installed
+#   with_items: dotfiles.apps
 
 - name: Show ~/Library
   shell: chflags nohidden ~/Library
@@ -21,3 +20,15 @@
 
 - name: Restart Dock
   shell: killall Dock
+
+- include: adium.yml
+- include: airfoil.yml
+- include: airfoil-speakers.yml
+- include: caffeine.yml
+- include: colloquy.yml
+- include: dropbox.yml
+- include: evernote.yml
+# TODO Get Flip4Mac working
+# - include: flip4mac.yml
+
+- include: google-chrome-beta.yml

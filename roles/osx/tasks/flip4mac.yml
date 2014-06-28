@@ -1,0 +1,7 @@
+- name: Install Flip4Mac
+  mac_pkg: >
+    pkg_type=pkg
+    url=http://dvd-mac.com/download/Flip4Mac_3.2.0.16.dmg
+    archive_type=none archive_path='Flip4Mac.pkg'
+  sudo: yes
+  tags: pkg

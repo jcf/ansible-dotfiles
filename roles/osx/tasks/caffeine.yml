@@ -1,0 +1,7 @@
+- name: Install Caffeine
+  mac_pkg: >
+    pkg_type=app
+    url=http://download.lightheadsw.com/download.php?software=caffeine
+    archive_type=zip archive_path='Caffeine.app'
+  sudo: yes
+  tags: pkg

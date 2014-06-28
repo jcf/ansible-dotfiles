@@ -1,0 +1,7 @@
+- name: Install Colloquy
+  mac_pkg: >
+    pkg_type=app
+    url=http://colloquy.info/downloads/colloquy-2.4.3.zip
+    archive_type=zip archive_path='Colloquy.app'
+  sudo: yes
+  tags: pkg

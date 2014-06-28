@@ -151,7 +151,7 @@ class Archive(object):
             # self.module.exit_json(changed=False, msg="chown_user %s" % chown_user)
 
             #TODO: use environment variable to override cachedir
-            cache_dir = path.expanduser(get_env("battleschool_cache_dir", "~/Library/Caches/battleschool"))
+            cache_dir = path.expanduser(get_env("battleschool_cache_dir", "~/Library/Caches/dotfiles"))
             download_dir = path.join(cache_dir, "downloads")
             if not path.exists(download_dir):
                 os.makedirs(download_dir)
@@ -519,7 +519,7 @@ class Installer(object):
 
 
 tempdir = tempfile.gettempdir()
-extra_vars_path = path.join(tempdir, "battleschool_extra_vars.json")
+extra_vars_path = path.join(tempdir, "dotfiles_extra_vars.json")
 if path.isfile(extra_vars_path):
     with open(extra_vars_path) as f:
         extra_vars = json.load(f)

@@ -1,0 +1,7 @@
+- name: Install Airfoil Speakers
+  mac_pkg: >
+    pkg_type=app
+    url=http://neutral.rogueamoeba.com/mirror/files/Airfoil.zip
+    archive_type=zip archive_path='Airfoil/Airfoil Speakers.app'
+  sudo: yes
+  tags: pkg
