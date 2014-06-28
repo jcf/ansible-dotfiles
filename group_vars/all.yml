@@ -30,6 +30,7 @@ dotfiles:
     - spotify
     - subler
     - transmit
+    - virtualbox
     - visualvm
     - vlc
     - vmware-fusion
