@@ -15,7 +15,6 @@
     repo=git://github.com/{{ item }}.git
     dest=~/.heroku/plugins/{{ item | basename }}
   with_items:
-    - ddollar/heroku-accounts
     - ddollar/heroku-config
     - heroku/heroku-oauth
     - heroku/heroku-pg-extras
