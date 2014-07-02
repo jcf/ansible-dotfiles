@@ -2,6 +2,11 @@
 - name: Install Heroku Toolbelt
   homebrew_cask: name=heroku-toolbelt state=installed
 
+- name: Update Toolbelt
+  shell: heroku update
+  changed_when: no
+  tags: update
+
 - name: Create ~/.bin
   file: dest=~/.bin state=directory
 
