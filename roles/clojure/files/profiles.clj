@@ -11,7 +11,7 @@
                   [codox "0.6.6"]
                   [jonase/eastwood "0.1.4"]
                   [lein-ancient "0.5.5" :exclusions [commons-codec]]
-                  [lein-cljsbuild "1.0.0"]
+                  [lein-cljsbuild "1.0.3"]
                   [lein-clojars "0.9.1"]
                   [lein-cloverage "1.0.2"]
                   [lein-difftest "2.0.0"]
