@@ -13,8 +13,8 @@ main() {
     git for-each-ref \
         --sort=-committerdate \
         --format="$format" \
-        refs/heads/ \
+        ${1:-refs/heads/} \
     | column -t -s '|'
 }
 
-main
+main $1
