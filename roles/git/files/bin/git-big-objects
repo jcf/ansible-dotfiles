@@ -5,9 +5,9 @@ module GitBigObjects
   class Blob
     include Comparable
 
-    REVISIONS = Hash[
-      `git rev-list --all --objects`.lines.map { |line| line.scan(/\S+/) }
-    ]
+    REVISIONS = Hash[`git rev-list --all --objects`
+                      .lines
+                      .map { |line| line.split(/\s+/, 2).map(&:strip) }]
 
     STORAGE_UNITS = [:B, :K, :M, :G, :T].freeze
     STORAGE_BASE = 1024 # not 1024
