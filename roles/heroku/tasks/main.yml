@@ -24,7 +24,6 @@
     - heroku/heroku-oauth
     - heroku/heroku-pg-extras
     - heroku/heroku-repo
-    - heroku/heroku-two-factor
     - tpope/heroku-binstubs
     - tpope/heroku-pgbackups-pull
     - tpope/heroku-remote
