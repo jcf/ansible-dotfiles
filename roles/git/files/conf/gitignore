@@ -28,6 +28,6 @@ gpath
 grtags
 gtags
 tags
-tmp*
+tmp
 tmp/**/*
 vendor/bundle
