@@ -1,0 +1,4 @@
+{# -*- mode: jinja2 -*- #}
+{% for gem in dotfiles.ruby.packages %}
+{{ gem }}
+{% endfor %}

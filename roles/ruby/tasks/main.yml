@@ -23,6 +23,12 @@
     dest=~/.rbenv/plugins/rbenv-readline
   tags: update
 
+- name: Clone rbenv-default-gems
+  git: >
+    repo=git://github.com/sstephenson/rbenv-default-gems.git
+    dest=~/.rbenv/plugins/rbenv-default-gems
+  tags: update
+
 - name: Install Rubies
   shell: 'rbenv install --skip-existing {{ item }}'
   with_items: dotfiles.ruby.versions
@@ -31,14 +37,11 @@
 - name: Set default Ruby version
   shell: 'rbenv global {{ dotfiles.ruby.default_version }}'
 
-- name: Install global gems
-  environment:
-    RBENV_VERSION: '{{ item }}'
-  shell: 'rbenv exec gem install {{ dotfiles.ruby.packages | join(" ") }}'
-  with_items: dotfiles.ruby.versions
-  changed_when: no
-
 - name: Link dotfiles
   file: src={{ item }} dest=~/.{{ item | basename }} state=link
   with_fileglob:
     - ./*
+
+- name: Link default gems
+  template: src=default-gems dest=~/.rbenv/default-gems
+  tags: rbenv
