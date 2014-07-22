@@ -25,3 +25,26 @@
   file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
   with_fileglob:
     - ./*
+
+- name: Install GNU global
+  homebrew: name=global install_options=with-exuberant-ctags
+  tags: gtags
+
+- name: Install pygments
+  pip: name=pygments state=latest
+  tags: gtags
+
+- name: Clone global-pygments-plugin
+  git: >
+    repo=git://github.com/yoshizow/global-pygments-plugin.git
+    dest=~/.cache/global-pygments-plugin
+  tags: gtags
+
+- name: Make global-pygments-plugin
+  shell: >
+    cd ~/.cache/global-pygments-plugin &&
+    sh reconf.sh &&
+    ./configure --prefix=/usr/local/bin --with-exuberant-ctags=/usr/local/bin/ctags &&
+    make && make install
+  # creates: /usr/local/etc/gtags.conf
+  tags: gtags
