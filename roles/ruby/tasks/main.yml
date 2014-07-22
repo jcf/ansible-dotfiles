@@ -44,4 +44,3 @@
 
 - name: Link default gems
   template: src=default-gems dest=~/.rbenv/default-gems
-  tags: rbenv
