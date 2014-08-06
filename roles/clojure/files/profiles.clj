@@ -7,7 +7,7 @@
                        [slamhound "1.5.3"]
                        [spyscope "0.1.4"]]
 
-        :plugins [[cider/cider-nrepl "0.7.0-SNAPSHOT"]
+        :plugins [[cider/cider-nrepl "0.7.0"]
                   [codox "0.6.6"]
                   [jonase/eastwood "0.1.4"]
                   [lein-ancient "0.5.5" :exclusions [commons-codec]]
