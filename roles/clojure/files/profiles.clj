@@ -3,7 +3,7 @@
         :dependencies [[alembic "0.2.1"]
                        [clj-stacktrace "0.2.7"]
                        [criterium "0.4.2"]
-                       [org.clojure/tools.namespace "0.2.4"]
+                       [org.clojure/tools.namespace "0.2.5"]
                        [slamhound "1.5.3"]
                        [spyscope "0.1.4"]]
 
