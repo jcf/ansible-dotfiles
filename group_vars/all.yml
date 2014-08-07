@@ -3,37 +3,37 @@ user: jcf
 
 dotfiles:
   apps:
-    - adium
-    - airfoil
-    - caffeine
-    - colloquy
-    - dropbox
-    - evernote
-    - flip4mac
-    - github
-    - google-chrome-dev
-    - google-drive
-    - google-earth
-    - google-hangouts
-    - handbrake
-    - hazel
-    - heroku-toolbelt
-    - istat-menus
-    - iterm2
-    - launchbar
-    - livereload
-    - mactex
-    - omnifocus
-    - skype
-    - slack
-    - sonos
-    - spotify
-    - subler
-    - transmit
-    - virtualbox
-    - visualvm
-    - vlc
-    - vmware-fusion
+    #- adium
+    #- airfoil
+    #- caffeine
+    #- colloquy
+    #- dropbox
+    #- evernote
+    #- flip4mac
+    #- github
+    #- google-chrome-dev
+    #- google-drive
+    #- google-earth
+    #- google-hangouts
+    #- handbrake
+    #- hazel
+    #- heroku-toolbelt
+    #- istat-menus
+    #- iterm2
+    #- launchbar
+    #- livereload
+    #- mactex
+    #- omnifocus
+    #- skype
+    #- slack
+    #- sonos
+    #- spotify
+    #- subler
+    #- transmit
+    #- virtualbox
+    #- visualvm
+    #- vlc
+    #- vmware-fusion
 
   fonts:
     - font-anonymous-pro
