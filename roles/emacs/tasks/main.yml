@@ -3,6 +3,7 @@
   git: >
     repo=git@github.com:jcf/emacs.d.git
     dest=~/.emacs.d
+    force=no
   tags: update
 
 # http://emacsformacosx.com/tips

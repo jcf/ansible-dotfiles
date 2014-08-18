@@ -6,6 +6,7 @@
   git: >
     repo=git@github.com:jcf/prezto.git
     dest=~/.prezto
+    force=no
   tags: update
 
 - name: Link runcoms
