@@ -105,3 +105,5 @@
   insteadOf = "gist:"
 [rerere]
   enabled = true
+[credential]
+	helper = osxkeychain
