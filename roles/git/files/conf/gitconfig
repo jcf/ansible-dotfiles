@@ -1,109 +1,109 @@
 # -*- mode: gitconfig -*-
 [user]
-  name = James Conroy-Finn
-  email = james@logi.cl
-  signingkey = 8ED1CE42
+	name = James Conroy-Finn
+	email = james@logi.cl
+	signingkey = 8ED1CE42
 [apply]
-  whitespace = nowarn
+	whitespace = nowarn
 [alias]
-  aliases = config --get-regexp '^alias'
-  branches = !git-branches
-  big-objects = !git-big-objects
-  co = checkout
-  conflicts = !git ls-files --unmerged | cut -c51- | sort -u | xargs $EDITOR
-  cp = cherry-pick
-  current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
-  db = delete-branch
-  ignored = "!git ls-files --others --exclude-standard"
-  incoming = !git-incoming
-  l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
-  lc = log ORIG_HEAD.. --stat --no-merges
-  lol = log --pretty=oneline --abbrev-commit --graph --decorate
-  missing = !sh -c 'git cherry "$0" | cut -sd + -f 2 | xargs "git show"'
-  nb = checkout -b
-  outgoing = !git-outgoing
-  pending = !git --no-pager log origin/master..master && echo
-  pr = pull-request
-  pr-merged = !git-pr-merged
-  push-all = "!for i in $(git config --list | grep -E ^remote\\..+\\.url | sed -E 's/^remote\\.(.*)\\.url=.*/\\1/'); do git push $i master; done"
-  put = push origin HEAD
-  resolve = !git ls-files --unmerged | cut -c51- | sort -u | xargs git add
-  show-last = !git show `git rev-parse HEAD`
-  squish = repack -a -d --depth=250 --window=250
-  staged = diff --cached
-  subadd = !sh -c 'git submodule add $(git config -f"$0".git/config remote.origin.url) "$0"'
-  submodule-rm = !git-submodule-rm
-  sup = !git stash && git pull --rebase && git push && git stash pop
-  thanks = !git-thanks
-  track = !git-track
-  unchanged = update-index --assume-unchanged
-  unstage = reset HEAD
-  unstaged = diff
-  up = !git pull --rebase && git push
-  update-submodules = !git-update-submodules
-  workdir = !git-new-workdir
-  # Trash any any untracked files
-  wipe = !git status -sb | grep '??' | awk '{ print $2 }' | xargs trash
+	aliases = config --get-regexp '^alias'
+	branches = !git-branches
+	big-objects = !git-big-objects
+	co = checkout
+	conflicts = !git ls-files --unmerged | cut -c51- | sort -u | xargs $EDITOR
+	cp = cherry-pick
+	current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
+	db = delete-branch
+	ignored = "!git ls-files --others --exclude-standard"
+	incoming = !git-incoming
+	l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+	lc = log ORIG_HEAD.. --stat --no-merges
+	lol = log --pretty=oneline --abbrev-commit --graph --decorate
+	missing = !sh -c 'git cherry "$0" | cut -sd + -f 2 | xargs "git show"'
+	nb = checkout -b
+	outgoing = !git-outgoing
+	pending = !git --no-pager log origin/master..master && echo
+	pr = pull-request
+	pr-merged = !git-pr-merged
+	push-all = "!for i in $(git config --list | grep -E ^remote\\..+\\.url | sed -E 's/^remote\\.(.*)\\.url=.*/\\1/'); do git push $i master; done"
+	put = push origin HEAD
+	resolve = !git ls-files --unmerged | cut -c51- | sort -u | xargs git add
+	show-last = !git show `git rev-parse HEAD`
+	squish = repack -a -d --depth=250 --window=250
+	staged = diff --cached
+	subadd = !sh -c 'git submodule add $(git config -f"$0".git/config remote.origin.url) "$0"'
+	submodule-rm = !git-submodule-rm
+	sup = !git stash && git pull --rebase && git push && git stash pop
+	thanks = !git-thanks
+	track = !git-track
+	unchanged = update-index --assume-unchanged
+	unstage = reset HEAD
+	unstaged = diff
+	up = !git pull --rebase && git push
+	update-submodules = !git-update-submodules
+	workdir = !git-new-workdir
+	# Trash any any untracked files
+	wipe = !git status -sb | grep '??' | awk '{ print $2 }' | xargs trash
 [core]
-  attributesfile = ~/.gitattributes
-  excludesfile = ~/.gitignore
-  editor = $EDITOR -f --nomru
-  autocrlf = input
-  safecrlf = warn
+	attributesfile = ~/.gitattributes
+	excludesfile = ~/.gitignore
+	editor = $EDITOR -f --nomru
+	autocrlf = input
+	safecrlf = warn
 [gui]
-  fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [mirror]
-  summary = true
+	summary = true
 [branch]
-  autosetupmerge = true
-  autosetuprebase = always
+	autosetupmerge = true
+	autosetuprebase = always
 [push]
-  default = tracking
+	default = tracking
 [help]
-  autocorrect = 1
+	autocorrect = 1
 
 [github]
-  user = jcf
+	user = jcf
 
 [heroku]
-  account = logi.cl
+	account = logi.cl
 
 [diff]
-  algorithm = patience
+	algorithm = patience
 [difftool]
-  prompt = false
+	prompt = false
 
 [merge]
-  tool = ediff
+	tool = ediff
 [mergetool]
-  prompt = false
+	prompt = false
 [mergetool "ediff"]
-  cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+	cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 
-# http://bitfission.com/blog/2010/07/auto-merge-gemfile-lock.html
+	# http://bitfission.com/blog/2010/07/auto-merge-gemfile-lock.html
 [merge "gemfilelock"]
-  name = relocks the gemfile.lock
-  driver = bundle install
+	name = relocks the gemfile.lock
+	driver = bundle install
 
-# http://tbaggery.com/2010/10/24/reduce-your-rails-schema-conflicts.html
+	# http://tbaggery.com/2010/10/24/reduce-your-rails-schema-conflicts.html
 [merge "railsschema"]
-  name = newer Rails schema version
-  driver = "ruby -e '\n\
-    system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
-    b = File.read(%(%A))\n\
-    b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
-    %(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
-    end\n\
-    File.open(%(%A), %(w)) {|f| f.write(b)}\n\
-    exit 1 if b.include?(%(<)*%L)'"
+	name = newer Rails schema version
+	driver = "ruby -e '\n\
+	system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
+	b = File.read(%(%A))\n\
+	b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
+	%(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
+	end\n\
+	File.open(%(%A), %(w)) {|f| f.write(b)}\n\
+	exit 1 if b.include?(%(<)*%L)'"
 
 [url "git@gist.github.com:"]
-  insteadOf = "gst:"
-  pushInsteadOf = "gist:"
-  pushInsteadOf = "git://gist.github.com/"
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
-  insteadOf = "gist:"
+	insteadOf = "gist:"
 [rerere]
-  enabled = true
+	enabled = true
 [credential]
 	helper = osxkeychain
