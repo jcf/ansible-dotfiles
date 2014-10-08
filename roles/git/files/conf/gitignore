@@ -27,6 +27,7 @@ doc/tags-ja
 gpath
 grtags
 gtags
+scratch.*
 tags
 tmp
 tmp/**/*
