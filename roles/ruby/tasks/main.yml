@@ -5,28 +5,14 @@
     dest=~/.rbenv
   tags: update
 
-- name: Clone ruby-build
+- name: Clone rbenv plugins
   git: >
-    repo=git://github.com/sstephenson/ruby-build.git
-    dest=~/.rbenv/plugins/ruby-build
-  tags: update
-
-- name: Clone rbenv-ctags
-  git: >
-    repo=git://github.com/tpope/rbenv-ctags.git
-    dest=~/.rbenv/plugins/rbenv-ctags
-  tags: update
-
-- name: Clone rbenv-readline
-  git: >
-    repo=git://github.com/tpope/rbenv-readline.git
-    dest=~/.rbenv/plugins/rbenv-readline
-  tags: update
-
-- name: Clone rbenv-default-gems
-  git: >
-    repo=git://github.com/sstephenson/rbenv-default-gems.git
-    dest=~/.rbenv/plugins/rbenv-default-gems
+    repo=git://github.com/{{ item }}.git
+    dest=~/.rbenv/plugins/{{ item | basename }}
+  with_items:
+    - sstephenson/rbenv-default-gems
+    - tpope/rbenv-ctags
+    - tpope/rbenv-readline
   tags: update
 
 - name: Install Rubies
