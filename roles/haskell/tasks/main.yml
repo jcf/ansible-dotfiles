@@ -1,9 +1,10 @@
 ---
-- name: Enable GCC
-  homebrew: name=gcc state=linked
-
-- name: Install Haskell Platform
-  homebrew: name=haskell-platform state=installed
+- name: Install Haskell packages
+  homebrew: name={{ item }} state=latest
+  with_items:
+    - cabal-install
+    - gcc
+    - ghc
 
 - name: Update cabal
   shell: 'cabal update'
