@@ -22,7 +22,7 @@
 
         :injections [(require
                       '[alembic.still :refer [distill]]
-                      '[clojure.repl :refer [source]]
+                      '[clojure.repl :refer [doc source]]
                       '[clojure.tools.namespace.repl :as repl]
                       '[criterium.core :refer [bench quick-bench]]
                       'spyscope.core)]
