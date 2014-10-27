@@ -91,6 +91,7 @@ dotfiles:
     - ack
     - coreutils
     # - ctags # Disabled because we have a custom ctags install
+    - ditaa
     - graphviz
     - htop-osx
     - libxml2
