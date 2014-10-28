@@ -15,6 +15,7 @@
 .emacs.desktop
 .emacs.desktop.lock
 .hg*
+.java-version
 .lein-repl-history
 .netrwhist
 .nrepl-port
