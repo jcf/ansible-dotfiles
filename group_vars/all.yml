@@ -104,6 +104,7 @@ dotfiles:
     - rlwrap
     - siege
     - the_silver_searcher
+    - tor
     - trash
     - tree
     - wget
