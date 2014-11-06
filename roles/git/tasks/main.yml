@@ -5,6 +5,7 @@
     - gh
     - git
     - git-extras
+  tags: update
 
 - name: Link dotfiles
   file: src={{ item }} dest=~/.{{ item | basename }} state=link
