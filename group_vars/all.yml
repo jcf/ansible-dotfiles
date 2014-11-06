@@ -97,6 +97,7 @@ dotfiles:
     - libxml2
     - libxslt
     - lorem
+    - mobile-shell
     - moreutils
     - phantomjs # TODO Move into Javascript/Node.js land?
     - pv
