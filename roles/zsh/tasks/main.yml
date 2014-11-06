@@ -1,6 +1,7 @@
 ---
 - name: Install zsh
   homebrew: name=zsh
+  tags: update
 
 - name: Clone Prezto
   git: >
