@@ -1,6 +1,7 @@
 ---
 - name: Install go
   homebrew: name=go state=latest
+  tags: update
 
 - name: Create GOPATH
   file: dest={{ dotfiles.go.path }} state=directory
