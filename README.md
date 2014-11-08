@@ -48,7 +48,7 @@ At the time of writing it's possible to get all three like so:
 sudo easy_install pip
 sudo pip install ansible
 
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 xcode-select --install
 ```
