@@ -45,8 +45,8 @@ You'll need the following dependencies before getting started.
 At the time of writing it's possible to get all three like so:
 
 ``` sh
-sudo easy_install pip
-sudo pip install ansible
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
