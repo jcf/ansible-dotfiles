@@ -12,6 +12,7 @@
 
 - name: Set current JVM
   shell: 'jenv global {{ dotfiles.jvm.version }}'
+  ignore_errors: yes
 
 - name: Create ~/.bin
   file: dest=~/.bin state=directory
