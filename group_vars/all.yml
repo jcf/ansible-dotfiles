@@ -72,6 +72,18 @@ dotfiles:
       - lambdabot
       - snap
 
+  heroku:
+    plugin_repos:
+      - ddollar/heroku-config
+      - heroku/heroku-oauth
+      - heroku/heroku-pg-extras
+      - heroku/heroku-repo
+      - tpope/heroku-binstubs
+      - tpope/heroku-pgbackups-pull
+      - tpope/heroku-remote
+      - tpope/heroku-surrogate
+      - tpope/heroku-wildcards
+
   javascript:
     default_version: 0.10.29
     versions:

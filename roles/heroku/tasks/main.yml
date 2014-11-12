@@ -19,14 +19,5 @@
   git: >
     repo=git://github.com/{{ item }}.git
     dest=~/.heroku/plugins/{{ item | basename }}
-  with_items:
-    - ddollar/heroku-config
-    - heroku/heroku-oauth
-    - heroku/heroku-pg-extras
-    - heroku/heroku-repo
-    - tpope/heroku-binstubs
-    - tpope/heroku-pgbackups-pull
-    - tpope/heroku-remote
-    - tpope/heroku-surrogate
-    - tpope/heroku-wildcards
+  with_items: dotfiles.heroku.plugin_repos
   tags: update
