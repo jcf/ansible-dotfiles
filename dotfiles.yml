@@ -9,6 +9,7 @@
     - { role: emacs, tags: ['emacs'] }
     - { role: vim, tags: ['vim'] }
     - { role: ssh, tags: ['ssh'] }
+    - { role: code, tags: ['code'] }
     - { role: clojure, tags: ['clojure'] }
     - { role: erlang, tags: ['erlang'] }
     - { role: haskell, tags: ['haskell'] }

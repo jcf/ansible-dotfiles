@@ -1,0 +1,5 @@
+---
+- name: Create ~/Code/
+  file: |
+    dest=~/Code
+    state=directory
