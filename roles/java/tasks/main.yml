@@ -1,0 +1,38 @@
+---
+- name: Install jenv
+  git: >
+    repo=git://github.com/gcuisinier/jenv.git
+    dest=~/.jenv
+  tags: update
+
+# From http://support.apple.com/kb/dl1572
+- name: Install Java 6
+  mac_pkg: >
+    pkg_name=com.apple.pkg.JavaForMacOSX107 pkg_version=1.0.0.0.1.1247562015
+    url=http://support.apple.com/downloads/DL1572/en_US/JavaForOSX2013-05.dmg
+    archive_type=dmg archive_path=JavaForOSX.pkg
+
+- name: Install Java 7
+  mac_pkg: >
+    pkg_name=com.oracle.jdk7u51 pkg_version=1.1
+    url=http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-macosx-x64.dmg
+    curl_opts="-L --cookie oraclelicense=accept-securebackup-cookie"
+    archive_type=dmg archive_path='JDK 7 Update 51.pkg'
+  sudo: yes
+
+- name: Install Java 8
+  mac_pkg: >
+    pkg_name=com.oracle.jdk8u25 pkg_version=1.1
+    url=http://download.oracle.com/otn-pub/java/jdk/8u25-b17/jdk-8u25-macosx-x64.dmg
+    curl_opts="-L --cookie oraclelicense=accept-securebackup-cookie"
+    archive_type=dmg archive_path='JDK 8 Update 25.pkg'
+  sudo: yes
+
+- name: Register all JVMs
+  shell: 'jenv add {{ item }}/Contents/Home'
+  with_fileglob:
+    - /Library/Java/JavaVirtualMachines/*
+
+- name: Set current JVM
+  shell: 'jenv global {{ dotfiles.jvm.version }}'
+  ignore_errors: yes

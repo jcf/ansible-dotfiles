@@ -1,19 +1,4 @@
 ---
-- name: Install jenv
-  git: >
-    repo=git://github.com/gcuisinier/jenv.git
-    dest=~/.jenv
-  tags: update
-
-- name: Register all JVMs
-  shell: 'jenv add {{ item }}/Contents/Home'
-  with_fileglob:
-    - /Library/Java/JavaVirtualMachines/*
-
-- name: Set current JVM
-  shell: 'jenv global {{ dotfiles.jvm.version }}'
-  ignore_errors: yes
-
 - name: Create ~/.bin
   file: dest=~/.bin state=directory
 

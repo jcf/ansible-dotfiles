@@ -10,6 +10,7 @@
     - { role: vim, tags: ['vim'] }
     - { role: ssh, tags: ['ssh'] }
     - { role: code, tags: ['code'] }
+    - { role: java, tags: ['java'] }
     - { role: clojure, tags: ['clojure'] }
     - { role: erlang, tags: ['erlang'] }
     - { role: haskell, tags: ['haskell'] }
