@@ -1,3 +1,6 @@
+# -*- mode: ruby -*-
+# vim: ft=ruby
+
 Pry.config.editor = '/usr/local/bin/mvim -f'
 
 Pry.commands.alias_command 'c', 'continue' rescue nil
@@ -49,5 +52,3 @@ def quick(repetitions = 1000, &block)
   end
   nil
 end
-
-# vim: ft=ruby
