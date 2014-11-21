@@ -130,6 +130,7 @@ dotfiles:
   ruby:
     default_version: 2.1.2
     packages:
+      - awesome_print
       - bundler
       - gem-browse
       - gem-ctags
