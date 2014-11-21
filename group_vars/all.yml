@@ -135,6 +135,7 @@ dotfiles:
       - gem-browse
       - gem-ctags
       - pry
+      - rubocop
     versions:
       - 2.0.0-p451
       - 2.1.2
