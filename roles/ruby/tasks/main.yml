@@ -11,6 +11,7 @@
     dest=~/.rbenv/plugins/{{ item | basename }}
   with_items:
     - sstephenson/rbenv-default-gems
+    - sstephenson/ruby-build
     - tpope/rbenv-ctags
     - tpope/rbenv-readline
   tags: update
