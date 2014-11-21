@@ -1,5 +1,13 @@
 #!/usr/bin/env ruby
 
+begin
+  require 'pry'
+  Pry.start
+  exit
+rescue LoadError
+  $stderr.puts 'Pry is not available. Continuing with good old IRB.'
+end
+
 def quick(repetitions = 100, &block)
   require 'benchmark'
   Benchmark.bmbm do |b|
