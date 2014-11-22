@@ -3,6 +3,7 @@
   homebrew: name={{ item }} state=latest
   with_items:
     - gh
+    - ghi
     - git
     - git-extras
   tags: update
