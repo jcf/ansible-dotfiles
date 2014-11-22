@@ -104,6 +104,8 @@ dotfiles:
     - coreutils
     # - ctags # Disabled because we have a custom ctags install
     - ditaa
+    - dnsmasq
+    - ffmpeg
     - graphviz
     - htop-osx
     - libxml2
@@ -115,10 +117,12 @@ dotfiles:
     - pv
     - rlwrap
     - siege
+    - sloccount
     - the_silver_searcher
     - tor
     - trash
     - tree
+    - vimpager
     - wget
     - wrk
 
