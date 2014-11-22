@@ -101,6 +101,7 @@ dotfiles:
 
   packages:
     - ack
+    - chromedriver
     - coreutils
     # - ctags # Disabled because we have a custom ctags install
     - ditaa
@@ -108,12 +109,16 @@ dotfiles:
     - ffmpeg
     - graphviz
     - htop-osx
+    - iftop
+    - ispell
     - libxml2
     - libxslt
     - lorem
+    - mercurial
     - mobile-shell
     - moreutils
     - phantomjs # TODO Move into Javascript/Node.js land?
+    - pstree
     - pv
     - rlwrap
     - siege
