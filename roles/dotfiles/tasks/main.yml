@@ -11,3 +11,10 @@
   file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
   with_fileglob:
     - ./bin/*
+
+- name: Install docker-enter
+  get_url: |
+    url=https://raw.githubusercontent.com/jpetazzo/nsenter/master/docker-enter
+    dest=~/.bin/docker-enter
+    mode=0700
+    sha256sum=09610705fa512d6c31b82d08b8e88a8103a356a6b496199a1a31d11793d45492
