@@ -1,0 +1,36 @@
+---
+- name: Install Mjolnir
+  mac_pkg: |
+    pkg_type=app
+    url=https://github.com/sdegutis/mjolnir/releases/download/0.4.3/Mjolnir-0.4.3.zip
+    archive_type=zip archive_path=Mjolnir.app
+
+- name: Ensure we have Lua
+  homebrew: name={{ item }} state=latest
+  with_items:
+    - lua
+    - luarocks
+
+- name: Create ~/.luarocks directory
+  file: dest=~/.luarocks state=directory
+
+- name: Link Luarocks config
+  file: src={{ item }} dest=~/.luarocks/{{ item | basename }} state=link
+  with_fileglob:
+    - ./luarocks/*
+
+- name: Create ~/.mjolnir directory
+  file: dest=~/.mjolnir state=directory
+
+- name: Link Mjolnir config
+  file: src={{ item }} dest=~/.mjolnir/{{ item | basename }} state=link
+  with_fileglob:
+    - ./mjolnir/*
+
+- name: Install rocks
+  command: luarocks install {{ item }}
+  with_items:
+    - mjolnir._asm.ipc
+    - mjolnir._asm.ipc.cli
+    - mjolnir.application
+    - mjolnir.hotkey

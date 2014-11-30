@@ -20,5 +20,6 @@
     - { role: python, tags: ['python'] }
     - { role: ruby, tags: ['ruby'] }
     - { role: osx, tags: ['osx'] }
+    - { role: mjolnir, tags: ['mjolnir'] }
     - { role: fonts, tags: ['fonts'] }
     - { role: quicklook, tags: ['quicklook'] }
