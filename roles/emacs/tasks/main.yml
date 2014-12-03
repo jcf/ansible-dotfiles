@@ -6,6 +6,12 @@
     force=no
   tags: update
 
+# This ensures we get a recent version of Emacs on occassions where someone runs
+# `emacs` directly. This is happens all the time with `cask exec`.
+- name: Install Homebrew Emacs
+  homebrew: name=emacs state=latest
+  tags: update
+
 # http://emacsformacosx.com/tips
 - name: Install Emacs
   mac_pkg: >
