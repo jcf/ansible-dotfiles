@@ -19,7 +19,8 @@
                   [lein-marginalia "0.7.1"]
                   [lein-pprint "1.1.1"]
                   [lein-swank "1.4.4"]
-                  [lein-try "0.4.3"]]
+                  [lein-try "0.4.3"]
+                  [refactor-nrepl "0.2.2"]]
 
         :injections [(require
                       '[alembic.still :refer [distill]]
