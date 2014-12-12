@@ -20,6 +20,7 @@
                   [lein-pprint "1.1.1"]
                   [lein-swank "1.4.4"]
                   [lein-try "0.4.3"]
+                  [lein-typed "0.3.5"]
                   [refactor-nrepl "0.2.2"]]
 
         :injections [(require
