@@ -106,6 +106,7 @@ dotfiles:
     # - ctags # Disabled because we have a custom ctags install
     - ditaa
     - dnsmasq
+    - ec2-api-tools
     - ffmpeg
     - graphviz
     - htop-osx
