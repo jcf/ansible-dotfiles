@@ -11,3 +11,8 @@
   file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
   with_fileglob:
     - ./bin/*
+
+- name: Compile Go binaries
+  command: go build -o ~/.bin/{{ item | basename | regex_replace('\.go$', '') }} {{ item }}
+  with_fileglob:
+    - ./go/*
