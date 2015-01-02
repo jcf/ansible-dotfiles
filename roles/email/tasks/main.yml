@@ -1,0 +1,7 @@
+---
+- name: Install mail packages
+  homebrew: name={{ item }} state=latest
+  with_items:
+    - mutt
+    - offlineimap
+  tags: update
