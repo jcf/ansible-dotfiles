@@ -5,3 +5,10 @@
     - mutt
     - offlineimap
   tags: update
+
+- name: Decrypt encrypted configuration files
+  command: >-
+    gpg -o ~/.{{ item | basename | regex_replace('\.gpg$', '') }} --decrypt {{ item }}
+    creates=~/.{{ item | basename | regex_replace('\.gpg$', '') }}
+  with_fileglob:
+    - ./*.gpg
