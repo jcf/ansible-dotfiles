@@ -55,3 +55,14 @@
     make && make install
   # creates: /usr/local/etc/gtags.conf
   tags: gtags
+
+- name: Download ycmd
+  git: >-
+    repo=git://github.com/Valloric/ycmd.git
+    dest=~/.cache/ycmd
+  tags: ycmd
+
+- name: Build ycmd
+  command: >-
+    ./build.sh --clang-completer chdir=~/.cache/ycmd
+  tags: ycmd
