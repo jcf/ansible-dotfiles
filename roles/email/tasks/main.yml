@@ -4,6 +4,7 @@
   with_items:
     - dovecot
     - mutt
+    - notmuch
     - offlineimap
   tags: update
 
