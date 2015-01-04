@@ -8,6 +8,9 @@
     - offlineimap
   tags: update
 
+- name: Create ~/Mail directory
+  file: dest=~/Mail mode=0700 state=directory
+
 - name: Decrypt encrypted configuration files
   command: >-
     gpg -o ~/.{{ item | basename | regex_replace('\.gpg$', '') }} --decrypt {{ item }}
