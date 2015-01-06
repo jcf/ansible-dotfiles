@@ -33,6 +33,14 @@
   with_fileglob:
     - ./*
 
+# From http://stackoverflow.com/a/8920373/123142
+
+# > You don't have eterm-color terminfo. You should create eterm-color terminfo
+# > by using following command.
+- name: Generate terminfo for better ZSH support
+  command: >
+    tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti
+
 - name: Install GNU global
   homebrew: name=global install_options=with-exuberant-ctags
   tags: gtags
