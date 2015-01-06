@@ -29,5 +29,5 @@
   with_fileglob:
     - ./*
 
-- name: Link default gems
+- name: Create ~/.rbenv/default-gems
   template: src=default-gems dest=~/.rbenv/default-gems
