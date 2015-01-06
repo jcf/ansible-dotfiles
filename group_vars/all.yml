@@ -131,6 +131,7 @@ dotfiles:
     - vimpager
     - wget
     - wrk
+    - xz
 
   python:
     versions:
