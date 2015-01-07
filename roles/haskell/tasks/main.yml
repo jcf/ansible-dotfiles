@@ -1,10 +1,9 @@
 ---
-- name: Install Haskell packages
-  homebrew: name={{ item }} state=latest
-  with_items:
-    - cabal-install
-    - gcc
-    - ghc
+- name: Download GHC.app
+  mac_pkg: |
+    pkg_type=app
+    url=https://github.com/etrepum/ghc-dot-app/releases/download/v7.8.3-r1/ghc-7.8.3-r1.zip
+    archive_type=zip archive_path=ghc-7.8.3.app
 
 - name: Update cabal
   shell: 'cabal update'
