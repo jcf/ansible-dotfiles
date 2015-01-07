@@ -70,7 +70,6 @@ dotfiles:
       - goa
       - hdevtools
       - lambdabot
-      - snap
 
   heroku:
     plugin_repos:
