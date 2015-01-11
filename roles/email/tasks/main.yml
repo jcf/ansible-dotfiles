@@ -4,17 +4,44 @@
   with_items:
     - dovecot
     - isync
-    - mutt
     - notmuch
-    - offlineimap
   tags: update
+
+- name: Install mutt with slang
+  homebrew: name=slang state=latest install_options=with-s-lang
+  tags: update
+
+- name: Install CPAN minus
+  homebrew: name=cpanm state=latest
+  tags: update
+
+# notmuch-mutt is a Perl script, that will be added to our path via the dotfiles
+# repo.
+- name: Install notmuch-mutt dependencies
+  cpanm: name={{ item }} notest=yes
+  with_items:
+    - 'Mail::Box'
+    - 'Mail::Internet'
+    - 'String::ShellQuote'
+    - 'Term::Readline'
 
 - name: Create ~/Mail directory
   file: dest=~/Mail mode=0700 state=directory
 
-- name: Decrypt encrypted configuration files
-  command: >-
-    gpg -o ~/.{{ item | basename | regex_replace('\.gpg$', '') }} --decrypt {{ item }}
-    creates=~/.{{ item | basename | regex_replace('\.gpg$', '') }}
+- name: Link dotfiles
+  file: >-
+    src={{ item }}
+    dest=~/.{{ item | basename }}
+    mode=0600
+    state=link
   with_fileglob:
-    - ./*.gpg
+    - ./conf/*
+
+- name: Link executables
+  file: >-
+    src={{ item }}
+    dest=~/.bin/{{ item | basename }}
+    mode=0700
+    state=link
+  with_fileglob:
+    - ./bin/*
