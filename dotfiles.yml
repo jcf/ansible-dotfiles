@@ -18,6 +18,7 @@
     - { role: heroku, tags: ['heroku'] }
     - { role: javascript, tags: ['javascript'] }
     - { role: go, tags: ['go'] }
+    - { role: perl, tags: ['perl'] }
     - { role: python, tags: ['python'] }
     - { role: ruby, tags: ['ruby'] }
     - { role: osx, tags: ['osx'] }

@@ -132,6 +132,10 @@ dotfiles:
     - wrk
     - xz
 
+  perl:
+    versions:
+      - 5.21.7
+
   python:
     versions:
       - 2.7.3

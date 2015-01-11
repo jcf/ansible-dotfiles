@@ -1,0 +1,18 @@
+---
+- name: Install perlbrew
+  shell: |
+    curl -kL http://install.perlbrew.pl | bash
+    creates=~/perl5/perlbrew/bin
+
+- name: List Perls
+  command: perlbrew list
+  register: perlbrew_list
+
+- name: Install Perls
+  command: perlbrew install {{ item }} --thread --multi --64all --debug --clang -Accflags="-DPERL_USE_SAFE_PUTENV"
+  when: "not '{{ item }}' in perlbrew_list.stdout"
+  with_items: dotfiles.perl.versions
+
+- name: Install Perls
+  command: perlbrew install-cpanm
+  with_items: dotfiles.perl.versions
