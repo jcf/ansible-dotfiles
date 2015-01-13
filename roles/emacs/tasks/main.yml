@@ -28,10 +28,18 @@
     dest=~/.bin/emacsclient
     state=link
 
+# - name: Link launchd plist
+#   file: >
+#     src={{ item }}
+#     dest=~/Library/LaunchAgents/{{ item | basename }}
+#     state=link
+#   with_fileglob:
+#     - ./launchd/*.plist
+
 - name: Link executables
   file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
   with_fileglob:
-    - ./*
+    - ./bin/*
 
 # From http://stackoverflow.com/a/8920373/123142
 
