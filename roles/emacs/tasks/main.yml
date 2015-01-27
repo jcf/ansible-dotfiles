@@ -21,7 +21,6 @@
 
 - name: Update packages
   command: cask update chdir=~/.emacs.d
-  tags: update
 
 - name: Create ~/.bin
   file: dest=~/.bin state=directory
