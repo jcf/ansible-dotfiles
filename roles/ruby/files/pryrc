@@ -1,11 +1,10 @@
 # -*- mode: ruby -*-
 # vim: ft=ruby
 
-Pry.config.editor = '/usr/local/bin/mvim -f'
+Pry.config.editor = 'emacsclient'
 
-Pry.commands.alias_command 'c', 'continue' rescue nil
-Pry.commands.alias_command 's', 'step' rescue nil
-Pry.commands.alias_command 'n', 'next' rescue nil
+# No more `[0G` in inf-ruby
+Pry.config.correct_indent = false if ENV['EMACS']
 
 # No more pager. It's awful.
 Pry.config.pager = nil
