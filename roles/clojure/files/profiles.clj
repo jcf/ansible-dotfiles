@@ -11,7 +11,7 @@
         :plugins [[cider/cider-nrepl "0.9.0-SNAPSHOT"]
                   [codox "0.6.6"]
                   [jonase/eastwood "0.1.4"]
-                  #_[lein-ancient "0.5.5" :exclusions [commons-codec]]
+                  [lein-ancient "0.6.2" :exclusions [commons-codec]]
                   [lein-cljsbuild "1.0.3"]
                   [lein-clojars "0.9.1"]
                   [lein-cloverage "1.0.2"]
