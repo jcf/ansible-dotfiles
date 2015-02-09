@@ -2,15 +2,19 @@
 
         :dependencies [[alembic "0.2.1"]
                        [clj-stacktrace "0.2.7"]
+                       [cljfmt "0.1.7"]
                        [criterium "0.4.2"]
                        [org.clojure/tools.namespace "0.2.5"]
+                       [rewrite-clj "0.4.11"
+                        :exclusions [org.clojure/tools.reader]]
                        [slamhound "1.5.3"]
                        [spyscope "0.1.4"]]
 
-        :plugins [[cider/cider-nrepl "0.9.0-SNAPSHOT"]
+        :plugins [#_[cider/cider-nrepl "0.9.0-SNAPSHOT"]
                   [codox "0.6.6"]
                   [jonase/eastwood "0.1.4"]
                   [lein-ancient "0.5.5" :exclusions [commons-codec]]
+                  [lein-cljfmt "0.1.7" :exclusions [rewrite-clj]]
                   [lein-cljsbuild "1.0.3"]
                   [lein-clojars "0.9.1"]
                   [lein-cloverage "1.0.2"]
