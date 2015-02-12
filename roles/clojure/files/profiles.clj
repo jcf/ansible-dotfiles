@@ -1,6 +1,7 @@
 {:user {:signing {:gpg-key "8ED1CE42"}
 
         :dependencies [[alembic "0.2.1"]
+                       [clj-http "1.0.1"]
                        [clj-stacktrace "0.2.7"]
                        [cljfmt "0.1.7"]
                        [criterium "0.4.2"]
