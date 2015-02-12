@@ -6,7 +6,7 @@
                        [criterium "0.4.2"]
                        [org.clojure/tools.namespace "0.2.5"]
                        [slamhound "1.5.3"]
-                       [spyscope "0.1.4"]]
+                       [spyscope "0.1.5"]]
 
         :plugins [[cider/cider-nrepl "0.9.0-SNAPSHOT"]
                   [codox "0.6.6"]
