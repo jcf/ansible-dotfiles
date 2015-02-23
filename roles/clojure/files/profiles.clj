@@ -30,20 +30,20 @@
 
         :shorthand {. [^:lazy alembic.still/distill
                        ^:lazy ^:macro alembic.still/lein
-                       clojure.java.shell/sh
-                       clojure.pprint/pprint
+                       ^:lazy clojure.java.shell/sh
+                       ^:lazy clojure.pprint/pprint
                        clojure.repl/apropos
                        clojure.repl/dir
                        clojure.repl/doc
                        clojure.repl/find-doc
                        clojure.repl/pst
                        clojure.repl/source
-                       clojure.test/run-all-tests
-                       clojure.test/run-tests
-                       clojure.tools.namespace.repl/refresh
-                       clojure.tools.namespace.repl/refresh-all
-                       criterium.core/bench
-                       criterium.core/quick-bench]}
+                       ^:lazy clojure.test/run-all-tests
+                       ^:lazy clojure.test/run-tests
+                       ^:lazy clojure.tools.namespace.repl/refresh
+                       ^:lazy clojure.tools.namespace.repl/refresh-all
+                       ^:lazy ^:macro criterium.core/bench
+                       ^:lazy ^:macro criterium.core/quick-bench]}
 
         :aliases {"slamhound" ["run" "-m" "slam.hound"]}
         :search-page-size 50}}
