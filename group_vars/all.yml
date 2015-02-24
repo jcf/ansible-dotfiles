@@ -43,6 +43,7 @@ dotfiles:
     - font-code2002
     - font-cousine
     - font-dejavu-sans
+    - font-fira-sans
     - font-freesans
     - font-inconsolata
     - font-liberation-sans
