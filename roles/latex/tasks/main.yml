@@ -1,0 +1,21 @@
+- name: Fetch mtheme
+  git: >-
+    repo=git://github.com/jcf/mtheme.git
+    dest=~/.cache/mtheme
+
+- name: Find TEXMFHOME
+  command: kpsewhich --var-value=TEXMFHOME
+  register: texmf_home
+
+- name: Ensure TEXMFHOME exists
+  file: dest={{ texmf_home.stdout }}/tex state=directory
+  when: texmf_home.rc == 0
+
+- name: Link STY files
+  file: >-
+    src={{ item }}
+    dest={{ texmf_home.stdout }}/tex/{{ item | basename }}
+    state=link
+  with_fileglob:
+    - ~/.cache/mtheme/*.sty
+  when: texmf_home.rc == 0
