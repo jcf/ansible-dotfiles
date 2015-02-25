@@ -81,6 +81,10 @@
     dest=~/.cache/ycmd
   tags: ycmd
 
+- name: Install CMake
+  homebrew: name=cmake state=latest
+  tags: update
+
 - name: Build ycmd
   command: >-
     ./build.py --clang-completer chdir=~/.cache/ycmd
