@@ -3,3 +3,11 @@
   file: |
     dest=~/Code
     state=directory
+
+- name: Clone GitHub repos
+  git: |
+    repo=git@github.com:{{ item }}
+    dest=~/Code/{{ item | basename }}
+    force=no
+  with_items: dotfiles.code.github_repos
+  tags: update

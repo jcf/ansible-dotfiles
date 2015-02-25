@@ -1,0 +1,2 @@
+#!/bin/bash
+security find-internet-password -g -w -a james@logi.cl -s dotfiles.jamesconroyfinn.com

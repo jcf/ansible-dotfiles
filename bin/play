@@ -1,0 +1,3 @@
+#!/bin/bash
+cd "${BASH_SOURCE%/*}/.."
+ansible-playbook -i hosts.ini --vault-password-file bin/vault-key $@

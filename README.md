@@ -53,6 +53,28 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 xcode-select --install
 ```
 
+## Secrets
+
+[Ansible Vault][] is used to encrypt some information that isn't really
+sensitive, but is private enough I can't responsibly share it publicly.
+
+An example of state that is kept private is the list of repositories to clone
+into `~/Code`. The `code` role makes use of `dotfiles.code.github_repos`, which
+is an encrypted list stored in `roles/code/vars/main.yml`.
+
+To enable passwordless application of playbooks the secret used to decrypt a
+vault is stored in the OS X keychain, and looked up via [`security(1)`][]. The
+keychain item is lookup by its name and account, which matches the image below.
+
+![Keychain](http://f.cl.ly/items/3B3r1q3Q1Q1s0M1X200t/example-dotfiles-keychain.png)
+
+There are a few executables to ease working with Ansible Vault.
+
+- [`bin/play`][] runs `ansible-playbook` with with vault key provided
+- [`bin/vault-edit`][] opens a vault with `emacsclient` and the key from
+  `bin/vault-key`
+- [`bin/vault-key`][] prints the key for Ansible to use
+
 ## Install
 
 With the dependencies above installed you can clone the repo, and use
@@ -63,16 +85,18 @@ git clone git://github.com/jcf/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 bin/install
-
-# This needs root access and will ask for your password
 bin/sudo-install
 ```
+
+Note, as the name suggests, running `bin/sudo-install` will result in use of
+`sudo`. You may be prompted to enter your password depending on your `sudoers`.
 
 ## Update
 
 To update the installed packages and tools you can use `bin/update`,
 which internally runs all Ansible tasks with the tag `update`.
 
+[Ansible Vault]: http://docs.ansible.com/playbooks_vault.html
 [Ansible]: http://www.ansible.com/
 [Clojure]: http://clojure.org/
 [Dotfiles]: https://github.com/jcf/dotfiles
@@ -87,6 +111,10 @@ which internally runs all Ansible tasks with the tag `update`.
 [Python]: https://www.python.org/
 [Ruby]: https://www.ruby-lang.org/en/
 [Xcode]: https://developer.apple.com/xcode/
+[`bin/vault-edit`]: https://github.com/jcf/dotfiles/blob/master/bin/vault-edit
+[`bin/vault-key`]: https://github.com/jcf/dotfiles/blob/master/bin/vault-key
+[`bin/vault-play`]: https://github.com/jcf/dotfiles/blob/master/bin/vault-play
+[`security(1)`]: https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/security.1.html
 [emacs.d]: https://github.com/jcf/emacs.d
 [group_vars]: https://github.com/jcf/dotfiles/tree/master/group_vars
 [nvm]: https://github.com/creationix/nvm
