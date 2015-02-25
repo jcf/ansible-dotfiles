@@ -83,5 +83,5 @@
 
 - name: Build ycmd
   command: >-
-    ./build.sh --clang-completer chdir=~/.cache/ycmd
+    ./build.py --clang-completer chdir=~/.cache/ycmd
   tags: ycmd
