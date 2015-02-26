@@ -1,19 +1,19 @@
 ---
 - name: Clone ~/.js
-  git: |
+  git: >-
     repo=git@github.com:jcf/dotjs-scripts.git
     dest=~/.js
     force=no
   tags: update
 
 - name: Update dotjs
-  git: |
+  git: >-
     repo=https://github.com/jcf/dotjs.git
     dest=~/.cache/dotjs
   tags: update
 
 - name: Install dotjs
-  command: |
+  command: >-
     rake install:daemon install:agent
     chdir=~/.cache/dotjs
     creates=/usr/local/bin/djsd
