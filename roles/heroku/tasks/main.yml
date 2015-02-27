@@ -1,6 +1,8 @@
 ---
 - name: Install Heroku Toolbelt
-  homebrew_cask: name=heroku-toolbelt state=installed
+  shell: >-
+    wget -qO- https://toolbelt.heroku.com/install.sh | sh
+    creates=/usr/local/heroku/bin/heroku
 
 - name: Update Toolbelt
   shell: heroku update
