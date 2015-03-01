@@ -59,7 +59,7 @@
 - name: Install pygments
   pip: >-
     name=pygments state=latest
-    executable=~/.pyenv/shims/pip
+    executable={{ "~/.pyenv/shims/pip" | expanduser }}
   tags: gtags
 
 - name: Clone global-pygments-plugin
