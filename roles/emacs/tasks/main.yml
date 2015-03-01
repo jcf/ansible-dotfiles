@@ -19,9 +19,6 @@
     url=http://emacsformacosx.com/emacs-builds/Emacs-24.4-universal.dmg
     archive_type=dmg archive_path=Emacs.app
 
-- name: Update packages
-  command: cask update chdir=~/.emacs.d
-
 - name: Create ~/.bin
   file: dest=~/.bin state=directory
 
