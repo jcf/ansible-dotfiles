@@ -11,6 +11,7 @@
     - { role: ssh, tags: ['ssh'] }
     - { role: code, tags: ['code'] }
     - { role: email, tags: ['email'] }
+    - { role: nix, tags: ['nix'] }
     - { role: dotjs, tags: ['dotjs'] }
     - { role: java, tags: ['java'] }
     - { role: clojure, tags: ['clojure'] }

@@ -1,0 +1,45 @@
+---
+- name: Install nix
+  get_url: >-
+    url=https://nixos.org/releases/nix/nix-1.8/nix-1.8-x86_64-darwin.tar.bz2
+    dest=~/.cache/nix-1.8-x86_64-darwin.tar.bz2
+    sha256sum=65064b6e239aa4f6075b7100d94b891fbf9e69705e0032d21221227ec95166f8
+
+- name: Decompress nix
+  unarchive: >-
+    src=~/.cache/nix-1.8-x86_64-darwin.tar.bz2
+    dest=~/.cache/
+    creates=~/.cache/nix-1.8-x86_64-darwin
+
+- name: Run nix installer
+  shell:
+    ~/.cache/nix-1.8-x86_64-darwin/install
+    creates=~/.nix-profile
+
+- name: Clone nixpkgs
+  git: >-
+    repo=git://github.com/NixOS/nixpkgs.git
+    dest=/usr/local/nixpkgs
+  tags: update
+
+- name: Use nixpkgs clone
+  shell: >-
+    ~/.nix-profile/bin/nix-channel --remove nixpkgs &&
+    rm -rf ~/.nix-defexpr/* &&
+    ln -s /usr/local/nixpkgs ~/.nix-defexpr/nixpkgs
+    creates=~/.nix-defexpr/nixpkgs
+
+- name: Create /etc/nix directory
+  file: >-
+    dest=/etc/nix
+    state=directory
+  sudo: yes
+
+- name: Setup binary source
+  file: >-
+    src={{ item }}
+    dest=/etc/nix/{{ item | basename }}
+    state=link
+  with_fileglob:
+    - ./*
+  sudo: yes
