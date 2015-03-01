@@ -5,21 +5,14 @@
     dest=~/.jenv
   tags: update
 
-- name: Install Java 7
+- name: Install Java versions
   mac_pkg: >
-    pkg_name=com.oracle.jdk7u51 pkg_version=1.1
-    url=http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-macosx-x64.dmg
+    pkg_name=com.oracle.jdk{{ item.major }}u{{ item.minor }} pkg_version=1.1
+    url=http://download.oracle.com/otn-pub/java/jdk/{{ item.major }}u{{ item.minor }}-{{ item.patch }}/jdk-{{ item.major }}u{{ item.minor }}-macosx-x64.dmg
     curl_opts="-L --cookie oraclelicense=accept-securebackup-cookie"
-    archive_type=dmg archive_path='JDK 7 Update 51.pkg'
+    archive_type=dmg archive_path='JDK {{ item.major }} Update {{ item.minor }}.pkg'
   sudo: yes
-
-- name: Install Java 8
-  mac_pkg: >
-    pkg_name=com.oracle.jdk8u25 pkg_version=1.1
-    url=http://download.oracle.com/otn-pub/java/jdk/8u25-b17/jdk-8u25-macosx-x64.dmg
-    curl_opts="-L --cookie oraclelicense=accept-securebackup-cookie"
-    archive_type=dmg archive_path='JDK 8 Update 25.pkg'
-  sudo: yes
+  with_items: dotfiles.jvm.versions
 
 - name: Register all JVMs
   shell: 'jenv add {{ item }}/Contents/Home'
@@ -27,5 +20,5 @@
     - /Library/Java/JavaVirtualMachines/*
 
 - name: Set current JVM
-  shell: 'jenv global {{ dotfiles.jvm.version }}'
+  shell: 'jenv global {{ dotfiles.jvm.default_version }}'
   ignore_errors: yes

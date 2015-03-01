@@ -96,8 +96,20 @@ dotfiles:
       - jshint
       - tern
 
+  # Java Download locations
+  #
+  # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+  # http://www.oracle.com/technetwork/java/javase/archive-139210.html
+  #
+  # | Version  | URL                                                                          |
+  # |----------+------------------------------------------------------------------------------|
+  # | 7u72-b14 | http://download.oracle.com/otn-pub/java/jdk/7u72-b14/jdk-7u72-macosx-x64.dmg |
+  # | 8u31-b13 | http://download.oracle.com/otn-pub/java/jdk/8u31-b13/jdk-8u31-macosx-x64.dmg |
   jvm:
-    version: oracle64-1.7.0.51
+    default_version: 1.8
+    versions:
+      - { major: '7', minor: '72', patch: 'b14' }
+      - { major: '8', minor: '31', patch: 'b13' }
 
   packages:
     - ack
