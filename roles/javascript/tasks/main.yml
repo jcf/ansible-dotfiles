@@ -1,21 +1,33 @@
 ---
-- name: Clone nvm
+- name: Clone ndenv
   git: >
-    repo=git://github.com/creationix/nvm.git
-    dest=~/.nvm
+    repo=git://github.com/riywo/ndenv.git
+    dest=~/.ndenv
+  tags: update
+
+- name: Clone ndenv plugins
+  git: >
+    repo=git://github.com/{{ item }}.git
+    dest=~/.ndenv/plugins/{{ item | basename }}
+  with_items:
+    - riywo/node-build
   tags: update
 
 - name: Install Node.js versions
-  shell: 'source ~/.nvm/nvm.sh && nvm install {{ item }}'
+  shell: 'ndenv install v{{ item }}'
   with_items: dotfiles.javascript.versions
+  # There's no `--skip-existing option`, which means this will blow up during a
+  # second run.
+  register: result
+  failed_when: '".ndenv/versions/v{{ item }} already exists" not in result.stderr'
   # TODO Improve change detection
   changed_when: no
 
 - name: Install packages
-  shell: '~/.nvm/v{{ item }}/bin/npm install --global {{ dotfiles.javascript.packages | join(" ") }}'
+  shell: '~/.ndenv/versions/v{{ item }}/bin/npm install --global {{ dotfiles.javascript.packages | join(" ") }}'
   with_items: dotfiles.javascript.versions
   changed_when: no
 
 - name: Setup default version
-  shell: 'source ~/.nvm/nvm.sh && nvm alias default {{ dotfiles.javascript.default_version }}'
+  shell: 'ndenv global v{{ dotfiles.javascript.default_version }}'
   changed_when: no
