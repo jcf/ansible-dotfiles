@@ -62,21 +62,6 @@
     executable={{ "~/.pyenv/shims/pip" | expanduser }}
   tags: gtags
 
-- name: Clone global-pygments-plugin
-  git: >
-    repo=git://github.com/yoshizow/global-pygments-plugin.git
-    dest=~/.cache/global-pygments-plugin
-  tags: gtags
-
-- name: Make global-pygments-plugin
-  shell: >
-    cd ~/.cache/global-pygments-plugin &&
-    sh reconf.sh &&
-    ./configure --prefix=/usr/local/bin --with-exuberant-ctags=/usr/local/bin/ctags &&
-    make && make install
-  # creates: /usr/local/etc/gtags.conf
-  tags: gtags
-
 - name: Download ycmd
   git: >-
     repo=git://github.com/Valloric/ycmd.git
