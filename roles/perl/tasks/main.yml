@@ -1,18 +1,26 @@
 ---
-- name: Install perlbrew
-  shell: |
-    curl -kL http://install.perlbrew.pl | bash
-    creates=~/perl5/perlbrew/bin
+- name: Install plenv
+  git: >-
+    repo=git://github.com/tokuhirom/plenv.git
+    dest=~/.plenv
+  tags: update
 
-- name: List Perls
-  command: perlbrew list
-  register: perlbrew_list
+- name: Clone plenv plugins
+  git: >
+    repo=git://github.com/{{ item }}.git
+    dest=~/.plenv/plugins/{{ item | basename }}
+  with_items:
+    - tokuhirom/perl-build
+  tags: update
 
 - name: Install Perls
-  command: perlbrew install {{ item }} --thread --multi --64all --debug --clang -Accflags="-DPERL_USE_SAFE_PUTENV"
-  when: "not '{{ item }}' in perlbrew_list.stdout"
+  command: plenv install {{ item }}
   with_items: dotfiles.perl.versions
+  register: result
+  failed_when: '".plenv/versions/{{ item }} is already installed" not in result.stderr'
 
-- name: Install Perls
-  command: perlbrew install-cpanm
+- name: Install cpanm
+  command: plenv install-cpanm
+  environment:
+    plenv_version: "{{ item }}"
   with_items: dotfiles.perl.versions

@@ -146,8 +146,9 @@ dotfiles:
     - xz
 
   perl:
+    default_version: 5.21.9
     versions:
-      - 5.21.7
+      - 5.21.9
 
   python:
     versions:
