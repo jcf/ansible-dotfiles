@@ -10,7 +10,7 @@
   tags: update
 
 - name: Install packages
-  shell: 'cabal install {{ dotfiles.haskell.packages | join(" ")}}'
+  shell: 'cabal install {{ dotfiles.haskell.packages | join(" ") }}'
 
 - name: Link dotfiles
   file: src={{ item }} dest=~/.{{ item | basename }} state=link
