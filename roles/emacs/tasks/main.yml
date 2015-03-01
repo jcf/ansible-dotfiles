@@ -71,5 +71,7 @@
 
 - name: Build ycmd
   command: >-
-    ./build.py --clang-completer chdir=~/.cache/ycmd
+    ./build.py --clang-completer
+    chdir=~/.cache/ycmd
+    creates=~/.cache/ycmd/ycm_core.so
   tags: ycmd
