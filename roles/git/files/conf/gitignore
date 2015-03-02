@@ -20,6 +20,7 @@
 .java-version
 .lein-repl-history
 .netrwhist
+.node-version
 .nrepl-port
 .rake_tasks
 .ruby-version
