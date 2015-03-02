@@ -6,6 +6,7 @@
                        [cljfmt "0.1.7"]
                        [criterium "0.4.2"]
                        [org.clojure/tools.namespace "0.2.5"]
+                       [org.clojure/tools.nrepl "0.2.7"]
                        [slamhound "1.5.3"]
                        [spyscope "0.1.5"]]
 
