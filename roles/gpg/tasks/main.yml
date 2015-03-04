@@ -1,0 +1,17 @@
+---
+- name: Install gpg
+  homebrew: name=gpg state=latest
+  tags: update
+
+- name: Create ~/.gnupg
+  file: >-
+    dest=~/.gnupg
+    state=directory
+
+- name: Link files
+  file: >-
+    src={{ item }}
+    dest=~/.gnupg/{{ item | basename }}
+    state=link
+  with_fileglob:
+    - ./*
