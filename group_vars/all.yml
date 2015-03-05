@@ -179,4 +179,4 @@ dotfiles:
       - quicklook-csv
       - quicklook-json
       - suspicious-package
-      - webp-quicklook
+      - webpquicklook
