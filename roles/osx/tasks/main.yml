@@ -4,7 +4,7 @@
 
 - name: Install apps
   homebrew_cask: name={{ item }} state=installed
-  with_items: dotfiles.apps
+  with_items: dotfiles.apps or []
   tags: apps
 
 - name: Show ~/Library
