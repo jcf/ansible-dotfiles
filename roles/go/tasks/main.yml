@@ -1,10 +1,22 @@
 ---
-- name: Install go
-  homebrew: name=go state=latest
+- name: Install goenv
+  git: >-
+    repo=git://github.com/wfarr/goenv.git
+    dest=~/.goenv
   tags: update
 
 - name: Create GOPATH
   file: dest={{ dotfiles.go.path }} state=directory
+
+- name: Install Go version
+  shell: 'goenv install {{ item }}'
+  with_items: dotfiles.go.versions
+  changed_when: no
+  register: result
+  failed_when: '"rmdir: /Users/jcf/.goenv/versions/{{ item }}: Directory not empty" not in result.stderr'
+
+- name: Set default Go version
+  shell: 'goenv global {{ dotfiles.go.default_version }}'
 
 - name: Install packages
   environment:
