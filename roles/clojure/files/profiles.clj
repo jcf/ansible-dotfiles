@@ -1,9 +1,7 @@
 {:user {:signing {:gpg-key "8ED1CE42"}
 
         :dependencies [[alembic "0.2.1"]
-                       [clj-http "1.0.1"]
                        [clj-stacktrace "0.2.7"]
-                       [cljfmt "0.1.7"]
                        [criterium "0.4.2"]
                        [org.clojure/tools.namespace "0.2.5"]
                        [org.clojure/tools.nrepl "0.2.7"]
@@ -13,8 +11,6 @@
         :plugins [[cider/cider-nrepl "0.9.0-SNAPSHOT"]
                   [codox "0.6.6"]
                   [jonase/eastwood "0.1.4"]
-                  [lein-ancient "0.6.2" :exclusions [commons-codec]]
-                  [lein-cljsbuild "1.0.3"]
                   [lein-clojars "0.9.1"]
                   [lein-cloverage "1.0.2"]
                   [lein-difftest "2.0.0"]
