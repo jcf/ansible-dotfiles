@@ -26,6 +26,7 @@
         :injections [(require 'spyscope.core)]
 
         :shorthand {. [^:lazy alembic.still/distill
+                       ^:lazy alembic.still/load-project
                        ^:lazy ^:macro alembic.still/lein
                        ^:lazy clojure.java.shell/sh
                        ^:lazy clojure.pprint/pprint
