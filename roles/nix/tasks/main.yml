@@ -41,5 +41,18 @@
     dest=/etc/nix/{{ item | basename }}
     state=link
   with_fileglob:
-    - ./*
+    - ./etc/*
   sudo: yes
+
+- name: Create ~/.nixpkgs directory
+  file: >-
+    dest=~/.nixpkgs
+    state=directory
+
+- name: Link ~/nixpkgs/config.nix
+  file: >-
+    src={{ item }}
+    dest=~/.nixpkgs/{{ item | basename }}
+    state=link
+  with_fileglob:
+    - ./conf/*
