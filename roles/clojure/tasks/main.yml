@@ -16,3 +16,10 @@
   file: src={{ item }} dest=~/.lein/{{ item | basename }} state=link
   with_fileglob:
     - ./*
+
+- name: Download boot.sh
+  get_url: >-
+    url=https://github.com/boot-clj/boot/releases/download/2.0.0-rc12/boot.sh
+    sha256sum=5d4b417671277e1648495e9bbfd190486d410656b40401d05b2c44aebf0aeac8
+    dest=/usr/local/bin/boot
+    mode=0755
