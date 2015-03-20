@@ -42,6 +42,7 @@
                        clojure.repl/find-doc
                        clojure.repl/pst
                        clojure.repl/source
+                       ^:lazy clojure.reflect/reflect
                        ^:lazy clojure.test/run-all-tests
                        ^:lazy clojure.test/run-tests
                        ^:lazy clojure.tools.namespace.repl/refresh
