@@ -1,6 +1,7 @@
 {:user {:signing {:gpg-key "james@logi.cl"}
 
-        :dependencies [[alembic "0.2.1"]
+        :dependencies [[acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
+                       [alembic "0.2.1"]
                        [clj-stacktrace "0.2.7"]
                        [criterium "0.4.2"]
                        [org.clojure/tools.namespace "0.2.5"]
