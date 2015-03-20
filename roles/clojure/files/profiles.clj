@@ -35,6 +35,7 @@
                        ^:lazy cemerick.pomegranate/resources
                        ^:lazy clojure.java.shell/sh
                        ^:lazy clojure.pprint/pprint
+                       ^:lazy clojure.pprint/print-table
                        clojure.repl/apropos
                        clojure.repl/dir
                        clojure.repl/doc
