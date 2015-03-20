@@ -1,4 +1,4 @@
-{:user {:signing {:gpg-key "8ED1CE42"}
+{:user {:signing {:gpg-key "james@logi.cl"}
 
         :dependencies [[alembic "0.2.1"]
                        [clj-stacktrace "0.2.7"]
