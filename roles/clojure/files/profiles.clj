@@ -3,6 +3,7 @@
         :dependencies [[acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
                        [alembic "0.2.1"]
                        [clj-stacktrace "0.2.7"]
+                       [com.cemerick/pomegranate "0.3.0"]
                        [criterium "0.4.2"]
                        [org.clojure/tools.namespace "0.2.5"]
                        [org.clojure/tools.nrepl "0.2.7"]
@@ -29,6 +30,9 @@
         :shorthand {. [^:lazy alembic.still/distill
                        ^:lazy alembic.still/load-project
                        ^:lazy ^:macro alembic.still/lein
+                       ^:lazy cemerick.pomegranate/add-classpath
+                       ^:lazy cemerick.pomegranate/get-classpath
+                       ^:lazy cemerick.pomegranate/resources
                        ^:lazy clojure.java.shell/sh
                        ^:lazy clojure.pprint/pprint
                        clojure.repl/apropos
