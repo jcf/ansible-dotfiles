@@ -22,6 +22,7 @@
 .netrwhist
 .node-version
 .nrepl-port
+.python-version
 .rake_tasks
 .ruby-version
 .svn
