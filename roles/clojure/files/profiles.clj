@@ -34,6 +34,7 @@
                        ^:lazy cemerick.pomegranate/get-classpath
                        ^:lazy cemerick.pomegranate/resources
                        ^:lazy clojure.java.shell/sh
+                       ^:lazy clojure.pprint/pp
                        ^:lazy clojure.pprint/pprint
                        ^:lazy clojure.pprint/print-table
                        clojure.repl/apropos
