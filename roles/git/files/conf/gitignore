@@ -26,13 +26,13 @@
 .rake_tasks
 .ruby-version
 .svn
+/scratch.*
 Session.vim
 \#*#
 doc/tags-ja
 gpath
 grtags
 gtags
-scratch.*
 tags
 tmp
 tmp/**/*
