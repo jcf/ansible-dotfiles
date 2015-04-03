@@ -2,6 +2,7 @@
 
         :dependencies [[acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
                        [alembic "0.2.1"]
+                       [clj-diff "1.0.0-SNAPSHOT"]
                        [clj-stacktrace "0.2.7"]
                        [com.cemerick/pomegranate "0.3.0"]
                        [criterium "0.4.2"]
@@ -33,6 +34,7 @@
                        ^:lazy cemerick.pomegranate/add-classpath
                        ^:lazy cemerick.pomegranate/get-classpath
                        ^:lazy cemerick.pomegranate/resources
+                       ^:lazy clj-diff.core/diff
                        ^:lazy clojure.java.shell/sh
                        ^:lazy clojure.pprint/pp
                        ^:lazy clojure.pprint/pprint
