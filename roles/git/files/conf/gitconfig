@@ -43,7 +43,7 @@
 	update-submodules = !git-update-submodules
 	workdir = !git-new-workdir
 	# Trash any any untracked files
-	wipe = !git status -sb | grep '??' | awk '{ print $2 }' | xargs trash
+	wipe = !git status -sb  | awk '/^\\?\\?/ { print $2 }' | xargs trash
 [core]
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore
