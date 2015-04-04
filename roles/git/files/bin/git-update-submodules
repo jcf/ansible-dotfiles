@@ -1,2 +1,3 @@
-#!/usr/bin/env zsh
-git submodule -q foreach 'printf "\e[33mUpdating\e[0m $path..." && git pull -q --rebase || :'
+#!/bin/bash
+git submodule -q foreach \
+    'printf "\e[33mUpdating\e[0m $path...\n" && git pull -q --rebase origin master || :'
