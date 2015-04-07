@@ -14,6 +14,32 @@
   sudo: yes
   with_items: dotfiles.jvm.versions
 
+- name: Download unlimited security policy
+  command: >-
+    curl -L
+      --cookie oraclelicense=accept-securebackup-cookie
+      -o /tmp/jce-policy-{{ item.major }}.zip
+      {{ item.url }}
+    creates=/tmp/jce-policy-{{ item.major }}.zip
+  with_items: crypto_jars
+
+- stat: path=/tmp/jce-policy-{{ item.major }}.zip
+  register: stats
+  with_items: crypto_jars
+
+- name: Verify crypto JARs
+  assert:
+    that: item.item.shasum == item.stat.checksum
+  with_items: stats.results
+
+- name: Install unlimited security policy
+  unarchive: >-
+    src=/tmp/jce-policy-{{ item.major }}.zip
+    dest=/Library/Java/JavaVirtualMachines/jdk1.{{ item.major }}.0_{{ item.minor }}.jdk/Contents/Home/jre/lib/security/
+    creates=/Library/Java/JavaVirtualMachines/jdk1.{{ item.major }}.0_{{ item.minor }}.jdk/Contents/Home/jre/lib/security/README.txt
+  sudo: yes
+  with_items: dotfiles.jvm.versions
+
 - name: Register all JVMs
   shell: 'jenv add {{ item }}/Contents/Home'
   with_fileglob:

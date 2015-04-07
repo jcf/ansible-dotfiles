@@ -1,0 +1,8 @@
+---
+crypto_jars:
+  - major: 7
+    url: 'http://download.oracle.com/otn-pub/java/jce/7/UnlimitedJCEPolicyJDK7.zip'
+    shasum: 7d3c9ee89536b82cd21c680088b1bced16017253
+  - major: 8
+    url: 'http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip'
+    shasum: 7d25dcee3e6ef2c984d748a14614b37c18ce3507
