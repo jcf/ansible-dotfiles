@@ -1,3 +1,32 @@
-#!/bin/sh
+#!/bin/bash
 cd "${BASH_SOURCE%/*}/.."
+
+pushd () {
+    command pushd "$@" > /dev/null
+}
+
+popd () {
+    command popd "$@" > /dev/null
+}
+
+check_for_unstaged_changes () {
+  local err=0
+  for repo in ~/.dotfiles ~/.emacs.d ~/.prezto; do
+    pushd $repo
+    # Disallow unstaged changes in the working tree
+    if ! git diff-files --quiet --ignore-submodules --
+    then
+      echo >&2 "Unstaged changes in $(pwd)"
+      git diff-files --name-status -r --ignore-submodules -- >&2
+      err=1
+    fi
+    popd
+  done
+
+  if [ $err = 1 ]; then
+    exit 1
+  fi
+}
+
+check_for_unstaged_changes
 ansible-playbook -i hosts.ini dotfiles.yml --tags 'update'
