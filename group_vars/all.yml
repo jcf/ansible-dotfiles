@@ -112,7 +112,7 @@ dotfiles:
     default_version: 1.8
     versions:
       - { major: '7', minor: '72', patch: 'b14' }
-      - { major: '8', minor: '31', patch: 'b13' }
+      - { major: '8', minor: '31', patch: 'b31' }
 
   packages:
     - ack

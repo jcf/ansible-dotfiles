@@ -32,11 +32,28 @@
     that: item.item.shasum == item.stat.checksum
   with_items: stats.results
 
-- name: Install unlimited security policy
-  unarchive: >-
-    src=/tmp/jce-policy-{{ item.major }}.zip
+- file: dest=/tmp/jce-policy-{{ item.major }} state=directory
+  with_items: crypto_jars
+
+- name: Unarchive crypto JARs
+  command: >-
+    unzip -f -j /tmp/jce-policy-{{ item.major }}.zip -x README.txt
+    chdir=/tmp/jce-policy-{{ item.major }}
+  with_items: crypto_jars
+
+- name: Install unlimited local policy
+  copy: >-
+    src=/tmp/jce-policy-{{ item.major }}/local_policy.jar
     dest=/Library/Java/JavaVirtualMachines/jdk1.{{ item.major }}.0_{{ item.minor }}.jdk/Contents/Home/jre/lib/security/
-    creates=/Library/Java/JavaVirtualMachines/jdk1.{{ item.major }}.0_{{ item.minor }}.jdk/Contents/Home/jre/lib/security/README.txt
+    backup=yes
+  sudo: yes
+  with_items: dotfiles.jvm.versions
+
+- name: Install unlimited US export policy
+  copy: >-
+    src=/tmp/jce-policy-{{ item.major }}/US_export_policy.jar
+    dest=/Library/Java/JavaVirtualMachines/jdk1.{{ item.major }}.0_{{ item.minor }}.jdk/Contents/Home/jre/lib/security/
+    backup=yes
   sudo: yes
   with_items: dotfiles.jvm.versions
 
