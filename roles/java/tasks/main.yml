@@ -70,3 +70,11 @@
 - name: Set current JVM
   shell: 'jenv global {{ dotfiles.jvm.default_version }}'
   ignore_errors: yes
+
+- name: Tidy up JCE artefacts
+  file: path={{ item }} state=absent
+  with_items:
+    - /tmp/jce-policy-7
+    - /tmp/jce-policy-7.zip
+    - /tmp/jce-policy-8
+    - /tmp/jce-policy-8.zip
