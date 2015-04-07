@@ -37,7 +37,7 @@
 
 - name: Unarchive crypto JARs
   command: >-
-    unzip -f -j /tmp/jce-policy-{{ item.major }}.zip -x README.txt
+    unzip -u -j /tmp/jce-policy-{{ item.major }}.zip -x README.txt
     chdir=/tmp/jce-policy-{{ item.major }}
   with_items: crypto_jars
 
