@@ -35,6 +35,7 @@
                        ^:lazy cemerick.pomegranate/get-classpath
                        ^:lazy cemerick.pomegranate/resources
                        ^:lazy clj-diff.core/diff
+                       ^:lazy clojure.java.javadoc/javadoc
                        ^:lazy clojure.java.shell/sh
                        ^:lazy clojure.pprint/pp
                        ^:lazy clojure.pprint/pprint
