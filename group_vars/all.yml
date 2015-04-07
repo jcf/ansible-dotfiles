@@ -109,7 +109,7 @@ dotfiles:
   # | 7u72-b14 | http://download.oracle.com/otn-pub/java/jdk/7u72-b14/jdk-7u72-macosx-x64.dmg |
   # | 8u31-b13 | http://download.oracle.com/otn-pub/java/jdk/8u31-b13/jdk-8u31-macosx-x64.dmg |
   jvm:
-    default_version: 1.8
+    default_version: 1.8.0.31
     versions:
       - { major: '7', minor: '72', patch: 'b14' }
       - { major: '8', minor: '31', patch: 'b31' }

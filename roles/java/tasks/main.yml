@@ -57,10 +57,15 @@
   sudo: yes
   with_items: dotfiles.jvm.versions
 
+- name: List Java homes
+  command: ls -1 /Library/Java/JavaVirtualMachines/
+  register: homes
+
 - name: Register all JVMs
-  shell: 'jenv add {{ item }}/Contents/Home'
-  with_fileglob:
-    - /Library/Java/JavaVirtualMachines/*
+  command: 'jenv add /Library/Java/JavaVirtualMachines/{{ item }}/Contents/Home'
+  with_items: homes.stdout_lines
+  register: result
+  failed_when: '"JDK managed by jenv" not in result.stdout'
 
 - name: Set current JVM
   shell: 'jenv global {{ dotfiles.jvm.default_version }}'
