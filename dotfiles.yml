@@ -11,6 +11,7 @@
     - { role: vim, tags: ['vim'] }
     - { role: ssh, tags: ['ssh'] }
     - { role: code, tags: ['code'] }
+    - { role: docker, tags: ['docker'] }
     - { role: email, tags: ['email'] }
     - { role: nix, tags: ['nix'] }
     - { role: dotjs, tags: ['dotjs'] }
