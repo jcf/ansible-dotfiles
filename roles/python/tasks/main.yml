@@ -10,3 +10,9 @@
   with_items: dotfiles.python.versions
   # TODO Improve change detection
   changed_when: no
+
+- name: Upgrade pip
+  command: pip install --upgrade pip
+  environment:
+    pyenv_version: item
+  with_items: dotfiles.python.versions
