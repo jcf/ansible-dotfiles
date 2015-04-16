@@ -29,4 +29,4 @@ check_for_unstaged_changes () {
 }
 
 check_for_unstaged_changes
-ansible-playbook -i hosts.ini dotfiles.yml --tags 'update'
+bin/play --tags 'update'

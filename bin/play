@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+cd "${BASH_SOURCE%/*}/.."
+ansible-playbook -i hosts.ini dotfiles.yml $@
