@@ -24,7 +24,7 @@
                   [lein-swank "1.4.4"]
                   [lein-try "0.4.3"]
                   [lein-typed "0.3.5"]
-                  [refactor-nrepl "1.0.1"]]
+                  [refactor-nrepl "1.0.3"]]
 
         :injections [(require 'spyscope.core)]
 
