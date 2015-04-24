@@ -37,7 +37,7 @@
                        ^:lazy cemerick.pomegranate/resources
                        ^:lazy clj-diff.core/diff
                        ^:lazy ^:macro clojure.core.typed/cf
-                       ^:lazy ^:macro clojure.core.typed/check-ns
+                       ^:lazy clojure.core.typed/check-ns
                        ^:lazy clojure.java.javadoc/javadoc
                        ^:lazy clojure.java.shell/sh
                        ^:lazy clojure.pprint/pp
