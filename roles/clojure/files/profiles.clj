@@ -6,6 +6,7 @@
                        [clj-stacktrace "0.2.7"]
                        [com.cemerick/pomegranate "0.3.0"]
                        [criterium "0.4.2"]
+                       [org.clojure/core.typed "0.2.84"]
                        [org.clojure/tools.namespace "0.2.5"]
                        [org.clojure/tools.nrepl "0.2.7"]
                        [slamhound "1.5.3"]
@@ -35,6 +36,8 @@
                        ^:lazy cemerick.pomegranate/get-classpath
                        ^:lazy cemerick.pomegranate/resources
                        ^:lazy clj-diff.core/diff
+                       ^:lazy ^:macro clojure.core.typed/cf
+                       ^:lazy ^:macro clojure.core.typed/check-ns
                        ^:lazy clojure.java.javadoc/javadoc
                        ^:lazy clojure.java.shell/sh
                        ^:lazy clojure.pprint/pp
