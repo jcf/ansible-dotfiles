@@ -9,8 +9,7 @@
                        [org.clojure/core.typed "0.2.84"]
                        [org.clojure/tools.namespace "0.2.5"]
                        [org.clojure/tools.nrepl "0.2.7"]
-                       [slamhound "1.5.3"]
-                       [spyscope "0.1.5"]]
+                       [slamhound "1.5.3"]]
 
         :plugins [[cider/cider-nrepl "0.9.0-SNAPSHOT"]
                   [codox "0.6.6"]
@@ -26,8 +25,6 @@
                   [lein-try "0.4.3"]
                   [lein-typed "0.3.5"]
                   [refactor-nrepl "1.0.3"]]
-
-        :injections [(require 'spyscope.core)]
 
         :shorthand {. [^:lazy alembic.still/distill
                        ^:lazy alembic.still/load-project
