@@ -25,6 +25,7 @@
     - { role: perl, tags: ['perl'] }
     - { role: python, tags: ['python'] }
     - { role: ruby, tags: ['ruby'] }
+    - { role: scala, tags: ['scala'] }
     - { role: osx, tags: ['osx'] }
     - { role: latex, tags: ['latex'] }
     - { role: mjolnir, tags: ['mjolnir'] }

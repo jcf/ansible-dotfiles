@@ -173,6 +173,11 @@ dotfiles:
       - 2.1.2
       - jruby-1.7.12
 
+  scala:
+    default_version: scala-2.11.5
+    versions:
+      - scala-2.11.5
+
   quicklook:
     plugins:
       - betterzipql

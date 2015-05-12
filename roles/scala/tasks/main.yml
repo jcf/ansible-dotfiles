@@ -1,0 +1,14 @@
+---
+- name: Clone scalaenv
+  git: >
+    repo=git://github.com/mazgi/scalaenv.git
+    dest=~/.scalaenv
+  tags: update
+
+- name: Install Scalas
+  shell: '~/.scalaenv/bin/scalaenv install --skip-existing {{ item }}'
+  with_items: dotfiles.scala.versions
+  changed_when: no
+
+- name: Set default Scala version
+  shell: '~/.scalaenv/bin/scalaenv global {{ dotfiles.scala.default_version }}'
