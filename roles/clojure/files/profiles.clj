@@ -3,7 +3,7 @@
         :dependencies [[acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
                        [alembic "0.2.1"]
                        [clj-diff "1.0.0-SNAPSHOT"]
-                       [clj-stacktrace "0.2.7"]
+                       [clj-stacktrace "0.2.8"]
                        [com.cemerick/pomegranate "0.3.0"]
                        [criterium "0.4.2"]
                        [org.clojure/core.typed "0.2.84"]
