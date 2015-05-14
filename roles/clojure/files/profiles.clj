@@ -24,7 +24,7 @@
                   [lein-swank "1.4.4"]
                   [lein-try "0.4.3"]
                   [lein-typed "0.3.5"]
-                  [refactor-nrepl "1.0.3"]]
+                  [refactor-nrepl "1.1.0-SNAPSHOT"]]
 
         :shorthand {. [^:lazy alembic.still/distill
                        ^:lazy alembic.still/load-project
