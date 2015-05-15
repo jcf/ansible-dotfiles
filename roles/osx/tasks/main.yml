@@ -1,4 +1,8 @@
 ---
+- name: Install Homebrew Cask
+  homebrew: name=brew-cask state=latest
+  tags: update
+
 - name: Tap Cask versions
   homebrew_tap: tap=caskroom/versions state=present
 
