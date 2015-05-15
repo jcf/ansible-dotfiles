@@ -123,6 +123,7 @@ dotfiles:
     - ditaa
     - dnsmasq
     - ec2-api-tools
+    - editorconfig
     - ffmpeg
     - graphviz
     - htop-osx
