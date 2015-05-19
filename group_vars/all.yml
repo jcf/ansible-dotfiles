@@ -143,6 +143,7 @@ dotfiles:
     - siege
     - sloccount
     - the_silver_searcher
+    - tmux
     - tor
     - trash
     - tree
