@@ -122,6 +122,7 @@ dotfiles:
     # - ctags # Disabled because we have a custom ctags install
     - ditaa
     - dnsmasq
+    - dos2unix
     - ec2-api-tools
     - editorconfig
     - ffmpeg
