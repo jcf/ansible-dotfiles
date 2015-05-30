@@ -32,3 +32,7 @@
     url=http://softlayer-ams.dl.sourceforge.net/project/osxfuse/osxfuse-2.7.5/osxfuse-2.7.5.dmg
     archive_type=dmg archive_path='Install OSXFUSE 2.7.pkg'
   sudo: yes
+
+- name: Install avfs
+  homebrew: name=avfs state=latest
+  tags: update
