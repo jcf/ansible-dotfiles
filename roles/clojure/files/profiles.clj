@@ -6,7 +6,6 @@
                        [clj-stacktrace "0.2.8"]
                        [com.cemerick/pomegranate "0.3.0"]
                        [criterium "0.4.2"]
-                       [org.clojure/core.typed "0.2.84"]
                        [org.clojure/tools.namespace "0.2.5"]
                        [org.clojure/tools.nrepl "0.2.7"]
                        [slamhound "1.5.3"]]
