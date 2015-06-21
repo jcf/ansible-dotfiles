@@ -10,7 +10,7 @@
                        [org.clojure/tools.nrepl "0.2.7"]
                        [slamhound "1.5.3"]]
 
-        :plugins [[cider/cider-nrepl "0.9.0-SNAPSHOT"]
+        :plugins [[cider/cider-nrepl "0.9.0"]
                   [codox "0.6.6"]
                   [jonase/eastwood "0.2.1"]
                   [lein-clojars "0.9.1"]
