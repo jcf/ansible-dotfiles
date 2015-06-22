@@ -25,6 +25,8 @@
                   [lein-typed "0.3.5"]
                   [refactor-nrepl "1.1.0-SNAPSHOT"]]
 
+        :global-vars {*warn-on-reflection* true}
+
         :shorthand {. [^:lazy alembic.still/distill
                        ^:lazy alembic.still/load-project
                        ^:lazy ^:macro alembic.still/lein
