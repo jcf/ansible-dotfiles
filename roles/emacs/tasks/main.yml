@@ -1,7 +1,7 @@
 ---
 - name: Clone Emacs config
   git: >
-    repo=git@github.com:jcf/emacs.d.git
+    repo=git@github.com:jcf/spacemacs.git
     dest=~/.emacs.d
     force=no
   tags: update
@@ -35,6 +35,11 @@
 #     state=link
 #   with_fileglob:
 #     - ./launchd/*.plist
+
+- name: Link configuration
+  file: src={{ item }} dest=~/.{{ item | basename }} state=link
+  with_fileglob:
+    - ./conf/*
 
 - name: Link executables
   file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
