@@ -36,11 +36,6 @@
 #   with_fileglob:
 #     - ./launchd/*.plist
 
-- name: Link configuration
-  file: src={{ item }} dest=~/.{{ item | basename }} state=link
-  with_fileglob:
-    - ./conf/*
-
 - name: Link executables
   file: src={{ item }} dest=~/.bin/{{ item | basename }} state=link
   with_fileglob:
