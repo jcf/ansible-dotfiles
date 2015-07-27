@@ -1,6 +1,6 @@
 {:user {:signing {:gpg-key "james@logi.cl"}
 
-        :dependencies [[acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
+        :dependencies [#_[acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
                        [alembic "0.2.1"]
                        [clj-diff "1.0.0-SNAPSHOT"]
                        [clj-stacktrace "0.2.8"]
