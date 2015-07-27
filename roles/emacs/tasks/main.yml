@@ -5,7 +5,6 @@
     dest=~/.emacs.d
     force=no
     refspec=develop
-  tags: update
 
 - name: Clone my spacemacs.d
   git: >
