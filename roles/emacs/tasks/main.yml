@@ -1,8 +1,16 @@
 ---
-- name: Clone Emacs config
+- name: Clone my Spacemacs fork
   git: >
     repo=git@github.com:jcf/spacemacs.git
     dest=~/.emacs.d
+    force=no
+    refspec=origin/develop
+  tags: update
+
+- name: Clone my spacemacs.d
+  git: >
+    repo=git@github.com:jcf/spacemacs.d.git
+    dest=~/.spacemacs.d
     force=no
   tags: update
 
