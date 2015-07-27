@@ -1,10 +1,10 @@
 ---
-- name: Clone my Spacemacs fork
+- name: Clone Spacemacs
   git: >
-    repo=git@github.com:jcf/spacemacs.git
+    repo=git://github.com/syl20bnr/spacemacs.git
     dest=~/.emacs.d
     force=no
-    refspec=origin/develop
+    refspec=develop
   tags: update
 
 - name: Clone my spacemacs.d
