@@ -11,7 +11,7 @@ popd () {
 
 check_for_unstaged_changes () {
   local err=0
-  for repo in ~/.dotfiles ~/.emacs.d ~/.prezto; do
+  for repo in ~/.dotfiles ~/.emacs.d ~/.spacemacs.d ~/.prezto; do
     pushd $repo
     # Disallow unstaged changes in the working tree
     if ! git diff-files --quiet --ignore-submodules --
