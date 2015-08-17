@@ -25,7 +25,8 @@
                   [lein-typed "0.3.5"]
                   [refactor-nrepl "1.2.0-SNAPSHOT"]]
 
-        :global-vars {*warn-on-reflection* true}
+        :global-vars {*print-length* 100
+                      *warn-on-reflection* true}
 
         :shorthand {. [^:lazy alembic.still/distill
                        ^:lazy alembic.still/load-project
