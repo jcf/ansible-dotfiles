@@ -10,22 +10,27 @@ popd () {
 }
 
 check_for_unstaged_changes () {
-  local err=0
-  for repo in ~/.dotfiles ~/.emacs.d ~/.spacemacs.d ~/.prezto; do
-    pushd $repo
-    # Disallow unstaged changes in the working tree
-    if ! git diff-files --quiet --ignore-submodules --
-    then
-      echo >&2 "Unstaged changes in $(pwd)"
-      git diff-files --name-status -r --ignore-submodules -- >&2
-      err=1
-    fi
-    popd
-  done
+    local err=0
+    for repo in ~/.dotfiles ~/.emacs.d ~/.spacemacs.d ~/.prezto; do
+        if [[ -d $repo ]]
+        then
+            pushd $repo
+            # Disallow unstaged changes in the working tree
+            if ! git diff-files --quiet --ignore-submodules --
+            then
+                echo >&2 "Unstaged changes in $(pwd)"
+                git diff-files --name-status -r --ignore-submodules -- >&2
+                err=1
+            fi
+            popd
+        else
+            echo -e >&2 "\033[33;1m==>\033[0m \033[1mWarning! $repo does not exist.\033[0m"
+        fi
+    done
 
-  if [ $err = 1 ]; then
-    exit 1
-  fi
+    if [ $err = 1 ]; then
+        exit 1
+    fi
 }
 
 check_for_unstaged_changes
