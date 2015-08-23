@@ -19,14 +19,14 @@
 - name: Clone nixpkgs
   git: >-
     repo=git://github.com/NixOS/nixpkgs.git
-    dest=/usr/local/nixpkgs
+    dest=/opt/nixpkgs
   tags: update
 
 - name: Use nixpkgs clone
   shell: >-
     ~/.nix-profile/bin/nix-channel --remove nixpkgs &&
     rm -rf ~/.nix-defexpr/* &&
-    ln -s /usr/local/nixpkgs ~/.nix-defexpr/nixpkgs
+    ln -s /opt/nixpkgs ~/.nix-defexpr/nixpkgs
     creates=~/.nix-defexpr/nixpkgs
 
 - name: Create /etc/nix directory
