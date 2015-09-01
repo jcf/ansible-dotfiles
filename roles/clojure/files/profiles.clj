@@ -13,6 +13,7 @@
         :plugins [[cider/cider-nrepl "0.10.0-SNAPSHOT"]
                   [codox "0.6.6"]
                   [jonase/eastwood "0.2.1"]
+                  [lein-ancient "0.6.7"]
                   [lein-clojars "0.9.1"]
                   [lein-cloverage "1.0.2"]
                   [lein-difftest "2.0.0"]
