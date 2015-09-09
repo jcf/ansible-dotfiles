@@ -15,7 +15,7 @@ else
   local branch=$(git symbolic-ref --short -q HEAD)
 fi
 
-if [[ $branch -eq "master" ]]; then
+if [[ $branch == "master" ]]; then
   echo >&2 "\033[31;1m==>\033[0;1m Error! Currently on master branch.\033[0m"
   echo >&2 "Check out your feature branch via \`git checkout\` and run me again."
   exit 1
