@@ -8,6 +8,7 @@
                        [criterium "0.4.2"]
                        [org.clojure/tools.namespace "0.2.5"]
                        [org.clojure/tools.nrepl "0.2.7"]
+                       [pjstadig/humane-test-output "0.7.0"]
                        [slamhound "1.5.3"]]
 
         :plugins [[cider/cider-nrepl "0.10.0-SNAPSHOT"]
@@ -28,6 +29,9 @@
 
         :global-vars {*print-length* 100
                       *warn-on-reflection* true}
+
+        :injections [(require 'pjstadig.humane-test-output)
+                     (pjstadig.humane-test-output/activate!)]
 
         :shorthand {. [^:lazy alembic.still/distill
                        ^:lazy alembic.still/load-project
