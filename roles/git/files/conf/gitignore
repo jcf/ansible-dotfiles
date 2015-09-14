@@ -1,5 +1,6 @@
 # -*- mode: gitignore -*-
 *.elc
+*.iml
 *.pyc
 *.rbc
 *.rdb
