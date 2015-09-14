@@ -26,6 +26,7 @@
 .rake_tasks
 .ruby-version
 .svn
+/.idea
 /scratch.*
 Session.vim
 \#*#
