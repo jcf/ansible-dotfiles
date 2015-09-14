@@ -1,7 +1,7 @@
 #+TITLE: Dotfiles
 #+STARTUP: content
 
-* Dotfiles
+* What's in the box?
 
 *Dotfiles* helps you get your dev environment up and running.
 
@@ -9,8 +9,6 @@
 [[https://dl.dropboxusercontent.com/u/508427/imgs/first-web-server.jpg]]
 
 https://commons.wikimedia.org/wiki/File:First_Web_Server.jpg
-
-** What's in the box?
 
 The following repositories configure Emacs, ZSH, and Vim:
 
