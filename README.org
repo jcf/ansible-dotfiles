@@ -1,0 +1,77 @@
+#+TITLE: Dotfiles
+#+STARTUP: content
+
+* Dotfiles
+
+*Dotfiles* helps you get your dev environment up and running.
+
+#+NAME: First Web Server
+[[https://dl.dropboxusercontent.com/u/508427/imgs/first-web-server.jpg]]
+
+https://commons.wikimedia.org/wiki/File:First_Web_Server.jpg
+
+** What's in the box?
+
+The following repositories configure Emacs, ZSH, and Vim:
+
+- [[https://github.com/jcf/spacemacs.d][spacemacs.d]] contains my Spacemacs customisations.
+- [[https://github.com/jcf/prezto][prezto]] configures ZSH.
+- [[https://github.com/jcf/vimrc][vimrc]] sets up Vim for those times when Emacs isn't available.
+
+And there's pretty good support for the following languages:
+
+- [[http://clojure.org/][Clojure]]
+- [[http://golang.org/][Go]]
+- [[http://www.erlang.org/][Erlang]]
+- [[https://www.destroyallsoftware.com/talks/wat][Javascript]] via [[https://github.com/creationix/nvm][nvm]]
+- [[https://www.haskell.org/][Haskell]]
+- [[https://www.python.org/][Python]] via [[https://github.com/yyuu/pyenv][pyenv]]
+- [[https://www.ruby-lang.org/en/][Ruby]] via [[https://github.com/sstephenson/rbenv][rbenv]]
+
+Each feature/language is grouped using [[http://www.ansible.com/][Ansible]] roles, and can be found in the
+[[https://github.com/jcf/dotfiles/tree/master/roles][roles]] directory.
+
+All the dotfiles that get linked into =$HOME= are grouped by language or feature
+where possible, and failing that lumped into the =dotfiles= role.
+
+Roles look at the =vars= kept in [[https://github.com/jcf/dotfiles/tree/master/group_vars][group_vars]] for things like packages to install,
+and versions of certain runtime environments.
+
+** Getting Started
+
+You'll need the following dependencies before getting started.
+
+- [[http://www.ansible.com/][Ansible]]
+- [[http://brew.sh/][Homebrew]]
+- [[https://developer.apple.com/xcode/][Xcode]]
+
+At the time of writing it's possible to get all three like so:
+
+#+BEGIN_SRC sh
+  wget https://bootstrap.pypa.io/get-pip.py
+  sudo python get-pip.py
+
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  xcode-select --install
+#+END_SRC
+
+** Installation
+
+With the dependencies above installed you can clone the repo, and use [[http://www.ansible.com/][Ansible]] to
+get everything setup!
+
+#+BEGIN_SRC sh
+  git clone git://github.com/jcf/dotfiles.git ~/.dotfiles
+  cd ~/.dotfiles
+
+  bin/install
+
+  # This needs root access and will ask for your password
+  bin/sudo-install
+#+END_SRC
+
+** Keeping up to date
+
+To update the installed packages and tools you can use =bin/update=, which
+internally runs all Ansible tasks with the tag =update=.
