@@ -3,162 +3,51 @@ Create Slave
 Expunge Both
 SyncState *
 
-IMAPAccount gmail
-Host imap.gmail.com
-User jamesconroyfinn@gmail.com
-PassCmd "security find-internet-password -g -w -a jamesconroyfinn@gmail.com -s imap.gmail.com"
-UseIMAPS yes
+IMAPAccount fm
+Host mail.messagingengine.com
+User jcf@fastmail.com
+PassCmd "security find-internet-password -g -w -a jcf@fastmail.com -s mail.messagingengine.com"
+SSLType IMAPS
+SSLVersions TLSv1.2
+
 # CertificateFile /etc/ssl/certs/ca-certificates.crt
 
-IMAPStore gmail-remote
-Account gmail
+IMAPStore fm-remote
+Account fm
 
-MaildirStore gmail-local
-Path ~/Mail/gmail/
-Inbox ~/Mail/gmail/INBOX
+MaildirStore fm-local
+Path ~/Mail/fm/
+Inbox ~/Mail/fm/INBOX
 
-Channel gmail-inbox
-Master :gmail-remote:INBOX
-Slave :gmail-local:INBOX
+Channel fm-inbox
+Master :fm-remote:INBOX
+Slave :fm-local:INBOX
 
-Channel gmail-archive
-Master ":gmail-remote:[Gmail]/All Mail"
-Slave :gmail-local:archive
+Channel fm-archive
+Master :fm-remote:Archive
+Slave :fm-local:archive
 
-Channel gmail-drafts
-Master :gmail-remote:[Gmail]/Drafts
-Slave :gmail-local:drafts
+Channel fm-drafts
+Master :fm-remote:Drafts
+Slave :fm-local:drafts
 
-Channel gmail-sent
-Master ":gmail-remote:[Gmail]/Sent Mail"
-Slave :gmail-local:sent
+Channel fm-sent
+Master :fm-remote:Sent
+Slave :fm-local:sent
 
-Channel gmail-spam
-Master :gmail-remote:[Gmail]/Spam
-Slave :gmail-local:spam
+Channel fm-spam
+Master :fm-remote:Spam
+Slave :fm-local:spam
 
-Channel gmail-trash
-Master :gmail-remote:[Gmail]/Trash
-Slave :gmail-local:trash
+Channel fm-trash
+Master :fm-remote:Trash
+Slave :fm-local:trash
 
-Channel gmail-rest
-Master :gmail-remote:
-Slave :gmail-local:
-Patterns * ![Gmail]*
-
-Group gmail
-Channel gmail-inbox
-Channel gmail-archive
-Channel gmail-drafts
-Channel gmail-sent
-Channel gmail-spam
-Channel gmail-trash
-Channel gmail-rest
-
-
-
-IMAPAccount logicl
-Host imap.gmail.com
-User james@logi.cl
-PassCmd "security find-internet-password -g -w -a james@logi.cl -s imap.gmail.com"
-UseIMAPS yes
-# CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-IMAPStore logicl-remote
-Account logicl
-
-MaildirStore logicl-local
-Path ~/Mail/logicl/
-Inbox ~/Mail/logicl/INBOX
-
-Channel logicl-inbox
-Master :logicl-remote:INBOX
-Slave :logicl-local:INBOX
-
-Channel logicl-archive
-Master ":logicl-remote:[Gmail]/All Mail"
-Slave :logicl-local:archive
-
-Channel logicl-drafts
-Master :logicl-remote:[Gmail]/Drafts
-Slave :logicl-local:drafts
-
-Channel logicl-sent
-Master ":logicl-remote:[Gmail]/Sent Mail"
-Slave :logicl-local:sent
-
-Channel logicl-spam
-Master :logicl-remote:[Gmail]/Spam
-Slave :logicl-local:spam
-
-Channel logicl-trash
-Master :logicl-remote:[Gmail]/Trash
-Slave :logicl-local:trash
-
-Channel logicl-rest
-Master :logicl-remote:
-Slave :logicl-local:
-Patterns * ![Gmail]*
-
-Group logicl
-Channel logicl-inbox
-Channel logicl-archive
-Channel logicl-drafts
-Channel logicl-sent
-Channel logicl-spam
-Channel logicl-trash
-Channel logicl-rest
-
-
-
-IMAPAccount listora
-Host imap.gmail.com
-User jcf@listora.com
-PassCmd "security find-internet-password -g -w -a jcf@listora.com -s imap.gmail.com"
-UseIMAPS yes
-# CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-IMAPStore listora-remote
-Account listora
-
-MaildirStore listora-local
-Path ~/Mail/listora/
-Inbox ~/Mail/listora/INBOX
-
-Channel listora-inbox
-Master :listora-remote:INBOX
-Slave :listora-local:INBOX
-
-Channel listora-archive
-Master ":listora-remote:[Gmail]/All Mail"
-Slave :listora-local:archive
-
-Channel listora-drafts
-Master :listora-remote:[Gmail]/Drafts
-Slave :listora-local:drafts
-
-Channel listora-sent
-Master ":listora-remote:[Gmail]/Sent Mail"
-Slave :listora-local:sent
-
-Channel listora-spam
-Master :listora-remote:[Gmail]/Spam
-Slave :listora-local:spam
-
-Channel listora-trash
-Master :listora-remote:[Gmail]/Trash
-Slave :listora-local:trash
-
-Channel listora-rest
-Master :listora-remote:
-Slave :listora-local:
-Patterns * ![Gmail]*
-
-Group listora
-Channel listora-inbox
-Channel listora-archive
-Channel listora-drafts
-Channel listora-sent
-Channel listora-spam
-Channel listora-trash
-Channel listora-rest
+Group fm
+Channel fm-inbox
+Channel fm-archive
+Channel fm-drafts
+Channel fm-sent
+Channel fm-spam
+Channel fm-trash
+Channel fm-rest
