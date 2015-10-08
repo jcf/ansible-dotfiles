@@ -1,6 +1,12 @@
 #+TITLE: Dotfiles
 #+STARTUP: content
 
+*Undergoing major changes*: I'm in the process of reworking this repository to
+make it easier to setup OS X _and_ Linux. Check out the new [[https://github.com/jcf/dotfiles][dotfiles]] repo for a
+simpler way of managing the dots.
+
+-----
+
 * What's in the box?
 
 *Dotfiles* helps you get your dev environment up and running.
